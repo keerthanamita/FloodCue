@@ -12,7 +12,10 @@ public class SplashActivity extends AppCompatActivity {
 
     private TextView loadingStatus;
 
-    private final Handler mainHandler = new Handler(Looper.getMainLooper());
+    private final Handler mainHandler =
+            new Handler(Looper.getMainLooper());
+
+    private android.content.SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +24,9 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         loadingStatus = findViewById(R.id.loadingStatus);
+
+        preferences =
+                getSharedPreferences("FloodCuePrefs", MODE_PRIVATE);
 
         initializeApp();
     }
@@ -44,7 +50,10 @@ public class SplashActivity extends AppCompatActivity {
 
                     updateLoadingStatus("FloodCue ready");
 
-                    mainHandler.postDelayed(this::openMainActivity, 500);
+                    mainHandler.postDelayed(
+                            this::openNextScreen,
+                            500
+                    );
 
                 }, 500);
 
@@ -57,11 +66,31 @@ public class SplashActivity extends AppCompatActivity {
         loadingStatus.setText(message);
     }
 
-    private void openMainActivity() {
+    private void openNextScreen() {
 
-        Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+        boolean setupCompleted =
+                preferences.getBoolean("setup_completed", false);
+
+        Intent intent;
+
+        if (setupCompleted) {
+
+            // User has already completed first-time setup
+            intent = new Intent(
+                    SplashActivity.this,
+                    HomeActivity.class
+            );
+
+        } else {
+
+            // First-time user
+            intent = new Intent(
+                    SplashActivity.this,
+                    LoginActivity.class
+            );
+        }
+
         startActivity(intent);
-
         finish();
     }
 }
