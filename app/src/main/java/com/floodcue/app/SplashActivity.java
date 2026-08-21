@@ -4,13 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
-
-    private ProgressBar loadingSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,12 +15,14 @@ public class SplashActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_splash);
 
-        loadingSpinner = findViewById(R.id.loadingSpinner);
-
-        // Temporary splash duration
+        // Show splash screen for 2 seconds
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
 
-            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            Intent intent = new Intent(
+                    SplashActivity.this,
+                    MainActivity.class
+            );
+
             startActivity(intent);
 
             finish();

@@ -21,11 +21,11 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <ProgressBar
+        <!-- Custom FloodCue ring spinner -->
+        <com.floodcue.app.FloodCueSpinner
             android:id="@+id/loadingSpinner"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:indeterminate="true" />
+            android:layout_width="42dp"
+            android:layout_height="42dp" />
 
         <TextView
             android:id="@+id/loadingStatus"
