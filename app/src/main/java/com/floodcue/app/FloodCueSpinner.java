@@ -19,9 +19,8 @@ public class FloodCueSpinner extends View {
 
         paint.setStyle(Paint.Style.STROKE);
 
-        // Increased thickness
+        // Thick but still elegant
         paint.setStrokeWidth(7f);
-
         paint.setStrokeCap(Paint.Cap.ROUND);
 
         startAnimation();
@@ -37,25 +36,17 @@ public class FloodCueSpinner extends View {
         float radius = Math.min(centerX, centerY) - 7;
 
         /*
-         * High-contrast palette:
-         * Magenta -> Violet -> Deep Purple
-         *
-         * These colors stand out from the
-         * blue/cyan splash background.
+         * High-contrast warm palette
+         * against the blue/cyan splash.
          */
         SweepGradient gradient = new SweepGradient(
                 centerX,
                 centerY,
                 new int[]{
-                        0x00FF4FD8,   // transparent
-                        0x00FF4FD8,
-
-                        0xFFFF4FD8,   // bright pink
-                        0xFFD946EF,   // magenta
-                        0xFF8B5CF6,   // violet
-                        0xFF6D28D9,   // deep violet
-
-                        0x006D28D9    // fade out
+                        0x00FF6B35,
+                        0x00FFD166,
+                        0xFFFFD166,
+                        0xFFFF6B35
                 },
                 null
         );

@@ -31,13 +31,13 @@
             android:id="@+id/loadingStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="9dp"
             android:text="Preparing FloodCue..."
-            android:textColor="#B8DCE3"
-            android:textSize="12sp"
-            android:fontFamily="sans-serif-medium"
+            android:textColor="#A9C4CA"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-light"
+            android:letterSpacing="0.03"
             android:gravity="center" />
-
     </LinearLayout>
 
 </FrameLayout>
