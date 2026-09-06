@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ======================================== -->
+    <!-- FLOODCUE GLOBAL SPACING                  -->
+    <!-- ======================================== -->
+
+    <dimen name="space_xs">4dp</dimen>
+    <dimen name="space_sm">8dp</dimen>
+    <dimen name="space_md">12dp</dimen>
+    <dimen name="space_lg">16dp</dimen>
+    <dimen name="space_xl">24dp</dimen>
+    <dimen name="space_xxl">32dp</dimen>
+    <dimen name="space_xxxl">40dp</dimen>
+
+
+    <!-- ======================================== -->
+    <!-- COMMON CORNER RADII                      -->
+    <!-- ======================================== -->
+
+    <dimen name="radius_sm">8dp</dimen>
+    <dimen name="radius_md">12dp</dimen>
+    <dimen name="radius_lg">16dp</dimen>
+    <dimen name="radius_xl">20dp</dimen>
+    <dimen name="radius_round">999dp</dimen>
+
+
+    <!-- ======================================== -->
+    <!-- LOGIN SCREEN                             -->
+    <!-- ======================================== -->
+
+    <!-- Logo -->
+    <dimen name="login_logo_size">88dp</dimen>
+
+    <!-- Login fields -->
+    <dimen name="login_input_height">56dp</dimen>
+
+    <!-- Login button -->
+    <dimen name="login_button_height">56dp</dimen>
+
+    <!-- Login content side margin -->
+    <dimen name="login_horizontal_margin">24dp</dimen>
+
+
+    <!-- ======================================== -->
+    <!-- TEXT SIZES                               -->
+    <!-- ======================================== -->
+
+    <dimen name="text_display">30sp</dimen>
+    <dimen name="text_heading">24sp</dimen>
+    <dimen name="text_title">20sp</dimen>
+    <dimen name="text_body">16sp</dimen>
+    <dimen name="text_body_small">14sp</dimen>
+    <dimen name="text_caption">12sp</dimen>
+
+
+    <!-- ======================================== -->
+    <!-- ICON SIZES                               -->
+    <!-- ======================================== -->
+
+    <dimen name="icon_small">18dp</dimen>
+    <dimen name="icon_medium">24dp</dimen>
+    <dimen name="icon_large">32dp</dimen>
+
+</resources>

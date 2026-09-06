@@ -11,19 +11,19 @@
     <color name="white">#FFFFFFFF</color>
 
 
-    <!-- FloodCue Aurora - LIGHT THEME -->
+    <!-- FloodCue Aurora - DARK THEME -->
 
-    <color name="aurora_background">#F7FAFF</color>
+    <color name="aurora_background">#07111F</color>
 
-    <color name="aurora_surface">#FFFFFF</color>
+    <color name="aurora_surface">#0D1A2B</color>
 
-    <color name="aurora_text_primary">#172033</color>
+    <color name="aurora_text_primary">#F5F8FF</color>
 
-    <color name="aurora_text_secondary">#667085</color>
+    <color name="aurora_text_secondary">#AAB8CC</color>
 
-    <color name="aurora_input">#F2F6FC</color>
+    <color name="aurora_input">#101F32</color>
 
-    <color name="aurora_input_border">#D8E1EF</color>
+    <color name="aurora_input_border">#29415D</color>
 
 
     <!-- Aurora brand colors -->

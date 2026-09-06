@@ -1,3 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">FloodCue</string>
+
+    <string name="login_welcome">Welcome Back!</string>
+    <string name="login_subtitle">Stay prepared. Stay safe.</string>
+    <string name="username_hint">Email address</string>
+    <string name="password_hint">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="login">Login</string>
+    <string name="no_account">Don\'t have an account?</string>  <string name="sign_up">Sign Up</string>
+
 </resources>
