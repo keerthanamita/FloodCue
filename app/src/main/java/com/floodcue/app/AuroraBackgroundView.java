@@ -2,6 +2,7 @@ package com.floodcue.app;
 
 import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -31,7 +32,6 @@ public class AuroraBackgroundView extends View {
     public AuroraBackgroundView(
             Context context,
             AttributeSet attrs) {
-
         super(context, attrs);
         initialize();
     }
@@ -40,7 +40,6 @@ public class AuroraBackgroundView extends View {
             Context context,
             AttributeSet attrs,
             int defStyleAttr) {
-
         super(context, attrs, defStyleAttr);
         initialize();
     }
@@ -48,15 +47,17 @@ public class AuroraBackgroundView extends View {
     private void initialize() {
 
         /*
-         * BlurMaskFilter is used to reproduce the CSS
-         * filter: blur(...) effect.
+         * Software rendering is intentionally used because
+         * BlurMaskFilter + PorterDuff blending are required.
          *
-         * Software rendering keeps this compatible
-         * with minSdk 24.
+         * Works with minSdk 24.
          */
         setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
         setWillNotDraw(false);
+
+        paint.setAntiAlias(true);
+        paint.setDither(true);
     }
 
     @Override
@@ -71,174 +72,305 @@ public class AuroraBackgroundView extends View {
             return;
         }
 
-        boolean darkMode = isDarkMode();
-
-        if (darkMode) {
-            drawDarkPolaris(canvas, width, height);
+        if (isDarkMode()) {
+            drawDarkAurora(canvas, width, height);
         } else {
-            drawLightPolaris(canvas, width, height);
+            drawLightAurora(canvas, width, height);
         }
     }
 
     // ============================================================
-    // DARK POLARIS
+    // DARK THEME
     // ============================================================
 
-    private void drawDarkPolaris(
+    private void drawDarkAurora(
             Canvas canvas,
             int width,
             int height) {
 
         /*
-         * Original CSS:
+         * Deep navy/black foundation.
          *
-         * body {
-         *     background-color: #100e0b;
-         * }
+         * Slightly cooler than the original #100e0b because
+         * FloodCue's blue/cyan/violet palette looks better
+         * against a cool emergency-app background.
          */
-        canvas.drawColor(
-                Color.rgb(16, 14, 11)
-        );
+        canvas.drawColor(Color.rgb(8, 12, 27));
 
         /*
-         * Layer 1
+         * --------------------------------------------------------
+         * 1. MAIN AURORA FIELD
+         * --------------------------------------------------------
          *
-         * conic-gradient(
-         *     from 160deg at 50% 50%,
-         *     #06b6d4,
-         *     #2563eb,
-         *     #7c3aed,
-         *     #a855f7,
-         *     #22d3ee,
-         *     #06b6d4
-         * )
-         *
-         * screen
-         * blur(155px)
-         * opacity(0.68)
+         * Broad conic field creates the overall atmospheric
+         * colour movement.
          */
-        drawConicLayer(
+        drawConicAurora(
                 canvas,
                 width,
                 height,
                 screenMode,
-                0.68f,
-                155f
+                0.42f,
+                120f
         );
 
         /*
-         * Layer 2
-         *
-         * radial-gradient(
-         *     circle at 50% 50%,
-         *     rgba(207,250,254,0.18) 0%,
-         *     rgba(103,232,249,0.08) 22%,
-         *     transparent 54%
-         * )
-         *
-         * screen
-         * blur(63px)
-         * opacity(0.9)
+         * --------------------------------------------------------
+         * 2. LEFT VIOLET CLOUD
+         * --------------------------------------------------------
          */
-        drawCenterGlow(
+        drawRadialGlow(
                 canvas,
-                width,
-                height,
-                screenMode,
-                0.90f,
-                63f
+                width * 0.12f,
+                height * 0.43f,
+                width * 0.72f,
+                Color.rgb(124, 58, 237),
+                0.62f,
+                105f,
+                screenMode
         );
 
         /*
-         * Layer 3
-         *
-         * radial-gradient(
-         *     circle at 50% 50%,
-         *     rgba(0,0,0,0.82) 0%,
-         *     rgba(0,0,0,0.42) 38%,
-         *     transparent 62%
-         * )
-         *
-         * multiply
-         * blur(45px)
-         * opacity(0.9)
+         * --------------------------------------------------------
+         * 3. RIGHT BLUE/CYAN CLOUD
+         * --------------------------------------------------------
          */
-        drawDarkCenter(
+        drawRadialGlow(
+                canvas,
+                width * 0.90f,
+                height * 0.31f,
+                width * 0.67f,
+                Color.rgb(37, 99, 235),
+                0.58f,
+                115f,
+                screenMode
+        );
+
+        /*
+         * --------------------------------------------------------
+         * 4. LOWER VIOLET AURA
+         * --------------------------------------------------------
+         */
+        drawRadialGlow(
+                canvas,
+                width * 0.58f,
+                height * 0.92f,
+                width * 0.70f,
+                Color.rgb(168, 85, 247),
+                0.40f,
+                90f,
+                screenMode
+        );
+
+        /*
+         * --------------------------------------------------------
+         * 5. CYAN HIGHLIGHT
+         * --------------------------------------------------------
+         *
+         * Small enough to create depth without becoming a
+         * distracting bright spot behind the login form.
+         */
+        drawRadialGlow(
+                canvas,
+                width * 0.24f,
+                height * 0.16f,
+                width * 0.34f,
+                Color.rgb(34, 211, 238),
+                0.30f,
+                62f,
+                screenMode
+        );
+
+        /*
+         * --------------------------------------------------------
+         * 6. SUBTLE MAGENTA EDGE
+         * --------------------------------------------------------
+         */
+        drawRadialGlow(
+                canvas,
+                width * 0.94f,
+                height * 0.78f,
+                width * 0.42f,
+                Color.rgb(147, 51, 234),
+                0.25f,
+                72f,
+                screenMode
+        );
+
+        /*
+         * --------------------------------------------------------
+         * 7. SOFT AURORA ARC
+         * --------------------------------------------------------
+         *
+         * This is intentionally subtle.
+         * It gives the background some "drama" without looking
+         * like a decorative neon ring.
+         */
+        drawAuroraArc(
                 canvas,
                 width,
                 height,
-                multiplyMode,
-                0.90f,
-                45f
+                true
+        );
+
+        /*
+         * --------------------------------------------------------
+         * 8. CENTRAL DEPTH
+         * --------------------------------------------------------
+         *
+         * Darkens the middle slightly.
+         *
+         * This is important because your FloodCue login content
+         * will occupy the center.
+         */
+        drawCenterDepth(
+                canvas,
+                width,
+                height,
+                0.54f,
+                55f
+        );
+
+        /*
+         * --------------------------------------------------------
+         * 9. VERY SOFT EDGE VIGNETTE
+         * --------------------------------------------------------
+         */
+        drawVignette(
+                canvas,
+                width,
+                height,
+                true
         );
     }
 
     // ============================================================
-    // LIGHT POLARIS
+    // LIGHT THEME
     // ============================================================
 
-    private void drawLightPolaris(
+    private void drawLightAurora(
             Canvas canvas,
             int width,
             int height) {
 
         /*
-         * Light base.
-         *
-         * The original specification says that SCREEN
-         * layers should become MULTIPLY on a light surface.
+         * Clean cool-white foundation.
          */
-        canvas.drawColor(
-                Color.rgb(250, 250, 250)
-        );
+        canvas.drawColor(Color.rgb(246, 248, 253));
 
         /*
-         * Layer 1:
+         * Main coloured field.
          *
-         * screen -> multiply
+         * Multiply is used instead of SCREEN because SCREEN
+         * becomes too washed out on light backgrounds.
          */
-        drawConicLayer(
+        drawConicAurora(
                 canvas,
                 width,
                 height,
                 multiplyMode,
-                0.68f,
-                155f
+                0.25f,
+                120f
         );
 
         /*
-         * Layer 2:
+         * LEFT VIOLET
+         */
+        drawRadialGlow(
+                canvas,
+                width * 0.10f,
+                height * 0.38f,
+                width * 0.72f,
+                Color.rgb(124, 58, 237),
+                0.23f,
+                105f,
+                multiplyMode
+        );
+
+        /*
+         * RIGHT BLUE
+         */
+        drawRadialGlow(
+                canvas,
+                width * 0.91f,
+                height * 0.29f,
+                width * 0.67f,
+                Color.rgb(37, 99, 235),
+                0.20f,
+                115f,
+                multiplyMode
+        );
+
+        /*
+         * LOWER VIOLET
+         */
+        drawRadialGlow(
+                canvas,
+                width * 0.60f,
+                height * 0.93f,
+                width * 0.70f,
+                Color.rgb(168, 85, 247),
+                0.14f,
+                90f,
+                multiplyMode
+        );
+
+        /*
+         * CYAN HIGHLIGHT
+         */
+        drawRadialGlow(
+                canvas,
+                width * 0.22f,
+                height * 0.15f,
+                width * 0.34f,
+                Color.rgb(6, 182, 212),
+                0.13f,
+                62f,
+                multiplyMode
+        );
+
+        /*
+         * MAGENTA EDGE
+         */
+        drawRadialGlow(
+                canvas,
+                width * 0.95f,
+                height * 0.78f,
+                width * 0.42f,
+                Color.rgb(147, 51, 234),
+                0.11f,
+                72f,
+                multiplyMode
+        );
+
+        /*
+         * Light version of the subtle arc.
+         */
+        drawAuroraArc(
+                canvas,
+                width,
+                height,
+                false
+        );
+
+        /*
+         * Slight central neutralization.
          *
-         * screen -> multiply
+         * Keeps the login fields readable against the colourful
+         * surroundings.
          */
-        drawCenterGlow(
+        drawLightCenterDepth(
                 canvas,
                 width,
-                height,
-                multiplyMode,
-                0.90f,
-                63f
-        );
-
-        /*
-         * Layer 3 remains multiply.
-         */
-        drawDarkCenter(
-                canvas,
-                width,
-                height,
-                multiplyMode,
-                0.90f,
-                45f
+                height
         );
     }
 
     // ============================================================
-    // POLARIS LAYER 1
-    // CSS CONIC GRADIENT
+    // CONIC AURORA
     // ============================================================
 
-    private void drawConicLayer(
+    private void drawConicAurora(
             Canvas canvas,
             int width,
             int height,
@@ -249,48 +381,45 @@ public class AuroraBackgroundView extends View {
         float centerX = width * 0.50f;
         float centerY = height * 0.50f;
 
-        /*
-         * Android SweepGradient is the native equivalent
-         * of a conic gradient.
-         *
-         * CSS:
-         *
-         * from 160deg at 50% 50%
-         */
-        SweepGradient sweepGradient =
+        SweepGradient gradient =
                 new SweepGradient(
                         centerX,
                         centerY,
 
                         new int[]{
-                                Color.rgb(6, 182, 212),    // #06b6d4
-                                Color.rgb(37, 99, 235),    // #2563eb
-                                Color.rgb(124, 58, 237),   // #7c3aed
-                                Color.rgb(168, 85, 247),   // #a855f7
-                                Color.rgb(34, 211, 238),   // #22d3ee
-                                Color.rgb(6, 182, 212)     // #06b6d4
+
+                                Color.rgb(6, 182, 212),
+
+                                Color.rgb(37, 99, 235),
+
+                                Color.rgb(79, 70, 229),
+
+                                Color.rgb(124, 58, 237),
+
+                                Color.rgb(168, 85, 247),
+
+                                Color.rgb(34, 211, 238),
+
+                                Color.rgb(6, 182, 212)
                         },
 
                         new float[]{
-                                0.0f,
-                                0.20f,
-                                0.40f,
-                                0.60f,
-                                0.80f,
-                                1.0f
+
+                                0.00f,
+                                0.16f,
+                                0.32f,
+                                0.50f,
+                                0.68f,
+                                0.84f,
+                                1.00f
                         }
                 );
 
-        /*
-         * SweepGradient starts at 0 degrees.
-         *
-         * We rotate the canvas by 160 degrees so that
-         * the visual starting angle matches:
-         *
-         * CSS "from 160deg"
-         */
         canvas.save();
 
+        /*
+         * Rotate the colour field.
+         */
         canvas.rotate(
                 160f,
                 centerX,
@@ -299,113 +428,87 @@ public class AuroraBackgroundView extends View {
 
         paint.reset();
         paint.setAntiAlias(true);
-        paint.setShader(sweepGradient);
+        paint.setDither(true);
+        paint.setShader(gradient);
 
-        /*
-         * CSS opacity: 0.68
-         *
-         * 0.68 * 255 = 173
-         */
         paint.setAlpha(
                 (int) (255f * opacity)
         );
 
-        /*
-         * CSS filter: blur(155px)
-         *
-         * We convert the requested CSS-like size
-         * to Android density units.
-         */
         paint.setMaskFilter(
-                new android.graphics.BlurMaskFilter(
+                new BlurMaskFilter(
                         dp(blurDp),
-                        android.graphics.BlurMaskFilter.Blur.NORMAL
+                        BlurMaskFilter.Blur.NORMAL
                 )
         );
 
-        /*
-         * CSS mix-blend-mode:
-         *
-         * screen in dark mode
-         * multiply in light mode
-         */
         paint.setXfermode(blendMode);
 
         canvas.drawRect(
-                0,
-                0,
-                width,
-                height,
+                -dp(80),
+                -dp(80),
+                width + dp(80),
+                height + dp(80),
                 paint
         );
 
-        paint.setXfermode(null);
-        paint.setMaskFilter(null);
-        paint.setShader(null);
+        clearPaint();
 
         canvas.restore();
     }
 
     // ============================================================
-    // POLARIS LAYER 2
-    // CENTER RADIAL GLOW
+    // RADIAL ATMOSPHERIC GLOW
     // ============================================================
 
-    private void drawCenterGlow(
+    private void drawRadialGlow(
             Canvas canvas,
-            int width,
-            int height,
-            PorterDuffXfermode blendMode,
+            float centerX,
+            float centerY,
+            float radius,
+            int color,
             float opacity,
-            float blurDp) {
+            float blurDp,
+            PorterDuffXfermode blendMode) {
 
-        float centerX = width * 0.50f;
-        float centerY = height * 0.50f;
+        int alpha = (int) (255f * opacity);
 
-        /*
-         * CSS:
-         *
-         * radial-gradient(
-         *     circle at 50% 50%,
-         *
-         *     rgba(207,250,254,0.18) 0%,
-         *     rgba(103,232,249,0.08) 22%,
-         *     transparent 54%
-         * )
-         */
+        int innerColor = Color.argb(
+                alpha,
+                Color.red(color),
+                Color.green(color),
+                Color.blue(color)
+        );
 
-        RadialGradient radialGradient =
+        int middleAlpha = (int) (alpha * 0.48f);
+
+        int middleColor = Color.argb(
+                middleAlpha,
+                Color.red(color),
+                Color.green(color),
+                Color.blue(color)
+        );
+
+        RadialGradient gradient =
                 new RadialGradient(
                         centerX,
                         centerY,
-
-                        /*
-                         * Radius controls the 54% outer boundary.
-                         */
-                        Math.min(width, height) * 0.54f,
+                        radius,
 
                         new int[]{
-                                Color.argb(
-                                        46,
-                                        207,
-                                        250,
-                                        254
-                                ),
 
-                                Color.argb(
-                                        20,
-                                        103,
-                                        232,
-                                        249
-                                ),
+                                innerColor,
+
+                                middleColor,
 
                                 Color.TRANSPARENT
                         },
 
                         new float[]{
+
                                 0.0f,
-                                0.22f,
-                                0.54f
+                                0.38f,
+                                1.0f
                         },
 
                         Shader.TileMode.CLAMP
@@ -413,22 +516,13 @@ public class AuroraBackgroundView extends View {
 
         paint.reset();
         paint.setAntiAlias(true);
-        paint.setShader(radialGradient);
+        paint.setDither(true);
+        paint.setShader(gradient);
 
-        /*
-         * CSS opacity: 0.9
-         */
-        paint.setAlpha(
-                (int) (255f * opacity)
-        );
-
-        /*
-         * CSS blur(63px)
-         */
         paint.setMaskFilter(
-                new android.graphics.BlurMaskFilter(
+                new BlurMaskFilter(
                         dp(blurDp),
-                        android.graphics.BlurMaskFilter.Blur.NORMAL
+                        BlurMaskFilter.Blur.NORMAL
                 )
         );
 
@@ -437,72 +531,77 @@ public class AuroraBackgroundView extends View {
         canvas.drawRect(
                 0,
                 0,
-                width,
-                height,
+                getWidth(),
+                getHeight(),
                 paint
         );
 
-        paint.setXfermode(null);
-        paint.setMaskFilter(null);
-        paint.setShader(null);
+        clearPaint();
     }
 
     // ============================================================
-    // POLARIS LAYER 3
-    // DARK CENTER / MULTIPLY
+    // SUBTLE AURORA ARC
     // ============================================================
 
-    private void drawDarkCenter(
+    private void drawAuroraArc(
             Canvas canvas,
             int width,
             int height,
-            PorterDuffXfermode blendMode,
-            float opacity,
-            float blurDp) {
+            boolean dark) {
 
         float centerX = width * 0.50f;
-        float centerY = height * 0.50f;
 
         /*
-         * CSS:
+         * The arc is created using a very large radial gradient
+         * positioned partly outside the screen.
          *
-         * radial-gradient(
-         *     circle at 50% 50%,
-         *     rgba(0,0,0,0.82) 0%,
-         *     rgba(0,0,0,0.42) 38%,
-         *     transparent 62%
-         * )
+         * This creates the impression of a glowing atmospheric
+         * curve rather than a visible circle.
          */
+        float centerY = height * 0.08f;
 
-        RadialGradient radialGradient =
+        float radius =
+                Math.max(width, height) * 0.92f;
+
+        int cyanAlpha = dark ? 26 : 18;
+        int violetAlpha = dark ? 22 : 14;
+
+        RadialGradient arcGradient =
                 new RadialGradient(
                         centerX,
                         centerY,
-
-                        Math.min(width, height) * 0.62f,
+                        radius,
 
                         new int[]{
+
+                                Color.TRANSPARENT,
+
+                                Color.TRANSPARENT,
+
                                 Color.argb(
-                                        209,
-                                        0,
-                                        0,
-                                        0
+                                        cyanAlpha,
+                                        34,
+                                        211,
+                                        238
                                 ),
 
                                 Color.argb(
-                                        107,
-                                        0,
-                                        0,
-                                        0
+                                        violetAlpha,
+                                        124,
+                                        58,
+                                        237
                                 ),
 
                                 Color.TRANSPARENT
                         },
 
                         new float[]{
-                                0.0f,
-                                0.38f,
-                                0.62f
+
+                                0.00f,
+                                0.67f,
+                                0.77f,
+                                0.80f,
+                                0.84f
                         },
 
                         Shader.TileMode.CLAMP
@@ -510,29 +609,23 @@ public class AuroraBackgroundView extends View {
 
         paint.reset();
         paint.setAntiAlias(true);
-        paint.setShader(radialGradient);
+        paint.setDither(true);
+        paint.setShader(arcGradient);
 
-        /*
-         * CSS opacity: 0.9
-         */
-        paint.setAlpha(
-                (int) (255f * opacity)
-        );
-
-        /*
-         * CSS blur(45px)
-         */
         paint.setMaskFilter(
-                new android.graphics.BlurMaskFilter(
-                        dp(blurDp),
-                        android.graphics.BlurMaskFilter.Blur.NORMAL
+                new BlurMaskFilter(
+                        dp(dark ? 24f : 18f),
+                        BlurMaskFilter.Blur.NORMAL
                 )
         );
 
-        /*
-         * CSS mix-blend-mode: multiply
-         */
-        paint.setXfermode(blendMode);
+        paint.setXfermode(
+                dark ? screenMode : multiplyMode
+        );
+
+        paint.setAlpha(
+                dark ? 220 : 180
+        );
 
         canvas.drawRect(
                 0,
@@ -542,9 +635,227 @@ public class AuroraBackgroundView extends View {
                 paint
         );
 
-        paint.setXfermode(null);
-        paint.setMaskFilter(null);
-        paint.setShader(null);
+        clearPaint();
+    }
+
+    // ============================================================
+    // DARK CENTER DEPTH
+    // ============================================================
+
+    private void drawCenterDepth(
+            Canvas canvas,
+            int width,
+            int height,
+            float opacity,
+            float blurDp) {
+
+        float centerX = width * 0.50f;
+        float centerY = height * 0.51f;
+
+        float radius =
+                Math.min(width, height) * 0.60f;
+
+        int alpha =
+                (int) (255f * opacity);
+
+        RadialGradient gradient =
+                new RadialGradient(
+                        centerX,
+                        centerY,
+                        radius,
+
+                        new int[]{
+
+                                Color.argb(
+                                        (int) (alpha * 0.54f),
+                                        3,
+                                        7,
+                                        18
+                                ),
+
+                                Color.argb(
+                                        (int) (alpha * 0.30f),
+                                        5,
+                                        9,
+                                        23
+                                ),
+
+                                Color.TRANSPARENT
+                        },
+
+                        new float[]{
+
+                                0.00f,
+                                0.45f,
+                                0.78f
+                        },
+
+                        Shader.TileMode.CLAMP
+                );
+
+        paint.reset();
+        paint.setAntiAlias(true);
+        paint.setShader(gradient);
+
+        paint.setMaskFilter(
+                new BlurMaskFilter(
+                        dp(blurDp),
+                        BlurMaskFilter.Blur.NORMAL
+                )
+        );
+
+        paint.setXfermode(multiplyMode);
+
+        canvas.drawRect(
+                0,
+                0,
+                width,
+                height,
+                paint
+        );
+
+        clearPaint();
+    }
+
+    // ============================================================
+    // LIGHT CENTER DEPTH
+    // ============================================================
+
+    private void drawLightCenterDepth(
+            Canvas canvas,
+            int width,
+            int height) {
+
+        float centerX = width * 0.50f;
+        float centerY = height * 0.51f;
+
+        float radius =
+                Math.min(width, height) * 0.58f;
+
+        RadialGradient gradient =
+                new RadialGradient(
+                        centerX,
+                        centerY,
+                        radius,
+
+                        new int[]{
+
+                                Color.argb(
+                                        18,
+                                        255,
+                                        255,
+                                        255
+                                ),
+
+                                Color.argb(
+                                        10,
+                                        255,
+                                        255,
+                                        255
+                                ),
+
+                                Color.TRANSPARENT
+                        },
+
+                        new float[]{
+
+                                0.00f,
+                                0.48f,
+                                0.78f
+                        },
+
+                        Shader.TileMode.CLAMP
+                );
+
+        paint.reset();
+        paint.setAntiAlias(true);
+        paint.setShader(gradient);
+
+        paint.setMaskFilter(
+                new BlurMaskFilter(
+                        dp(45f),
+                        BlurMaskFilter.Blur.NORMAL
+                )
+        );
+
+        paint.setXfermode(multiplyMode);
+
+        canvas.drawRect(
+                0,
+                0,
+                width,
+                height,
+                paint
+        );
+
+        clearPaint();
+    }
+
+    // ============================================================
+    // EDGE VIGNETTE
+    // ============================================================
+
+    private void drawVignette(
+            Canvas canvas,
+            int width,
+            int height,
+            boolean dark) {
+
+        float centerX = width * 0.50f;
+        float centerY = height * 0.50f;
+
+        float radius =
+                Math.max(width, height) * 0.78f;
+
+        int alpha = dark ? 80 : 24;
+
+        RadialGradient gradient =
+                new RadialGradient(
+                        centerX,
+                        centerY,
+                        radius,
+
+                        new int[]{
+
+                                Color.TRANSPARENT,
+
+                                Color.TRANSPARENT,
+
+                                Color.argb(
+                                        alpha,
+                                        0,
+                                        0,
+                                        0
+                                )
+                        },
+
+                        new float[]{
+
+                                0.00f,
+                                0.62f,
+                                1.00f
+                        },
+
+                        Shader.TileMode.CLAMP
+                );
+
+        paint.reset();
+        paint.setAntiAlias(true);
+        paint.setShader(gradient);
+
+        paint.setXfermode(
+                dark ? multiplyMode : multiplyMode
+        );
+
+        canvas.drawRect(
+                0,
+                0,
+                width,
+                height,
+                paint
+        );
+
+        clearPaint();
     }
 
     // ============================================================
@@ -559,12 +870,13 @@ public class AuroraBackgroundView extends View {
                         .uiMode;
 
         return
-                (uiMode & Configuration.UI_MODE_NIGHT_MASK)
+                (uiMode &
+                        Configuration.UI_MODE_NIGHT_MASK)
                         == Configuration.UI_MODE_NIGHT_YES;
     }
 
     // ============================================================
-    // DP CONVERSION
+    // DP
     // ============================================================
 
     private float dp(float value) {
@@ -573,5 +885,17 @@ public class AuroraBackgroundView extends View {
                 getResources()
                         .getDisplayMetrics()
                         .density;
+    }
+
+    // ============================================================
+    // PAINT CLEANUP
+    // ============================================================
+
+    private void clearPaint() {
+
+        paint.setXfermode(null);
+        paint.setShader(null);
+        paint.setMaskFilter(null);
+        paint.setAlpha(255);
     }
 }
