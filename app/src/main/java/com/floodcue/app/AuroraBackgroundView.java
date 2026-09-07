@@ -6,37 +6,30 @@ import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RadialGradient;
 import android.graphics.Shader;
-import android.graphics.SweepGradient;
 import android.util.AttributeSet;
 import android.view.View;
 
 public class AuroraBackgroundView extends View {
 
-    private final Paint paint =
-            new Paint(Paint.ANTI_ALIAS_FLAG);
+    private final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
     private final PorterDuffXfermode screenMode =
-            new PorterDuffXfermode(
-                    PorterDuff.Mode.SCREEN
-            );
+            new PorterDuffXfermode(PorterDuff.Mode.SCREEN);
 
     private final PorterDuffXfermode multiplyMode =
-            new PorterDuffXfermode(
-                    PorterDuff.Mode.MULTIPLY
-            );
+            new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY);
 
     public AuroraBackgroundView(Context context) {
         super(context);
         initialize();
     }
 
-    public AuroraBackgroundView(
-            Context context,
-            AttributeSet attrs) {
+    public AuroraBackgroundView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initialize();
     }
@@ -53,13 +46,9 @@ public class AuroraBackgroundView extends View {
     private void initialize() {
 
         /*
-         * Required for BlurMaskFilter and PorterDuff
-         * blending.
+         * Required for BlurMaskFilter and PorterDuff blending.
          */
-        setLayerType(
-                View.LAYER_TYPE_SOFTWARE,
-                null
-        );
+        setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
         setWillNotDraw(false);
 
@@ -80,294 +69,143 @@ public class AuroraBackgroundView extends View {
         }
 
         if (isDarkMode()) {
-            drawDarkAurora(canvas, width, height);
+            drawDarkMode(canvas, width, height);
         } else {
-            drawLightAurora(canvas, width, height);
+            drawLightMode(canvas, width, height);
         }
     }
 
     // ============================================================
-    // DARK AURORA
+    // DARK MODE
     // ============================================================
 
-    private void drawDarkAurora(
+    private void drawDarkMode(
             Canvas canvas,
             int width,
             int height) {
 
         /*
-         * Deep FloodCue background.
+         * Deep navy foundation.
          */
         canvas.drawColor(
-                Color.rgb(6, 10, 25)
+                Color.rgb(8, 12, 27)
         );
 
-        // --------------------------------------------------------
-        // BASE COLOUR FIELD
-        // --------------------------------------------------------
-
-        drawConicAurora(
+        /*
+         * MAIN CYAN ATMOSPHERE
+         */
+        drawGlow(
                 canvas,
-                width,
-                height,
-                screenMode,
-                0.39f,
-                120f
-        );
-
-        // --------------------------------------------------------
-        // LARGE ATMOSPHERIC CLOUDS
-        // --------------------------------------------------------
-
-        // Violet left
-        drawRadialGlow(
-                canvas,
-                width * 0.07f,
-                height * 0.43f,
-                width * 0.72f,
-                Color.rgb(124, 58, 237),
-                0.56f,
-                108f,
-                screenMode
-        );
-
-        // Electric blue right
-        drawRadialGlow(
-                canvas,
-                width * 0.93f,
-                height * 0.29f,
-                width * 0.69f,
-                Color.rgb(37, 99, 235),
-                0.53f,
-                116f,
-                screenMode
-        );
-
-        // Purple bottom
-        drawRadialGlow(
-                canvas,
-                width * 0.57f,
-                height * 0.96f,
+                width * 0.12f,
+                height * 0.18f,
                 width * 0.70f,
-                Color.rgb(168, 85, 247),
-                0.36f,
-                94f,
-                screenMode
-        );
-
-        // Cyan upper-left
-        drawRadialGlow(
-                canvas,
-                width * 0.18f,
-                height * 0.08f,
-                width * 0.37f,
-                Color.rgb(34, 211, 238),
-                0.27f,
-                64f,
-                screenMode
-        );
-
-        // Magenta lower-right
-        drawRadialGlow(
-                canvas,
-                width * 0.97f,
-                height * 0.83f,
-                width * 0.44f,
-                Color.rgb(147, 51, 234),
-                0.23f,
-                76f,
-                screenMode
-        );
-
-        // --------------------------------------------------------
-        // SECONDARY COLOUR LAYERS
-        // --------------------------------------------------------
-
-        /*
-         * Cyan-blue transition.
-         */
-        drawRadialGlow(
-                canvas,
-                width * 0.66f,
-                height * 0.06f,
-                width * 0.30f,
-                Color.rgb(56, 189, 248),
-                0.17f,
-                58f,
-                screenMode
-        );
-
-        /*
-         * Indigo lower-left.
-         */
-        drawRadialGlow(
-                canvas,
-                width * 0.01f,
-                height * 0.78f,
-                width * 0.35f,
-                Color.rgb(79, 70, 229),
-                0.17f,
-                67f,
-                screenMode
-        );
-
-        /*
-         * Cyan lower atmosphere.
-         */
-        drawRadialGlow(
-                canvas,
-                width * 0.35f,
-                height * 1.04f,
-                width * 0.47f,
                 Color.rgb(6, 182, 212),
-                0.13f,
-                82f,
+                0.30f,
+                90f,
                 screenMode
         );
 
         /*
-         * Indigo center-top transition.
+         * LARGE LEFT VIOLET
          */
-        drawRadialGlow(
+        drawGlow(
                 canvas,
-                width * 0.50f,
-                height * 0.20f,
-                width * 0.39f,
-                Color.rgb(99, 102, 241),
-                0.13f,
-                74f,
+                width * 0.05f,
+                height * 0.48f,
+                width * 0.75f,
+                Color.rgb(124, 58, 237),
+                0.48f,
+                110f,
                 screenMode
         );
 
         /*
-         * Blue right edge.
+         * LARGE RIGHT BLUE
          */
-        drawRadialGlow(
+        drawGlow(
                 canvas,
-                width * 1.03f,
-                height * 0.51f,
-                width * 0.31f,
-                Color.rgb(14, 165, 233),
-                0.14f,
+                width * 0.94f,
+                height * 0.32f,
+                width * 0.70f,
+                Color.rgb(37, 99, 235),
+                0.46f,
+                115f,
+                screenMode
+        );
+
+        /*
+         * LOWER VIOLET
+         */
+        drawGlow(
+                canvas,
+                width * 0.58f,
+                height * 0.95f,
+                width * 0.72f,
+                Color.rgb(168, 85, 247),
+                0.34f,
+                95f,
+                screenMode
+        );
+
+        /*
+         * SMALL CYAN HIGHLIGHT
+         */
+        drawGlow(
+                canvas,
+                width * 0.25f,
+                height * 0.05f,
+                width * 0.38f,
+                Color.rgb(34, 211, 238),
+                0.25f,
+                55f,
+                screenMode
+        );
+
+        /*
+         * LOWER RIGHT MAGENTA.
+         */
+        drawGlow(
+                canvas,
+                width * 0.96f,
+                height * 0.80f,
+                width * 0.42f,
+                Color.rgb(147, 51, 234),
+                0.22f,
                 70f,
                 screenMode
         );
 
         /*
-         * Magenta lower transition.
+         * SUBTLE BLUE SECONDARY CLOUD.
          */
-        drawRadialGlow(
+        drawGlow(
                 canvas,
-                width * 0.74f,
-                height * 1.02f,
-                width * 0.37f,
-                Color.rgb(192, 38, 211),
-                0.10f,
-                72f,
-                screenMode
-        );
-
-        // --------------------------------------------------------
-        // NEW: SMALLER COLOUR POCKETS
-        // --------------------------------------------------------
-
-        /*
-         * Soft violet pocket near upper-right.
-         */
-        drawRadialGlow(
-                canvas,
-                width * 0.82f,
-                height * 0.17f,
-                width * 0.22f,
-                Color.rgb(139, 92, 246),
-                0.09f,
-                54f,
+                width * 0.68f,
+                height * 0.08f,
+                width * 0.30f,
+                Color.rgb(56, 189, 248),
+                0.15f,
+                55f,
                 screenMode
         );
 
         /*
-         * Soft cyan pocket near middle-left.
+         * SUBTLE LEFT LOWER HAZE.
          */
-        drawRadialGlow(
+        drawGlow(
                 canvas,
-                width * 0.15f,
-                height * 0.58f,
-                width * 0.25f,
-                Color.rgb(34, 211, 238),
-                0.085f,
-                56f,
+                width * 0.02f,
+                height * 0.82f,
+                width * 0.32f,
+                Color.rgb(99, 102, 241),
+                0.14f,
+                65f,
                 screenMode
         );
 
         /*
-         * Blue-violet pocket near lower-middle.
+         * ATMOSPHERIC ARC.
          */
-        drawRadialGlow(
-                canvas,
-                width * 0.49f,
-                height * 0.78f,
-                width * 0.28f,
-                Color.rgb(96, 165, 250),
-                0.075f,
-                58f,
-                screenMode
-        );
-
-        /*
-         * Small magenta atmospheric pocket.
-         */
-        drawRadialGlow(
-                canvas,
-                width * 0.84f,
-                height * 0.65f,
-                width * 0.25f,
-                Color.rgb(217, 70, 239),
-                0.065f,
-                60f,
-                screenMode
-        );
-
-        // --------------------------------------------------------
-        // AURORA BANDS
-        // --------------------------------------------------------
-
-        drawAuroraBand(
-                canvas,
-                width,
-                height,
-                0.30f,
-                Color.rgb(34, 211, 238),
-                0.075f,
-                42f
-        );
-
-        drawAuroraBand(
-                canvas,
-                width,
-                height,
-                0.63f,
-                Color.rgb(124, 58, 237),
-                0.065f,
-                48f
-        );
-
-        /*
-         * Very faint magenta band near bottom.
-         */
-        drawAuroraBand(
-                canvas,
-                width,
-                height,
-                0.87f,
-                Color.rgb(192, 38, 211),
-                0.045f,
-                44f
-        );
-
-        // --------------------------------------------------------
-        // ATMOSPHERIC ARCS
-        // --------------------------------------------------------
-
         drawAuroraArc(
                 canvas,
                 width,
@@ -375,34 +213,28 @@ public class AuroraBackgroundView extends View {
                 true
         );
 
+        /*
+         * SECOND ARC.
+         */
         drawSecondaryArc(
                 canvas,
                 width,
-                height
+                height,
+                true
         );
 
-        drawColorRing(
-                canvas,
-                width,
-                height
-        );
-
-        // --------------------------------------------------------
-        // CENTER DEPTH
-        // --------------------------------------------------------
-
+        /*
+         * QUIETER CENTER.
+         */
         drawCenterDepth(
                 canvas,
                 width,
-                height,
-                0.50f,
-                58f
+                height
         );
 
-        // --------------------------------------------------------
-        // FINAL VIGNETTE
-        // --------------------------------------------------------
-
+        /*
+         * EDGE VIGNETTE.
+         */
         drawVignette(
                 canvas,
                 width,
@@ -412,228 +244,162 @@ public class AuroraBackgroundView extends View {
     }
 
     // ============================================================
-    // LIGHT AURORA
+    // LIGHT MODE - ARCTIC FROST
     // ============================================================
 
-    private void drawLightAurora(
+    private void drawLightMode(
             Canvas canvas,
             int width,
             int height) {
 
+        /*
+         * Arctic Frost base.
+         *
+         * This intentionally replaces the dark background with
+         * the warm-cool off-white used by the Arctic Frost design.
+         */
         canvas.drawColor(
-                Color.rgb(246, 248, 253)
+                Color.rgb(250, 248, 242)
         );
 
-        drawConicAurora(
-                canvas,
-                width,
-                height,
-                multiplyMode,
-                0.22f,
-                120f
-        );
-
-        drawRadialGlow(
-                canvas,
-                width * 0.07f,
-                height * 0.43f,
-                width * 0.72f,
-                Color.rgb(124, 58, 237),
-                0.20f,
-                108f,
-                multiplyMode
-        );
-
-        drawRadialGlow(
-                canvas,
-                width * 0.93f,
-                height * 0.29f,
-                width * 0.69f,
-                Color.rgb(37, 99, 235),
-                0.18f,
-                116f,
-                multiplyMode
-        );
-
-        drawRadialGlow(
-                canvas,
-                width * 0.57f,
-                height * 0.96f,
-                width * 0.70f,
-                Color.rgb(168, 85, 247),
-                0.13f,
-                94f,
-                multiplyMode
-        );
-
-        drawRadialGlow(
+        /*
+         * --------------------------------------------------------
+         * 1. MAIN FROST FIELD
+         * --------------------------------------------------------
+         *
+         * Soft cyan wash across the upper area.
+         */
+        drawGlow(
                 canvas,
                 width * 0.18f,
                 height * 0.08f,
-                width * 0.37f,
-                Color.rgb(34, 211, 238),
-                0.11f,
-                64f,
-                multiplyMode
+                width * 0.82f,
+                Color.rgb(207, 250, 254),
+                0.52f,
+                55f,
+                null
         );
 
-        drawRadialGlow(
+        /*
+         * --------------------------------------------------------
+         * 2. LEFT CYAN
+         * --------------------------------------------------------
+         */
+        drawGlow(
                 canvas,
-                width * 0.97f,
-                height * 0.83f,
-                width * 0.44f,
-                Color.rgb(147, 51, 234),
-                0.09f,
-                76f,
-                multiplyMode
-        );
-
-        // Secondary layers
-
-        drawRadialGlow(
-                canvas,
-                width * 0.66f,
-                height * 0.06f,
-                width * 0.30f,
-                Color.rgb(56, 189, 248),
-                0.065f,
-                58f,
-                multiplyMode
-        );
-
-        drawRadialGlow(
-                canvas,
-                width * 0.01f,
-                height * 0.78f,
-                width * 0.35f,
-                Color.rgb(79, 70, 229),
-                0.06f,
-                67f,
-                multiplyMode
-        );
-
-        drawRadialGlow(
-                canvas,
-                width * 0.35f,
-                height * 1.04f,
-                width * 0.47f,
+                width * 0.04f,
+                height * 0.30f,
+                width * 0.70f,
                 Color.rgb(6, 182, 212),
-                0.05f,
-                82f,
+                0.22f,
+                115f,
                 multiplyMode
         );
 
-        drawRadialGlow(
+        /*
+         * --------------------------------------------------------
+         * 3. RIGHT SKY BLUE
+         * --------------------------------------------------------
+         */
+        drawGlow(
                 canvas,
-                width * 0.50f,
-                height * 0.20f,
-                width * 0.39f,
-                Color.rgb(99, 102, 241),
-                0.05f,
-                74f,
-                multiplyMode
-        );
-
-        drawRadialGlow(
-                canvas,
-                width * 1.03f,
-                height * 0.51f,
-                width * 0.31f,
+                width * 0.96f,
+                height * 0.25f,
+                width * 0.68f,
                 Color.rgb(14, 165, 233),
-                0.05f,
+                0.20f,
+                125f,
+                multiplyMode
+        );
+
+        /*
+         * --------------------------------------------------------
+         * 4. LOWER BLUE
+         * --------------------------------------------------------
+         */
+        drawGlow(
+                canvas,
+                width * 0.76f,
+                height * 0.92f,
+                width * 0.72f,
+                Color.rgb(56, 189, 248),
+                0.17f,
+                125f,
+                multiplyMode
+        );
+
+        /*
+         * --------------------------------------------------------
+         * 5. SOFT VIOLET
+         * --------------------------------------------------------
+         *
+         * Adds just enough colour variation so the light theme
+         * doesn't become a plain cyan background.
+         */
+        drawGlow(
+                canvas,
+                width * 0.10f,
+                height * 0.78f,
+                width * 0.50f,
+                Color.rgb(129, 140, 248),
+                0.12f,
+                110f,
+                multiplyMode
+        );
+
+        /*
+         * --------------------------------------------------------
+         * 6. UPPER RIGHT FROST
+         * --------------------------------------------------------
+         */
+        drawGlow(
+                canvas,
+                width * 0.78f,
+                height * 0.05f,
+                width * 0.40f,
+                Color.rgb(165, 243, 252),
+                0.25f,
                 70f,
                 multiplyMode
         );
 
-        drawRadialGlow(
+        /*
+         * --------------------------------------------------------
+         * 7. LOWER CYAN HAZE
+         * --------------------------------------------------------
+         */
+        drawGlow(
                 canvas,
-                width * 0.74f,
-                height * 1.02f,
-                width * 0.37f,
-                Color.rgb(192, 38, 211),
-                0.04f,
-                72f,
-                multiplyMode
-        );
-
-        // Smaller pockets
-
-        drawRadialGlow(
-                canvas,
-                width * 0.82f,
-                height * 0.17f,
-                width * 0.22f,
-                Color.rgb(139, 92, 246),
-                0.035f,
-                54f,
-                multiplyMode
-        );
-
-        drawRadialGlow(
-                canvas,
-                width * 0.15f,
-                height * 0.58f,
-                width * 0.25f,
-                Color.rgb(34, 211, 238),
-                0.032f,
-                56f,
-                multiplyMode
-        );
-
-        drawRadialGlow(
-                canvas,
-                width * 0.49f,
-                height * 0.78f,
                 width * 0.28f,
-                Color.rgb(96, 165, 250),
-                0.028f,
-                58f,
-                multiplyMode
-        );
-
-        drawRadialGlow(
-                canvas,
-                width * 0.84f,
-                height * 0.65f,
-                width * 0.25f,
-                Color.rgb(217, 70, 239),
-                0.025f,
-                60f,
-                multiplyMode
-        );
-
-        // Bands
-
-        drawAuroraBand(
-                canvas,
-                width,
-                height,
-                0.30f,
+                height * 1.02f,
+                width * 0.52f,
                 Color.rgb(34, 211, 238),
-                0.025f,
-                42f
+                0.11f,
+                105f,
+                multiplyMode
         );
 
-        drawAuroraBand(
+        /*
+         * --------------------------------------------------------
+         * 8. SOFT VIOLET EDGE
+         * --------------------------------------------------------
+         */
+        drawGlow(
                 canvas,
-                width,
-                height,
-                0.63f,
-                Color.rgb(124, 58, 237),
-                0.022f,
-                48f
+                width * 1.00f,
+                height * 0.72f,
+                width * 0.38f,
+                Color.rgb(167, 139, 250),
+                0.10f,
+                85f,
+                multiplyMode
         );
 
-        drawAuroraBand(
-                canvas,
-                width,
-                height,
-                0.87f,
-                Color.rgb(192, 38, 211),
-                0.015f,
-                44f
-        );
-
+        /*
+         * --------------------------------------------------------
+         * 9. MAIN ARCTIC ARC
+         * --------------------------------------------------------
+         */
         drawAuroraArc(
                 canvas,
                 width,
@@ -641,119 +407,49 @@ public class AuroraBackgroundView extends View {
                 false
         );
 
+        /*
+         * --------------------------------------------------------
+         * 10. SECONDARY ARC
+         * --------------------------------------------------------
+         */
         drawSecondaryArc(
                 canvas,
                 width,
-                height
+                height,
+                false
         );
 
-        drawColorRing(
+        /*
+         * --------------------------------------------------------
+         * 11. SOFT CENTER LIGHT
+         * --------------------------------------------------------
+         *
+         * Keeps the content area clean and glass-like.
+         */
+        drawLightCenterGlow(
                 canvas,
                 width,
                 height
         );
 
-        drawLightCenterDepth(
+        /*
+         * --------------------------------------------------------
+         * 12. VERY SOFT EDGE DARKENING
+         * --------------------------------------------------------
+         */
+        drawVignette(
                 canvas,
                 width,
-                height
+                height,
+                false
         );
-    }
-
-    // ============================================================
-    // MAIN CONIC FIELD
-    // ============================================================
-
-    private void drawConicAurora(
-            Canvas canvas,
-            int width,
-            int height,
-            PorterDuffXfermode blendMode,
-            float opacity,
-            float blurDp) {
-
-        float centerX =
-                width * 0.50f;
-
-        float centerY =
-                height * 0.50f;
-
-        SweepGradient gradient =
-                new SweepGradient(
-                        centerX,
-                        centerY,
-
-                        new int[]{
-
-                                Color.rgb(6, 182, 212),
-                                Color.rgb(34, 211, 238),
-                                Color.rgb(37, 99, 235),
-                                Color.rgb(79, 70, 229),
-                                Color.rgb(124, 58, 237),
-                                Color.rgb(168, 85, 247),
-                                Color.rgb(192, 38, 211),
-                                Color.rgb(34, 211, 238),
-                                Color.rgb(6, 182, 212)
-                        },
-
-                        new float[]{
-
-                                0.00f,
-                                0.10f,
-                                0.22f,
-                                0.34f,
-                                0.48f,
-                                0.62f,
-                                0.74f,
-                                0.87f,
-                                1.00f
-                        }
-                );
-
-        canvas.save();
-
-        canvas.rotate(
-                160f,
-                centerX,
-                centerY
-        );
-
-        paint.reset();
-        paint.setAntiAlias(true);
-        paint.setDither(true);
-        paint.setShader(gradient);
-
-        paint.setAlpha(
-                (int) (255f * opacity)
-        );
-
-        paint.setMaskFilter(
-                new BlurMaskFilter(
-                        dp(blurDp),
-                        BlurMaskFilter.Blur.NORMAL
-                )
-        );
-
-        paint.setXfermode(blendMode);
-
-        canvas.drawRect(
-                -dp(120),
-                -dp(120),
-                width + dp(120),
-                height + dp(120),
-                paint
-        );
-
-        clearPaint();
-
-        canvas.restore();
     }
 
     // ============================================================
     // RADIAL GLOW
     // ============================================================
 
-    private void drawRadialGlow(
+    private void drawGlow(
             Canvas canvas,
             float centerX,
             float centerY,
@@ -766,32 +462,20 @@ public class AuroraBackgroundView extends View {
         int alpha =
                 (int) (255f * opacity);
 
-        int red = Color.red(color);
-        int green = Color.green(color);
-        int blue = Color.blue(color);
-
-        int inner =
+        int innerColor =
                 Color.argb(
                         alpha,
-                        red,
-                        green,
-                        blue
+                        Color.red(color),
+                        Color.green(color),
+                        Color.blue(color)
                 );
 
-        int middle =
+        int middleColor =
                 Color.argb(
-                        (int) (alpha * 0.46f),
-                        red,
-                        green,
-                        blue
-                );
-
-        int outer =
-                Color.argb(
-                        (int) (alpha * 0.12f),
-                        red,
-                        green,
-                        blue
+                        (int) (alpha * 0.45f),
+                        Color.red(color),
+                        Color.green(color),
+                        Color.blue(color)
                 );
 
         RadialGradient gradient =
@@ -801,19 +485,15 @@ public class AuroraBackgroundView extends View {
                         radius,
 
                         new int[]{
-
-                                inner,
-                                middle,
-                                outer,
+                                innerColor,
+                                middleColor,
                                 Color.TRANSPARENT
                         },
 
                         new float[]{
-
-                                0.00f,
-                                0.32f,
-                                0.68f,
-                                1.00f
+                                0.0f,
+                                0.40f,
+                                1.0f
                         },
 
                         Shader.TileMode.CLAMP
@@ -824,108 +504,25 @@ public class AuroraBackgroundView extends View {
         paint.setDither(true);
         paint.setShader(gradient);
 
-        paint.setMaskFilter(
-                new BlurMaskFilter(
-                        dp(blurDp),
-                        BlurMaskFilter.Blur.NORMAL
-                )
-        );
+        if (blurDp > 0) {
 
-        paint.setXfermode(blendMode);
+            paint.setMaskFilter(
+                    new BlurMaskFilter(
+                            dp(blurDp),
+                            BlurMaskFilter.Blur.NORMAL
+                    )
+            );
+        }
 
-        canvas.drawRect(
-                0,
-                0,
-                getWidth(),
-                getHeight(),
-                paint
-        );
-
-        clearPaint();
-    }
-
-    // ============================================================
-    // AURORA BAND
-    // ============================================================
-
-    private void drawAuroraBand(
-            Canvas canvas,
-            int width,
-            int height,
-            float yPosition,
-            int color,
-            float opacity,
-            float blurDp) {
-
-        float centerX =
-                width * 0.50f;
-
-        float centerY =
-                height * yPosition;
-
-        float radius =
-                width * 0.75f;
-
-        int alpha =
-                (int) (255f * opacity);
-
-        RadialGradient gradient =
-                new RadialGradient(
-                        centerX,
-                        centerY,
-                        radius,
-
-                        new int[]{
-
-                                Color.argb(
-                                        alpha,
-                                        Color.red(color),
-                                        Color.green(color),
-                                        Color.blue(color)
-                                ),
-
-                                Color.argb(
-                                        (int) (alpha * 0.40f),
-                                        Color.red(color),
-                                        Color.green(color),
-                                        Color.blue(color)
-                                ),
-
-                                Color.TRANSPARENT
-                        },
-
-                        new float[]{
-
-                                0.00f,
-                                0.42f,
-                                1.00f
-                        },
-
-                        Shader.TileMode.CLAMP
-                );
-
-        paint.reset();
-        paint.setAntiAlias(true);
-        paint.setShader(gradient);
-
-        paint.setMaskFilter(
-                new BlurMaskFilter(
-                        dp(blurDp),
-                        BlurMaskFilter.Blur.NORMAL
-                )
-        );
-
-        paint.setXfermode(
-                isDarkMode()
-                        ? screenMode
-                        : multiplyMode
-        );
+        if (blendMode != null) {
+            paint.setXfermode(blendMode);
+        }
 
         canvas.drawRect(
-                0,
-                0,
-                width,
-                height,
+                -dp(80),
+                -dp(80),
+                getWidth() + dp(80),
+                getHeight() + dp(80),
                 paint
         );
 
@@ -946,16 +543,16 @@ public class AuroraBackgroundView extends View {
                 width * 0.50f;
 
         float centerY =
-                height * 0.08f;
+                height * 0.04f;
 
         float radius =
-                Math.max(width, height) * 0.92f;
+                Math.max(width, height) * 0.95f;
 
         int cyanAlpha =
-                dark ? 29 : 17;
+                dark ? 28 : 20;
 
         int violetAlpha =
-                dark ? 24 : 14;
+                dark ? 22 : 15;
 
         RadialGradient gradient =
                 new RadialGradient(
@@ -988,7 +585,7 @@ public class AuroraBackgroundView extends View {
                         new float[]{
 
                                 0.00f,
-                                0.66f,
+                                0.68f,
                                 0.76f,
                                 0.80f,
                                 0.85f
@@ -1004,7 +601,7 @@ public class AuroraBackgroundView extends View {
 
         paint.setMaskFilter(
                 new BlurMaskFilter(
-                        dp(dark ? 25f : 18f),
+                        dp(dark ? 25f : 20f),
                         BlurMaskFilter.Blur.NORMAL
                 )
         );
@@ -1016,14 +613,14 @@ public class AuroraBackgroundView extends View {
         );
 
         paint.setAlpha(
-                dark ? 215 : 160
+                dark ? 220 : 180
         );
 
         canvas.drawRect(
-                0,
-                0,
-                width,
-                height,
+                -dp(50),
+                -dp(50),
+                width + dp(50),
+                height + dp(50),
                 paint
         );
 
@@ -1037,19 +634,23 @@ public class AuroraBackgroundView extends View {
     private void drawSecondaryArc(
             Canvas canvas,
             int width,
-            int height) {
+            int height,
+            boolean dark) {
 
         float centerX =
-                width * 0.47f;
+                width * 0.48f;
 
         float centerY =
-                height * 0.30f;
+                height * 0.31f;
 
         float radius =
-                Math.max(width, height) * 0.72f;
+                Math.max(width, height) * 0.73f;
 
-        boolean dark =
-                isDarkMode();
+        int blueAlpha =
+                dark ? 15 : 9;
+
+        int violetAlpha =
+                dark ? 12 : 7;
 
         RadialGradient gradient =
                 new RadialGradient(
@@ -1063,14 +664,14 @@ public class AuroraBackgroundView extends View {
                                 Color.TRANSPARENT,
 
                                 Color.argb(
-                                        dark ? 15 : 8,
+                                        blueAlpha,
                                         96,
                                         165,
                                         250
                                 ),
 
                                 Color.argb(
-                                        dark ? 12 : 7,
+                                        violetAlpha,
                                         168,
                                         85,
                                         247
@@ -1082,7 +683,7 @@ public class AuroraBackgroundView extends View {
                         new float[]{
 
                                 0.00f,
-                                0.69f,
+                                0.70f,
                                 0.76f,
                                 0.80f,
                                 0.85f
@@ -1098,7 +699,7 @@ public class AuroraBackgroundView extends View {
 
         paint.setMaskFilter(
                 new BlurMaskFilter(
-                        dp(19f),
+                        dp(dark ? 18f : 16f),
                         BlurMaskFilter.Blur.NORMAL
                 )
         );
@@ -1110,107 +711,14 @@ public class AuroraBackgroundView extends View {
         );
 
         paint.setAlpha(
-                dark ? 205 : 145
+                dark ? 210 : 160
         );
 
         canvas.drawRect(
-                0,
-                0,
-                width,
-                height,
-                paint
-        );
-
-        clearPaint();
-    }
-
-    // ============================================================
-    // SUBTLE COLOR RING
-    // ============================================================
-
-    private void drawColorRing(
-            Canvas canvas,
-            int width,
-            int height) {
-
-        float centerX =
-                width * 0.50f;
-
-        float centerY =
-                height * 0.54f;
-
-        float radius =
-                Math.min(width, height) * 0.67f;
-
-        boolean dark =
-                isDarkMode();
-
-        RadialGradient gradient =
-                new RadialGradient(
-                        centerX,
-                        centerY,
-                        radius,
-
-                        new int[]{
-
-                                Color.TRANSPARENT,
-                                Color.TRANSPARENT,
-
-                                Color.argb(
-                                        dark ? 11 : 5,
-                                        34,
-                                        211,
-                                        238
-                                ),
-
-                                Color.argb(
-                                        dark ? 8 : 4,
-                                        168,
-                                        85,
-                                        247
-                                ),
-
-                                Color.TRANSPARENT
-                        },
-
-                        new float[]{
-
-                                0.00f,
-                                0.73f,
-                                0.79f,
-                                0.82f,
-                                0.86f
-                        },
-
-                        Shader.TileMode.CLAMP
-                );
-
-        paint.reset();
-        paint.setAntiAlias(true);
-        paint.setShader(gradient);
-
-        paint.setMaskFilter(
-                new BlurMaskFilter(
-                        dp(dark ? 14f : 10f),
-                        BlurMaskFilter.Blur.NORMAL
-                )
-        );
-
-        paint.setXfermode(
-                dark
-                        ? screenMode
-                        : multiplyMode
-        );
-
-        paint.setAlpha(
-                dark ? 190 : 120
-        );
-
-        canvas.drawRect(
-                0,
-                0,
-                width,
-                height,
+                -dp(50),
+                -dp(50),
+                width + dp(50),
+                height + dp(50),
                 paint
         );
 
@@ -1224,21 +732,16 @@ public class AuroraBackgroundView extends View {
     private void drawCenterDepth(
             Canvas canvas,
             int width,
-            int height,
-            float opacity,
-            float blurDp) {
+            int height) {
 
         float centerX =
                 width * 0.50f;
 
         float centerY =
-                height * 0.51f;
+                height * 0.52f;
 
         float radius =
-                Math.min(width, height) * 0.60f;
-
-        int alpha =
-                (int) (255f * opacity);
+                Math.min(width, height) * 0.62f;
 
         RadialGradient gradient =
                 new RadialGradient(
@@ -1249,14 +752,14 @@ public class AuroraBackgroundView extends View {
                         new int[]{
 
                                 Color.argb(
-                                        (int) (alpha * 0.54f),
+                                        65,
                                         3,
                                         7,
                                         18
                                 ),
 
                                 Color.argb(
-                                        (int) (alpha * 0.30f),
+                                        35,
                                         5,
                                         9,
                                         23
@@ -1268,8 +771,8 @@ public class AuroraBackgroundView extends View {
                         new float[]{
 
                                 0.00f,
-                                0.45f,
-                                0.78f
+                                0.46f,
+                                0.80f
                         },
 
                         Shader.TileMode.CLAMP
@@ -1281,7 +784,7 @@ public class AuroraBackgroundView extends View {
 
         paint.setMaskFilter(
                 new BlurMaskFilter(
-                        dp(blurDp),
+                        dp(55f),
                         BlurMaskFilter.Blur.NORMAL
                 )
         );
@@ -1300,10 +803,10 @@ public class AuroraBackgroundView extends View {
     }
 
     // ============================================================
-    // LIGHT CENTER
+    // LIGHT CENTER GLOW
     // ============================================================
 
-    private void drawLightCenterDepth(
+    private void drawLightCenterGlow(
             Canvas canvas,
             int width,
             int height) {
@@ -1312,10 +815,10 @@ public class AuroraBackgroundView extends View {
                 width * 0.50f;
 
         float centerY =
-                height * 0.51f;
+                height * 0.50f;
 
         float radius =
-                Math.min(width, height) * 0.58f;
+                Math.min(width, height) * 0.62f;
 
         RadialGradient gradient =
                 new RadialGradient(
@@ -1326,14 +829,14 @@ public class AuroraBackgroundView extends View {
                         new int[]{
 
                                 Color.argb(
-                                        18,
+                                        55,
                                         255,
                                         255,
                                         255
                                 ),
 
                                 Color.argb(
-                                        10,
+                                        25,
                                         255,
                                         255,
                                         255
@@ -1345,7 +848,7 @@ public class AuroraBackgroundView extends View {
                         new float[]{
 
                                 0.00f,
-                                0.48f,
+                                0.42f,
                                 0.78f
                         },
 
@@ -1363,7 +866,11 @@ public class AuroraBackgroundView extends View {
                 )
         );
 
-        paint.setXfermode(multiplyMode);
+        /*
+         * Normal blending is intentionally used here.
+         * It creates a soft glass-like clear region.
+         */
+        paint.setXfermode(null);
 
         canvas.drawRect(
                 0,
@@ -1393,10 +900,10 @@ public class AuroraBackgroundView extends View {
                 height * 0.50f;
 
         float radius =
-                Math.max(width, height) * 0.80f;
+                Math.max(width, height) * 0.82f;
 
         int alpha =
-                dark ? 72 : 20;
+                dark ? 65 : 18;
 
         RadialGradient gradient =
                 new RadialGradient(
@@ -1420,7 +927,7 @@ public class AuroraBackgroundView extends View {
                         new float[]{
 
                                 0.00f,
-                                0.61f,
+                                0.60f,
                                 1.00f
                         },
 
@@ -1447,7 +954,7 @@ public class AuroraBackgroundView extends View {
     }
 
     // ============================================================
-    // DARK MODE
+    // DARK MODE DETECTION
     // ============================================================
 
     private boolean isDarkMode() {
@@ -1464,7 +971,7 @@ public class AuroraBackgroundView extends View {
     }
 
     // ============================================================
-    // DP
+    // DP CONVERSION
     // ============================================================
 
     private float dp(float value) {
@@ -1476,7 +983,7 @@ public class AuroraBackgroundView extends View {
     }
 
     // ============================================================
-    // CLEANUP
+    // PAINT CLEANUP
     // ============================================================
 
     private void clearPaint() {
