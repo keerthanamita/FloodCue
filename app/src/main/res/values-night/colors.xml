@@ -21,18 +21,11 @@
 
     <color name="aurora_text_secondary">#AAB8CC</color>
 
-    <color name="aurora_input">#101F32</color>
 
     <color name="aurora_input_border">#29415D</color>
 
 
     <!-- Aurora brand colors -->
-
-    <color name="aurora_blue">#3B82F6</color>
-
-    <color name="aurora_cyan">#22D3EE</color>
-
-    <color name="aurora_violet">#8B5CF6</color>
 
     <color name="aurora_deep_violet">#6D28D9</color>
 
@@ -46,5 +39,19 @@
     <color name="login_gradient_middle">#3B82F6</color>
 
     <color name="login_gradient_end">#22D3EE</color>
+    <color name="aurora_input_start">#351C3D66</color>
+    <color name="aurora_input_end">#2522D3EE</color>
+    <color name="aurora_input_stroke">#805CA9FF</color>
 
+    <color name="aurora_status_bar">#061A36</color>
+    <color name="aurora_navigation_bar">#061A36</color>
+    <color name="aurora_screen_background">#061A36</color>
+    <color name="aurora_violet">#B04CFF</color>
+    <color name="aurora_blue">#2498FF</color>
+    <color name="aurora_cyan">#00E0FF</color>
+
+    <color name="aurora_button_ripple">#55FFFFFF</color>
+    <color name="aurora_input">#182B4A</color>
+    <color name="aurora_input_focused">#243D65</color>
+    <color name="aurora_border">#6680B8E8</color>
 </resources>
