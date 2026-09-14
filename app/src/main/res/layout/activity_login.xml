@@ -10,7 +10,9 @@
     <com.floodcue.app.AuroraBackgroundView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
+    <com.floodcue.app.AuroraCurveView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
     <!-- Login content -->
     <ScrollView
         android:layout_width="match_parent"
