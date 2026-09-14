@@ -1,10 +1,11 @@
 package com.floodcue.app;
-
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
-
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -12,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class HomeActivity extends AppCompatActivity {
 
     private Button logoutButton;
-
+    private GoogleSignInClient googleSignInClient;
     private FirebaseAuth firebaseAuth;
     private SharedPreferences preferences;
 
@@ -29,7 +30,14 @@ public class HomeActivity extends AppCompatActivity {
 
         // Initialize Firebase Authentication
         firebaseAuth = FirebaseAuth.getInstance();
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(
+                GoogleSignInOptions.DEFAULT_SIGN_IN
+        )
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
 
+        googleSignInClient = GoogleSignIn.getClient(this, gso);
         // Initialize SharedPreferences
         preferences = getSharedPreferences(
                 PREFS_NAME,
@@ -42,27 +50,26 @@ public class HomeActivity extends AppCompatActivity {
 
     private void logoutUser() {
 
-        // Sign out from Firebase
-        firebaseAuth.signOut();
+        googleSignInClient.signOut().addOnCompleteListener(task -> {
 
-        // Clear local login state
-        preferences.edit()
-                .putBoolean("is_logged_in", false)
-                .apply();
+            firebaseAuth.signOut();
 
-        // Go to Login screen
-        Intent intent = new Intent(
-                HomeActivity.this,
-                LoginActivity.class
-        );
+            preferences.edit()
+                    .putBoolean("is_logged_in", false)
+                    .apply();
 
-        // Prevent going back to Home
-        intent.setFlags(
-                Intent.FLAG_ACTIVITY_NEW_TASK |
-                        Intent.FLAG_ACTIVITY_CLEAR_TASK
-        );
+            Intent intent = new Intent(
+                    HomeActivity.this,
+                    LoginActivity.class
+            );
 
-        startActivity(intent);
-        finish();
+            intent.setFlags(
+                    Intent.FLAG_ACTIVITY_NEW_TASK |
+                            Intent.FLAG_ACTIVITY_CLEAR_TASK
+            );
+
+            startActivity(intent);
+            finish();
+        });
     }
 }

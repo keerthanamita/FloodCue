@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">FloodCue</string>
-
+    <string name="default_web_client_id">263570444879-t0u106l5sj1ntmtq1fo328rcfuhhnlv0.apps.googleusercontent.com</string>
     <string name="login_welcome">Welcome Back!</string>
     <string name="login_subtitle">Stay prepared. Stay safe.</string>
     <string name="username_hint">Email address</string>

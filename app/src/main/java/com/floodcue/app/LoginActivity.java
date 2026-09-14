@@ -1,5 +1,14 @@
 package com.floodcue.app;
+import android.app.Activity;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.GoogleAuthProvider;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -16,7 +25,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
+    private SignInButton googleSignInButton;
+    private GoogleSignInClient googleSignInClient;
 
+    private static final int RC_SIGN_IN = 100;
     private TextView forgotPasswordText;
     private EditText emailEditText;
     private EditText passwordEditText;
@@ -41,10 +53,19 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.buttonLogin);
         createAccountText = findViewById(R.id.textCreateAccount);
         forgotPasswordText = findViewById(R.id.textForgotPassword);
+        googleSignInButton = findViewById(R.id.buttonGoogleSignIn);
 
+        googleSignInButton.setOnClickListener(v -> signInWithGoogle());
         // Initialize Firebase Authentication
         firebaseAuth = FirebaseAuth.getInstance();
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(
+                GoogleSignInOptions.DEFAULT_SIGN_IN
+        )
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
 
+        googleSignInClient = GoogleSignIn.getClient(this, gso);
         // Initialize SharedPreferences
         sharedPreferences = getSharedPreferences(
                 PREFS_NAME,
@@ -255,6 +276,115 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(
                                 LoginActivity.this,
                                 "Unable to send password reset email.",
+                                Toast.LENGTH_LONG
+                        ).show();
+                    }
+                });
+    }
+    private void signInWithGoogle() {
+
+        Intent signInIntent = googleSignInClient.getSignInIntent();
+
+        startActivityForResult(
+                signInIntent,
+                RC_SIGN_IN
+        );
+    }
+    @Override
+    protected void onActivityResult(
+            int requestCode,
+            int resultCode,
+            Intent data
+    ) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == RC_SIGN_IN) {
+
+            Task<GoogleSignInAccount> task =
+                    GoogleSignIn.getSignedInAccountFromIntent(data);
+
+            try {
+
+                GoogleSignInAccount account =
+                        task.getResult(
+                                com.google.android.gms.common.api.ApiException.class
+                        );
+
+                if (account != null) {
+
+                    firebaseAuthWithGoogle(account);
+                }
+
+            } catch (com.google.android.gms.common.api.ApiException e) {
+
+                Toast.makeText(
+                        this,
+                        "Google Sign-In failed: " + e.getMessage(),
+                        Toast.LENGTH_LONG
+                ).show();
+            }
+        }
+    }
+    private void firebaseAuthWithGoogle(
+            GoogleSignInAccount account
+    ) {
+
+        AuthCredential credential =
+                GoogleAuthProvider.getCredential(
+                        account.getIdToken(),
+                        null
+                );
+
+        firebaseAuth
+                .signInWithCredential(credential)
+                .addOnCompleteListener(this, task -> {
+
+                    if (task.isSuccessful()) {
+
+                        // Save login state
+                        sharedPreferences
+                                .edit()
+                                .putBoolean(LOGIN_KEY, true)
+                                .apply();
+
+                        Toast.makeText(
+                                LoginActivity.this,
+                                "Google Sign-In successful",
+                                Toast.LENGTH_SHORT
+                        ).show();
+
+                        // Check setup status
+                        boolean setupCompleted =
+                                sharedPreferences.getBoolean(
+                                        "setup_completed",
+                                        false
+                                );
+
+                        Intent intent;
+
+                        if (setupCompleted) {
+
+                            intent = new Intent(
+                                    LoginActivity.this,
+                                    HomeActivity.class
+                            );
+
+                        } else {
+
+                            intent = new Intent(
+                                    LoginActivity.this,
+                                    SetupActivity.class
+                            );
+                        }
+
+                        startActivity(intent);
+                        finish();
+
+                    } else {
+
+                        Toast.makeText(
+                                LoginActivity.this,
+                                "Firebase authentication failed",
                                 Toast.LENGTH_LONG
                         ).show();
                     }
