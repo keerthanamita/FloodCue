@@ -71,22 +71,33 @@ public class SplashActivity extends AppCompatActivity {
         boolean setupCompleted =
                 preferences.getBoolean("setup_completed", false);
 
+        boolean isLoggedIn =
+                preferences.getBoolean("is_logged_in", false);
+
         Intent intent;
 
-        if (setupCompleted) {
+        if (!isLoggedIn) {
 
-            // User has already completed first-time setup
+            // User is not logged in
             intent = new Intent(
                     SplashActivity.this,
-                    HomeActivity.class
+                    LoginActivity.class
+            );
+
+        } else if (!setupCompleted) {
+
+            // User is logged in but setup is not completed
+            intent = new Intent(
+                    SplashActivity.this,
+                    SetupActivity.class
             );
 
         } else {
 
-            // First-time user
+            // User is logged in and setup is completed
             intent = new Intent(
                     SplashActivity.this,
-                    LoginActivity.class
+                    HomeActivity.class
             );
         }
 
