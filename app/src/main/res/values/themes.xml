@@ -5,25 +5,9 @@
     <style name="Theme.FloodCue"
         parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
-        <!-- Main colors -->
-        <item name="colorPrimary">@color/aurora_blue</item>
-        <item name="colorPrimaryVariant">@color/aurora_violet</item>
-        <item name="colorOnPrimary">@color/white</item>
-
-        <item name="colorSecondary">@color/aurora_cyan</item>
-        <item name="colorSecondaryVariant">@color/aurora_blue</item>
-        <item name="colorOnSecondary">@color/white</item>
-
-        <!-- Status bar -->
-        <item name="android:statusBarColor">@color/aurora_status_bar</item>
-        <item name="android:navigationBarColor">@color/aurora_navigation_bar</item>
-
-        <!-- Status bar icons -->
-        <item name="android:windowLightStatusBar">true</item>
-
-        <!-- Window background -->
-        <item name="android:windowBackground">@color/aurora_screen_background</item>
-
+        <item name="android:statusBarColor">@color/primary_color</item>
+        <item name="android:navigationBarColor">@color/background_color</item>
+        <item name="android:windowBackground">@color/background_color</item>
     </style>
 
 
