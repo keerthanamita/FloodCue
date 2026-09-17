@@ -1,11 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
     id 'com.google.gms.google-services'
-
 }
 
 android {
     namespace 'com.floodcue.app'
+
     compileSdk {
         version = release(37)
     }
@@ -27,6 +27,7 @@ android {
             }
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
@@ -34,15 +35,25 @@ android {
 }
 
 dependencies {
+
+    // Android
     implementation libs.activity.ktx
     implementation libs.appcompat
     implementation libs.constraintlayout
     implementation libs.material
+
+    // Firebase
+    implementation platform(libs.firebase.bom)
+    implementation libs.firebase.auth
+    implementation libs.firebase.analytics
+
+    // Credential Manager
+    implementation libs.credentials
+    implementation libs.credentials.play.services.auth
+    implementation libs.googleid
+
+    // Testing
     testImplementation libs.junit
     androidTestImplementation libs.espresso.core
     androidTestImplementation libs.ext.junit
-    implementation 'com.google.firebase:firebase-auth'
-    implementation platform('com.google.firebase:firebase-bom:34.19.0')
-    implementation 'com.google.firebase:firebase-analytics'
-    implementation 'com.google.android.gms:play-services-auth:21.4.0'
-   }
+}
