@@ -5,27 +5,68 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="@color/background_color"
     android:padding="24dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="FloodCue Setup"
+        android:layout_marginBottom="8dp"
+        android:text="Set up FloodCue"
+        android:textColor="@color/text_primary"
         android:textSize="28sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp" />
+        android:textStyle="bold" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:text="Setup will be added here."
-        android:textSize="16sp"
-        android:layout_marginBottom="32dp" />
+        android:layout_marginBottom="28dp"
+        android:gravity="center"
+        android:text="Your FloodCue setup will appear here. Complete setup to continue to the home screen."
+        android:textColor="@color/text_secondary"
+        android:textSize="15sp"
+        android:lineSpacingExtra="3dp" />
 
-    <Button
-        android:id="@+id/buttonCompleteSetup"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Complete Setup" />
+        android:background="@drawable/bg_screen_card"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Setup"
+            android:textColor="@color/text_primary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Ready to continue?"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/buttonCompleteSetup"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_button_primary"
+            android:backgroundTint="@null"
+            android:elevation="0dp"
+            android:minHeight="0dp"
+            android:text="Complete setup"
+            android:textAllCaps="false"
+            android:textColor="@color/background_color"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
 </LinearLayout>

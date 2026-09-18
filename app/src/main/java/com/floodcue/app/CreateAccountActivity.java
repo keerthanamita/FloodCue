@@ -27,47 +27,60 @@ public class CreateAccountActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_create_account);
 
-        // Connect XML views
         emailEditText = findViewById(R.id.editTextEmail);
         passwordEditText = findViewById(R.id.editTextPassword);
-        confirmPasswordEditText = findViewById(R.id.editTextConfirmPassword);
-        createAccountButton = findViewById(R.id.buttonCreateAccount);
+        confirmPasswordEditText =
+                findViewById(R.id.editTextConfirmPassword);
+        createAccountButton =
+                findViewById(R.id.buttonCreateAccount);
 
-        // Initialize Firebase Authentication
         firebaseAuth = FirebaseAuth.getInstance();
 
-        // Create Account button
-        createAccountButton.setOnClickListener(v -> createAccount());
+        createAccountButton.setOnClickListener(
+                v -> createAccount()
+        );
     }
 
     private void createAccount() {
 
-        String email = emailEditText.getText().toString().trim();
-        String password = passwordEditText.getText().toString();
+        String email =
+                emailEditText.getText().toString().trim();
+
+        String password =
+                passwordEditText.getText().toString();
+
         String confirmPassword =
                 confirmPasswordEditText.getText().toString();
 
-        // Check email
         if (TextUtils.isEmpty(email)) {
+
             emailEditText.setError("Enter your email");
             emailEditText.requestFocus();
             return;
         }
 
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            emailEditText.setError("Enter a valid email address");
+        if (!Patterns.EMAIL_ADDRESS
+                .matcher(email)
+                .matches()) {
+
+            emailEditText.setError(
+                    "Enter a valid email address"
+            );
             emailEditText.requestFocus();
             return;
         }
 
-        // Check password
         if (TextUtils.isEmpty(password)) {
-            passwordEditText.setError("Enter a password");
+
+            passwordEditText.setError(
+                    "Enter a password"
+            );
             passwordEditText.requestFocus();
             return;
         }
 
         if (password.length() < 6) {
+
             passwordEditText.setError(
                     "Password must contain at least 6 characters"
             );
@@ -75,8 +88,8 @@ public class CreateAccountActivity extends AppCompatActivity {
             return;
         }
 
-        // Check confirm password
         if (TextUtils.isEmpty(confirmPassword)) {
+
             confirmPasswordEditText.setError(
                     "Confirm your password"
             );
@@ -85,6 +98,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         }
 
         if (!password.equals(confirmPassword)) {
+
             confirmPasswordEditText.setError(
                     "Passwords do not match"
             );
@@ -92,12 +106,13 @@ public class CreateAccountActivity extends AppCompatActivity {
             return;
         }
 
-        // Disable button while creating account
         createAccountButton.setEnabled(false);
 
-        // Create Firebase account
         firebaseAuth
-                .createUserWithEmailAndPassword(email, password)
+                .createUserWithEmailAndPassword(
+                        email,
+                        password
+                )
                 .addOnCompleteListener(this, task -> {
 
                     if (task.isSuccessful()) {
@@ -107,7 +122,6 @@ public class CreateAccountActivity extends AppCompatActivity {
 
                         if (user != null) {
 
-                            // Send email verification
                             user.sendEmailVerification()
                                     .addOnCompleteListener(
                                             verificationTask -> {
@@ -135,6 +149,15 @@ public class CreateAccountActivity extends AppCompatActivity {
                                             }
                                     );
 
+                        } else {
+
+                            createAccountButton.setEnabled(true);
+
+                            Toast.makeText(
+                                    CreateAccountActivity.this,
+                                    "Account creation failed.",
+                                    Toast.LENGTH_LONG
+                            ).show();
                         }
 
                     } else {
@@ -144,9 +167,12 @@ public class CreateAccountActivity extends AppCompatActivity {
                         String errorMessage;
 
                         if (task.getException() != null) {
+
                             errorMessage =
                                     task.getException().getMessage();
+
                         } else {
+
                             errorMessage =
                                     "Account creation failed";
                         }

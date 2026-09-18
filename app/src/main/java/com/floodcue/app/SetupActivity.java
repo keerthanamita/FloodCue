@@ -21,27 +21,25 @@ public class SetupActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_setup);
 
-        // Initialize SharedPreferences
         preferences = getSharedPreferences(
                 PREFS_NAME,
                 MODE_PRIVATE
         );
 
-        // Connect button
-        completeSetupButton = findViewById(R.id.buttonCompleteSetup);
+        completeSetupButton =
+                findViewById(R.id.buttonCompleteSetup);
 
-        // Complete Setup
-        completeSetupButton.setOnClickListener(v -> completeSetup());
+        completeSetupButton.setOnClickListener(
+                v -> completeSetup()
+        );
     }
 
     private void completeSetup() {
 
-        // Save setup completion status
         preferences.edit()
                 .putBoolean("setup_completed", true)
                 .apply();
 
-        // Go to Home
         Intent intent = new Intent(
                 SetupActivity.this,
                 HomeActivity.class

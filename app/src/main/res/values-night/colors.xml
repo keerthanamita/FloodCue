@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary_color">#9FA8DA</color>
-    <color name="background_color">#121212</color>
+
+    <!-- ChatGPT-inspired dark theme -->
+    <color name="primary_color">#ECECEC</color>
+    <color name="background_color">#212121</color>
+
+    <color name="surface_color">#2F2F2F</color>
+    <color name="surface_elevated_color">#343434</color>
+
+    <color name="text_primary">#ECECEC</color>
+    <color name="text_secondary">#B4B4B4</color>
+    <color name="text_hint">#8E8E8E</color>
+
+    <color name="border_color">#444444</color>
+    <color name="border_focused">#666666</color>
+
+    <color name="button_primary">#ECECEC</color>
+    <color name="button_primary_pressed">#FFFFFF</color>
+
+    <color name="button_secondary">#2F2F2F</color>
+    <color name="button_secondary_pressed">#3A3A3A</color>
+
+    <color name="ripple_color">#24FFFFFF</color>
+
+    <color name="danger_color">#FF6B6B</color>
+
 </resources>

@@ -1,21 +1,32 @@
 package com.floodcue.app;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.CancellationSignal;
 import android.widget.Button;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.credentials.ClearCredentialStateRequest;
+import androidx.credentials.CredentialManager;
+import androidx.credentials.CredentialManagerCallback;
+import androidx.credentials.exceptions.ClearCredentialException;
 
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class HomeActivity extends AppCompatActivity {
 
     private Button logoutButton;
-    private GoogleSignInClient googleSignInClient;
+
     private FirebaseAuth firebaseAuth;
     private SharedPreferences preferences;
+
+    private CredentialManager credentialManager;
+    private Executor credentialExecutor;
 
     private static final String PREFS_NAME = "FloodCuePrefs";
 
@@ -25,51 +36,90 @@ public class HomeActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_home);
 
-        // Connect Logout button
         logoutButton = findViewById(R.id.buttonLogout);
 
-        // Initialize Firebase Authentication
         firebaseAuth = FirebaseAuth.getInstance();
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(
-                GoogleSignInOptions.DEFAULT_SIGN_IN
-        )
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
 
-        googleSignInClient = GoogleSignIn.getClient(this, gso);
-        // Initialize SharedPreferences
         preferences = getSharedPreferences(
                 PREFS_NAME,
                 MODE_PRIVATE
         );
 
-        // Logout button
-        logoutButton.setOnClickListener(v -> logoutUser());
+        credentialManager = CredentialManager.create(this);
+        credentialExecutor = Executors.newSingleThreadExecutor();
+
+        logoutButton.setOnClickListener(
+                v -> logoutUser()
+        );
     }
 
     private void logoutUser() {
 
-        googleSignInClient.signOut().addOnCompleteListener(task -> {
+        // Sign out from Firebase first.
+        firebaseAuth.signOut();
 
-            firebaseAuth.signOut();
+        // Clear Credential Manager state.
+        ClearCredentialStateRequest clearRequest =
+                new ClearCredentialStateRequest();
 
-            preferences.edit()
-                    .putBoolean("is_logged_in", false)
-                    .apply();
+        credentialManager.clearCredentialStateAsync(
+                clearRequest,
+                new CancellationSignal(),
+                credentialExecutor,
+                new CredentialManagerCallback<Void,
+                        ClearCredentialException>() {
 
-            Intent intent = new Intent(
-                    HomeActivity.this,
-                    LoginActivity.class
-            );
+                    @Override
+                    public void onResult(
+                            @NonNull Void result) {
 
-            intent.setFlags(
-                    Intent.FLAG_ACTIVITY_NEW_TASK |
-                            Intent.FLAG_ACTIVITY_CLEAR_TASK
-            );
+                        runOnUiThread(
+                                () -> finishLogout()
+                        );
+                    }
 
-            startActivity(intent);
-            finish();
-        });
+                    @Override
+                    public void onError(
+                            @NonNull ClearCredentialException e) {
+
+                        // Firebase is already signed out.
+                        // Continue logout even if credential-state
+                        // clearing fails.
+                        runOnUiThread(
+                                () -> finishLogout()
+                        );
+                    }
+                }
+        );
+    }
+
+    private void finishLogout() {
+
+        preferences.edit()
+                .putBoolean("is_logged_in", false)
+                .apply();
+
+        Intent intent = new Intent(
+                HomeActivity.this,
+                LoginActivity.class
+        );
+
+        intent.setFlags(
+                Intent.FLAG_ACTIVITY_NEW_TASK
+                        | Intent.FLAG_ACTIVITY_CLEAR_TASK
+        );
+
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (credentialExecutor instanceof java.util.concurrent.ExecutorService) {
+            ((java.util.concurrent.ExecutorService) credentialExecutor)
+                    .shutdown();
+        }
     }
 }

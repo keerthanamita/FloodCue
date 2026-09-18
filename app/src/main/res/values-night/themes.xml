@@ -4,10 +4,23 @@
     <!-- Main application dark theme -->
     <style name="Theme.FloodCue"
         parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:statusBarColor">@color/primary_color</item>
+
+        <item name="android:fontFamily">sans</item>
+
+        <item name="android:statusBarColor">@color/background_color</item>
         <item name="android:navigationBarColor">@color/background_color</item>
         <item name="android:windowBackground">@color/background_color</item>
+
         <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+
+        <item name="colorAccent">@color/primary_color</item>
+        <item name="colorControlNormal">@color/text_secondary</item>
+        <item name="colorControlActivated">@color/primary_color</item>
+
+        <item name="android:colorAccent">@color/primary_color</item>
+
+        <item name="android:windowActionModeOverlay">true</item>
     </style>
 
 </resources>

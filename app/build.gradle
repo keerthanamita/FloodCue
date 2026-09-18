@@ -52,6 +52,9 @@ dependencies {
     implementation libs.credentials.play.services.auth
     implementation libs.googleid
 
+    // Existing Google Sign-In Button UI
+    implementation libs.play.services.auth
+
     // Testing
     testImplementation libs.junit
     androidTestImplementation libs.espresso.core
