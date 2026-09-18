@@ -14,25 +14,30 @@
     <!-- Inputs -->
     <color name="input_stroke">#555555</color>
     <color name="surface_color">#2B2B2B</color>
-    <color name="surface_elevated_color">#333333</color>
-    <color name="border_color">#555555</color>
-    <color name="border_focused">#F5F5F5</color>
+    <color name="surface_elevated_color">#2A2A2A</color>
+    <color name="border_color">#484848</color>
+    <color name="border_focused">#60A5FA</color>
 
     <!-- Divider -->
     <color name="divider_color">#3D3D3D</color>
 
-    <!-- Main button -->
-    <color name="button_primary">#F5F5F5</color>
-    <color name="button_primary_text">#202020</color>
+    <!-- Primary button -->
+    <color name="button_primary">#3B82F6</color>
+    <color name="button_primary_text">#FFFFFF</color>
+    <color name="button_primary_pressed">#2563EB</color>
 
     <!-- Secondary button -->
     <color name="button_secondary">#333333</color>
+    <color name="button_secondary_pressed">#444444</color>
 
     <!-- Button interaction -->
-    <color name="button_primary_pressed">#DADADA</color>
-    <color name="button_secondary_pressed">#444444</color>
-    <color name="button_ripple">#33000000</color>
+    <color name="button_ripple">#33FFFFFF</color>
     <color name="ripple_color">#33FFFFFF</color>
+
+    <!-- Google button -->
+    <color name="google_button_background">#303030</color>
+    <color name="google_button_text">#F5F5F5</color>
+    <color name="google_button_border">#555555</color>
 
     <!-- Error -->
     <color name="error_color">#F2B8B5</color>

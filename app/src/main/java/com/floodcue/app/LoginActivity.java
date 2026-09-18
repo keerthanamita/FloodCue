@@ -2,9 +2,7 @@ package com.floodcue.app;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.os.CancellationSignal;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.MotionEvent;
@@ -23,9 +21,9 @@ import androidx.credentials.GetCredentialRequest;
 import androidx.credentials.GetCredentialResponse;
 import androidx.credentials.exceptions.GetCredentialException;
 
-import com.google.android.gms.common.SignInButton;
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption;
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthCredential;
@@ -39,7 +37,7 @@ import java.util.concurrent.Executors;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private SignInButton googleSignInButton;
+    private MaterialButton googleSignInButton;
 
     private TextView forgotPasswordText;
     private TextView createAccountText;
@@ -121,8 +119,6 @@ public class LoginActivity extends AppCompatActivity {
                 passwordInputLayout.setError(null);
             }
         });
-
-        configureGoogleButton();
 
         animateEntrance();
 
@@ -332,7 +328,7 @@ public class LoginActivity extends AppCompatActivity {
         credentialManager.getCredentialAsync(
                 this,
                 request,
-                new CancellationSignal(),
+                new android.os.CancellationSignal(),
                 credentialExecutor,
                 new CredentialManagerCallback<
                         GetCredentialResponse,
@@ -692,37 +688,6 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void configureGoogleButton() {
-
-        if (googleSignInButton == null) {
-            return;
-        }
-
-        googleSignInButton.setSize(
-                SignInButton.SIZE_WIDE
-        );
-
-        int currentNightMode =
-                getResources()
-                        .getConfiguration()
-                        .uiMode
-                        & Configuration.UI_MODE_NIGHT_MASK;
-
-        if (currentNightMode
-                == Configuration.UI_MODE_NIGHT_YES) {
-
-            googleSignInButton.setColorScheme(
-                    SignInButton.COLOR_DARK
-            );
-
-        } else {
-
-            googleSignInButton.setColorScheme(
-                    SignInButton.COLOR_LIGHT
-            );
-        }
-    }
-
     private void animateEntrance() {
 
         if (rootView == null) {
@@ -761,6 +726,17 @@ public class LoginActivity extends AppCompatActivity {
                             break;
 
                         case MotionEvent.ACTION_UP:
+
+                            v.animate()
+                                    .scaleX(1f)
+                                    .scaleY(1f)
+                                    .setDuration(80)
+                                    .start();
+
+                            v.performClick();
+
+                            break;
+
                         case MotionEvent.ACTION_CANCEL:
 
                             v.animate()
