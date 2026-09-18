@@ -18,6 +18,13 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+
+import android.graphics.Typeface;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
+
 public class CreateAccountActivity extends AppCompatActivity {
 
     private EditText emailEditText;
@@ -67,7 +74,31 @@ public class CreateAccountActivity extends AppCompatActivity {
         // Back to Login
         backToLoginText =
                 findViewById(R.id.textBackToLogin);
+        String loginLabel = "Already have an account? Login";
 
+        SpannableString spannable =
+                new SpannableString(loginLabel);
+
+        int start = loginLabel.indexOf("Login");
+        int end = start + "Login".length();
+
+        spannable.setSpan(
+                new ForegroundColorSpan(
+                        getColor(R.color.button_primary)
+                ),
+                start,
+                end,
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+        );
+
+        spannable.setSpan(
+                new StyleSpan(Typeface.BOLD),
+                start,
+                end,
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+        );
+
+        backToLoginText.setText(spannable);
         // Firebase
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -520,12 +551,12 @@ public class CreateAccountActivity extends AppCompatActivity {
         }
 
         view.animate()
-                .alpha(0.55f)
+                .alpha(0.90f)
                 .setDuration(70)
                 .withEndAction(() ->
                         view.animate()
                                 .alpha(1f)
-                                .setDuration(120)
+                                .setDuration(100)
                                 .start()
                 )
                 .start();

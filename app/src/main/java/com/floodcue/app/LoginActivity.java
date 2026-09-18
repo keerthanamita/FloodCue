@@ -15,7 +15,7 @@ import androidx.credentials.CustomCredential;
 import androidx.credentials.GetCredentialRequest;
 import androidx.credentials.GetCredentialResponse;
 
-import com.google.android.gms.common.SignInButton;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption;
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential;
 import com.google.android.material.button.MaterialButton;
@@ -30,6 +30,15 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import android.graphics.Typeface;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
+
+import android.graphics.Outline;
+import android.view.ViewOutlineProvider;
+
 public class LoginActivity extends AppCompatActivity {
 
     private TextInputLayout emailInputLayout;
@@ -39,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputEditText passwordEditText;
 
     private MaterialButton loginButton;
-    private SignInButton googleSignInButton;
+    private MaterialButton googleSignInButton;
 
     private TextView forgotPasswordText;
     private TextView createAccountText;
@@ -70,7 +79,31 @@ public class LoginActivity extends AppCompatActivity {
 
         forgotPasswordText = findViewById(R.id.textForgotPassword);
         createAccountText = findViewById(R.id.textCreateAccount);
+        String createAccountLabel = "Don't have an account? Create Account";
 
+        SpannableString spannable =
+                new SpannableString(createAccountLabel);
+
+        int start = createAccountLabel.indexOf("Create Account");
+        int end = start + "Create Account".length();
+
+        spannable.setSpan(
+                new ForegroundColorSpan(
+                        getColor(R.color.button_primary)
+                ),
+                start,
+                end,
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+        );
+
+        spannable.setSpan(
+                new StyleSpan(Typeface.BOLD),
+                start,
+                end,
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+        );
+
+        createAccountText.setText(spannable);
         firebaseAuth = FirebaseAuth.getInstance();
 
         prefs = getSharedPreferences("FloodCuePrefs", MODE_PRIVATE);
@@ -79,9 +112,27 @@ public class LoginActivity extends AppCompatActivity {
         executorService = Executors.newSingleThreadExecutor();
 
         // Google's official Sign-In button
-        googleSignInButton.setSize(SignInButton.SIZE_WIDE);
-        googleSignInButton.setColorScheme(SignInButton.COLOR_AUTO);
 
+        googleSignInButton.setClipToOutline(true);
+
+        googleSignInButton.setOutlineProvider(
+                new ViewOutlineProvider() {
+
+                    @Override
+                    public void getOutline(
+                            View view,
+                            Outline outline
+                    ) {
+                        outline.setRoundRect(
+                                0,
+                                0,
+                                view.getWidth(),
+                                view.getHeight(),
+                                26f
+                        );
+                    }
+                }
+        );
         // Login
         loginButton.setOnClickListener(v -> {
             loginUser();
@@ -96,7 +147,6 @@ public class LoginActivity extends AppCompatActivity {
         // Create Account
         createAccountText.setOnClickListener(v -> {
 
-            // Same subtle effect as Forgot Password
             addClickEffect(createAccountText);
 
             Intent intent = new Intent(
@@ -573,17 +623,16 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         view.animate()
-                .alpha(0.55f)
+                .alpha(0.90f)
                 .setDuration(70)
                 .withEndAction(() ->
                         view.animate()
                                 .alpha(1f)
-                                .setDuration(120)
+                                .setDuration(100)
                                 .start()
                 )
                 .start();
     }
-
     // =========================================================
     // ENTRANCE ANIMATION
     // =========================================================

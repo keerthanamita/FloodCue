@@ -7,13 +7,15 @@
     android:layout_height="match_parent"
     android:background="@color/background_color"
     android:fillViewport="true"
-    android:overScrollMode="never">
+    android:overScrollMode="never"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center_horizontal"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
         android:paddingTop="20dp"
@@ -221,17 +223,36 @@
             android:layout_height="48dp"
             android:layout_marginTop="9dp"
             android:clipToOutline="true"
-            app:cardBackgroundColor="@color/google_button_background"
+            app:cardBackgroundColor="@color/background_color"
             app:cardCornerRadius="12dp"
             app:cardElevation="0dp"
             app:strokeColor="@color/google_button_border"
             app:strokeWidth="1dp">
 
-            <com.google.android.gms.common.SignInButton
+            <!-- Google Sign-In -->
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonGoogleSignIn"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="52dp"
 
+                android:text="Sign in with Google"
+                android:textColor="@color/google_button_text"
+                android:textSize="15sp"
+                android:textStyle="normal"
+                android:textAllCaps="false"
+                android:gravity="center"
+                android:fontFamily="sans"
+
+                app:backgroundTint="@color/google_button_background"
+                app:cornerRadius="24dp"
+                app:strokeColor="@color/google_button_border"
+                app:strokeWidth="1dp"
+                app:rippleColor="@color/button_ripple"
+                app:elevation="0dp"
+                app:icon="@drawable/ic_google"
+                app:iconGravity="textStart"
+                app:iconPadding="12dp"
+                app:iconTint="@null" />
         </com.google.android.material.card.MaterialCardView>
 
         <!-- Create account -->
@@ -240,18 +261,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:background="@drawable/bg_link_ripple"
             android:clickable="true"
             android:focusable="true"
-            android:paddingStart="8dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="8dp"
-            android:paddingBottom="4dp"
+            android:paddingStart="4dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="4dp"
+            android:paddingBottom="2dp"
             android:text="Don't have an account? Create Account"
             android:textColor="@color/link_color"
             android:textSize="13sp"
             android:textStyle="bold" />
-
     </LinearLayout>
 
 </ScrollView>
