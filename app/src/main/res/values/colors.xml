@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <resources>
 
-  <!-- ChatGPT-inspired light theme -->
-  <color name="primary_color">#2F2F2F</color>
+  <!-- Background -->
   <color name="background_color">#FFFFFF</color>
 
-  <color name="surface_color">#F7F7F8</color>
-  <color name="surface_elevated_color">#FFFFFF</color>
-
-  <color name="text_primary">#2F2F2F</color>
+  <!-- Text -->
+  <color name="text_primary">#1F1F1F</color>
   <color name="text_secondary">#6B6B6B</color>
-  <color name="text_hint">#8E8E8E</color>
 
-  <color name="border_color">#E5E5E5</color>
-  <color name="border_focused">#B8B8B8</color>
+  <!-- Links -->
+  <color name="link_color">#2F2F2F</color>
 
+  <!-- Inputs -->
+  <color name="input_stroke">#C8C8C8</color>
+
+  <!-- Divider -->
+  <color name="divider_color">#E5E5E5</color>
+
+  <!-- Main button -->
   <color name="button_primary">#2F2F2F</color>
-  <color name="button_primary_pressed">#1F1F1F</color>
+  <color name="button_primary_text">#FFFFFF</color>
 
-  <color name="button_secondary">#F7F7F8</color>
-  <color name="button_secondary_pressed">#EAEAEA</color>
+  <!-- Button interaction -->
+  <color name="button_ripple">#33FFFFFF</color>
 
-  <color name="ripple_color">#24000000</color>
+  <!-- Error -->
+  <color name="error_color">#B3261E</color>
 
-  <color name="danger_color">#C62828</color>
+  <!-- Existing splash colors retained -->
+  <color name="primary_color">#3F51B5</color>
 
 </resources>
