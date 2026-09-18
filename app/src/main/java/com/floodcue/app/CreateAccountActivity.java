@@ -1,5 +1,6 @@
 package com.floodcue.app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -7,6 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +33,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
 
     private View rootView;
+    private TextView backToLoginText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,10 @@ public class CreateAccountActivity extends AppCompatActivity {
         createAccountButton =
                 findViewById(R.id.buttonCreateAccount);
 
+        // Back to Login
+        backToLoginText =
+                findViewById(R.id.textBackToLogin);
+
         // Firebase
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -69,9 +76,30 @@ public class CreateAccountActivity extends AppCompatActivity {
                 v -> createAccount()
         );
 
+        // Back to Login
+        backToLoginText.setOnClickListener(v -> {
+
+            addClickEffect(backToLoginText);
+
+            Intent intent = new Intent(
+                    CreateAccountActivity.this,
+                    LoginActivity.class
+            );
+
+            startActivity(intent);
+
+            overridePendingTransition(
+                    android.R.anim.fade_in,
+                    android.R.anim.fade_out
+            );
+
+            finish();
+        });
+
         // Clear errors when user focuses on the fields
         emailEditText.setOnFocusChangeListener(
                 (v, hasFocus) -> {
+
                     if (hasFocus) {
                         emailInputLayout.setError(null);
                     }
@@ -80,6 +108,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
         passwordEditText.setOnFocusChangeListener(
                 (v, hasFocus) -> {
+
                     if (hasFocus) {
                         passwordInputLayout.setError(null);
                     }
@@ -88,6 +117,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
         confirmPasswordEditText.setOnFocusChangeListener(
                 (v, hasFocus) -> {
+
                     if (hasFocus) {
                         confirmPasswordInputLayout.setError(null);
                     }
@@ -100,6 +130,10 @@ public class CreateAccountActivity extends AppCompatActivity {
         // Button press animation
         addPressAnimation(createAccountButton);
     }
+
+    // =========================================================
+    // CREATE ACCOUNT
+    // =========================================================
 
     private void createAccount() {
 
@@ -365,18 +399,21 @@ public class CreateAccountActivity extends AppCompatActivity {
                     exception.getMessage().toLowerCase();
 
             if (firebaseMessage.contains("already in use")
-                    || firebaseMessage.contains("email-already-in-use")) {
+                    || firebaseMessage.contains(
+                    "email-already-in-use")) {
 
                 message =
                         "An account already exists with this email.";
 
             } else if (firebaseMessage.contains("weak-password")
-                    || firebaseMessage.contains("password is too weak")) {
+                    || firebaseMessage.contains(
+                    "password is too weak")) {
 
                 message =
                         "Password is too weak. Please choose a stronger password.";
 
-            } else if (firebaseMessage.contains("too-many-requests")) {
+            } else if (firebaseMessage.contains(
+                    "too-many-requests")) {
 
                 message =
                         "Too many attempts. Please try again later.";
@@ -391,7 +428,8 @@ public class CreateAccountActivity extends AppCompatActivity {
                 message =
                         "Please enter a valid email address.";
 
-            } else if (firebaseMessage.contains("operation-not-allowed")) {
+            } else if (firebaseMessage.contains(
+                    "operation-not-allowed")) {
 
                 message =
                         "Email/password account creation is currently unavailable.";
@@ -472,6 +510,28 @@ public class CreateAccountActivity extends AppCompatActivity {
     }
 
     // =========================================================
+    // SUBTLE LINK CLICK EFFECT
+    // =========================================================
+
+    private void addClickEffect(View view) {
+
+        if (view == null) {
+            return;
+        }
+
+        view.animate()
+                .alpha(0.55f)
+                .setDuration(70)
+                .withEndAction(() ->
+                        view.animate()
+                                .alpha(1f)
+                                .setDuration(120)
+                                .start()
+                )
+                .start();
+    }
+
+    // =========================================================
     // BUTTON PRESS ANIMATION
     // =========================================================
 
@@ -497,6 +557,17 @@ public class CreateAccountActivity extends AppCompatActivity {
                             break;
 
                         case MotionEvent.ACTION_UP:
+
+                            v.animate()
+                                    .scaleX(1f)
+                                    .scaleY(1f)
+                                    .setDuration(80)
+                                    .start();
+
+                            v.performClick();
+
+                            break;
+
                         case MotionEvent.ACTION_CANCEL:
 
                             v.animate()
