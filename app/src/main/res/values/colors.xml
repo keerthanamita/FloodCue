@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <resources>
 
   <!-- Background -->
@@ -14,6 +13,10 @@
 
   <!-- Inputs -->
   <color name="input_stroke">#C8C8C8</color>
+  <color name="surface_color">#FFFFFF</color>
+  <color name="surface_elevated_color">#F7F7F7</color>
+  <color name="border_color">#C8C8C8</color>
+  <color name="border_focused">#2F2F2F</color>
 
   <!-- Divider -->
   <color name="divider_color">#E5E5E5</color>
@@ -22,8 +25,14 @@
   <color name="button_primary">#2F2F2F</color>
   <color name="button_primary_text">#FFFFFF</color>
 
+  <!-- Secondary button -->
+  <color name="button_secondary">#F2F2F2</color>
+
   <!-- Button interaction -->
-  <color name="button_ripple">#33FFFFFF</color>
+  <color name="button_primary_pressed">#1F1F1F</color>
+  <color name="button_secondary_pressed">#E5E5E5</color>
+  <color name="button_ripple">#33000000</color>
+  <color name="ripple_color">#33000000</color>
 
   <!-- Error -->
   <color name="error_color">#B3261E</color>
