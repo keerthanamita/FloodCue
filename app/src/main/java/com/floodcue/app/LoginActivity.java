@@ -95,15 +95,25 @@ public class LoginActivity extends AppCompatActivity {
 
         loginButton.setOnClickListener(v -> loginUser());
 
-        forgotPasswordText.setOnClickListener(v -> resetPassword());
+        forgotPasswordText.setOnClickListener(v -> {
+            addClickEffect(forgotPasswordText);
+            resetPassword();
+        });
 
         createAccountText.setOnClickListener(v -> {
+            addClickEffect(createAccountText);
+
             Intent intent = new Intent(
                     LoginActivity.this,
                     CreateAccountActivity.class
             );
 
             startActivity(intent);
+
+            overridePendingTransition(
+                    android.R.anim.fade_in,
+                    android.R.anim.fade_out
+            );
         });
 
         googleSignInButton.setOnClickListener(v -> signInWithGoogle());
@@ -653,7 +663,7 @@ public class LoginActivity extends AppCompatActivity {
         if (loading) {
 
             loginButton.setText(
-                    "Signing in..."
+                    "Logging in..."
             );
 
             loginButton.setAlpha(0.7f);
@@ -661,7 +671,7 @@ public class LoginActivity extends AppCompatActivity {
         } else {
 
             loginButton.setText(
-                    "Sign in"
+                    "Login"
             );
 
             loginButton.setAlpha(1.0f);
@@ -751,6 +761,30 @@ public class LoginActivity extends AppCompatActivity {
                     return false;
                 }
         );
+    }
+
+    private void addClickEffect(View view) {
+
+        if (view == null) {
+            return;
+        }
+
+        view.animate()
+                .scaleX(0.96f)
+                .scaleY(0.96f)
+                .alpha(0.65f)
+                .setDuration(70)
+                .withEndAction(() -> {
+
+                    view.animate()
+                            .scaleX(1f)
+                            .scaleY(1f)
+                            .alpha(1f)
+                            .setDuration(120)
+                            .start();
+
+                })
+                .start();
     }
 
     private void openNextScreen() {
