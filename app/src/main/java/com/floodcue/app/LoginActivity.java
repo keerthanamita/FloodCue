@@ -1,66 +1,56 @@
 package com.floodcue.app;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.credentials.Credential;
 import androidx.credentials.CredentialManager;
-import androidx.credentials.CredentialManagerCallback;
 import androidx.credentials.CustomCredential;
 import androidx.credentials.GetCredentialRequest;
 import androidx.credentials.GetCredentialResponse;
-import androidx.credentials.exceptions.GetCredentialException;
 
+import com.google.android.gms.common.SignInButton;
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption;
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private MaterialButton googleSignInButton;
+    private TextInputLayout emailInputLayout;
+    private TextInputLayout passwordInputLayout;
+
+    private TextInputEditText emailEditText;
+    private TextInputEditText passwordEditText;
+
+    private MaterialButton loginButton;
+    private SignInButton googleSignInButton;
 
     private TextView forgotPasswordText;
     private TextView createAccountText;
 
-    private EditText emailEditText;
-    private EditText passwordEditText;
-
-    private Button loginButton;
-
-    private TextInputLayout emailInputLayout;
-    private TextInputLayout passwordInputLayout;
-
-    private View rootView;
-
     private FirebaseAuth firebaseAuth;
 
-    private SharedPreferences sharedPreferences;
+    private android.content.SharedPreferences prefs;
 
     private CredentialManager credentialManager;
-    private Executor credentialExecutor;
-
-    private static final String PREFS_NAME = "FloodCuePrefs";
-    private static final String LOGIN_KEY = "is_logged_in";
+    private ExecutorService executorService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,38 +58,52 @@ public class LoginActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
 
-        rootView = findViewById(R.id.loginRoot);
+        View loginRoot = findViewById(R.id.loginRoot);
+
+        emailInputLayout = findViewById(R.id.emailInputLayout);
+        passwordInputLayout = findViewById(R.id.passwordInputLayout);
 
         emailEditText = findViewById(R.id.editTextEmail);
         passwordEditText = findViewById(R.id.editTextPassword);
 
         loginButton = findViewById(R.id.buttonLogin);
-
-        createAccountText = findViewById(R.id.textCreateAccount);
-        forgotPasswordText = findViewById(R.id.textForgotPassword);
-
         googleSignInButton = findViewById(R.id.buttonGoogleSignIn);
 
-        emailInputLayout = findViewById(R.id.emailInputLayout);
-        passwordInputLayout = findViewById(R.id.passwordInputLayout);
+        forgotPasswordText = findViewById(R.id.textForgotPassword);
+        createAccountText = findViewById(R.id.textCreateAccount);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        sharedPreferences = getSharedPreferences(
-                PREFS_NAME,
-                MODE_PRIVATE
-        );
+        prefs = getSharedPreferences("FloodCuePrefs", MODE_PRIVATE);
 
         credentialManager = CredentialManager.create(this);
-        credentialExecutor = Executors.newSingleThreadExecutor();
+        executorService = Executors.newSingleThreadExecutor();
 
-        loginButton.setOnClickListener(v -> loginUser());
+        /*
+         * Google's original Sign-In button.
+         *
+         * SIZE_WIDE gives the normal full-width Google button.
+         * COLOR_AUTO allows Google Play services to select
+         * the appropriate light/dark appearance.
+         */
+        googleSignInButton.setStyle(
+                SignInButton.SIZE_WIDE,
+                SignInButton.COLOR_AUTO
+        );
 
+        // Login button
+        loginButton.setOnClickListener(v -> {
+            addClickEffect(loginButton);
+            loginUser();
+        });
+
+        // Forgot password
         forgotPasswordText.setOnClickListener(v -> {
             addClickEffect(forgotPasswordText);
             resetPassword();
         });
 
+        // Create account
         createAccountText.setOnClickListener(v -> {
             addClickEffect(createAccountText);
 
@@ -116,261 +120,265 @@ public class LoginActivity extends AppCompatActivity {
             );
         });
 
-        googleSignInButton.setOnClickListener(v -> signInWithGoogle());
+        // Google Sign-In
+        googleSignInButton.setOnClickListener(v -> {
+            addClickEffect(googleSignInButton);
+            signInWithGoogle();
+        });
 
+        // Focus effects for email
         emailEditText.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) {
-                emailInputLayout.setError(null);
+                emailInputLayout.setBoxStrokeWidth(2);
+            } else {
+                emailInputLayout.setBoxStrokeWidth(1);
             }
         });
 
+        // Focus effects for password
         passwordEditText.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) {
-                passwordInputLayout.setError(null);
+                passwordInputLayout.setBoxStrokeWidth(2);
+            } else {
+                passwordInputLayout.setBoxStrokeWidth(1);
             }
         });
 
-        animateEntrance();
+        // Entrance animation
+        animateEntrance(loginRoot);
 
+        // Press animation
         addPressAnimation(loginButton);
         addPressAnimation(googleSignInButton);
     }
 
+    // ---------------------------------------------------------
+    // EMAIL / PASSWORD LOGIN
+    // ---------------------------------------------------------
+
     private void loginUser() {
 
-        String email = emailEditText
-                .getText()
-                .toString()
-                .trim();
+        String email = emailEditText.getText() == null
+                ? ""
+                : emailEditText.getText().toString().trim();
 
-        String password = passwordEditText
-                .getText()
-                .toString();
+        String password = passwordEditText.getText() == null
+                ? ""
+                : passwordEditText.getText().toString();
 
-        emailInputLayout.setError(null);
-        passwordInputLayout.setError(null);
+        clearErrors();
+
+        boolean valid = true;
 
         if (TextUtils.isEmpty(email)) {
-
-            showError(
-                    emailInputLayout,
-                    emailEditText,
-                    "Enter your email"
-            );
-
-            return;
-        }
-
-        if (!isValidEmail(email)) {
-
-            showError(
-                    emailInputLayout,
-                    emailEditText,
-                    "Enter a valid email address"
-            );
-
-            return;
+            emailInputLayout.setError("Enter your email");
+            valid = false;
+        } else if (!isValidEmail(email)) {
+            emailInputLayout.setError("Enter a valid email");
+            valid = false;
         }
 
         if (TextUtils.isEmpty(password)) {
+            passwordInputLayout.setError("Enter your password");
+            valid = false;
+        }
 
-            showError(
-                    passwordInputLayout,
-                    passwordEditText,
-                    "Enter your password"
-            );
-
+        if (!valid) {
             return;
         }
 
         setLoginLoading(true);
 
-        firebaseAuth
-                .signInWithEmailAndPassword(
-                        email,
-                        password
-                )
-                .addOnCompleteListener(
-                        this,
-                        task -> {
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
 
-                            if (!task.isSuccessful()) {
+                    if (!task.isSuccessful()) {
 
-                                setLoginLoading(false);
+                        setLoginLoading(false);
 
-                                showFirebaseLoginError(
-                                        task.getException()
-                                );
+                        String message = "Login failed";
 
-                                return;
+                        if (task.getException() != null) {
+                            String error = task.getException()
+                                    .getMessage();
+
+                            if (error != null) {
+                                if (error.contains("password is invalid")
+                                        || error.contains("INVALID_LOGIN_CREDENTIALS")
+                                        || error.contains("no user record")) {
+
+                                    message = "Incorrect email or password";
+
+                                } else if (error.contains("network")) {
+
+                                    message = "Check your internet connection";
+
+                                } else {
+                                    message = error;
+                                }
                             }
-
-                            FirebaseUser user =
-                                    firebaseAuth.getCurrentUser();
-
-                            if (user == null) {
-
-                                setLoginLoading(false);
-
-                                showMessage(
-                                        "Login failed. Please try again."
-                                );
-
-                                return;
-                            }
-
-                            user.reload()
-                                    .addOnCompleteListener(
-                                            reloadTask -> {
-
-                                                setLoginLoading(false);
-
-                                                FirebaseUser refreshedUser =
-                                                        firebaseAuth
-                                                                .getCurrentUser();
-
-                                                if (refreshedUser != null
-                                                        && refreshedUser
-                                                        .isEmailVerified()) {
-
-                                                    sharedPreferences
-                                                            .edit()
-                                                            .putBoolean(
-                                                                    LOGIN_KEY,
-                                                                    true
-                                                            )
-                                                            .apply();
-
-                                                    openNextScreen();
-
-                                                } else {
-
-                                                    showMessage(
-                                                            "Please verify your email before logging in."
-                                                    );
-                                                }
-                                            }
-                                    );
                         }
-                );
+
+                        showError(message);
+                        return;
+                    }
+
+                    FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                    if (user == null) {
+                        setLoginLoading(false);
+                        showError("Unable to get account information");
+                        return;
+                    }
+
+                    /*
+                     * Reload the user so Firebase gives us
+                     * the latest email verification state.
+                     */
+                    user.reload()
+                            .addOnCompleteListener(reloadTask -> {
+
+                                setLoginLoading(false);
+
+                                FirebaseUser refreshedUser =
+                                        firebaseAuth.getCurrentUser();
+
+                                if (refreshedUser == null) {
+                                    showError(
+                                            "Unable to get account information"
+                                    );
+                                    return;
+                                }
+
+                                if (!refreshedUser.isEmailVerified()) {
+
+                                    showMessage(
+                                            "Please verify your email before logging in."
+                                    );
+
+                                    return;
+                                }
+
+                                prefs.edit()
+                                        .putBoolean("is_logged_in", true)
+                                        .apply();
+
+                                openNextScreen();
+                            });
+                });
     }
+
+    // ---------------------------------------------------------
+    // FORGOT PASSWORD
+    // ---------------------------------------------------------
 
     private void resetPassword() {
 
-        String email = emailEditText
-                .getText()
-                .toString()
-                .trim();
+        String email = emailEditText.getText() == null
+                ? ""
+                : emailEditText.getText().toString().trim();
 
         emailInputLayout.setError(null);
 
         if (TextUtils.isEmpty(email)) {
-
-            showError(
-                    emailInputLayout,
-                    emailEditText,
-                    "Enter your email first"
-            );
-
+            emailInputLayout.setError("Enter your email first");
             return;
         }
 
         if (!isValidEmail(email)) {
-
-            showError(
-                    emailInputLayout,
-                    emailEditText,
-                    "Enter a valid email address"
-            );
-
+            emailInputLayout.setError("Enter a valid email");
             return;
         }
 
         forgotPasswordText.setEnabled(false);
         forgotPasswordText.setAlpha(0.6f);
 
-        firebaseAuth
-                .sendPasswordResetEmail(email)
-                .addOnCompleteListener(
-                        task -> {
+        firebaseAuth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(task -> {
 
-                            forgotPasswordText.setEnabled(true);
-                            forgotPasswordText.setAlpha(1.0f);
+                    forgotPasswordText.setEnabled(true);
+                    forgotPasswordText.setAlpha(1f);
 
-                            if (task.isSuccessful()) {
+                    if (task.isSuccessful()) {
 
-                                showMessage(
-                                        "✓ Password reset email sent."
-                                );
+                        showMessage(
+                                "Password reset email sent. Check your inbox."
+                        );
 
-                            } else {
+                    } else {
 
-                                showFirebaseResetError(
-                                        task.getException()
-                                );
-                            }
+                        String message = "Unable to send reset email";
+
+                        if (task.getException() != null
+                                && task.getException().getMessage() != null) {
+
+                            message = task.getException().getMessage();
                         }
-                );
+
+                        showError(message);
+                    }
+                });
     }
+
+    // ---------------------------------------------------------
+    // GOOGLE SIGN-IN
+    // ---------------------------------------------------------
 
     private void signInWithGoogle() {
 
         googleSignInButton.setEnabled(false);
-        googleSignInButton.setAlpha(0.7f);
+        googleSignInButton.setAlpha(0.65f);
 
         GetGoogleIdOption googleIdOption =
                 new GetGoogleIdOption.Builder()
                         .setFilterByAuthorizedAccounts(false)
                         .setServerClientId(
-                                getString(
-                                        R.string.default_web_client_id
-                                )
+                                getString(R.string.default_web_client_id)
                         )
                         .build();
 
         GetCredentialRequest request =
                 new GetCredentialRequest.Builder()
-                        .addCredentialOption(
-                                googleIdOption
-                        )
+                        .addCredentialOption(googleIdOption)
                         .build();
 
         credentialManager.getCredentialAsync(
                 this,
                 request,
-                new android.os.CancellationSignal(),
-                credentialExecutor,
-                new CredentialManagerCallback<
+                null,
+                executorService,
+                new androidx.credentials.CredentialManagerCallback<
                         GetCredentialResponse,
-                        GetCredentialException>() {
+                        androidx.credentials.exceptions.GetCredentialException>() {
 
                     @Override
                     public void onResult(
-                            @NonNull GetCredentialResponse result) {
+                            GetCredentialResponse result) {
 
                         runOnUiThread(() -> {
-
                             googleSignInButton.setEnabled(true);
-                            googleSignInButton.setAlpha(1.0f);
-
-                            handleCredential(
-                                    result.getCredential()
-                            );
+                            googleSignInButton.setAlpha(1f);
                         });
+
+                        handleCredential(result.getCredential());
                     }
 
                     @Override
                     public void onError(
-                            @NonNull GetCredentialException e) {
+                            androidx.credentials.exceptions.GetCredentialException e) {
 
                         runOnUiThread(() -> {
-
                             googleSignInButton.setEnabled(true);
-                            googleSignInButton.setAlpha(1.0f);
+                            googleSignInButton.setAlpha(1f);
 
-                            showMessage(
-                                    "Google sign-in cancelled or failed."
-                            );
+                            String message = e.getMessage();
+
+                            if (message == null
+                                    || message.trim().isEmpty()) {
+                                message = "Google sign-in was cancelled";
+                            }
+
+                            showMessage(message);
                         });
                     }
                 }
@@ -384,383 +392,160 @@ public class LoginActivity extends AppCompatActivity {
             CustomCredential customCredential =
                     (CustomCredential) credential;
 
-            if (GoogleIdTokenCredential
-                    .TYPE_GOOGLE_ID_TOKEN_CREDENTIAL
-                    .equals(
-                            customCredential.getType()
-                    )) {
+            if (GoogleIdTokenCredential.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL
+                    .equals(customCredential.getType())) {
 
                 try {
 
                     GoogleIdTokenCredential googleCredential =
-                            GoogleIdTokenCredential.createFrom(
-                                    customCredential.getData()
-                            );
+                            GoogleIdTokenCredential
+                                    .createFrom(customCredential.getData());
 
-                    String idToken =
-                            googleCredential.getIdToken();
-
-                    if (TextUtils.isEmpty(idToken)) {
-
-                        showMessage(
-                                "Google ID token was not received."
-                        );
-
-                        return;
-                    }
+                    String idToken = googleCredential.getIdToken();
 
                     firebaseAuthWithGoogle(idToken);
 
                 } catch (Exception e) {
 
-                    showMessage(
-                            "Unable to process Google sign-in."
+                    showError(
+                            "Unable to process Google sign-in"
                     );
                 }
 
             } else {
 
-                showMessage(
-                        "Unexpected credential type."
-                );
+                showError("Unexpected Google credential");
             }
 
         } else {
 
-            showMessage(
-                    "Google account credential not received."
-            );
+            showError("Unexpected credential type");
         }
     }
 
     private void firebaseAuthWithGoogle(String idToken) {
 
         AuthCredential credential =
-                GoogleAuthProvider.getCredential(
-                        idToken,
-                        null
-                );
+                GoogleAuthProvider.getCredential(idToken, null);
 
-        firebaseAuth
-                .signInWithCredential(credential)
-                .addOnCompleteListener(
-                        this,
-                        task -> {
+        firebaseAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, task -> {
 
-                            if (task.isSuccessful()) {
+                    if (task.isSuccessful()) {
 
-                                FirebaseUser user =
-                                        firebaseAuth.getCurrentUser();
+                        prefs.edit()
+                                .putBoolean("is_logged_in", true)
+                                .apply();
 
-                                if (user != null) {
+                        openNextScreen();
 
-                                    sharedPreferences
-                                            .edit()
-                                            .putBoolean(
-                                                    LOGIN_KEY,
-                                                    true
-                                            )
-                                            .apply();
+                    } else {
 
-                                    openNextScreen();
+                        String message =
+                                "Google authentication failed";
 
-                                } else {
+                        if (task.getException() != null
+                                && task.getException().getMessage() != null) {
 
-                                    showMessage(
-                                            "Google login failed. Please try again."
-                                    );
-                                }
-
-                            } else {
-
-                                showFirebaseGoogleError(
-                                        task.getException()
-                                );
-                            }
+                            message =
+                                    task.getException().getMessage();
                         }
-                );
+
+                        showError(message);
+                    }
+                });
     }
 
-    private void showFirebaseLoginError(Exception exception) {
-
-        String message =
-                "Login failed. Please try again.";
-
-        if (exception != null
-                && exception.getMessage() != null) {
-
-            String firebaseMessage =
-                    exception.getMessage()
-                            .toLowerCase();
-
-            if (firebaseMessage.contains("invalid-credential")
-                    || firebaseMessage.contains("invalid credential")
-                    || firebaseMessage.contains("invalid-email")
-                    || firebaseMessage.contains("wrong-password")
-                    || firebaseMessage.contains("user-not-found")) {
-
-                message =
-                        "Incorrect email or password.";
-
-            } else if (firebaseMessage.contains("network")) {
-
-                message =
-                        "Network error. Please check your internet connection.";
-
-            } else if (firebaseMessage.contains("too-many-requests")
-                    || firebaseMessage.contains("too many requests")) {
-
-                message =
-                        "Too many attempts. Please try again later.";
-
-            } else if (firebaseMessage.contains("user-disabled")
-                    || firebaseMessage.contains("disabled")) {
-
-                message =
-                        "This account has been disabled.";
-
-            } else if (!TextUtils.isEmpty(
-                    exception.getMessage()
-            )) {
-
-                message =
-                        exception.getMessage();
-            }
-        }
-
-        showMessage(message);
-    }
-
-    private void showFirebaseResetError(Exception exception) {
-
-        String message =
-                "Failed to send password reset email.";
-
-        if (exception != null
-                && exception.getMessage() != null) {
-
-            String firebaseMessage =
-                    exception.getMessage()
-                            .toLowerCase();
-
-            if (firebaseMessage.contains("network")) {
-
-                message =
-                        "Network error. Please check your internet connection.";
-
-            } else if (firebaseMessage.contains("user-not-found")
-                    || firebaseMessage.contains("user not found")) {
-
-                message =
-                        "No account was found with this email.";
-
-            } else if (firebaseMessage.contains("invalid-email")) {
-
-                message =
-                        "Please enter a valid email address.";
-
-            } else if (firebaseMessage.contains("too-many-requests")
-                    || firebaseMessage.contains("too many requests")) {
-
-                message =
-                        "Too many attempts. Please try again later.";
-            }
-        }
-
-        showMessage(message);
-    }
-
-    private void showFirebaseGoogleError(Exception exception) {
-
-        String message =
-                "Google authentication failed. Please try again.";
-
-        if (exception != null
-                && exception.getMessage() != null) {
-
-            String firebaseMessage =
-                    exception.getMessage()
-                            .toLowerCase();
-
-            if (firebaseMessage.contains("network")) {
-
-                message =
-                        "Network error. Please check your internet connection.";
-
-            } else if (firebaseMessage.contains("too-many-requests")
-                    || firebaseMessage.contains("too many requests")) {
-
-                message =
-                        "Too many attempts. Please try again later.";
-            }
-        }
-
-        showMessage(message);
-    }
+    // ---------------------------------------------------------
+    // VALIDATION
+    // ---------------------------------------------------------
 
     private boolean isValidEmail(String email) {
 
-        if (email.length() > 254) {
-            return false;
-        }
-
-        if (email.contains(" ")) {
-            return false;
-        }
-
-        if (!Patterns.EMAIL_ADDRESS
-                .matcher(email)
-                .matches()) {
-
-            return false;
-        }
-
-        if (email.contains("..")) {
-            return false;
-        }
-
-        if (email.startsWith(".")
-                || email.endsWith(".")) {
-
-            return false;
-        }
-
-        int atIndex = email.indexOf("@");
-
-        if (atIndex <= 0) {
-            return false;
-        }
-
-        String localPart =
-                email.substring(
-                        0,
-                        atIndex
-                );
-
-        if (localPart.startsWith(".")
-                || localPart.endsWith(".")) {
-
-            return false;
-        }
-
-        return true;
+        return !TextUtils.isEmpty(email)
+                && Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
-    private void showError(
-            TextInputLayout inputLayout,
-            EditText editText,
-            String message
-    ) {
+    private void clearErrors() {
 
-        inputLayout.setError(message);
-        editText.requestFocus();
+        emailInputLayout.setError(null);
+        passwordInputLayout.setError(null);
     }
+
+    // ---------------------------------------------------------
+    // LOADING
+    // ---------------------------------------------------------
 
     private void setLoginLoading(boolean loading) {
 
         loginButton.setEnabled(!loading);
+        googleSignInButton.setEnabled(!loading);
 
         if (loading) {
 
-            loginButton.setText(
-                    "Logging in..."
-            );
-
+            loginButton.setText("Logging in...");
             loginButton.setAlpha(0.7f);
+            googleSignInButton.setAlpha(0.6f);
 
         } else {
 
-            loginButton.setText(
-                    "Login"
-            );
-
-            loginButton.setAlpha(1.0f);
+            loginButton.setText("Login");
+            loginButton.setAlpha(1f);
+            googleSignInButton.setAlpha(1f);
         }
+    }
+
+    // ---------------------------------------------------------
+    // MESSAGES
+    // ---------------------------------------------------------
+
+    private void showError(String message) {
+
+        View root = findViewById(R.id.loginRoot);
+
+        Snackbar snackbar =
+                Snackbar.make(
+                        root,
+                        message,
+                        Snackbar.LENGTH_LONG
+                );
+
+        snackbar.setBackgroundTint(
+                getColor(R.color.error_color)
+        );
+
+        snackbar.show();
     }
 
     private void showMessage(String message) {
 
-        if (rootView != null) {
+        View root = findViewById(R.id.loginRoot);
 
-            Snackbar.make(
-                    rootView,
-                    message,
-                    Snackbar.LENGTH_LONG
-            ).show();
-
-        } else {
-
-            android.widget.Toast.makeText(
-                    this,
-                    message,
-                    android.widget.Toast.LENGTH_LONG
-            ).show();
-        }
+        Snackbar.make(
+                root,
+                message,
+                Snackbar.LENGTH_LONG
+        ).show();
     }
 
-    private void animateEntrance() {
+    // ---------------------------------------------------------
+    // ANIMATIONS
+    // ---------------------------------------------------------
 
-        if (rootView == null) {
-            return;
-        }
-
-        rootView.setAlpha(0f);
-        rootView.setTranslationY(20f);
-
-        rootView.animate()
-                .alpha(1f)
-                .translationY(0f)
-                .setDuration(250)
-                .start();
-    }
-
-    private void addPressAnimation(View view) {
+    private void animateEntrance(View view) {
 
         if (view == null) {
             return;
         }
 
-        view.setOnTouchListener(
-                (v, event) -> {
+        view.setAlpha(0f);
+        view.setTranslationY(18f);
 
-                    switch (event.getAction()) {
-
-                        case MotionEvent.ACTION_DOWN:
-
-                            v.animate()
-                                    .scaleX(0.98f)
-                                    .scaleY(0.98f)
-                                    .setDuration(80)
-                                    .start();
-
-                            break;
-
-                        case MotionEvent.ACTION_UP:
-
-                            v.animate()
-                                    .scaleX(1f)
-                                    .scaleY(1f)
-                                    .setDuration(80)
-                                    .start();
-
-                            v.performClick();
-
-                            break;
-
-                        case MotionEvent.ACTION_CANCEL:
-
-                            v.animate()
-                                    .scaleX(1f)
-                                    .scaleY(1f)
-                                    .setDuration(80)
-                                    .start();
-
-                            break;
-                    }
-
-                    return false;
-                }
-        );
+        view.animate()
+                .alpha(1f)
+                .translationY(0f)
+                .setDuration(350)
+                .start();
     }
 
     private void addClickEffect(View view) {
@@ -774,67 +559,113 @@ public class LoginActivity extends AppCompatActivity {
                 .scaleY(0.96f)
                 .alpha(0.65f)
                 .setDuration(70)
-                .withEndAction(() -> {
-
-                    view.animate()
-                            .scaleX(1f)
-                            .scaleY(1f)
-                            .alpha(1f)
-                            .setDuration(120)
-                            .start();
-
-                })
+                .withEndAction(() ->
+                        view.animate()
+                                .scaleX(1f)
+                                .scaleY(1f)
+                                .alpha(1f)
+                                .setDuration(120)
+                                .start()
+                )
                 .start();
     }
+
+    private void addPressAnimation(View view) {
+
+        if (view == null) {
+            return;
+        }
+
+        view.setOnTouchListener((v, event) -> {
+
+            switch (event.getAction()) {
+
+                case MotionEvent.ACTION_DOWN:
+
+                    v.animate()
+                            .scaleX(0.98f)
+                            .scaleY(0.98f)
+                            .setDuration(70)
+                            .start();
+
+                    break;
+
+                case MotionEvent.ACTION_UP:
+
+                    v.animate()
+                            .scaleX(1f)
+                            .scaleY(1f)
+                            .setDuration(90)
+                            .start();
+
+                    v.performClick();
+
+                    break;
+
+                case MotionEvent.ACTION_CANCEL:
+
+                    v.animate()
+                            .scaleX(1f)
+                            .scaleY(1f)
+                            .setDuration(90)
+                            .start();
+
+                    break;
+            }
+
+            return false;
+        });
+    }
+
+    // ---------------------------------------------------------
+    // NEXT SCREEN
+    // ---------------------------------------------------------
 
     private void openNextScreen() {
 
         boolean setupCompleted =
-                sharedPreferences.getBoolean(
-                        "setup_completed",
-                        false
-                );
+                prefs.getBoolean("setup_completed", false);
 
         Intent intent;
 
         if (setupCompleted) {
 
-            intent =
-                    new Intent(
-                            LoginActivity.this,
-                            HomeActivity.class
-                    );
+            intent = new Intent(
+                    LoginActivity.this,
+                    HomeActivity.class
+            );
 
         } else {
 
-            intent =
-                    new Intent(
-                            LoginActivity.this,
-                            SetupActivity.class
-                    );
+            intent = new Intent(
+                    LoginActivity.this,
+                    SetupActivity.class
+            );
         }
 
         startActivity(intent);
-
-        finish();
 
         overridePendingTransition(
                 android.R.anim.fade_in,
                 android.R.anim.fade_out
         );
+
+        finish();
     }
+
+    // ---------------------------------------------------------
+    // CLEANUP
+    // ---------------------------------------------------------
 
     @Override
     protected void onDestroy() {
 
-        if (credentialExecutor
-                instanceof ExecutorService) {
-
-            ((ExecutorService)
-                    credentialExecutor)
-                    .shutdown();
-        }
-
         super.onDestroy();
+
+        if (executorService != null
+                && !executorService.isShutdown()) {
+
+            executorService.shutdown();
+        }
     }
 }
