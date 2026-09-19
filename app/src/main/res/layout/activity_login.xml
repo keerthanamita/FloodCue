@@ -170,6 +170,7 @@
                     android:id="@+id/buttonLogin"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:padding="1dp"
                     android:layout_marginTop="6dp"
                     android:text="Login"
                     android:textAllCaps="false"
@@ -215,45 +216,38 @@
                 android:background="@color/divider_color" />
 
         </LinearLayout>
-
-        <!-- Google button with rounded container -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/googleButtonContainer"
+        <!-- Google Sign-In -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonGoogleSignIn"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="52dp"
             android:layout_marginTop="9dp"
-            android:clipToOutline="true"
-            app:cardBackgroundColor="@color/background_color"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="0dp"
-            app:strokeColor="@color/google_button_border"
-            app:strokeWidth="1dp">
 
-            <!-- Google Sign-In -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonGoogleSignIn"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
+            android:padding="3dp"
 
-                android:text="Sign in with Google"
-                android:textColor="@color/google_button_text"
-                android:textSize="15sp"
-                android:textStyle="normal"
-                android:textAllCaps="false"
-                android:gravity="center"
-                android:fontFamily="sans"
+            android:text="Sign in with Google"
+            android:textColor="@color/google_button_text"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            android:textAllCaps="false"
+            android:gravity="center"
+            android:fontFamily="sans"
 
-                app:backgroundTint="@color/google_button_background"
-                app:cornerRadius="24dp"
-                app:strokeColor="@color/google_button_border"
-                app:strokeWidth="1dp"
-                app:rippleColor="@color/button_ripple"
-                app:elevation="0dp"
-                app:icon="@drawable/ic_google"
-                app:iconGravity="textStart"
-                app:iconPadding="12dp"
-                app:iconTint="@null" />
-        </com.google.android.material.card.MaterialCardView>
+            app:backgroundTint="@color/background_color"
+            app:cornerRadius="24dp"
+
+            app:strokeColor="@color/button_ripple"
+            app:strokeWidth="1dp"
+
+            app:rippleColor="@color/link_color"
+            app:elevation="0dp"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:translationZ="0dp"
+            app:icon="@drawable/ic_google"
+            app:iconGravity="textStart"
+            app:iconPadding="12dp"
+            app:iconTint="@null" />
 
         <!-- Create account -->
         <TextView

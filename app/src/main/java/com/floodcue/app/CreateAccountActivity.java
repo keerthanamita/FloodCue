@@ -216,6 +216,10 @@ public class CreateAccountActivity extends AppCompatActivity {
         // Password validation
         // ---------------------------------
 
+        // ---------------------------------
+// Password validation
+// ---------------------------------
+
         if (TextUtils.isEmpty(password)) {
 
             showError(
@@ -227,31 +231,9 @@ public class CreateAccountActivity extends AppCompatActivity {
             return;
         }
 
-        if (password.length() < 6) {
-
-            showError(
-                    passwordInputLayout,
-                    passwordEditText,
-                    "Password must contain at least 6 characters"
-            );
-
-            return;
-        }
-
-        if (password.trim().isEmpty()) {
-
-            showError(
-                    passwordInputLayout,
-                    passwordEditText,
-                    "Password cannot contain only spaces"
-            );
-
-            return;
-        }
-
-        // ---------------------------------
-        // Confirm password
-        // ---------------------------------
+// ---------------------------------
+// Confirm password
+// ---------------------------------
 
         if (TextUtils.isEmpty(confirmPassword)) {
 
@@ -274,7 +256,6 @@ public class CreateAccountActivity extends AppCompatActivity {
 
             return;
         }
-
         // ---------------------------------
         // Create Firebase account
         // ---------------------------------
@@ -480,17 +461,12 @@ public class CreateAccountActivity extends AppCompatActivity {
 
         if (loading) {
 
-            createAccountButton.setText(
-                    "Creating account..."
-            );
+
 
             createAccountButton.setAlpha(0.7f);
 
         } else {
 
-            createAccountButton.setText(
-                    "Create account"
-            );
 
             createAccountButton.setAlpha(1.0f);
         }

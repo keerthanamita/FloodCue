@@ -564,14 +564,10 @@ public class LoginActivity extends AppCompatActivity {
         googleSignInButton.setEnabled(!loading);
 
         if (loading) {
-
-            loginButton.setText("Logging in...");
             loginButton.setAlpha(0.7f);
             googleSignInButton.setAlpha(0.6f);
 
         } else {
-
-            loginButton.setText("Login");
             loginButton.setAlpha(1f);
             googleSignInButton.setAlpha(1f);
         }

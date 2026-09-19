@@ -36,9 +36,8 @@
 
   <!-- Google button -->
   <color name="google_button_background">#FFFFFF</color>
-  <color name="google_button_text">#1F1F1F</color>
-  <color name="google_button_border">#D5D8DE</color>
-
+  <color name="google_button_border">#747474</color>
+  <color name="google_button_text">#202124</color>
   <!-- Error -->
   <color name="error_color">#B3261E</color>
 
