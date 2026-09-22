@@ -42,6 +42,14 @@
         <item name="hintTextColor">@color/text_secondary</item>
 
     </style>
+
+    <style name="CollapsedHintTextStyle">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="ExpandedHintTextStyle">
+        <item name="android:textSize">15sp</item>
+    </style>
     <!-- DO NOT CHANGE THIS. This is your existing Splash theme. -->
     <style
         name="Theme.FloodCue.Splash"

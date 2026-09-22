@@ -205,19 +205,58 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         // =========================================================
-        // PASSWORD FOCUS
+        // EMAIL FOCUS AND TEXT SIZE
         // =========================================================
 
-        passwordEditText.setOnFocusChangeListener(
-                (v, hasFocus) -> {
+        emailEditText.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus || (emailEditText.getText() != null && emailEditText.getText().length() > 0)) {
+                emailEditText.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 10);
+            } else {
+                emailEditText.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 15);
+            }
+        });
 
-                    if (hasFocus) {
-                        passwordInputLayout.setBoxStrokeWidth(2);
-                    } else {
-                        passwordInputLayout.setBoxStrokeWidth(1);
-                    }
+        emailEditText.addTextChangedListener(new android.text.TextWatcher() {
+            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            @Override public void afterTextChanged(android.text.Editable s) {
+                if (emailEditText.hasFocus() || s.length() > 0) {
+                    emailEditText.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 10);
+                } else {
+                    emailEditText.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 15);
                 }
-        );
+            }
+        });
+
+        // =========================================================
+        // PASSWORD FOCUS AND TEXT SIZE
+        // =========================================================
+
+        passwordEditText.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) {
+                passwordInputLayout.setBoxStrokeWidth(2);
+            } else {
+                passwordInputLayout.setBoxStrokeWidth(1);
+            }
+
+            if (hasFocus || (passwordEditText.getText() != null && passwordEditText.getText().length() > 0)) {
+                passwordEditText.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 10);
+            } else {
+                passwordEditText.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 15);
+            }
+        });
+
+        passwordEditText.addTextChangedListener(new android.text.TextWatcher() {
+            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            @Override public void afterTextChanged(android.text.Editable s) {
+                if (passwordEditText.hasFocus() || s.length() > 0) {
+                    passwordEditText.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 10);
+                } else {
+                    passwordEditText.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 15);
+                }
+            }
+        });
 
         // =========================================================
         // ENTRANCE ANIMATION

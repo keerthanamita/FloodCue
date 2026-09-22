@@ -90,18 +90,20 @@
                     app:boxStrokeWidth="1dp"
                     app:boxStrokeWidthFocused="2dp"
                     app:hintTextColor="@color/text_secondary"
-                    app:boxStrokeColor="@color/input_stroke">
+                    app:boxStrokeColor="@color/input_stroke"
+                    app:hintTextAppearance="@style/CollapsedHintTextStyle">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:layout_height="56dp"
                         android:id="@+id/editTextEmail"
                         android:layout_width="match_parent"
+                        android:layout_height="56dp"
                         android:inputType="textEmailAddress"
                         android:singleLine="true"
                         android:paddingStart="14dp"
                         android:paddingEnd="14dp"
                         android:textColor="@color/text_primary"
                         android:textColorHint="@color/text_secondary"
+                        android:textSize="15sp"
                         android:fontFamily="sans" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -123,6 +125,7 @@
                     app:boxStrokeWidthFocused="2dp"
                     app:hintTextColor="@color/text_secondary"
                     app:boxStrokeColor="@color/input_stroke"
+                    app:hintTextAppearance="@style/CollapsedHintTextStyle"
                     app:endIconMode="password_toggle">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -135,6 +138,7 @@
                         android:paddingEnd="14dp"
                         android:textColor="@color/text_primary"
                         android:textColorHint="@color/text_secondary"
+                        android:textSize="15sp"
                         android:fontFamily="sans" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -156,18 +160,20 @@
                     app:boxStrokeWidthFocused="2dp"
                     app:hintTextColor="@color/text_secondary"
                     app:boxStrokeColor="@color/input_stroke"
+                    app:hintTextAppearance="@style/CollapsedHintTextStyle"
                     app:endIconMode="password_toggle">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:layout_height="56dp"
                         android:id="@+id/editTextConfirmPassword"
                         android:layout_width="match_parent"
+                        android:layout_height="56dp"
                         android:inputType="textPassword"
                         android:singleLine="true"
                         android:paddingStart="14dp"
                         android:paddingEnd="14dp"
                         android:textColor="@color/text_primary"
                         android:textColorHint="@color/text_secondary"
+                        android:textSize="15sp"
                         android:fontFamily="sans" />
 
                 </com.google.android.material.textfield.TextInputLayout>
