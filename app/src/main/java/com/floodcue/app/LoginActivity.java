@@ -1,11 +1,18 @@
 package com.floodcue.app;
 
 import android.content.Intent;
+import android.graphics.Outline;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.util.Patterns;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewOutlineProvider;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +22,6 @@ import androidx.credentials.CustomCredential;
 import androidx.credentials.GetCredentialRequest;
 import androidx.credentials.GetCredentialResponse;
 
-import com.google.android.material.button.MaterialButton;
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption;
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential;
 import com.google.android.material.button.MaterialButton;
@@ -29,15 +35,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import android.graphics.Typeface;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.StyleSpan;
-
-import android.graphics.Outline;
-import android.view.ViewOutlineProvider;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -66,6 +63,10 @@ public class LoginActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
 
+        // =========================================================
+        // INITIALIZE VIEWS
+        // =========================================================
+
         View loginRoot = findViewById(R.id.loginRoot);
 
         emailInputLayout = findViewById(R.id.emailInputLayout);
@@ -74,12 +75,19 @@ public class LoginActivity extends AppCompatActivity {
         emailEditText = findViewById(R.id.editTextEmail);
         passwordEditText = findViewById(R.id.editTextPassword);
 
+
         loginButton = findViewById(R.id.buttonLogin);
         googleSignInButton = findViewById(R.id.buttonGoogleSignIn);
 
         forgotPasswordText = findViewById(R.id.textForgotPassword);
         createAccountText = findViewById(R.id.textCreateAccount);
-        String createAccountLabel = "Don't have an account? Create Account";
+
+        // =========================================================
+        // CREATE ACCOUNT TEXT
+        // =========================================================
+
+        String createAccountLabel =
+                "Don't have an account? Create Account";
 
         SpannableString spannable =
                 new SpannableString(createAccountLabel);
@@ -104,14 +112,28 @@ public class LoginActivity extends AppCompatActivity {
         );
 
         createAccountText.setText(spannable);
+
+        // =========================================================
+        // FIREBASE
+        // =========================================================
+
         firebaseAuth = FirebaseAuth.getInstance();
 
-        prefs = getSharedPreferences("FloodCuePrefs", MODE_PRIVATE);
+        prefs = getSharedPreferences(
+                "FloodCuePrefs",
+                MODE_PRIVATE
+        );
+
+        // =========================================================
+        // CREDENTIAL MANAGER
+        // =========================================================
 
         credentialManager = CredentialManager.create(this);
         executorService = Executors.newSingleThreadExecutor();
 
-        // Google's official Sign-In button
+        // =========================================================
+        // GOOGLE SIGN-IN BUTTON APPEARANCE
+        // =========================================================
 
         googleSignInButton.setClipToOutline(true);
 
@@ -133,18 +155,30 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 }
         );
-        // Login
+
+        // =========================================================
+        // LOGIN
+        // =========================================================
+
         loginButton.setOnClickListener(v -> {
             loginUser();
         });
 
-        // Forgot Password
+        // =========================================================
+        // FORGOT PASSWORD
+        // =========================================================
+
         forgotPasswordText.setOnClickListener(v -> {
+
             addClickEffect(forgotPasswordText);
+
             resetPassword();
         });
 
-        // Create Account
+        // =========================================================
+        // CREATE ACCOUNT
+        // =========================================================
+
         createAccountText.setOnClickListener(v -> {
 
             addClickEffect(createAccountText);
@@ -162,35 +196,39 @@ public class LoginActivity extends AppCompatActivity {
             );
         });
 
-        // Google Sign-In
+        // =========================================================
+        // GOOGLE SIGN-IN
+        // =========================================================
+
         googleSignInButton.setOnClickListener(v -> {
             signInWithGoogle();
         });
 
-        // Email focus
-        emailEditText.setOnFocusChangeListener((v, hasFocus) -> {
+        // =========================================================
+        // PASSWORD FOCUS
+        // =========================================================
 
-            if (hasFocus) {
-                emailInputLayout.setBoxStrokeWidth(2);
-            } else {
-                emailInputLayout.setBoxStrokeWidth(1);
-            }
-        });
+        passwordEditText.setOnFocusChangeListener(
+                (v, hasFocus) -> {
 
-        // Password focus
-        passwordEditText.setOnFocusChangeListener((v, hasFocus) -> {
+                    if (hasFocus) {
+                        passwordInputLayout.setBoxStrokeWidth(2);
+                    } else {
+                        passwordInputLayout.setBoxStrokeWidth(1);
+                    }
+                }
+        );
 
-            if (hasFocus) {
-                passwordInputLayout.setBoxStrokeWidth(2);
-            } else {
-                passwordInputLayout.setBoxStrokeWidth(1);
-            }
-        });
+        // =========================================================
+        // ENTRANCE ANIMATION
+        // =========================================================
 
-        // Entrance animation
         animateEntrance(loginRoot);
 
-        // Press animation
+        // =========================================================
+        // PRESS ANIMATION
+        // =========================================================
+
         addPressAnimation(loginButton);
         addPressAnimation(googleSignInButton);
     }
@@ -215,18 +253,27 @@ public class LoginActivity extends AppCompatActivity {
 
         if (TextUtils.isEmpty(email)) {
 
-            emailInputLayout.setError("Enter your email");
+            emailInputLayout.setError(
+                    "Enter your email"
+            );
+
             valid = false;
 
         } else if (!isValidEmail(email)) {
 
-            emailInputLayout.setError("Enter a valid email");
+            emailInputLayout.setError(
+                    "Enter a valid email"
+            );
+
             valid = false;
         }
 
         if (TextUtils.isEmpty(password)) {
 
-            passwordInputLayout.setError("Enter your password");
+            passwordInputLayout.setError(
+                    "Enter your password"
+            );
+
             valid = false;
         }
 
@@ -236,7 +283,11 @@ public class LoginActivity extends AppCompatActivity {
 
         setLoginLoading(true);
 
-        firebaseAuth.signInWithEmailAndPassword(email, password)
+        firebaseAuth
+                .signInWithEmailAndPassword(
+                        email,
+                        password
+                )
                 .addOnCompleteListener(this, task -> {
 
                     if (!task.isSuccessful()) {
@@ -252,14 +303,22 @@ public class LoginActivity extends AppCompatActivity {
 
                             if (error != null) {
 
-                                if (error.contains("password is invalid")
-                                        || error.contains("INVALID_LOGIN_CREDENTIALS")
-                                        || error.contains("no user record")) {
+                                if (error.contains(
+                                        "password is invalid"
+                                )
+                                        || error.contains(
+                                        "INVALID_LOGIN_CREDENTIALS"
+                                )
+                                        || error.contains(
+                                        "no user record"
+                                )) {
 
                                     message =
                                             "Incorrect email or password";
 
-                                } else if (error.contains("network")) {
+                                } else if (error.contains(
+                                        "network"
+                                )) {
 
                                     message =
                                             "Check your internet connection";
@@ -281,9 +340,11 @@ public class LoginActivity extends AppCompatActivity {
                     if (user == null) {
 
                         setLoginLoading(false);
+
                         showError(
                                 "Unable to get account information"
                         );
+
                         return;
                     }
 
@@ -300,6 +361,7 @@ public class LoginActivity extends AppCompatActivity {
                                     showError(
                                             "Unable to get account information"
                                     );
+
                                     return;
                                 }
 
@@ -313,7 +375,10 @@ public class LoginActivity extends AppCompatActivity {
                                 }
 
                                 prefs.edit()
-                                        .putBoolean("is_logged_in", true)
+                                        .putBoolean(
+                                                "is_logged_in",
+                                                true
+                                        )
                                         .apply();
 
                                 openNextScreen();
@@ -338,6 +403,7 @@ public class LoginActivity extends AppCompatActivity {
             emailInputLayout.setError(
                     "Enter your email first"
             );
+
             return;
         }
 
@@ -346,13 +412,15 @@ public class LoginActivity extends AppCompatActivity {
             emailInputLayout.setError(
                     "Enter a valid email"
             );
+
             return;
         }
 
         forgotPasswordText.setEnabled(false);
         forgotPasswordText.setAlpha(0.6f);
 
-        firebaseAuth.sendPasswordResetEmail(email)
+        firebaseAuth
+                .sendPasswordResetEmail(email)
                 .addOnCompleteListener(task -> {
 
                     forgotPasswordText.setEnabled(true);
@@ -402,7 +470,9 @@ public class LoginActivity extends AppCompatActivity {
 
         GetCredentialRequest request =
                 new GetCredentialRequest.Builder()
-                        .addCredentialOption(googleIdOption)
+                        .addCredentialOption(
+                                googleIdOption
+                        )
                         .build();
 
         credentialManager.getCredentialAsync(
@@ -416,7 +486,8 @@ public class LoginActivity extends AppCompatActivity {
 
                     @Override
                     public void onResult(
-                            GetCredentialResponse result) {
+                            GetCredentialResponse result
+                    ) {
 
                         runOnUiThread(() -> {
 
@@ -431,7 +502,8 @@ public class LoginActivity extends AppCompatActivity {
 
                     @Override
                     public void onError(
-                            androidx.credentials.exceptions.GetCredentialException e) {
+                            androidx.credentials.exceptions.GetCredentialException e
+                    ) {
 
                         runOnUiThread(() -> {
 
@@ -454,7 +526,9 @@ public class LoginActivity extends AppCompatActivity {
         );
     }
 
-    private void handleCredential(Credential credential) {
+    private void handleCredential(
+            Credential credential
+    ) {
 
         if (credential instanceof CustomCredential) {
 
@@ -463,7 +537,9 @@ public class LoginActivity extends AppCompatActivity {
 
             if (GoogleIdTokenCredential
                     .TYPE_GOOGLE_ID_TOKEN_CREDENTIAL
-                    .equals(customCredential.getType())) {
+                    .equals(
+                            customCredential.getType()
+                    )) {
 
                 try {
 
@@ -500,7 +576,9 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void firebaseAuthWithGoogle(String idToken) {
+    private void firebaseAuthWithGoogle(
+            String idToken
+    ) {
 
         AuthCredential credential =
                 GoogleAuthProvider.getCredential(
@@ -508,13 +586,17 @@ public class LoginActivity extends AppCompatActivity {
                         null
                 );
 
-        firebaseAuth.signInWithCredential(credential)
+        firebaseAuth
+                .signInWithCredential(credential)
                 .addOnCompleteListener(this, task -> {
 
                     if (task.isSuccessful()) {
 
                         prefs.edit()
-                                .putBoolean("is_logged_in", true)
+                                .putBoolean(
+                                        "is_logged_in",
+                                        true
+                                )
                                 .apply();
 
                         openNextScreen();
@@ -540,7 +622,9 @@ public class LoginActivity extends AppCompatActivity {
     // VALIDATION
     // =========================================================
 
-    private boolean isValidEmail(String email) {
+    private boolean isValidEmail(
+            String email
+    ) {
 
         return !TextUtils.isEmpty(email)
                 && Patterns.EMAIL_ADDRESS
@@ -558,16 +642,20 @@ public class LoginActivity extends AppCompatActivity {
     // LOADING
     // =========================================================
 
-    private void setLoginLoading(boolean loading) {
+    private void setLoginLoading(
+            boolean loading
+    ) {
 
         loginButton.setEnabled(!loading);
         googleSignInButton.setEnabled(!loading);
 
         if (loading) {
+
             loginButton.setAlpha(0.7f);
             googleSignInButton.setAlpha(0.6f);
 
         } else {
+
             loginButton.setAlpha(1f);
             googleSignInButton.setAlpha(1f);
         }
@@ -577,7 +665,9 @@ public class LoginActivity extends AppCompatActivity {
     // MESSAGES
     // =========================================================
 
-    private void showError(String message) {
+    private void showError(
+            String message
+    ) {
 
         View root =
                 findViewById(R.id.loginRoot);
@@ -596,7 +686,9 @@ public class LoginActivity extends AppCompatActivity {
         snackbar.show();
     }
 
-    private void showMessage(String message) {
+    private void showMessage(
+            String message
+    ) {
 
         View root =
                 findViewById(R.id.loginRoot);
@@ -612,7 +704,9 @@ public class LoginActivity extends AppCompatActivity {
     // SUBTLE CLICK EFFECT
     // =========================================================
 
-    private void addClickEffect(View view) {
+    private void addClickEffect(
+            View view
+    ) {
 
         if (view == null) {
             return;
@@ -629,11 +723,14 @@ public class LoginActivity extends AppCompatActivity {
                 )
                 .start();
     }
+
     // =========================================================
     // ENTRANCE ANIMATION
     // =========================================================
 
-    private void animateEntrance(View view) {
+    private void animateEntrance(
+            View view
+    ) {
 
         if (view == null) {
             return;
@@ -653,7 +750,9 @@ public class LoginActivity extends AppCompatActivity {
     // PRESS ANIMATION
     // =========================================================
 
-    private void addPressAnimation(View view) {
+    private void addPressAnimation(
+            View view
+    ) {
 
         if (view == null) {
             return;

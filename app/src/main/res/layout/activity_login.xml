@@ -79,7 +79,6 @@
                 android:paddingEnd="16dp"
                 android:paddingTop="14dp"
                 android:paddingBottom="13dp">
-
                 <!-- Email -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/emailInputLayout"
@@ -112,13 +111,13 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Password -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/passwordInputLayout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+
                     android:hint="Password"
                     app:boxBackgroundMode="outline"
                     app:boxCornerRadiusTopStart="12dp"
@@ -132,16 +131,17 @@
                     app:endIconMode="password_toggle">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:layout_height="56dp"
                         android:id="@+id/editTextPassword"
                         android:layout_width="match_parent"
-                        android:layout_height="52dp"
                         android:inputType="textPassword"
                         android:singleLine="true"
                         android:paddingStart="14dp"
                         android:paddingEnd="14dp"
                         android:textColor="@color/text_primary"
                         android:textColorHint="@color/text_secondary"
-                        android:textSize="15sp"
+
+
                         android:fontFamily="sans" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -169,7 +169,7 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/buttonLogin"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="56dp"
                     android:padding="1dp"
                     android:layout_marginTop="6dp"
                     android:text="Login"
@@ -220,7 +220,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonGoogleSignIn"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="56dp"
             android:layout_marginTop="9dp"
 
             android:padding="3dp"

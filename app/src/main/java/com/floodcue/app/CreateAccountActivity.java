@@ -1,8 +1,15 @@
 package com.floodcue.app;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.util.Patterns;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,12 +25,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-
-import android.graphics.Typeface;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.StyleSpan;
+import android.widget.LinearLayout;
 
 public class CreateAccountActivity extends AppCompatActivity {
 
@@ -42,22 +44,42 @@ public class CreateAccountActivity extends AppCompatActivity {
     private View rootView;
     private TextView backToLoginText;
 
+    /*
+     * IMPORTANT:
+     * Keep this value synchronized with the minimum password
+     * length configured in Firebase Authentication.
+     *
+     * Firebase default minimum = 6 characters.
+     */
+    private static final int MIN_PASSWORD_LENGTH = 6;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_create_account);
 
-        // Root layout
+        // =========================================================
+        // ROOT LAYOUT
+        // =========================================================
+
         rootView = findViewById(R.id.createAccountRoot);
 
-        // Input fields
+        // =========================================================
+        // INPUT FIELDS
+        // =========================================================
+
         emailEditText = findViewById(R.id.editTextEmail);
+
         passwordEditText = findViewById(R.id.editTextPassword);
+
         confirmPasswordEditText =
                 findViewById(R.id.editTextConfirmPassword);
 
-        // Input layouts
+        // =========================================================
+        // INPUT LAYOUTS
+        // =========================================================
+
         emailInputLayout =
                 findViewById(R.id.emailInputLayout);
 
@@ -67,47 +89,74 @@ public class CreateAccountActivity extends AppCompatActivity {
         confirmPasswordInputLayout =
                 findViewById(R.id.confirmPasswordInputLayout);
 
-        // Create account button
+        // =========================================================
+        // CREATE ACCOUNT BUTTON
+        // =========================================================
+
         createAccountButton =
                 findViewById(R.id.buttonCreateAccount);
 
-        // Back to Login
+        // =========================================================
+        // BACK TO LOGIN
+        // =========================================================
+
         backToLoginText =
                 findViewById(R.id.textBackToLogin);
-        String loginLabel = "Already have an account? Login";
 
-        SpannableString spannable =
-                new SpannableString(loginLabel);
+        String loginLabel =
+                "Already have an account? Login";
+
+        SpannableStringBuilder spannable =
+                new SpannableStringBuilder(loginLabel);
 
         int start = loginLabel.indexOf("Login");
         int end = start + "Login".length();
 
-        spannable.setSpan(
-                new ForegroundColorSpan(
-                        getColor(R.color.button_primary)
-                ),
-                start,
-                end,
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-        );
+        if (start >= 0) {
 
-        spannable.setSpan(
-                new StyleSpan(Typeface.BOLD),
-                start,
-                end,
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-        );
+            spannable.setSpan(
+                    new ForegroundColorSpan(
+                            getColor(R.color.button_primary)
+                    ),
+                    start,
+                    end,
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+            );
+
+            spannable.setSpan(
+                    new StyleSpan(Typeface.BOLD),
+                    start,
+                    end,
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+            );
+        }
 
         backToLoginText.setText(spannable);
-        // Firebase
+
+        // =========================================================
+        // FIREBASE
+        // =========================================================
+
         firebaseAuth = FirebaseAuth.getInstance();
 
-        // Create account button
+        // =========================================================
+        // PASSWORD POLICY UI
+        // =========================================================
+
+        setupPasswordPolicyFeedback();
+
+        // =========================================================
+        // CREATE ACCOUNT BUTTON
+        // =========================================================
+
         createAccountButton.setOnClickListener(
                 v -> createAccount()
         );
 
-        // Back to Login
+        // =========================================================
+        // BACK TO LOGIN
+        // =========================================================
+
         backToLoginText.setOnClickListener(v -> {
 
             addClickEffect(backToLoginText);
@@ -127,7 +176,10 @@ public class CreateAccountActivity extends AppCompatActivity {
             finish();
         });
 
-        // Clear errors when user focuses on the fields
+        // =========================================================
+        // CLEAR EMAIL ERROR WHEN USER RETURNS TO FIELD
+        // =========================================================
+
         emailEditText.setOnFocusChangeListener(
                 (v, hasFocus) -> {
 
@@ -136,6 +188,10 @@ public class CreateAccountActivity extends AppCompatActivity {
                     }
                 }
         );
+
+        // =========================================================
+        // PASSWORD FIELD FOCUS
+        // =========================================================
 
         passwordEditText.setOnFocusChangeListener(
                 (v, hasFocus) -> {
@@ -146,6 +202,10 @@ public class CreateAccountActivity extends AppCompatActivity {
                 }
         );
 
+        // =========================================================
+        // CONFIRM PASSWORD FIELD FOCUS
+        // =========================================================
+
         confirmPasswordEditText.setOnFocusChangeListener(
                 (v, hasFocus) -> {
 
@@ -155,11 +215,245 @@ public class CreateAccountActivity extends AppCompatActivity {
                 }
         );
 
-        // Entrance animation
+        // =========================================================
+        // ENTRANCE ANIMATION
+        // =========================================================
+
         animateEntrance();
 
-        // Button press animation
+        // =========================================================
+        // BUTTON PRESS ANIMATION
+        // =========================================================
+
         addPressAnimation(createAccountButton);
+    }
+
+    // =========================================================
+    // PASSWORD POLICY FEEDBACK
+    // =========================================================
+
+    private void setupPasswordPolicyFeedback() {
+
+        passwordEditText.addTextChangedListener(
+                new TextWatcher() {
+
+                    @Override
+                    public void beforeTextChanged(
+                            CharSequence s,
+                            int start,
+                            int count,
+                            int after) {
+                    }
+
+                    @Override
+                    public void onTextChanged(
+                            CharSequence s,
+                            int start,
+                            int before,
+                            int count) {
+
+                        updatePasswordRequirements(
+                                s.toString()
+                        );
+
+                        // Clear Firebase password error
+                        // once the user starts correcting it.
+                        if (passwordInputLayout.getError() != null) {
+                            passwordInputLayout.setError(null);
+                        }
+                    }
+
+                    @Override
+                    public void afterTextChanged(
+                            Editable s) {
+                    }
+                }
+        );
+    }
+
+    // =========================================================
+    // UPDATE PASSWORD REQUIREMENT UI
+    // =========================================================
+
+    private void updatePasswordRequirements(
+            String password) {
+
+        boolean hasUppercase =
+                password.matches(".*[A-Z].*");
+
+        boolean hasLowercase =
+                password.matches(".*[a-z].*");
+
+        boolean hasNumber =
+                password.matches(".*[0-9].*");
+
+        boolean hasSpecial =
+                password.matches(
+                        ".*[^a-zA-Z0-9].*"
+                );
+
+        boolean hasMinimumLength =
+                password.length() >= MIN_PASSWORD_LENGTH;
+
+        SpannableStringBuilder builder =
+                new SpannableStringBuilder();
+
+        appendRequirement(
+                builder,
+                hasMinimumLength,
+                "Minimum " + MIN_PASSWORD_LENGTH + " characters"
+        );
+
+        appendRequirement(
+                builder,
+                hasUppercase,
+                "Uppercase letter"
+        );
+
+        appendRequirement(
+                builder,
+                hasLowercase,
+                "Lowercase letter"
+        );
+
+        appendRequirement(
+                builder,
+                hasNumber,
+                "Number"
+        );
+
+        appendRequirement(
+                builder,
+                hasSpecial,
+                "Special character"
+        );
+
+        passwordInputLayout.setHelperText(builder);
+
+        /*
+         * When the password field is empty, don't visually
+         * mark everything as an error. Just show the guidance.
+         */
+    }
+
+    // =========================================================
+    // ADD ONE PASSWORD REQUIREMENT
+    // =========================================================
+
+    private void appendRequirement(
+            SpannableStringBuilder builder,
+            boolean satisfied,
+            String text) {
+
+        int start = builder.length();
+
+        String symbol =
+                satisfied ? "✓ " : "○ ";
+
+        builder.append(symbol);
+        builder.append(text);
+
+        builder.append("\n");
+
+        int end = builder.length();
+
+        int color;
+
+        if (satisfied) {
+            color = getColor(
+                    R.color.button_primary
+            );
+        } else {
+            color = getColor(
+                    android.R.color.darker_gray
+            );
+        }
+
+        builder.setSpan(
+                new ForegroundColorSpan(color),
+                start,
+                end,
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+        );
+
+        if (satisfied) {
+
+            builder.setSpan(
+                    new StyleSpan(Typeface.BOLD),
+                    start,
+                    end,
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+            );
+        }
+    }
+
+    // =========================================================
+    // CHECK PASSWORD REQUIREMENTS
+    // =========================================================
+
+    private boolean isPasswordPolicySatisfied(
+            String password) {
+
+        if (password.length() < MIN_PASSWORD_LENGTH) {
+            return false;
+        }
+
+        boolean hasUppercase =
+                password.matches(".*[A-Z].*");
+
+        boolean hasLowercase =
+                password.matches(".*[a-z].*");
+
+        boolean hasNumber =
+                password.matches(".*[0-9].*");
+
+        boolean hasSpecial =
+                password.matches(
+                        ".*[^a-zA-Z0-9].*"
+                );
+
+        return hasUppercase
+                && hasLowercase
+                && hasNumber
+                && hasSpecial;
+    }
+
+    // =========================================================
+    // GET PASSWORD REQUIREMENT ERROR
+    // =========================================================
+
+    private String getPasswordPolicyError(
+            String password) {
+
+        if (password.length() < MIN_PASSWORD_LENGTH) {
+
+            return "Password needs at least "
+                    + MIN_PASSWORD_LENGTH
+                    + " characters.";
+        }
+
+        if (!password.matches(".*[A-Z].*")) {
+
+            return "Add at least one uppercase letter.";
+        }
+
+        if (!password.matches(".*[a-z].*")) {
+
+            return "Add at least one lowercase letter.";
+        }
+
+        if (!password.matches(".*[0-9].*")) {
+
+            return "Add at least one number.";
+        }
+
+        if (!password.matches(
+                ".*[^a-zA-Z0-9].*")) {
+
+            return "Add at least one special character.";
+        }
+
+        return null;
     }
 
     // =========================================================
@@ -181,21 +475,24 @@ public class CreateAccountActivity extends AppCompatActivity {
                 confirmPasswordEditText.getText()
                         .toString();
 
-        // Clear old errors
+        // =====================================================
+        // CLEAR OLD ERRORS
+        // =====================================================
+
         emailInputLayout.setError(null);
         passwordInputLayout.setError(null);
         confirmPasswordInputLayout.setError(null);
 
-        // ---------------------------------
-        // Email validation
-        // ---------------------------------
+        // =====================================================
+        // EMAIL VALIDATION
+        // =====================================================
 
         if (TextUtils.isEmpty(email)) {
 
             showError(
                     emailInputLayout,
                     emailEditText,
-                    "Enter your email"
+                    "Enter your email."
             );
 
             return;
@@ -206,59 +503,112 @@ public class CreateAccountActivity extends AppCompatActivity {
             showError(
                     emailInputLayout,
                     emailEditText,
-                    "Enter a valid email address"
+                    "Enter a valid email address."
             );
 
             return;
         }
 
-        // ---------------------------------
-        // Password validation
-        // ---------------------------------
-
-        // ---------------------------------
-// Password validation
-// ---------------------------------
+        // =====================================================
+        // PASSWORD EMPTY CHECK
+        // =====================================================
 
         if (TextUtils.isEmpty(password)) {
 
             showError(
                     passwordInputLayout,
                     passwordEditText,
-                    "Enter a password"
+                    "Enter a password."
             );
 
             return;
         }
 
-// ---------------------------------
-// Confirm password
-// ---------------------------------
+        // =====================================================
+        // PASSWORD WHITESPACE CHECK
+        // =====================================================
+
+        if (password.trim().isEmpty()) {
+
+            showError(
+                    passwordInputLayout,
+                    passwordEditText,
+                    "Password cannot contain only spaces."
+            );
+
+            return;
+        }
+
+        // =====================================================
+        // PASSWORD MAXIMUM LENGTH
+        // Firebase supports up to 4096 characters.
+        // =====================================================
+
+        if (password.length() > 4096) {
+
+            showError(
+                    passwordInputLayout,
+                    passwordEditText,
+                    "Password is too long."
+            );
+
+            return;
+        }
+
+        // =====================================================
+        // PASSWORD POLICY UI VALIDATION
+        //
+        // This is only for immediate user feedback.
+        // Firebase remains the final authority.
+        // =====================================================
+
+        if (!isPasswordPolicySatisfied(password)) {
+
+            String policyError =
+                    getPasswordPolicyError(password);
+
+            showError(
+                    passwordInputLayout,
+                    passwordEditText,
+                    policyError
+            );
+
+            return;
+        }
+
+        // =====================================================
+        // CONFIRM PASSWORD EMPTY CHECK
+        // =====================================================
 
         if (TextUtils.isEmpty(confirmPassword)) {
 
             showError(
                     confirmPasswordInputLayout,
                     confirmPasswordEditText,
-                    "Confirm your password"
+                    "Confirm your password."
             );
 
             return;
         }
+
+        // =====================================================
+        // CONFIRM PASSWORD MATCH
+        // =====================================================
 
         if (!password.equals(confirmPassword)) {
 
             showError(
                     confirmPasswordInputLayout,
                     confirmPasswordEditText,
-                    "Passwords do not match"
+                    "Passwords do not match."
             );
 
             return;
         }
-        // ---------------------------------
-        // Create Firebase account
-        // ---------------------------------
+
+        // =====================================================
+        // CREATE FIREBASE ACCOUNT
+        // =====================================================
 
         setLoading(true);
 
@@ -267,42 +617,46 @@ public class CreateAccountActivity extends AppCompatActivity {
                         email,
                         password
                 )
-                .addOnCompleteListener(this, task -> {
+                .addOnCompleteListener(
+                        this,
+                        task -> {
 
-                    if (task.isSuccessful()) {
+                            if (task.isSuccessful()) {
 
-                        FirebaseUser user =
-                                firebaseAuth.getCurrentUser();
+                                FirebaseUser user =
+                                        firebaseAuth.getCurrentUser();
 
-                        if (user != null) {
+                                if (user != null) {
 
-                            sendVerificationEmail(user);
+                                    sendVerificationEmail(user);
 
-                        } else {
+                                } else {
 
-                            setLoading(false);
+                                    setLoading(false);
 
-                            showMessage(
-                                    "Account creation failed. Please try again."
-                            );
+                                    showMessage(
+                                            "Account creation failed. Please try again."
+                                    );
+                                }
+
+                            } else {
+
+                                setLoading(false);
+
+                                showFirebaseError(
+                                        task.getException()
+                                );
+                            }
                         }
-
-                    } else {
-
-                        setLoading(false);
-
-                        showFirebaseError(
-                                task.getException()
-                        );
-                    }
-                });
+                );
     }
 
     // =========================================================
     // SEND VERIFICATION EMAIL
     // =========================================================
 
-    private void sendVerificationEmail(FirebaseUser user) {
+    private void sendVerificationEmail(
+            FirebaseUser user) {
 
         user.sendEmailVerification()
                 .addOnCompleteListener(
@@ -330,19 +684,20 @@ public class CreateAccountActivity extends AppCompatActivity {
     // EMAIL VALIDATION
     // =========================================================
 
-    private boolean isValidEmail(String email) {
+    private boolean isValidEmail(
+            String email) {
 
-        // Maximum practical email length
+        // Maximum practical email length.
         if (email.length() > 254) {
             return false;
         }
 
-        // Spaces are not allowed
+        // Spaces are not allowed.
         if (email.contains(" ")) {
             return false;
         }
 
-        // Standard Android email pattern
+        // Standard Android email pattern.
         if (!Patterns.EMAIL_ADDRESS
                 .matcher(email)
                 .matches()) {
@@ -350,27 +705,31 @@ public class CreateAccountActivity extends AppCompatActivity {
             return false;
         }
 
-        // Avoid consecutive dots
+        // Avoid consecutive dots.
         if (email.contains("..")) {
             return false;
         }
 
-        // Avoid dot at beginning/end
+        // Avoid dot at beginning/end.
         if (email.startsWith(".")
                 || email.endsWith(".")) {
 
             return false;
         }
 
-        // Check local part
-        int atIndex = email.indexOf("@");
+        // Check local part.
+        int atIndex =
+                email.indexOf("@");
 
         if (atIndex <= 0) {
             return false;
         }
 
         String localPart =
-                email.substring(0, atIndex);
+                email.substring(
+                        0,
+                        atIndex
+                );
 
         if (localPart.startsWith(".")
                 || localPart.endsWith(".")) {
@@ -388,18 +747,33 @@ public class CreateAccountActivity extends AppCompatActivity {
     private void showError(
             TextInputLayout inputLayout,
             EditText editText,
-            String message
-    ) {
+            String message) {
+
+        if (inputLayout == passwordInputLayout) {
+            inputLayout.setHelperText(null);
+        }
 
         inputLayout.setError(message);
+
         editText.requestFocus();
+
+        if (inputLayout == passwordInputLayout) {
+            LinearLayout.LayoutParams params =
+                    (LinearLayout.LayoutParams)
+                            confirmPasswordInputLayout.getLayoutParams();
+
+            params.topMargin = 0;
+
+            confirmPasswordInputLayout.setLayoutParams(params);
+        }
     }
 
     // =========================================================
     // FIREBASE ERROR HANDLING
     // =========================================================
 
-    private void showFirebaseError(Exception exception) {
+    private void showFirebaseError(
+            Exception exception) {
 
         String message =
                 "Account creation failed. Please try again.";
@@ -408,39 +782,105 @@ public class CreateAccountActivity extends AppCompatActivity {
                 && exception.getMessage() != null) {
 
             String firebaseMessage =
-                    exception.getMessage().toLowerCase();
+                    exception.getMessage()
+                            .toLowerCase();
 
-            if (firebaseMessage.contains("already in use")
+            // =================================================
+            // EMAIL ALREADY EXISTS
+            // =================================================
+
+            if (firebaseMessage.contains(
+                    "already in use")
                     || firebaseMessage.contains(
                     "email-already-in-use")) {
 
                 message =
                         "An account already exists with this email.";
 
-            } else if (firebaseMessage.contains("weak-password")
-                    || firebaseMessage.contains(
-                    "password is too weak")) {
+            }
 
-                message =
-                        "Password is too weak. Please choose a stronger password.";
+            // =================================================
+            // PASSWORD POLICY / WEAK PASSWORD
+            // =================================================
 
-            } else if (firebaseMessage.contains(
+            else if (
+                    firebaseMessage.contains(
+                            "weak-password")
+                            || firebaseMessage.contains(
+                            "password is too weak")
+                            || firebaseMessage.contains(
+                            "password policy")
+                            || firebaseMessage.contains(
+                            "password does not meet")
+                            || firebaseMessage.contains(
+                            "password requirements")
+            ) {
+
+                String policyError =
+                        getPasswordPolicyError(
+                                passwordEditText
+                                        .getText()
+                                        .toString()
+                        );
+
+                if (policyError != null) {
+
+                    showError(
+                            passwordInputLayout,
+                            passwordEditText,
+                            policyError
+                    );
+
+                    return;
+
+                } else {
+
+                    message =
+                            "Password does not meet the required Firebase password policy.";
+                }
+            }
+
+            // =================================================
+            // TOO MANY REQUESTS
+            // =================================================
+
+            else if (firebaseMessage.contains(
                     "too-many-requests")) {
 
                 message =
                         "Too many attempts. Please try again later.";
 
-            } else if (firebaseMessage.contains("network")) {
+            }
+
+            // =================================================
+            // NETWORK ERROR
+            // =================================================
+
+            else if (firebaseMessage.contains(
+                    "network")) {
 
                 message =
                         "Network error. Please check your internet connection.";
 
-            } else if (firebaseMessage.contains("invalid-email")) {
+            }
+
+            // =================================================
+            // INVALID EMAIL
+            // =================================================
+
+            else if (firebaseMessage.contains(
+                    "invalid-email")) {
 
                 message =
                         "Please enter a valid email address.";
 
-            } else if (firebaseMessage.contains(
+            }
+
+            // =================================================
+            // OPERATION NOT ALLOWED
+            // =================================================
+
+            else if (firebaseMessage.contains(
                     "operation-not-allowed")) {
 
                 message =
@@ -455,20 +895,24 @@ public class CreateAccountActivity extends AppCompatActivity {
     // LOADING STATE
     // =========================================================
 
-    private void setLoading(boolean loading) {
+    private void setLoading(
+            boolean loading) {
 
-        createAccountButton.setEnabled(!loading);
+        createAccountButton.setEnabled(
+                !loading
+        );
 
         if (loading) {
 
-
-
-            createAccountButton.setAlpha(0.7f);
+            createAccountButton.setAlpha(
+                    0.7f
+            );
 
         } else {
 
-
-            createAccountButton.setAlpha(1.0f);
+            createAccountButton.setAlpha(
+                    1.0f
+            );
         }
     }
 
@@ -476,7 +920,8 @@ public class CreateAccountActivity extends AppCompatActivity {
     // SUCCESS / ERROR MESSAGE
     // =========================================================
 
-    private void showMessage(String message) {
+    private void showMessage(
+            String message) {
 
         if (rootView != null) {
 
@@ -507,6 +952,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         }
 
         rootView.setAlpha(0f);
+
         rootView.setTranslationY(20f);
 
         rootView.animate()
@@ -520,7 +966,8 @@ public class CreateAccountActivity extends AppCompatActivity {
     // SUBTLE LINK CLICK EFFECT
     // =========================================================
 
-    private void addClickEffect(View view) {
+    private void addClickEffect(
+            View view) {
 
         if (view == null) {
             return;
@@ -542,7 +989,8 @@ public class CreateAccountActivity extends AppCompatActivity {
     // BUTTON PRESS ANIMATION
     // =========================================================
 
-    private void addPressAnimation(View view) {
+    private void addPressAnimation(
+            View view) {
 
         if (view == null) {
             return;
@@ -599,7 +1047,10 @@ public class CreateAccountActivity extends AppCompatActivity {
     protected void onDestroy() {
 
         if (createAccountButton != null) {
-            createAccountButton.setOnTouchListener(null);
+
+            createAccountButton.setOnTouchListener(
+                    null
+            );
         }
 
         super.onDestroy();
