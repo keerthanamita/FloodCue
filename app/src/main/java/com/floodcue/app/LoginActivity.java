@@ -718,9 +718,7 @@ public class LoginActivity extends AppCompatActivity {
                         Snackbar.LENGTH_LONG
                 );
 
-        snackbar.setBackgroundTint(
-                getColor(R.color.error_color)
-        );
+
 
         snackbar.show();
     }
