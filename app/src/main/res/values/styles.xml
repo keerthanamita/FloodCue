@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SetupSectionTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">22dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textColor">#2457A7</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <string-array name="floodcue_languages">
+        <item>English</item>
+        <item>Telugu</item>
+        <item>Hindi</item>
+        <item>Tamil</item>
+        <item>Kannada</item>
+        <item>Malayalam</item>
+    </string-array>
+
+</resources>

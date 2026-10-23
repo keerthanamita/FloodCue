@@ -851,23 +851,38 @@ public class LoginActivity extends AppCompatActivity {
 
     private void openNextScreen() {
 
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+
+        if (user == null) {
+            showError("Unable to get account information");
+            return;
+        }
+
+        String setupKey = "setup_completed_" + user.getUid();
+
         boolean setupCompleted =
-                prefs.getBoolean(
-                        "setup_completed",
-                        false
-                );
+                prefs.getBoolean(setupKey, false);
+
+        // Preserve completed setup from the old preference key
+        if (!setupCompleted) {
+            setupCompleted =
+                    prefs.getBoolean("setup_completed", false);
+
+            if (setupCompleted) {
+                prefs.edit()
+                        .putBoolean(setupKey, true)
+                        .apply();
+            }
+        }
 
         Intent intent;
 
         if (setupCompleted) {
-
             intent = new Intent(
                     LoginActivity.this,
                     HomeActivity.class
             );
-
         } else {
-
             intent = new Intent(
                     LoginActivity.this,
                     SetupActivity.class
@@ -875,15 +890,12 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         startActivity(intent);
-
         overridePendingTransition(
                 android.R.anim.fade_in,
                 android.R.anim.fade_out
         );
-
         finish();
     }
-
     // =========================================================
     // CLEANUP
     // =========================================================

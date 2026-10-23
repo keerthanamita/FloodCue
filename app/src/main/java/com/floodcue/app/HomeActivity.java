@@ -35,7 +35,71 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_home);
+        android.widget.Button btnViewSavedDetails =
+                findViewById(R.id.btnViewSavedDetails);
 
+        android.widget.ScrollView savedDetailsScroll =
+                findViewById(R.id.savedDetailsScroll);
+
+        android.widget.TextView txtSavedDetails =
+                findViewById(R.id.txtSavedDetails);
+
+        btnViewSavedDetails.setOnClickListener(v -> {
+
+            com.google.firebase.auth.FirebaseUser user =
+                    com.google.firebase.auth.FirebaseAuth
+                            .getInstance().getCurrentUser();
+
+            if (user == null) {
+                txtSavedDetails.setText("Please login first.");
+                savedDetailsScroll.setVisibility(android.view.View.VISIBLE);
+                return;
+            }
+
+            UserProfile profile =
+                    ProfileStorage.getProfile(this, user.getUid());
+
+            if (profile == null) {
+                txtSavedDetails.setText(
+                        "No local profile found on this device."
+                );
+            } else {
+                String details =
+                        "LOCAL SAVED PROFILE\n\n" +
+                                "Name: " + profile.full_name +
+                                "\nBlood Group: " + profile.blood_group +
+                                "\nAllergies: " + profile.allergies +
+                                "\nOther Allergies: " + profile.other_allergies +
+                                "\nMedications: " + profile.medications +
+                                "\nMedical Notes: " + profile.medical_notes +
+                                "\n\nPRIMARY CONTACT\n" +
+                                "Name: " + profile.primary_contact_name +
+                                "\nRelationship: " + profile.primary_contact_relationship +
+                                "\nPhone: " + profile.primary_contact_phone +
+                                "\nAlternate Phone: " + profile.primary_contact_alt_phone +
+                                "\n\nSECOND CONTACT\n" +
+                                "Name: " + profile.second_contact_name +
+                                "\nRelationship: " + profile.second_contact_relationship +
+                                "\nPhone: " + profile.second_contact_phone +
+                                "\nAlternate Phone: " + profile.second_contact_alt_phone +
+                                "\n\nTHIRD CONTACT\n" +
+                                "Name: " + profile.third_contact_name +
+                                "\nRelationship: " + profile.third_contact_relationship +
+                                "\nPhone: " + profile.third_contact_phone +
+                                "\nAlternate Phone: " + profile.third_contact_alt_phone +
+                                "\n\nAssistance: " + profile.special_assistance +
+                                "\nCountry: " + profile.country +
+                                "\nState: " + profile.state +
+                                "\nDistrict: " + profile.district +
+                                "\nApp Language: " + profile.app_language +
+                                "\nSurvival Language: " + profile.survival_language +
+                                "\nSetup Completed: " + profile.setup_completed;
+
+                txtSavedDetails.setText(details);
+            }
+
+            savedDetailsScroll.setVisibility(android.view.View.VISIBLE);
+        });
         logoutButton = findViewById(R.id.buttonLogout);
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -55,10 +119,10 @@ public class HomeActivity extends AppCompatActivity {
 
     private void logoutUser() {
 
-        // Sign out from Firebase first.
+        // 1. Sign out from Firebase
         firebaseAuth.signOut();
 
-        // Clear Credential Manager state.
+        // 2. Clear Credential Manager state
         ClearCredentialStateRequest clearRequest =
                 new ClearCredentialStateRequest();
 
@@ -70,49 +134,98 @@ public class HomeActivity extends AppCompatActivity {
                         ClearCredentialException>() {
 
                     @Override
-                    public void onResult(
-                            @NonNull Void result) {
-
-                        runOnUiThread(
-                                () -> finishLogout()
-                        );
+                    public void onResult(@NonNull Void result) {
+                        runOnUiThread(() -> finishLogout());
                     }
 
                     @Override
                     public void onError(
                             @NonNull ClearCredentialException e) {
 
-                        // Firebase is already signed out.
-                        // Continue logout even if credential-state
-                        // clearing fails.
-                        runOnUiThread(
-                                () -> finishLogout()
-                        );
+                        // Continue logout even if credential clearing fails
+                        runOnUiThread(() -> finishLogout());
                     }
                 }
         );
     }
-
     private void finishLogout() {
 
+        // Clear FloodCue app preferences
         preferences.edit()
-                .putBoolean("is_logged_in", false)
-                .apply();
+                .clear()
+                .commit();
 
+        // Delete local app databases
+        for (String databaseName : databaseList()) {
+            deleteDatabase(databaseName);
+        }
+
+        // Clear app-private files and cache
+        deleteDirectoryContents(getFilesDir());
+        deleteDirectoryContents(getCacheDir());
+        deleteDirectoryContents(getNoBackupFilesDir());
+        deleteDirectoryContents(getCodeCacheDir());
+
+        // Clear app-specific external files
+        java.io.File[] externalDirs = getExternalFilesDirs(null);
+
+        if (externalDirs != null) {
+            for (java.io.File dir : externalDirs) {
+                if (dir != null) {
+                    deleteDirectoryContents(dir);
+                }
+            }
+        }
+
+        // Go back to LanguageActivity and clear previous screens
         Intent intent = new Intent(
                 HomeActivity.this,
-                LoginActivity.class
+                LanguageActivity.class
         );
 
         intent.setFlags(
-                Intent.FLAG_ACTIVITY_NEW_TASK
-                        | Intent.FLAG_ACTIVITY_CLEAR_TASK
+                Intent.FLAG_ACTIVITY_NEW_TASK |
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK
         );
 
         startActivity(intent);
         finish();
     }
+    private void deleteDirectoryContents(java.io.File directory) {
 
+        if (directory == null || !directory.exists()) {
+            return;
+        }
+
+        java.io.File[] files = directory.listFiles();
+
+        if (files == null) {
+            return;
+        }
+
+        for (java.io.File file : files) {
+            deleteRecursively(file);
+        }
+    }
+
+    private void deleteRecursively(java.io.File file) {
+
+        if (file == null || !file.exists()) {
+            return;
+        }
+
+        if (file.isDirectory()) {
+            java.io.File[] children = file.listFiles();
+
+            if (children != null) {
+                for (java.io.File child : children) {
+                    deleteRecursively(child);
+                }
+            }
+        }
+
+        file.delete();
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();

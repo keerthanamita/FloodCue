@@ -1,517 +1,1005 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="@color/background_color">
+    android:orientation="vertical"
+    android:background="#F1F8FC">
 
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="92dp"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:paddingStart="22dp"
+        android:paddingEnd="22dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="14dp"
+        android:background="#075985">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="FLOODCUE  /  YOUR SAFETY"
+            android:textColor="#B9E9FF"
+            android:textSize="11sp"
+            android:letterSpacing="0.12"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Build your safety profile"
+            android:textColor="#FFFFFF"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textSetupSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Personal and medical details"
+            android:textColor="#D7F1FF"
+            android:textSize="13sp" />
+
+        <ProgressBar
+            android:id="@+id/progressSetup"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_marginTop="14dp"
+            android:max="100"
+            android:progress="33"
+            android:progressTint="#67E8F9"
+            android:progressBackgroundTint="#376F8B" />
+
+        <TextView
+            android:id="@+id/textSetupStep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="STEP 1 OF 3"
+            android:textColor="#D7F1FF"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Page container -->
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <!-- ========================================================= -->
-        <!-- SCREEN 1 : PREFERENCES                                   -->
-        <!-- ========================================================= -->
-
-        <LinearLayout
-            android:id="@+id/setupScreen1"
+        <!-- PAGE 1: Personal and medical information -->
+        <ScrollView
+            android:id="@+id/pageSetupOne"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="24dp">
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:scrollbars="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Set Up FloodCue"
-                android:textColor="@color/text_primary"
-                android:textSize="28sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Step 1 of 3"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp" />
-
-            <!-- Progress -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="4dp"
-                android:layout_marginTop="18dp"
-                android:orientation="horizontal">
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/button_primary" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="4dp"
-                    android:layout_weight="1"
-                    android:background="@color/divider_color" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="4dp"
-                    android:layout_weight="1"
-                    android:background="@color/divider_color" />
-
-            </LinearLayout>
-
-            <!-- Survival Language -->
-
-            <TextView
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text="Survival Information Language"
-                android:textColor="@color/text_primary"
-                android:textSize="17sp"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:padding="16dp">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                    android:id="@+id/survivalLanguageInput"
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:hint="Select language"
-                    android:inputType="none"
-                    android:text="English" />
+                    android:layout_height="wrap_content"
+                    android:text="Let's prepare for emergencies"
+                    android:textColor="#123B56"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!-- App Language -->
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                android:text="App Language"
-                android:textColor="@color/text_primary"
-                android:textSize="17sp"
-                android:textStyle="bold" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                    android:id="@+id/appLanguageInput"
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:hint="Select language"
-                    android:inputType="none"
-                    android:text="English" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="14dp"
+                    android:text="Add the details responders may need. You can update them later."
+                    android:textColor="#557185"
+                    android:textSize="13sp" />
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!-- Automatic Location -->
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                app:cardBackgroundColor="@color/surface_elevated_color"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:strokeColor="@color/border_color"
-                app:strokeWidth="1dp">
-
+                <!-- Personal details card -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="18dp"
+                    android:background="#FFFFFF"
+                    android:elevation="2dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Automatic Location"
-                        android:textColor="@color/text_primary"
-                        android:textSize="16sp"
+                        android:text="01  Personal information"
+                        android:textColor="#075985"
+                        android:textSize="17sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Full name *"
+                        android:textColor="#24475C"
+                        android:textStyle="bold"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/editFullName"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
                         android:layout_marginTop="6dp"
-                        android:text="FloodCue will automatically determine your region using your location. Location detection will be added later."
-                        android:textColor="@color/text_secondary"
-                        android:textSize="13sp" />
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- Next -->
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonNext1"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="28dp"
-                android:text="Next"
-                android:textAllCaps="false"
-                android:textSize="15sp"
-                app:backgroundTint="@color/button_primary"
-                app:cornerRadius="12dp" />
-
-        </LinearLayout>
-
-
-        <!-- ========================================================= -->
-        <!-- SCREEN 2 : EMERGENCY INFORMATION                         -->
-        <!-- ========================================================= -->
-
-        <LinearLayout
-            android:id="@+id/setupScreen2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="24dp"
-            android:visibility="gone">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Emergency Information"
-                android:textColor="@color/text_primary"
-                android:textSize="28sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Step 2 of 3"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp" />
-
-            <!-- Progress -->
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="4dp"
-                android:layout_marginTop="18dp"
-                android:orientation="horizontal">
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/button_primary" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="4dp"
-                    android:layout_weight="1"
-                    android:background="@color/button_primary" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="4dp"
-                    android:layout_weight="1"
-                    android:background="@color/divider_color" />
-
-            </LinearLayout>
-
-            <!-- Name -->
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:hint="Name"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextName"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:inputType="textPersonName" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!-- Blood Group -->
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:hint="Blood Group"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextBloodGroup"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:inputType="textCapCharacters" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!-- Emergency Contact -->
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:hint="Emergency Contact"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextEmergencyContact"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:inputType="phone" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!-- Buttons -->
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:orientation="horizontal">
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/buttonBack2"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:text="Back"
-                    android:textAllCaps="false"
-                    android:textColor="@color/text_primary"
-                    app:backgroundTint="@color/button_secondary"
-                    app:cornerRadius="12dp" />
-
-                <Space
-                    android:layout_width="12dp"
-                    android:layout_height="1dp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/buttonNext2"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:text="Next"
-                    android:textAllCaps="false"
-                    app:backgroundTint="@color/button_primary"
-                    app:cornerRadius="12dp" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-
-        <!-- ========================================================= -->
-        <!-- SCREEN 3 : FINAL SETUP                                   -->
-        <!-- ========================================================= -->
-
-        <LinearLayout
-            android:id="@+id/setupScreen3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="24dp"
-            android:visibility="gone">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Almost Done"
-                android:textColor="@color/text_primary"
-                android:textSize="28sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Step 3 of 3"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp" />
-
-            <!-- Progress -->
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="4dp"
-                android:layout_marginTop="18dp"
-                android:orientation="horizontal">
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/button_primary" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="4dp"
-                    android:layout_weight="1"
-                    android:background="@color/button_primary" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="4dp"
-                    android:layout_weight="1"
-                    android:background="@color/button_primary" />
-
-            </LinearLayout>
-
-            <!-- Mesh Networking -->
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                app:cardBackgroundColor="@color/surface_elevated_color"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:strokeColor="@color/border_color"
-                app:strokeWidth="1dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="18dp">
+                        android:backgroundTint="#A9C7D8"
+                        android:hint="Enter your full name"
+                        android:inputType="textCapWords|textPersonName"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:singleLine="true"
+                        android:textColor="#123B56"
+                        android:textColorHint="#7891A0"
+                        android:textSize="15sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Mesh Networking"
-                        android:textColor="@color/text_primary"
+                        android:layout_marginTop="15dp"
+                        android:text="Blood group *"
+                        android:textColor="#24475C"
+                        android:textStyle="bold"
+                        android:textSize="13sp" />
+
+                    <Spinner
+                        android:id="@+id/spinnerBloodGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="4dp"
+                        android:backgroundTint="#A9C7D8"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:text="Select your blood group if known."
+                        android:textColor="#71899A"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Allergies card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:orientation="vertical"
+                    android:padding="18dp"
+                    android:background="#FFFFFF"
+                    android:elevation="2dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="02  Allergies"
+                        android:textColor="#075985"
                         android:textSize="17sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="7dp"
-                        android:text="FloodCue may support mesh networking in the future to improve communication when internet connectivity is unavailable."
-                        android:textColor="@color/text_secondary"
-                        android:textSize="13sp" />
+                        android:layout_marginTop="5dp"
+                        android:text="Select every option that applies."
+                        android:textColor="#71899A"
+                        android:textSize="12sp" />
 
-                    <TextView
+                    <CheckBox
+                        android:id="@+id/checkAllergyMedicines"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Optional • Placeholder"
-                        android:textColor="@color/button_primary"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="9dp"
+                        android:buttonTint="#0284C7"
+                        android:text="Medicines"
+                        android:textColor="#24475C"
+                        android:textSize="14sp" />
 
+                    <CheckBox
+                        android:id="@+id/checkAllergyFood"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#0284C7"
+                        android:text="Food"
+                        android:textColor="#24475C"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkAllergyInsects"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#0284C7"
+                        android:text="Insect bites"
+                        android:textColor="#24475C"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkAllergyLatex"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#0284C7"
+                        android:text="Latex"
+                        android:textColor="#24475C"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkAllergyOther"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#0284C7"
+                        android:text="Other allergy"
+                        android:textColor="#24475C"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkAllergyNone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#0284C7"
+                        android:text="No known allergies"
+                        android:textColor="#24475C"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/editOtherAllergies"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="52dp"
+                        android:layout_marginTop="7dp"
+                        android:backgroundTint="#A9C7D8"
+                        android:gravity="top"
+                        android:hint="Describe the other allergy"
+                        android:inputType="textCapSentences|textMultiLine"
+                        android:padding="12dp"
+                        android:textColor="#123B56"
+                        android:textColorHint="#7891A0"
+                        android:textSize="14sp"
+                        android:visibility="gone" />
                 </LinearLayout>
 
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- Location -->
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:cardBackgroundColor="@color/surface_elevated_color"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:strokeColor="@color/border_color"
-                app:strokeWidth="1dp">
-
+                <!-- Medical information card -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
                     android:orientation="vertical"
-                    android:padding="18dp">
+                    android:padding="18dp"
+                    android:background="#FFFFFF"
+                    android:elevation="2dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Location Permission"
-                        android:textColor="@color/text_primary"
+                        android:text="03  Medical information"
+                        android:textColor="#075985"
                         android:textSize="17sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="7dp"
-                        android:text="Location will later be used to automatically determine your region and provide location-based emergency features."
-                        android:textColor="@color/text_secondary"
+                        android:layout_marginTop="15dp"
+                        android:text="Current medications (optional)"
+                        android:textColor="#24475C"
+                        android:textStyle="bold"
                         android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/editMedications"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="52dp"
+                        android:layout_marginTop="5dp"
+                        android:backgroundTint="#A9C7D8"
+                        android:hint="e.g. insulin, inhaler"
+                        android:inputType="textCapSentences|textMultiLine"
+                        android:padding="12dp"
+                        android:textColor="#123B56"
+                        android:textColorHint="#7891A0"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Permission handling • Placeholder"
-                        android:textColor="@color/button_primary"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="15dp"
+                        android:text="Important medical notes (optional)"
+                        android:textColor="#24475C"
+                        android:textStyle="bold"
+                        android:textSize="13sp" />
 
+                    <EditText
+                        android:id="@+id/editMedicalNotes"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="5dp"
+                        android:backgroundTint="#A9C7D8"
+                        android:gravity="top"
+                        android:hint="Anything responders should know"
+                        android:inputType="textCapSentences|textMultiLine"
+                        android:padding="12dp"
+                        android:textColor="#123B56"
+                        android:textColorHint="#7891A0"
+                        android:textSize="14sp" />
                 </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
 
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- Buttons -->
+        <!-- PAGE 2: Contacts, assistance and region -->
+        <ScrollView
+            android:id="@+id/pageSetupTwo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:clipToPadding="false"
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:padding="16dp">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/buttonBack3"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:text="Back"
-                    android:textAllCaps="false"
-                    android:textColor="@color/text_primary"
-                    app:backgroundTint="@color/button_secondary"
-                    app:cornerRadius="12dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Your emergency network"
+                    android:textColor="#123B56"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-                <Space
-                    android:layout_width="12dp"
-                    android:layout_height="1dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="14dp"
+                    android:text="Add people who can help you and choose your area."
+                    android:textColor="#557185"
+                    android:textSize="13sp" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/buttonFinish"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:text="Finish"
-                    android:textAllCaps="false"
-                    app:backgroundTint="@color/button_primary"
-                    app:cornerRadius="12dp" />
+                <!-- Primary contact -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp"
+                    android:background="#FFFFFF"
+                    android:elevation="2dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="01  Primary emergency contact"
+                        android:textColor="#075985"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="13dp"
+                        android:text="Contact name"
+                        android:textColor="#24475C"
+                        android:textStyle="bold"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/editPrimaryContactName"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="4dp"
+                        android:backgroundTint="#A9C7D8"
+                        android:hint="Full name"
+                        android:inputType="textCapWords|textPersonName"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:singleLine="true"
+                        android:textColor="#123B56"
+                        android:textColorHint="#7891A0"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Relationship"
+                        android:textColor="#24475C"
+                        android:textStyle="bold"
+                        android:textSize="13sp" />
+
+                    <Spinner
+                        android:id="@+id/spinnerPrimaryRelationship"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:backgroundTint="#A9C7D8"
+                        android:paddingStart="6dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Phone number *"
+                        android:textColor="#24475C"
+                        android:textStyle="bold"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/editPrimaryPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="4dp"
+                        android:backgroundTint="#A9C7D8"
+                        android:hint="Enter phone number"
+                        android:inputType="phone"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:singleLine="true"
+                        android:textColor="#123B56"
+                        android:textColorHint="#7891A0"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Alternate number (optional)"
+                        android:textColor="#24475C"
+                        android:textStyle="bold"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/editPrimaryAlternatePhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="4dp"
+                        android:backgroundTint="#A9C7D8"
+                        android:hint="Backup phone number"
+                        android:inputType="phone"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:singleLine="true"
+                        android:textColor="#123B56"
+                        android:textColorHint="#7891A0"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Second contact -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:orientation="vertical"
+                    android:padding="18dp"
+                    android:background="#FFFFFF"
+                    android:elevation="2dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="02  Second emergency contact"
+                        android:textColor="#075985"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editSecondContactName"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="12dp"
+                        android:backgroundTint="#A9C7D8"
+                        android:hint="Contact name (optional)"
+                        android:inputType="textCapWords|textPersonName"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:singleLine="true"
+                        android:textColor="#123B56"
+                        android:textColorHint="#7891A0"
+                        android:textSize="14sp" />
+
+                    <Spinner
+                        android:id="@+id/spinnerSecondRelationship"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="6dp"
+                        android:backgroundTint="#A9C7D8"
+                        android:paddingStart="6dp" />
+
+                    <EditText
+                        android:id="@+id/editSecondPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="6dp"
+                        android:backgroundTint="#A9C7D8"
+                        android:hint="Phone number (optional)"
+                        android:inputType="phone"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:singleLine="true"
+                        android:textColor="#123B56"
+                        android:textColorHint="#7891A0"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/editSecondAlternatePhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="6dp"
+                        android:backgroundTint="#A9C7D8"
+                        android:hint="Alternate number (optional)"
+                        android:inputType="phone"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:singleLine="true"
+                        android:textColor="#123B56"
+                        android:textColorHint="#7891A0"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Third contact -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:orientation="vertical"
+                    android:padding="18dp"
+                    android:background="#FFFFFF"
+                    android:elevation="2dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="03  Third emergency contact"
+                        android:textColor="#075985"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editThirdContactName"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="12dp"
+                        android:backgroundTint="#A9C7D8"
+                        android:hint="Contact name (optional)"
+                        android:inputType="textCapWords|textPersonName"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:singleLine="true"
+                        android:textColor="#123B56"
+                        android:textColorHint="#7891A0"
+                        android:textSize="14sp" />
+
+                    <Spinner
+                        android:id="@+id/spinnerThirdRelationship"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="6dp"
+                        android:backgroundTint="#A9C7D8"
+                        android:paddingStart="6dp" />
+
+                    <EditText
+                        android:id="@+id/editThirdPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="6dp"
+                        android:backgroundTint="#A9C7D8"
+                        android:hint="Phone number (optional)"
+                        android:inputType="phone"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:singleLine="true"
+                        android:textColor="#123B56"
+                        android:textColorHint="#7891A0"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/editThirdAlternatePhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="6dp"
+                        android:backgroundTint="#A9C7D8"
+                        android:hint="Alternate number (optional)"
+                        android:inputType="phone"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:singleLine="true"
+                        android:textColor="#123B56"
+                        android:textColorHint="#7891A0"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Assistance -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:orientation="vertical"
+                    android:padding="18dp"
+                    android:background="#FFFFFF"
+                    android:elevation="2dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="04  Evacuation assistance"
+                        android:textColor="#075985"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Select any support needed during evacuation."
+                        android:textColor="#71899A"
+                        android:textSize="12sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkAssistanceNone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:buttonTint="#0284C7"
+                        android:text="No special assistance needed"
+                        android:textColor="#24475C"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkAssistanceElderly"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#0284C7"
+                        android:text="Elderly person"
+                        android:textColor="#24475C"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkAssistanceChild"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#0284C7"
+                        android:text="Child"
+                        android:textColor="#24475C"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkAssistancePregnant"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#0284C7"
+                        android:text="Pregnant person"
+                        android:textColor="#24475C"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkAssistanceWheelchair"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#0284C7"
+                        android:text="Wheelchair user"
+                        android:textColor="#24475C"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkAssistanceWalking"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#0284C7"
+                        android:text="Difficulty walking"
+                        android:textColor="#24475C"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkAssistanceHearing"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#0284C7"
+                        android:text="Hearing impairment"
+                        android:textColor="#24475C"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkAssistanceVisual"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#0284C7"
+                        android:text="Visual impairment"
+                        android:textColor="#24475C"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkAssistanceOther"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#0284C7"
+                        android:text="Other assistance"
+                        android:textColor="#24475C"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Region -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="12dp"
+                    android:orientation="vertical"
+                    android:padding="18dp"
+                    android:background="#FFFFFF"
+                    android:elevation="2dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="05  Your region"
+                        android:textColor="#075985"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Used to prepare relevant local safety information."
+                        android:textColor="#71899A"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Country"
+                        android:textColor="#24475C"
+                        android:textStyle="bold"
+                        android:textSize="13sp" />
+
+                    <Spinner
+                        android:id="@+id/spinnerCountry"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:backgroundTint="#A9C7D8"
+                        android:paddingStart="6dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="State"
+                        android:textColor="#24475C"
+                        android:textStyle="bold"
+                        android:textSize="13sp" />
+
+                    <Spinner
+                        android:id="@+id/spinnerState"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:backgroundTint="#A9C7D8"
+                        android:paddingStart="6dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="District"
+                        android:textColor="#24475C"
+                        android:textStyle="bold"
+                        android:textSize="13sp" />
+
+                    <Spinner
+                        android:id="@+id/spinnerDistrict"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:backgroundTint="#A9C7D8"
+                        android:paddingStart="6dp" />
+                </LinearLayout>
 
             </LinearLayout>
+        </ScrollView>
 
-        </LinearLayout>
+        <!-- PAGE 3: Review and finish -->
+        <ScrollView
+            android:id="@+id/pageSetupThree"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:clipToPadding="false"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="You're nearly ready"
+                    android:textColor="#123B56"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:text="Save your safety profile so FloodCue can use it when you need help."
+                    android:textColor="#557185"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:background="#FFFFFF"
+                    android:elevation="2dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Your setup checklist"
+                        android:textColor="#075985"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="✓  Personal and medical details"
+                        android:textColor="#24475C"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="✓  Emergency contacts and region"
+                        android:textColor="#24475C"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="✓  Profile ready to save"
+                        android:textColor="#24475C"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Your profile will be saved to your FloodCue account. Offline map availability depends on the maps actually installed on your device."
+                        android:textColor="#557185"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <!-- Bridgefy recommendation -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:background="#E0F5FF"
+                    android:elevation="1dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Stay connected with Bridgefy"
+                        android:textColor="#075985"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:text="Bridgefy offers nearby messaging using Bluetooth-based connections in supported conditions. It is a separate app and must be installed separately."
+                        android:textColor="#28556D"
+                        android:textSize="13sp" />
+
+                    <Button
+                        android:id="@+id/buttonInstallBridgefy"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="15dp"
+                        android:backgroundTint="#075985"
+                        android:text="Get Bridgefy on Google Play"
+                        android:textAllCaps="false"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:text="You can update your emergency information later from Settings."
+                    android:textColor="#71899A"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/buttonCompleteSetup"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:backgroundTint="#087EAD"
+                    android:text="Save &amp; continue to FloodCue  →"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </ScrollView>
 
     </FrameLayout>
 
-</ScrollView>
+    <!-- Persistent bottom navigation -->
+    <LinearLayout
+        android:id="@+id/layoutSetupNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="78dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="#FFFFFF"
+        android:elevation="8dp">
+
+        <Button
+            android:id="@+id/buttonSetupBack"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="0.8"
+            android:backgroundTint="#E4F2F9"
+            android:text="Back"
+            android:textAllCaps="false"
+            android:textColor="#075985"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/buttonSetupSkip"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="0.9"
+            android:backgroundTint="#E4F2F9"
+            android:text="Skip"
+            android:textAllCaps="false"
+            android:textColor="#075985" />
+
+        <Button
+            android:id="@+id/buttonSetupNext"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1.5"
+            android:backgroundTint="#087EAD"
+            android:text="Continue  →"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

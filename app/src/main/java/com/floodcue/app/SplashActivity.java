@@ -1,112 +1,70 @@
 package com.floodcue.app;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class SplashActivity extends AppCompatActivity {
 
     private TextView loadingStatus;
-
-    private final Handler mainHandler =
-            new Handler(Looper.getMainLooper());
-
-    private android.content.SharedPreferences preferences;
+    private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_splash);
 
         loadingStatus = findViewById(R.id.loadingStatus);
+        preferences = getSharedPreferences("FloodCuePrefs", MODE_PRIVATE);
 
-        preferences =
-                getSharedPreferences("FloodCuePrefs", MODE_PRIVATE);
-
-        initializeApp();
-    }
-
-    private void initializeApp() {
-
-        // Temporary initialization
-        // Future real loading functions will be added here.
-
-        updateLoadingStatus("Preparing FloodCue...");
-
-        mainHandler.postDelayed(() -> {
-
-            updateLoadingStatus("Loading local resources...");
-
-            mainHandler.postDelayed(() -> {
-
-                updateLoadingStatus("Preparing emergency data...");
-
-                mainHandler.postDelayed(() -> {
-
-                    updateLoadingStatus("FloodCue ready");
-
-                    mainHandler.postDelayed(
-                            this::openNextScreen,
-                            500
-                    );
-
-                }, 500);
-
-            }, 500);
-
-        }, 500);
-    }
-
-    private void updateLoadingStatus(String message) {
-        loadingStatus.setText(message);
+        openNextScreen();
     }
 
     private void openNextScreen() {
-
-        boolean setupCompleted =
-                preferences.getBoolean("setup_completed", false);
-
-        boolean isLoggedIn =
-                preferences.getBoolean("is_logged_in", false);
-
         Intent intent;
 
         boolean languageSelected =
                 preferences.getBoolean("language_selected", false);
 
         if (!languageSelected) {
-            intent = new Intent(
-                    SplashActivity.this,
-                    LanguageActivity.class
-            );
-        } else if (!isLoggedIn) {
-
-            // User is not logged in
-            intent = new Intent(
-                    SplashActivity.this,
-                    LoginActivity.class
-            );
-
-        } else if (!setupCompleted) {
-
-            // User is logged in but setup is not completed
-            intent = new Intent(
-                    SplashActivity.this,
-                    SetupActivity.class
-            );
+            loadingStatus.setText("Choose your language...");
+            intent = new Intent(this, LanguageActivity.class);
 
         } else {
+            FirebaseUser user =
+                    FirebaseAuth.getInstance().getCurrentUser();
 
-            // User is logged in and setup is completed
-            intent = new Intent(
-                    SplashActivity.this,
-                    HomeActivity.class
-            );
+            if (user == null) {
+                preferences.edit()
+                        .putBoolean("is_logged_in", false)
+                        .apply();
+
+                loadingStatus.setText("Opening login...");
+                intent = new Intent(this, LoginActivity.class);
+
+            } else {
+                preferences.edit()
+                        .putBoolean("is_logged_in", true)
+                        .apply();
+
+                String setupKey = "setup_completed_" + user.getUid();
+                boolean setupCompleted =
+                        preferences.getBoolean(setupKey, false);
+
+                if (setupCompleted) {
+                    loadingStatus.setText("Opening FloodCue...");
+                    intent = new Intent(this, HomeActivity.class);
+                } else {
+                    loadingStatus.setText("Opening profile setup...");
+                    intent = new Intent(this, SetupActivity.class);
+                }
+            }
         }
 
         startActivity(intent);

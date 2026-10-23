@@ -85,9 +85,34 @@
                     android:textSize="16sp" />
 
             </LinearLayout>
+            <!-- Temporary local profile check -->
+            <Button
+                android:id="@+id/btnViewSavedDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="View Saved Setup Details" />
+
+            <ScrollView
+                android:id="@+id/savedDetailsScroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/txtSavedDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textSize="15sp"
+                    android:textIsSelectable="true" />
+
+            </ScrollView>
 
         </LinearLayout>
 
     </ScrollView>
+
 
 </LinearLayout>
