@@ -76,7 +76,15 @@ public class SplashActivity extends AppCompatActivity {
 
         Intent intent;
 
-        if (!isLoggedIn) {
+        boolean languageSelected =
+                preferences.getBoolean("language_selected", false);
+
+        if (!languageSelected) {
+            intent = new Intent(
+                    SplashActivity.this,
+                    LanguageActivity.class
+            );
+        } else if (!isLoggedIn) {
 
             // User is not logged in
             intent = new Intent(

@@ -29,9 +29,12 @@
         <activity
             android:name=".CreateAccountActivity"
             android:exported="false" />
-
         <activity
             android:name=".SetupActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".LanguageActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>

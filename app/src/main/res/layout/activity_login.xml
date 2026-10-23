@@ -46,7 +46,17 @@
             android:textStyle="bold"
             android:fontFamily="sans"
             android:includeFontPadding="false" />
-
+        <TextView
+            android:id="@+id/textChangeLanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="🌐 Change Language"
+            android:textColor="@color/link_color"
+            android:textSize="14sp"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="6dp" />
         <!-- Subtitle -->
         <TextView
             android:id="@+id/textSubtitle"

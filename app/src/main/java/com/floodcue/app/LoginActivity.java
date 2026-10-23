@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
 
         forgotPasswordText = findViewById(R.id.textForgotPassword);
         createAccountText = findViewById(R.id.textCreateAccount);
-
+        TextView changeLanguageText =findViewById(R.id.textChangeLanguage);
         // =========================================================
         // CREATE ACCOUNT TEXT
         // =========================================================
@@ -194,6 +194,15 @@ public class LoginActivity extends AppCompatActivity {
                     android.R.anim.fade_in,
                     android.R.anim.fade_out
             );
+        });
+        changeLanguageText.setOnClickListener(v -> {
+            Intent intent = new Intent(
+                    LoginActivity.this,
+                    LanguageActivity.class
+            );
+
+            intent.putExtra("LANGUAGE_EDIT_MODE", true);
+            startActivity(intent);
         });
 
         // =========================================================
