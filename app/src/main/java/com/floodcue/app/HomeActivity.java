@@ -1,35 +1,14 @@
 package com.floodcue.app;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.CancellationSignal;
 import android.widget.Button;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.credentials.ClearCredentialStateRequest;
-import androidx.credentials.CredentialManager;
-import androidx.credentials.CredentialManagerCallback;
-import androidx.credentials.exceptions.ClearCredentialException;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.google.firebase.auth.FirebaseAuth;
-
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
 
 public class HomeActivity extends AppCompatActivity {
-
-    private Button logoutButton;
-
-    private FirebaseAuth firebaseAuth;
-    private SharedPreferences preferences;
-
-    private CredentialManager credentialManager;
-    private Executor credentialExecutor;
-
-    private static final String PREFS_NAME = "FloodCuePrefs";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,25 +80,12 @@ public class HomeActivity extends AppCompatActivity {
 
             savedDetailsScroll.setVisibility(android.view.View.VISIBLE);
         });
-        logoutButton = findViewById(R.id.buttonLogout);
         Button offlineMapsButton = findViewById(R.id.buttonOfflineMaps);
         Button emergencyContactsButton = findViewById(R.id.buttonEmergencyContacts);
+        Button settingsButton = findViewById(R.id.buttonSettings);
         offlineMapsButton.setOnClickListener(v -> openOfflineMaps());
         emergencyContactsButton.setOnClickListener(v -> openEmergencyContacts());
-
-        firebaseAuth = FirebaseAuth.getInstance();
-
-        preferences = getSharedPreferences(
-                PREFS_NAME,
-                MODE_PRIVATE
-        );
-
-        credentialManager = CredentialManager.create(this);
-        credentialExecutor = Executors.newSingleThreadExecutor();
-
-        logoutButton.setOnClickListener(
-                v -> logoutUser()
-        );
+        settingsButton.setOnClickListener(v -> openSettings());
 
         if (savedInstanceState == null) {
             maybePromptForOfflineMap();
@@ -150,126 +116,7 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(new Intent(this, EmergencyContactsActivity.class));
     }
 
-    private void logoutUser() {
-
-        // 1. Sign out from Firebase
-        firebaseAuth.signOut();
-
-        // 2. Clear Credential Manager state
-        ClearCredentialStateRequest clearRequest =
-                new ClearCredentialStateRequest();
-
-        credentialManager.clearCredentialStateAsync(
-                clearRequest,
-                new CancellationSignal(),
-                credentialExecutor,
-                new CredentialManagerCallback<Void,
-                        ClearCredentialException>() {
-
-                    @Override
-                    public void onResult(@NonNull Void result) {
-                        runOnUiThread(() -> finishLogout());
-                    }
-
-                    @Override
-                    public void onError(
-                            @NonNull ClearCredentialException e) {
-
-                        // Continue logout even if credential clearing fails
-                        runOnUiThread(() -> finishLogout());
-                    }
-                }
-        );
-    }
-    private void finishLogout() {
-
-        // Clear FloodCue app preferences
-        preferences.edit()
-                .clear()
-                .commit();
-
-        // Delete local app databases
-        for (String databaseName : databaseList()) {
-            deleteDatabase(databaseName);
-        }
-
-        // Clear app-private files and cache
-        deleteDirectoryContents(getFilesDir());
-        deleteDirectoryContents(getCacheDir());
-        deleteDirectoryContents(getNoBackupFilesDir());
-        deleteDirectoryContents(getCodeCacheDir());
-
-        // Clear app-specific external files
-        java.io.File[] externalDirs = getExternalFilesDirs(null);
-
-        if (externalDirs != null) {
-            for (java.io.File dir : externalDirs) {
-                if (dir != null) {
-                    deleteDirectoryContents(dir);
-                }
-            }
-        }
-
-        // Go back to LanguageActivity and clear previous screens
-        Intent intent = new Intent(
-                HomeActivity.this,
-                LanguageActivity.class
-        );
-
-        intent.setFlags(
-                Intent.FLAG_ACTIVITY_NEW_TASK |
-                        Intent.FLAG_ACTIVITY_CLEAR_TASK
-        );
-
-        startActivity(intent);
-        finish();
-    }
-    private void deleteDirectoryContents(java.io.File directory) {
-
-        if (directory == null || !directory.exists()) {
-            return;
-        }
-
-        java.io.File[] files = directory.listFiles();
-
-        if (files == null) {
-            return;
-        }
-
-        for (java.io.File file : files) {
-            deleteRecursively(file);
-        }
-    }
-
-    private void deleteRecursively(java.io.File file) {
-
-        if (file == null || !file.exists()) {
-            return;
-        }
-
-        if (file.isFile() && OfflineMapCatalog.shouldPreserveMapFile(file)) {
-            return;
-        }
-
-        if (file.isDirectory()) {
-            java.io.File[] children = file.listFiles();
-
-            if (children != null) {
-                for (java.io.File child : children) {
-                    deleteRecursively(child);
-                }
-            }
-        }
-
-        file.delete();
-    }
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        if (credentialExecutor instanceof java.util.concurrent.ExecutorService) {
-            ((java.util.concurrent.ExecutorService) credentialExecutor)
-                    .shutdown();
-        }
+    private void openSettings() {
+        startActivity(new Intent(this, SettingsActivity.class));
     }
 }

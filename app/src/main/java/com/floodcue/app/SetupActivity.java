@@ -35,6 +35,8 @@ import java.util.Locale;
 
 public class SetupActivity extends AppCompatActivity {
 
+    public static final String EXTRA_EDIT_PROFILE = "edit_profile";
+
     private static final String PREFS_NAME = "FloodCuePrefs";
     private static final String BRIDGEFY_URL =
             "https://play.google.com/store/apps/details?id=me.bridgefy.main";
@@ -923,6 +925,11 @@ public class SetupActivity extends AppCompatActivity {
     }
 
     private void openHome() {
+        if (getIntent().getBooleanExtra(EXTRA_EDIT_PROFILE, false)) {
+            finish();
+            return;
+        }
+
         Intent intent = new Intent(this, HomeActivity.class);
 
         intent.addFlags(

@@ -24,6 +24,12 @@
     <string name="offline_map_location_denied">Location permission was not granted.</string>
     <string name="home_offline_maps">Offline Maps</string>
     <string name="home_emergency_contacts">Emergency Contacts</string>
+    <string name="home_settings">Settings</string>
+    <string name="settings_back_title">← Settings</string>
+    <string name="settings_heading">Settings</string>
+    <string name="settings_subtitle">Manage your details and account</string>
+    <string name="settings_change_user_details">Change user details</string>
+    <string name="settings_logout">Log out</string>
     <string name="emergency_contacts_back_title">← Emergency Contacts</string>
     <string name="emergency_contacts_heading">Emergency Contacts</string>
     <string name="emergency_contacts_subtitle">Call your saved contacts or official emergency contacts</string>
