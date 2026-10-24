@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId "com.floodcue.app"
-        minSdk 24
+        minSdk 26
         targetSdk 37
         versionCode 1
         versionName "0.1.0"
@@ -54,6 +54,9 @@ dependencies {
 
     // Existing Google Sign-In Button UI
     implementation libs.play.services.auth
+
+    // Offline maps
+    implementation libs.maplibre
 
     // Testing
     testImplementation libs.junit

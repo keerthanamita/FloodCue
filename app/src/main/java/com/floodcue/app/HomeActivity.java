@@ -13,6 +13,7 @@ import androidx.credentials.CredentialManager;
 import androidx.credentials.CredentialManagerCallback;
 import androidx.credentials.exceptions.ClearCredentialException;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.concurrent.Executor;
@@ -101,6 +102,8 @@ public class HomeActivity extends AppCompatActivity {
             savedDetailsScroll.setVisibility(android.view.View.VISIBLE);
         });
         logoutButton = findViewById(R.id.buttonLogout);
+        Button offlineMapsButton = findViewById(R.id.buttonOfflineMaps);
+        offlineMapsButton.setOnClickListener(v -> openOfflineMaps());
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -115,6 +118,30 @@ public class HomeActivity extends AppCompatActivity {
         logoutButton.setOnClickListener(
                 v -> logoutUser()
         );
+
+        if (savedInstanceState == null) {
+            maybePromptForOfflineMap();
+        }
+    }
+
+    private void maybePromptForOfflineMap() {
+        if (OfflineMapCatalog.hasAnyDownloaded(this)) {
+            return;
+        }
+
+        new MaterialAlertDialogBuilder(this)
+                .setTitle(R.string.offline_maps_title)
+                .setMessage(R.string.offline_maps_download_prompt)
+                .setNegativeButton(R.string.offline_maps_cancel, null)
+                .setPositiveButton(
+                        R.string.offline_maps_go,
+                        (dialog, which) -> openOfflineMaps()
+                )
+                .show();
+    }
+
+    private void openOfflineMaps() {
+        startActivity(new Intent(this, OfflineMapsActivity.class));
     }
 
     private void logoutUser() {
@@ -211,6 +238,10 @@ public class HomeActivity extends AppCompatActivity {
     private void deleteRecursively(java.io.File file) {
 
         if (file == null || !file.exists()) {
+            return;
+        }
+
+        if (file.isFile() && OfflineMapCatalog.shouldPreserveMapFile(file)) {
             return;
         }
 

@@ -3,4 +3,24 @@
 
     <string name="app_name">FloodCue</string>
     <string name="default_web_client_id">263570444879-t0u106l5sj1ntmtq1fo328rcfuhhnlv0.apps.googleusercontent.com</string>
+
+    <string name="offline_maps_title">Offline maps</string>
+    <string name="offline_maps_download_prompt">Please download map for offline assistance</string>
+    <string name="offline_maps_go">Go</string>
+    <string name="offline_maps_cancel">Cancel</string>
+    <string name="offline_maps_back_title">← Offline Maps</string>
+    <string name="offline_maps_choose_title">Choose Offline Map</string>
+    <string name="offline_maps_choose_subtitle">Download once, then use without internet</string>
+    <string name="offline_map_tirupati_district">Tirupati District</string>
+    <string name="offline_map_nellore_district">Nellore District</string>
+    <string name="offline_map_back_title">← %1$s</string>
+    <string name="offline_map_connecting">Connecting to download %1$s...</string>
+    <string name="offline_map_downloading">Downloading %1$s...</string>
+    <string name="offline_map_downloading_percent">Downloading %1$s: %2$d%%</string>
+    <string name="offline_map_download_failed">Could not download %1$s: %2$s</string>
+    <string name="offline_map_opening">Opening %1$s offline map...</string>
+    <string name="offline_map_loaded">%1$s offline map loaded</string>
+    <string name="offline_map_missing">That offline map is not downloaded on this device.</string>
+    <string name="offline_map_location_denied">Location permission was not granted.</string>
+    <string name="home_offline_maps">Offline Maps</string>
 </resources>

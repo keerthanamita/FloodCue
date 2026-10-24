@@ -71,10 +71,24 @@
                     android:textSize="15sp" />
 
                 <Button
-                    android:id="@+id/buttonLogout"
+                    android:id="@+id/buttonOfflineMaps"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
                     android:layout_marginTop="28dp"
+                    android:background="@drawable/bg_button_primary"
+                    android:backgroundTint="@null"
+                    android:elevation="0dp"
+                    android:minHeight="0dp"
+                    android:text="@string/home_offline_maps"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_primary_text"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/buttonLogout"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="12dp"
                     android:background="@drawable/bg_button_secondary"
                     android:backgroundTint="@null"
                     android:elevation="0dp"
