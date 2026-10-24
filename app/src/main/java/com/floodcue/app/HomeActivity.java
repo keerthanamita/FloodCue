@@ -82,9 +82,11 @@ public class HomeActivity extends AppCompatActivity {
         });
         Button offlineMapsButton = findViewById(R.id.buttonOfflineMaps);
         Button emergencyContactsButton = findViewById(R.id.buttonEmergencyContacts);
+        Button sosEmergencyMessageButton = findViewById(R.id.buttonSosEmergencyMessage);
         Button settingsButton = findViewById(R.id.buttonSettings);
         offlineMapsButton.setOnClickListener(v -> openOfflineMaps());
         emergencyContactsButton.setOnClickListener(v -> openEmergencyContacts());
+        sosEmergencyMessageButton.setOnClickListener(v -> openSosEmergencyMessage());
         settingsButton.setOnClickListener(v -> openSettings());
 
         if (savedInstanceState == null) {
@@ -114,6 +116,10 @@ public class HomeActivity extends AppCompatActivity {
 
     private void openEmergencyContacts() {
         startActivity(new Intent(this, EmergencyContactsActivity.class));
+    }
+
+    private void openSosEmergencyMessage() {
+        startActivity(new Intent(this, SosActivity.class));
     }
 
     private void openSettings() {

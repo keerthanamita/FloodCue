@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sos_back_title">← SOS</string>
+    <string name="sos_heading">SOS Emergency Message</string>
+    <string name="sos_subtitle">Prepare a text message, then send it from your SMS app. FloodCue does not send SMS by itself.</string>
+
+    <string name="sos_recipients_title">Emergency contact numbers</string>
+    <string name="sos_recipients_hint">Phone number</string>
+    <string name="sos_recipients_help">Enter one number at a time, or several numbers separated by commas. Only numbers you add here will be used.</string>
+    <string name="sos_add_number">Add</string>
+    <string name="sos_recipients_empty">No numbers added yet.</string>
+    <string name="sos_number_invalid">That entry is not a valid phone number: %1$s</string>
+    <string name="sos_number_duplicate">That number is already in the list.</string>
+    <string name="sos_number_removed">Number removed.</string>
+
+    <string name="sos_message_title">Emergency message</string>
+    <string name="sos_default_message">EMERGENCY! I need help. Please contact me as soon as possible.</string>
+
+    <string name="sos_location_title">Current location</string>
+    <string name="sos_location_help">Location is optional. GPS can work without internet. FloodCue will not include coordinates unless you get or choose a valid location.</string>
+    <string name="sos_get_current_location">Get Current Location</string>
+    <string name="sos_use_last_known">Use last known location</string>
+    <string name="sos_location_idle">No location included yet.</string>
+    <string name="sos_location_loading">Getting your current location…</string>
+    <string name="sos_location_current">Current location\nLatitude: %1$s\nLongitude: %2$s\nRecorded: %3$s</string>
+    <string name="sos_location_last_known">Last known location (not a live GPS reading)\nLatitude: %1$s\nLongitude: %2$s\nRecorded: %3$s</string>
+    <string name="sos_location_last_known_available">A last known location is available from this device. It is not your current location unless you choose to use it.</string>
+    <string name="sos_location_permission_needed">Location permission is needed to read GPS. You can still send the SOS without coordinates.</string>
+    <string name="sos_location_permission_denied">Location permission was denied. You can continue without coordinates, or enable location permission in system settings.</string>
+    <string name="sos_location_gps_off">GPS is turned off. Turn on location services to get coordinates, or continue without them.</string>
+    <string name="sos_location_unavailable">Could not get a current location. Check that GPS is on and try again, or continue without coordinates.</string>
+    <string name="sos_location_timeout">Could not get a fresh GPS reading in time. You can try again, use a last known location if one is shown, or continue without coordinates.</string>
+
+    <string name="sos_preview_title">Message preview</string>
+    <string name="sos_preview_recipients">Recipients: %1$s</string>
+    <string name="sos_preview_no_recipients">Recipients: none</string>
+    <string name="sos_preview_no_location">Location: not included</string>
+    <string name="sos_preview_location">Location: %1$s, %2$s\nRecorded: %3$s</string>
+    <string name="sos_preview_location_last_known">Last known location: %1$s, %2$s\nRecorded: %3$s</string>
+    <string name="sos_preview_sms_note">FloodCue cannot confirm delivery. You must tap Send in your SMS app.</string>
+
+    <string name="sos_send_button">Send SOS Message</string>
+    <string name="sos_send_disabled_reason">Add at least one valid number and a message before sending.</string>
+    <string name="sos_confirm_title">Review before opening SMS</string>
+    <string name="sos_confirm_message">These numbers will be passed to your SMS app:\n\n%1$s\n\nFloodCue will not send the SMS itself. Check the recipients and message, then tap Send in the SMS app.\n\nSome SMS apps only fill the first recipient. If that happens, add the remaining numbers yourself before sending. FloodCue will not drop numbers from this list.</string>
+    <string name="sos_confirm_continue">Open SMS app</string>
+    <string name="sos_confirm_cancel">Cancel</string>
+    <string name="sos_sms_opened">SMS app opened. Delivery is not confirmed until you send the message and the recipient receives it.</string>
+    <string name="sos_sms_unavailable">No compatible SMS app was found. Your numbers and message are still saved on this screen.</string>
+    <string name="sos_sms_failed">Could not open the SMS app. Your numbers and message are still saved on this screen.</string>
+    <string name="sos_offline_note">You can prepare this SOS without internet. Sending an SMS still needs a working cellular SMS service.</string>
+</resources>

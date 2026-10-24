@@ -35,6 +35,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         TextView buttonBackToHome = findViewById(R.id.buttonBackToHome);
         Button changeUserDetailsButton = findViewById(R.id.buttonChangeUserDetails);
+        Button aboutBridgefyButton = findViewById(R.id.buttonAboutBridgefy);
         Button logoutButton = findViewById(R.id.buttonLogout);
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -44,11 +45,16 @@ public class SettingsActivity extends AppCompatActivity {
 
         buttonBackToHome.setOnClickListener(v -> finish());
         changeUserDetailsButton.setOnClickListener(v -> openUserProfile());
+        aboutBridgefyButton.setOnClickListener(v -> openAboutBridgefy());
         logoutButton.setOnClickListener(v -> logoutUser());
     }
 
     private void openUserProfile() {
         startActivity(new Intent(this, ProfileDetailsActivity.class));
+    }
+
+    private void openAboutBridgefy() {
+        startActivity(new Intent(this, AboutBridgefyActivity.class));
     }
 
     private void logoutUser() {

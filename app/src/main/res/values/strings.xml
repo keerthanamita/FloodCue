@@ -24,6 +24,7 @@
     <string name="offline_map_location_denied">Location permission was not granted.</string>
     <string name="home_offline_maps">Offline Maps</string>
     <string name="home_emergency_contacts">Emergency Contacts</string>
+    <string name="home_sos_emergency_message">SOS Emergency Message</string>
     <string name="home_settings">Settings</string>
     <string name="settings_back_title">← Settings</string>
     <string name="settings_heading">Settings</string>
