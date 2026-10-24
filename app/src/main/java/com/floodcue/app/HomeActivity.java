@@ -103,7 +103,9 @@ public class HomeActivity extends AppCompatActivity {
         });
         logoutButton = findViewById(R.id.buttonLogout);
         Button offlineMapsButton = findViewById(R.id.buttonOfflineMaps);
+        Button emergencyContactsButton = findViewById(R.id.buttonEmergencyContacts);
         offlineMapsButton.setOnClickListener(v -> openOfflineMaps());
+        emergencyContactsButton.setOnClickListener(v -> openEmergencyContacts());
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -142,6 +144,10 @@ public class HomeActivity extends AppCompatActivity {
 
     private void openOfflineMaps() {
         startActivity(new Intent(this, OfflineMapsActivity.class));
+    }
+
+    private void openEmergencyContacts() {
+        startActivity(new Intent(this, EmergencyContactsActivity.class));
     }
 
     private void logoutUser() {

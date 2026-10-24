@@ -23,4 +23,18 @@
     <string name="offline_map_missing">That offline map is not downloaded on this device.</string>
     <string name="offline_map_location_denied">Location permission was not granted.</string>
     <string name="home_offline_maps">Offline Maps</string>
+    <string name="home_emergency_contacts">Emergency Contacts</string>
+    <string name="emergency_contacts_back_title">← Emergency Contacts</string>
+    <string name="emergency_contacts_heading">Emergency Contacts</string>
+    <string name="emergency_contacts_subtitle">Call your saved contacts or official emergency contacts</string>
+    <string name="emergency_contacts_personal_title">My personal emergency contacts</string>
+    <string name="emergency_contacts_personal_empty">No personal emergency contacts saved on this device yet. Add them during setup.</string>
+    <string name="emergency_contacts_login_required">Please login first to see your saved contacts.</string>
+    <string name="emergency_contacts_services_title">Official emergency contacts</string>
+    <string name="emergency_contacts_info">Emergency contact numbers are provided for quick access. Verify local availability before you depend on them.</string>
+    <string name="emergency_contacts_call">Call</string>
+    <string name="emergency_contacts_alternate">Alternate: %1$s</string>
+    <string name="emergency_contacts_invalid_number">Phone number is not available</string>
+    <string name="emergency_contacts_unable_to_call">Unable to make the call</string>
+    <string name="emergency_contacts_permission_required">Call permission is required to make calls directly</string>
 </resources>
