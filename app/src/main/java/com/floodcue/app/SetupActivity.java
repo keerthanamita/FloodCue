@@ -580,7 +580,7 @@ public class SetupActivity extends AppCompatActivity {
                 // Continue with the server profile even if caching fails.
             }
 
-            if (profile.setup_completed) {
+            if (profile.setup_completed && !isEditingProfile()) {
                 preferences.edit()
                         .putBoolean("is_logged_in", true)
                         .apply();
@@ -924,8 +924,12 @@ public class SetupActivity extends AppCompatActivity {
         }
     }
 
+    private boolean isEditingProfile() {
+        return getIntent().getBooleanExtra(EXTRA_EDIT_PROFILE, false);
+    }
+
     private void openHome() {
-        if (getIntent().getBooleanExtra(EXTRA_EDIT_PROFILE, false)) {
+        if (isEditingProfile()) {
             finish();
             return;
         }

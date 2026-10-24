@@ -43,14 +43,12 @@ public class SettingsActivity extends AppCompatActivity {
         credentialExecutor = Executors.newSingleThreadExecutor();
 
         buttonBackToHome.setOnClickListener(v -> finish());
-        changeUserDetailsButton.setOnClickListener(v -> openChangeUserDetails());
+        changeUserDetailsButton.setOnClickListener(v -> openUserProfile());
         logoutButton.setOnClickListener(v -> logoutUser());
     }
 
-    private void openChangeUserDetails() {
-        Intent intent = new Intent(this, SetupActivity.class);
-        intent.putExtra(SetupActivity.EXTRA_EDIT_PROFILE, true);
-        startActivity(intent);
+    private void openUserProfile() {
+        startActivity(new Intent(this, ProfileDetailsActivity.class));
     }
 
     private void logoutUser() {
