@@ -26,6 +26,9 @@
     <string name="home_emergency_contacts">Emergency Contacts</string>
     <string name="home_sos_emergency_message">SOS Emergency Message</string>
     <string name="home_settings">Settings</string>
+    <string name="home_siren">Siren</string>
+    <string name="home_siren_stop">Stop Siren</string>
+    <string name="siren_unavailable">Could not play the siren sound on this device.</string>
     <string name="settings_back_title">← Settings</string>
     <string name="settings_heading">Settings</string>
     <string name="settings_subtitle">Manage your details and account</string>

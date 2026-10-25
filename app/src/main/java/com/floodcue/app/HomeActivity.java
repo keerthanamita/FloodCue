@@ -1,14 +1,25 @@
 package com.floodcue.app;
 
 import android.content.Intent;
+import android.media.AudioAttributes;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class HomeActivity extends AppCompatActivity {
+
+    /**
+     * Held statically so the siren keeps sounding across rotations and while
+     * other FloodCue screens are open; it is released when the app is left.
+     */
+    private static MediaPlayer sirenPlayer;
+
+    private Button sirenButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +100,10 @@ public class HomeActivity extends AppCompatActivity {
         sosEmergencyMessageButton.setOnClickListener(v -> openSosEmergencyMessage());
         settingsButton.setOnClickListener(v -> openSettings());
 
+        sirenButton = findViewById(R.id.buttonSiren);
+        sirenButton.setOnClickListener(v -> toggleSiren());
+        updateSirenButton();
+
         if (savedInstanceState == null) {
             maybePromptForOfflineMap();
         }
@@ -124,5 +139,59 @@ public class HomeActivity extends AppCompatActivity {
 
     private void openSettings() {
         startActivity(new Intent(this, SettingsActivity.class));
+    }
+
+    /** Taps once to sound the siren, again to stop it. */
+    private void toggleSiren() {
+        if (sirenPlayer != null && sirenPlayer.isPlaying()) {
+            sirenPlayer.pause();
+            updateSirenButton();
+            return;
+        }
+
+        if (sirenPlayer == null) {
+            try {
+                sirenPlayer = MediaPlayer.create(getApplicationContext(), R.raw.siren);
+            } catch (RuntimeException failedToCreate) {
+                sirenPlayer = null;
+            }
+            if (sirenPlayer == null) {
+                Toast.makeText(this, R.string.siren_unavailable, Toast.LENGTH_LONG).show();
+                return;
+            }
+            sirenPlayer.setLooping(true);
+            // Alarm stream: plays at the alarm volume even if media is muted.
+            sirenPlayer.setAudioAttributes(new AudioAttributes.Builder()
+                    .setUsage(AudioAttributes.USAGE_ALARM)
+                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                    .build());
+        }
+
+        try {
+            sirenPlayer.start();
+        } catch (IllegalStateException failedToStart) {
+            Toast.makeText(this, R.string.siren_unavailable, Toast.LENGTH_LONG).show();
+            return;
+        }
+        updateSirenButton();
+    }
+
+    private void updateSirenButton() {
+        boolean playing = sirenPlayer != null && sirenPlayer.isPlaying();
+        sirenButton.setText(playing ? R.string.home_siren_stop : R.string.home_siren);
+    }
+
+    @Override
+    protected void onDestroy() {
+        // Leave the app entirely: release so no unstoppable siren keeps blaring.
+        if (isFinishing() && sirenPlayer != null) {
+            try {
+                sirenPlayer.stop();
+            } catch (IllegalStateException ignored) {
+            }
+            sirenPlayer.release();
+            sirenPlayer = null;
+        }
+        super.onDestroy();
     }
 }
