@@ -120,6 +120,10 @@
             android:name=".OfflineCommunicationActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".EmergencyGuideActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

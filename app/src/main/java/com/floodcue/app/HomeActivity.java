@@ -104,6 +104,9 @@ public class HomeActivity extends AppCompatActivity {
         Button tipsButton = findViewById(R.id.buttonTips);
         Button offlineCommunicationButton = findViewById(R.id.buttonOfflineCommunication);
         offlineCommunicationButton.setOnClickListener(v -> openOfflineCommunication());
+
+        Button emergencyGuideButton = findViewById(R.id.buttonEmergencyGuide);
+        emergencyGuideButton.setOnClickListener(v -> openEmergencyGuide());
         checklistButton.setOnClickListener(v -> openChecklist());
         tipsButton.setOnClickListener(v -> openTips());
 
@@ -181,6 +184,10 @@ public class HomeActivity extends AppCompatActivity {
             return;
         }
         updateSirenButton();
+    }
+
+    private void openEmergencyGuide() {
+        startActivity(new Intent(this, EmergencyGuideActivity.class));
     }
 
     private void openOfflineCommunication() {

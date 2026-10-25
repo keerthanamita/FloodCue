@@ -111,6 +111,20 @@
                     android:textAllCaps="false"
                     android:textColor="@color/button_primary_text"
                     android:textSize="16sp" />                <Button
+                    android:id="@+id/buttonEmergencyGuide"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_button_primary"
+                    android:backgroundTint="@null"
+                    android:elevation="0dp"
+                    android:minHeight="0dp"
+                    android:text="@string/home_emergency_guide"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_primary_text"
+                    android:textSize="16sp" />
+
+                <Button
                     android:id="@+id/buttonOfflineCommunication"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
