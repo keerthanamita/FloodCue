@@ -1,6 +1,7 @@
 package com.floodcue.app;
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -13,9 +14,13 @@ import android.os.Bundle;
 import android.os.CancellationSignal;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.SystemClock;
+import android.telephony.SmsManager;
+import android.telephony.TelephonyManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -44,7 +49,13 @@ public class SosActivity extends AppCompatActivity implements LocationListener {
     private static final String DRAFT_NUMBERS_KEY = "sos_draft_numbers";
     private static final String DRAFT_MESSAGE_KEY = "sos_draft_message";
     private static final int LOCATION_PERMISSION_REQUEST = 2101;
+    private static final int SEND_SMS_PERMISSION_REQUEST = 2102;
     private static final long LOCATION_TIMEOUT_MS = 15000L;
+    /**
+     * A fix older than this is never presented as "Current location": it is
+     * labelled as the last known location with its own recorded time instead.
+     */
+    private static final long FRESH_LOCATION_MAX_AGE_MS = 30_000L;
 
     private enum LocationKind {
         NONE,
@@ -64,6 +75,9 @@ public class SosActivity extends AppCompatActivity implements LocationListener {
     private TextView numberError;
     private TextView recipientsEmpty;
     private ChipGroup recipientChips;
+    private ChipGroup savedContactsChips;
+    private TextView savedContactsTitle;
+    private TextView savedContactsHelp;
     private TextView locationStatus;
     private TextView locationError;
     private TextView preview;
@@ -71,7 +85,10 @@ public class SosActivity extends AppCompatActivity implements LocationListener {
     private Button addNumberButton;
     private Button getLocationButton;
     private Button useLastKnownButton;
+    private Button clearLocationButton;
     private Button sendButton;
+    private TextView queueStatus;
+    private Button cancelQueuedButton;
 
     private LocationKind selectedLocationKind = LocationKind.NONE;
     private double selectedLatitude;
@@ -96,6 +113,9 @@ public class SosActivity extends AppCompatActivity implements LocationListener {
         numberError = findViewById(R.id.textSosNumberError);
         recipientsEmpty = findViewById(R.id.textSosRecipientsEmpty);
         recipientChips = findViewById(R.id.chipGroupSosRecipients);
+        savedContactsChips = findViewById(R.id.chipGroupSavedContacts);
+        savedContactsTitle = findViewById(R.id.textSosSavedContactsTitle);
+        savedContactsHelp = findViewById(R.id.textSosSavedContactsHelp);
         locationStatus = findViewById(R.id.textSosLocationStatus);
         locationError = findViewById(R.id.textSosLocationError);
         preview = findViewById(R.id.textSosPreview);
@@ -103,27 +123,37 @@ public class SosActivity extends AppCompatActivity implements LocationListener {
         addNumberButton = findViewById(R.id.buttonAddSosNumber);
         getLocationButton = findViewById(R.id.buttonGetSosLocation);
         useLastKnownButton = findViewById(R.id.buttonUseLastKnownLocation);
+        clearLocationButton = findViewById(R.id.buttonClearSosLocation);
         sendButton = findViewById(R.id.buttonSendSos);
+        queueStatus = findViewById(R.id.textSosQueueStatus);
+        cancelQueuedButton = findViewById(R.id.buttonCancelQueuedSos);
 
         backButton.setOnClickListener(v -> finish());
         addNumberButton.setOnClickListener(v -> addNumbersFromInput());
         getLocationButton.setOnClickListener(v -> startCurrentLocationRequest());
         useLastKnownButton.setOnClickListener(v -> useLastKnownLocation());
-        sendButton.setOnClickListener(v -> confirmAndOpenSms());
+        clearLocationButton.setOnClickListener(v -> clearSelectedLocation());
+        sendButton.setOnClickListener(v -> confirmSend());
+        cancelQueuedButton.setOnClickListener(v -> cancelQueuedSos());
         inputNumber.setOnEditorActionListener((v, actionId, event) -> {
-            addNumbersFromInput();
-            return true;
+            if (actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_NULL) {
+                addNumbersFromInput();
+                return true;
+            }
+            return false;
         });
         inputMessage.addTextChangedListener(new SimpleTextWatcher(this::refreshPreviewAndSendState));
 
         restoreDraft(savedInstanceState);
         restoreLocationState(savedInstanceState);
-        refreshPreviewAndSendState();
+        bindSavedContacts();
+        refreshQueueUi();
     }
 
     @Override
     protected void onPause() {
         saveDraft();
+        SosQueue.setStatusListener(null);
         stopLocationUpdates();
         if (fetchingLocation) {
             fetchingLocation = false;
@@ -139,7 +169,10 @@ public class SosActivity extends AppCompatActivity implements LocationListener {
     protected void onResume() {
         super.onResume();
         launchingSms = false;
-        refreshPreviewAndSendState();
+        SosQueue.setStatusListener(this::refreshQueueUi);
+        SosQueue.resumeRetry(this);
+        bindSavedContacts();
+        refreshQueueUi();
     }
 
     @Override
@@ -208,6 +241,70 @@ public class SosActivity extends AppCompatActivity implements LocationListener {
         bindSelectedLocation();
     }
 
+    private void bindSavedContacts() {
+        savedContactsChips.removeAllViews();
+
+        com.google.firebase.auth.FirebaseUser user =
+                com.google.firebase.auth.FirebaseAuth.getInstance().getCurrentUser();
+        if (user == null) {
+            hideSavedContacts();
+            return;
+        }
+
+        UserProfile profile = ProfileStorage.getProfile(this, user.getUid());
+        if (profile == null) {
+            hideSavedContacts();
+            return;
+        }
+
+        int added = 0;
+        added += offerSavedNumber(profile.primary_contact_phone);
+        added += offerSavedNumber(profile.primary_contact_alt_phone);
+        added += offerSavedNumber(profile.second_contact_phone);
+        added += offerSavedNumber(profile.second_contact_alt_phone);
+        added += offerSavedNumber(profile.third_contact_phone);
+        added += offerSavedNumber(profile.third_contact_alt_phone);
+
+        boolean visible = added > 0;
+        savedContactsTitle.setVisibility(visible ? View.VISIBLE : View.GONE);
+        savedContactsHelp.setVisibility(visible ? View.VISIBLE : View.GONE);
+        savedContactsChips.setVisibility(visible ? View.VISIBLE : View.GONE);
+    }
+
+    private int offerSavedNumber(String rawNumber) {
+        String normalized = normalizePhoneNumber(rawNumber);
+        if (!isValidPhoneNumber(normalized)) {
+            return 0;
+        }
+
+        for (int i = 0; i < savedContactsChips.getChildCount(); i++) {
+            View child = savedContactsChips.getChildAt(i);
+            if (child instanceof Chip
+                    && normalized.equals(((Chip) child).getText().toString())) {
+                return 0;
+            }
+        }
+
+        Chip chip = new Chip(this, null, com.google.android.material.R.attr.chipStyle);
+        chip.setText(normalized);
+        chip.setCheckable(false);
+        chip.setClickable(true);
+        chip.setOnClickListener(v -> {
+            hideNumberError();
+            if (addRecipient(normalized, true)) {
+                refreshPreviewAndSendState();
+            }
+        });
+        savedContactsChips.addView(chip);
+        return 1;
+    }
+
+    private void hideSavedContacts() {
+        savedContactsTitle.setVisibility(View.GONE);
+        savedContactsHelp.setVisibility(View.GONE);
+        savedContactsChips.setVisibility(View.GONE);
+    }
+
     private void saveDraft() {
         preferences.edit()
                 .putString(DRAFT_NUMBERS_KEY, String.join(",", recipients))
@@ -262,6 +359,7 @@ public class SosActivity extends AppCompatActivity implements LocationListener {
         chip.setCloseIconVisible(true);
         chip.setClickable(true);
         chip.setCheckable(false);
+        chip.setContentDescription(getString(R.string.sos_remove_number, normalized));
         chip.setOnCloseIconClickListener(v -> removeRecipient(normalized, chip));
         recipientChips.addView(chip);
         return true;
@@ -376,20 +474,42 @@ public class SosActivity extends AppCompatActivity implements LocationListener {
 
     private void onFreshLocation(Location location) {
         if (location == null) {
+            if (!fetchingLocation) {
+                return;
+            }
+            stopLocationUpdates();
+            fetchingLocation = false;
+            getLocationButton.setEnabled(true);
+            showLocationError(getString(R.string.sos_location_unavailable));
+            loadLastKnownIfAvailable();
+            refreshPreviewAndSendState();
+            return;
+        }
+        if (fetchingLocation && !isRecentFix(location)) {
+            // A cached fix arrived first — keep listening for a live reading.
+            // The 15s timeout covers the case where no fresh fix ever arrives.
             return;
         }
         stopLocationUpdates();
         fetchingLocation = false;
         getLocationButton.setEnabled(true);
         hideLocationError();
-        selectedLocationKind = LocationKind.CURRENT;
+        // Never pass an old fix off as the current location.
+        selectedLocationKind = isRecentFix(location)
+                ? LocationKind.CURRENT
+                : LocationKind.LAST_KNOWN;
         selectedLatitude = location.getLatitude();
         selectedLongitude = location.getLongitude();
-        selectedLocationTimeMs = location.getTime() > 0
-                ? location.getTime()
-                : System.currentTimeMillis();
+        selectedLocationTimeMs = location.getTime();
         bindSelectedLocation();
         refreshPreviewAndSendState();
+    }
+
+    /** True when the fix is at most {@link #FRESH_LOCATION_MAX_AGE_MS} old. */
+    private boolean isRecentFix(Location location) {
+        long ageMs = (SystemClock.elapsedRealtimeNanos() - location.getElapsedRealtimeNanos())
+                / 1_000_000L;
+        return ageMs <= FRESH_LOCATION_MAX_AGE_MS;
     }
 
     private void useLastKnownLocation() {
@@ -400,10 +520,19 @@ public class SosActivity extends AppCompatActivity implements LocationListener {
         selectedLocationKind = LocationKind.LAST_KNOWN;
         selectedLatitude = lastKnownLocation.getLatitude();
         selectedLongitude = lastKnownLocation.getLongitude();
-        selectedLocationTimeMs = lastKnownLocation.getTime() > 0
-                ? lastKnownLocation.getTime()
-                : System.currentTimeMillis();
+        selectedLocationTimeMs = lastKnownLocation.getTime();
         bindSelectedLocation();
+        refreshPreviewAndSendState();
+    }
+
+    private void clearSelectedLocation() {
+        selectedLocationKind = LocationKind.NONE;
+        selectedLatitude = 0;
+        selectedLongitude = 0;
+        selectedLocationTimeMs = 0;
+        hideLocationError();
+        bindSelectedLocation();
+        loadLastKnownIfAvailable();
         refreshPreviewAndSendState();
     }
 
@@ -457,6 +586,9 @@ public class SosActivity extends AppCompatActivity implements LocationListener {
         } else {
             locationStatus.setText(R.string.sos_location_idle);
         }
+        clearLocationButton.setVisibility(
+                selectedLocationKind == LocationKind.NONE ? View.GONE : View.VISIBLE
+        );
     }
 
     @Override
@@ -483,6 +615,20 @@ public class SosActivity extends AppCompatActivity implements LocationListener {
             @NonNull int[] grantResults
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == SEND_SMS_PERMISSION_REQUEST) {
+            if (SosQueue.hasSmsPermission(this)) {
+                enqueueSos();
+            } else {
+                // Safe fallback: the user sends it themselves from the SMS app.
+                Toast.makeText(
+                        this,
+                        R.string.sos_permission_denied_fallback,
+                        Toast.LENGTH_LONG
+                ).show();
+                openSmsApp();
+            }
+            return;
+        }
         if (requestCode != LOCATION_PERMISSION_REQUEST) {
             return;
         }
@@ -496,21 +642,134 @@ public class SosActivity extends AppCompatActivity implements LocationListener {
         refreshPreviewAndSendState();
     }
 
-    private void confirmAndOpenSms() {
-        if (launchingSms || !canSend()) {
+    private void confirmSend() {
+        if (launchingSms || !canSend() || SosQueue.hasPending(this)) {
             return;
         }
 
+        boolean hasSmsPermission = SosQueue.hasSmsPermission(this);
         String numbersList = formatRecipientListForDialog();
+        String message = getString(
+                R.string.sos_confirm_message,
+                numbersList,
+                buildSmsBody(false)
+        );
+        if (!hasSmsPermission) {
+            message = message + "\n\n" + getString(R.string.sos_confirm_permission_note);
+        }
+
         new MaterialAlertDialogBuilder(this)
                 .setTitle(R.string.sos_confirm_title)
-                .setMessage(getString(R.string.sos_confirm_message, numbersList))
+                .setMessage(message)
                 .setNegativeButton(R.string.sos_confirm_cancel, null)
                 .setPositiveButton(
                         R.string.sos_confirm_continue,
-                        (dialog, which) -> openSmsApp()
+                        (dialog, which) -> {
+                            if (hasSmsPermission) {
+                                enqueueSos();
+                            } else {
+                                ActivityCompat.requestPermissions(
+                                        this,
+                                        new String[]{Manifest.permission.SEND_SMS},
+                                        SEND_SMS_PERMISSION_REQUEST
+                                );
+                            }
+                        }
                 )
                 .show();
+    }
+
+    /** Stores the confirmed SOS locally; the queue sends it when a network is available. */
+    private void enqueueSos() {
+        if (!canSend()) {
+            return;
+        }
+        SosQueue.enqueue(this, new ArrayList<>(recipients), buildSmsBody(false));
+        Toast.makeText(this, R.string.sos_queued_toast, Toast.LENGTH_LONG).show();
+        refreshQueueUi();
+    }
+
+    private void cancelQueuedSos() {
+        if (SosQueue.hasPending(this)) {
+            new MaterialAlertDialogBuilder(this)
+                    .setTitle(R.string.sos_queue_cancel)
+                    .setMessage(R.string.sos_queue_cancel_confirm)
+                    .setNegativeButton(R.string.sos_confirm_cancel, null)
+                    .setPositiveButton(
+                            R.string.sos_queue_cancel,
+                            (dialog, which) -> {
+                                SosQueue.clear(this);
+                                Toast.makeText(
+                                        this,
+                                        R.string.sos_queue_cancelled,
+                                        Toast.LENGTH_LONG
+                                ).show();
+                                refreshQueueUi();
+                            }
+                    )
+                    .show();
+            return;
+        }
+        SosQueue.clear(this);
+        refreshQueueUi();
+    }
+
+    /** Keeps the queued-SOS card and the send button in sync with the queue state. */
+    private void refreshQueueUi() {
+        SosQueue.State state = SosQueue.getState(this);
+        if (state == SosQueue.State.EMPTY) {
+            queueStatus.setVisibility(View.GONE);
+            cancelQueuedButton.setVisibility(View.GONE);
+        } else {
+            queueStatus.setVisibility(View.VISIBLE);
+            cancelQueuedButton.setVisibility(View.VISIBLE);
+            int sentCount = SosQueue.getSentCount(this);
+            int totalCount = SosQueue.getTotalCount(this);
+            String statusText;
+            if (state == SosQueue.State.COMPLETE) {
+                statusText = getString(
+                        R.string.sos_queue_complete,
+                        totalCount,
+                        formatTimestamp(SosQueue.getCompletedAt(this))
+                );
+                cancelQueuedButton.setText(R.string.sos_queue_dismiss);
+            } else {
+                cancelQueuedButton.setText(R.string.sos_queue_cancel);
+                if (sentCount > 0 && sentCount < totalCount) {
+                    statusText = getString(R.string.sos_queue_partial, sentCount, totalCount);
+                } else if (state == SosQueue.State.SENDING) {
+                    statusText = getString(R.string.sos_queue_sending);
+                } else {
+                    statusText = getString(R.string.sos_queue_waiting);
+                }
+                // Explain exactly why nothing has gone out yet, if we know.
+                int lastError = SosQueue.getLastError(this);
+                if (lastError != 0) {
+                    statusText = statusText + "\n\n" + queueErrorText(lastError);
+                }
+                if (!isSimReady()) {
+                    statusText = statusText + "\n" + getString(R.string.sos_queue_no_sim);
+                }
+            }
+            queueStatus.setText(statusText);
+        }
+        refreshPreviewAndSendState();
+    }
+
+    /** Maps a SmsManager failure code to a plain-language explanation. */
+    private String queueErrorText(int errorCode) {
+        if (errorCode == SmsManager.RESULT_ERROR_NO_SERVICE) {
+            return getString(R.string.sos_queue_error_no_service);
+        }
+        if (errorCode == SmsManager.RESULT_ERROR_RADIO_OFF) {
+            return getString(R.string.sos_queue_error_radio_off);
+        }
+        return getString(R.string.sos_queue_error_generic);
+    }
+
+    private boolean isSimReady() {
+        TelephonyManager manager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+        return manager != null && manager.getSimState() == TelephonyManager.SIM_STATE_READY;
     }
 
     private void openSmsApp() {
@@ -522,8 +781,9 @@ public class SosActivity extends AppCompatActivity implements LocationListener {
         sendButton.setEnabled(false);
         saveDraft();
 
-        String smsBody = buildSmsBody();
+        String smsBody = buildSmsBody(true);
         String joinedRecipients = String.join(",", recipients);
+
         Intent smsIntent = new Intent(Intent.ACTION_SENDTO);
         smsIntent.setData(Uri.parse("smsto:" + joinedRecipients));
         smsIntent.putExtra("sms_body", smsBody);
@@ -531,25 +791,21 @@ public class SosActivity extends AppCompatActivity implements LocationListener {
         smsIntent.putExtra(Intent.EXTRA_TEXT, smsBody);
 
         try {
-            if (smsIntent.resolveActivity(getPackageManager()) != null) {
-                startActivity(smsIntent);
-                Toast.makeText(this, R.string.sos_sms_opened, Toast.LENGTH_LONG).show();
-                return;
-            }
-
+            startActivity(smsIntent);
+            Toast.makeText(this, R.string.sos_sms_opened, Toast.LENGTH_LONG).show();
+        } catch (ActivityNotFoundException ignored) {
             Intent fallback = new Intent(Intent.ACTION_VIEW);
             fallback.setData(Uri.parse("sms:" + joinedRecipients));
             fallback.putExtra("sms_body", smsBody);
             fallback.putExtra("address", joinedRecipients);
-            if (fallback.resolveActivity(getPackageManager()) != null) {
+            try {
                 startActivity(fallback);
                 Toast.makeText(this, R.string.sos_sms_opened, Toast.LENGTH_LONG).show();
-                return;
+            } catch (ActivityNotFoundException missing) {
+                launchingSms = false;
+                Toast.makeText(this, R.string.sos_sms_unavailable, Toast.LENGTH_LONG).show();
+                refreshPreviewAndSendState();
             }
-
-            launchingSms = false;
-            Toast.makeText(this, R.string.sos_sms_unavailable, Toast.LENGTH_LONG).show();
-            refreshPreviewAndSendState();
         } catch (Exception exception) {
             launchingSms = false;
             Toast.makeText(this, R.string.sos_sms_failed, Toast.LENGTH_LONG).show();
@@ -577,16 +833,23 @@ public class SosActivity extends AppCompatActivity implements LocationListener {
         previewText.append(getString(R.string.sos_preview_sms_note));
         preview.setText(previewText.toString());
 
-        boolean enabled = canSend() && !launchingSms && !fetchingLocation;
+        boolean queueActive = SosQueue.hasPending(this);
+        boolean enabled = canSend() && !launchingSms && !queueActive;
         sendButton.setEnabled(enabled);
         sendButton.setAlpha(enabled ? 1f : 0.45f);
         sendHint.setVisibility(enabled ? View.GONE : View.VISIBLE);
-        if (!canSend()) {
+        if (queueActive) {
+            sendHint.setText(R.string.sos_send_queued_reason);
+        } else if (!canSend()) {
             sendHint.setText(R.string.sos_send_disabled_reason);
         }
     }
 
-    private String buildSmsBody() {
+    /**
+     * @param includeAlsoNotify only the SMS-app fallback needs the extra line,
+     *                           because some SMS apps keep just one recipient.
+     */
+    private String buildSmsBody(boolean includeAlsoNotify) {
         StringBuilder body = new StringBuilder(inputMessage.getText().toString().trim());
         if (selectedLocationKind != LocationKind.NONE) {
             body.append("\n\n");
@@ -606,9 +869,12 @@ public class SosActivity extends AppCompatActivity implements LocationListener {
                 ));
             }
         }
-        if (recipients.size() > 1) {
-            body.append("\n\nIntended recipients: ");
-            body.append(String.join(", ", recipients));
+        if (includeAlsoNotify && recipients.size() > 1) {
+            body.append("\n\n");
+            body.append(getString(
+                    R.string.sos_sms_also_notify,
+                    String.join(", ", recipients)
+            ));
         }
         return body.toString();
     }
@@ -757,9 +1023,11 @@ public class SosActivity extends AppCompatActivity implements LocationListener {
     }
 
     private String formatTimestamp(long timeMs) {
-        long value = timeMs > 0 ? timeMs : System.currentTimeMillis();
+        if (timeMs <= 0) {
+            return getString(R.string.sos_location_time_unknown);
+        }
         return DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.MEDIUM)
-                .format(new Date(value));
+                .format(new Date(timeMs));
     }
 
     private String formatCoordinates(double latitude, double longitude, long timeMs) {
