@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="offline_comm_back_title">← Offline Communication</string>
+    <string name="offline_comm_heading">Offline Communication</string>
+    <string name="offline_comm_short">When floods cut the internet, you can still exchange messages with nearby phones using Bridgefy — a separate, free app that talks directly over Bluetooth, without mobile data or Wi‑Fi.</string>
+    <string name="offline_comm_open_button">Open Bridgefy</string>
+    <string name="offline_comm_not_installed">Bridgefy is not installed on this phone. Get it from Google Play — internet is only needed to install it and for the first activation.</string>
+    <string name="offline_comm_open_failed">Could not open Bridgefy on this device.</string>
+    <string name="offline_comm_howto_title">How to use Bridgefy during a flood</string>
+    <string name="offline_comm_more_title">Good to know</string>
+    <string name="offline_comm_limitations">Bridgefy only works when both phones have the app installed, Bluetooth is on, and the phones are close enough. Message delivery is never guaranteed, and Bridgefy cannot replace SMS, emergency calls or official rescue channels — keep FloodCue’s SOS as your backup.</string>
+    <string name="home_offline_communication">Offline Communication</string>
+</resources>

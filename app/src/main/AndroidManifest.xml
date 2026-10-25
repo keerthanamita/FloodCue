@@ -116,6 +116,10 @@
             android:name=".TipsActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".OfflineCommunicationActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
