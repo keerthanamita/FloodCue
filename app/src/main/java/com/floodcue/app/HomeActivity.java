@@ -102,11 +102,17 @@ public class HomeActivity extends AppCompatActivity {
 
         Button checklistButton = findViewById(R.id.buttonChecklist);
         Button tipsButton = findViewById(R.id.buttonTips);
+        Button weatherButton = findViewById(R.id.buttonWeather);
+        weatherButton.setOnClickListener(v -> openWeather());
+        Button floodAlertButton = findViewById(R.id.buttonFloodAlert);
+        floodAlertButton.setOnClickListener(v -> openFloodAlerts());
         Button offlineCommunicationButton = findViewById(R.id.buttonOfflineCommunication);
         offlineCommunicationButton.setOnClickListener(v -> openOfflineCommunication());
 
         Button emergencyGuideButton = findViewById(R.id.buttonEmergencyGuide);
         emergencyGuideButton.setOnClickListener(v -> openEmergencyGuide());
+        Button sosEmergencyButton = findViewById(R.id.buttonSosEmergency);
+        sosEmergencyButton.setOnClickListener(v -> openSosEmergency());
         checklistButton.setOnClickListener(v -> openChecklist());
         tipsButton.setOnClickListener(v -> openTips());
 
@@ -184,6 +190,18 @@ public class HomeActivity extends AppCompatActivity {
             return;
         }
         updateSirenButton();
+    }
+
+    private void openSosEmergency() {
+        startActivity(new Intent(this, SosEmergencyActivity.class));
+    }
+
+    private void openWeather() {
+        startActivity(new Intent(this, WeatherActivity.class));
+    }
+
+    private void openFloodAlerts() {
+        startActivity(new Intent(this, FloodAlertActivity.class));
     }
 
     private void openEmergencyGuide() {

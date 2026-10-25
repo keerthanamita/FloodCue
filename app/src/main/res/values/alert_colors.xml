@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Warning severity colours, fixed in both themes so the official
+      Green / Yellow / Orange / Red classification stays recognisable.
+      The companion *_text colours keep contrast on each chip.
+    -->
+    <color name="alert_green">#2E7D32</color>
+    <color name="alert_yellow">#F9A825</color>
+    <color name="alert_orange">#EF6C00</color>
+    <color name="alert_red">#C62828</color>
+    <color name="alert_unknown">#6B6B6B</color>
+
+    <color name="alert_green_text">#FFFFFF</color>
+    <color name="alert_yellow_text">#1F1F1F</color>
+    <color name="alert_orange_text">#FFFFFF</color>
+    <color name="alert_red_text">#FFFFFF</color>
+    <color name="alert_unknown_text">#FFFFFF</color>
+</resources>

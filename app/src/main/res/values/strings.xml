@@ -73,4 +73,7 @@
     <string name="emergency_contacts_invalid_number">Phone number is not available</string>
     <string name="emergency_contacts_unable_to_call">Unable to make the call</string>
     <string name="emergency_contacts_permission_required">Call permission is required to make calls directly</string>
+    <string name="home_sos_emergency">SOS Emergency</string>
+    <string name="home_weather">Weather</string>
+    <string name="home_flood_alerts">Flood Alerts</string>
 </resources>

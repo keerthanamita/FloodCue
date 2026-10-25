@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sos_emergency_back_title">← SOS Emergency</string>
+    <string name="sos_emergency_heading">Emergency SOS</string>
+    <string name="sos_emergency_short">All three things at once: an SOS message to your emergency contacts, the siren, and your GPS location with a maps link.</string>
+    <string name="sos_emergency_send">Send emergency SOS</string>
+    <string name="sos_emergency_sms_sent">SOS message sent to your emergency contacts.</string>
+    <string name="sos_emergency_sms_failed">Could not send the SOS message. Check your network and that you have at least one emergency contact.</string>
+    <string name="sos_emergency_sms_pending">SOS waiting to send</string>
+    <string name="sos_emergency_no_contacts">No emergency contacts available. Add them in Emergency Contacts (Settings → Emergency Contacts) before you send an SOS.</string>
+    <string name="sos_emergency_location">Location</string>
+    <string name="sos_emergency_location_available">Current location obtained — coordinates and maps link included.</string>
+    <string name="sos_emergency_location_unavailable">Location could not be obtained.</string>
+    <string name="sos_emergency_location_last_known">Last known location only — %1$s (age: %2$s).</string>
+    <string name="sos_emergency_siren">Siren activated — tap \u201cStop Siren\u201d or leave the app to stop it.</string>
+    <string name="sos_emergency_feedback">Status</string>
+    <string name="sos_emergency_feeding_sms">Sending SMS now…</string>
+    <string name="sos_emergency_contact">Emergency contact</string>
+    <string name="sos_emergency_open_settings">Open Settings</string>
+    <string name="sos_emergency_add_contacts">Add contacts in Emergency Contacts</string>
+    <string name="sos_emergency_perm_denied">Location permission is required for coordinates. Turn it on in system settings.</string>
+    <string name="sos_emergency_no_sim">No SIM detected — SMS cannot be sent.</string>
+    <string name="sos_emergency_no_network">No mobile network — SMS cannot be sent right now.</string>
+    <string name="sos_emergency_consent">FloodCue will send this SMS from your phone. It may use mobile network minutes/charges. Tap Send to continue.</string>
+    <string name="sos_emergency_consent_title">Confirm before sending</string>
+</resources>

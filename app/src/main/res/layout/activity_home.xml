@@ -110,7 +110,22 @@
                     android:text="@string/home_sos_emergency_message"
                     android:textAllCaps="false"
                     android:textColor="@color/button_primary_text"
-                    android:textSize="16sp" />                <Button
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/buttonSosEmergency"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_button_primary"
+                    android:backgroundTint="@null"
+                    android:elevation="0dp"
+                    android:minHeight="0dp"
+                    android:text="@string/home_sos_emergency"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_primary_text"
+                    android:textSize="16sp" />
+                <Button
                     android:id="@+id/buttonEmergencyGuide"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
@@ -167,21 +182,49 @@
                     android:textSize="16sp" />
 
                 <Button
-                android:id="@+id/buttonSiren"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/bg_button_primary"
-                android:backgroundTint="@null"
-                android:elevation="0dp"
-                android:minHeight="0dp"
-                android:text="@string/home_siren"
-                android:textAllCaps="false"
-                android:textColor="@color/button_primary_text"
-                android:textSize="16sp" />
+                    android:id="@+id/buttonWeather"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_button_primary"
+                    android:backgroundTint="@null"
+                    android:elevation="0dp"
+                    android:minHeight="0dp"
+                    android:text="@string/home_weather"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_primary_text"
+                    android:textSize="16sp" />
 
                 <Button
-                android:id="@+id/buttonSettings"
+                    android:id="@+id/buttonFloodAlert"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_button_primary"
+                    android:backgroundTint="@null"
+                    android:elevation="0dp"
+                    android:minHeight="0dp"
+                    android:text="@string/home_flood_alerts"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_primary_text"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/buttonSiren"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_button_primary"
+                    android:backgroundTint="@null"
+                    android:elevation="0dp"
+                    android:minHeight="0dp"
+                    android:text="@string/home_siren"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_primary_text"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/buttonSettings"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
                     android:layout_marginTop="12dp"
