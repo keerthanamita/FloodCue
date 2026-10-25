@@ -56,6 +56,7 @@
     <string name="sos_sms_unavailable">No compatible SMS app was found. Your numbers and message are still saved on this screen.</string>
     <string name="sos_sms_failed">Could not open the SMS app. Your numbers and message are still saved on this screen.</string>
     <string name="sos_offline_note">You can prepare this SOS without internet. Sending an SMS still needs a working cellular SMS service.</string>
+    <string name="sos_battery_note">Tip: for the fastest emergency sending, set FloodCue battery usage to Unrestricted — Settings → Apps → FloodCue → Battery.</string>
 
     <string name="sos_queued_toast">SOS stored on this phone. It will be sent automatically as soon as a network is available.</string>
     <string name="sos_queue_waiting">SOS queued. It will be sent automatically as soon as this phone has mobile signal — SMS travels over the mobile network, not Wi‑Fi.</string>
