@@ -111,6 +111,34 @@
                     android:textAllCaps="false"
                     android:textColor="@color/button_primary_text"
                     android:textSize="16sp" />                <Button
+                    android:id="@+id/buttonChecklist"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_button_primary"
+                    android:backgroundTint="@null"
+                    android:elevation="0dp"
+                    android:minHeight="0dp"
+                    android:text="@string/home_flood_checklist"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_primary_text"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/buttonTips"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_button_primary"
+                    android:backgroundTint="@null"
+                    android:elevation="0dp"
+                    android:minHeight="0dp"
+                    android:text="@string/home_safety_tips"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_primary_text"
+                    android:textSize="16sp" />
+
+                <Button
                 android:id="@+id/buttonSiren"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"

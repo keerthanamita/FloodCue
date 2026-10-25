@@ -100,6 +100,11 @@ public class HomeActivity extends AppCompatActivity {
         sosEmergencyMessageButton.setOnClickListener(v -> openSosEmergencyMessage());
         settingsButton.setOnClickListener(v -> openSettings());
 
+        Button checklistButton = findViewById(R.id.buttonChecklist);
+        Button tipsButton = findViewById(R.id.buttonTips);
+        checklistButton.setOnClickListener(v -> openChecklist());
+        tipsButton.setOnClickListener(v -> openTips());
+
         sirenButton = findViewById(R.id.buttonSiren);
         sirenButton.setOnClickListener(v -> toggleSiren());
         updateSirenButton();
@@ -174,6 +179,14 @@ public class HomeActivity extends AppCompatActivity {
             return;
         }
         updateSirenButton();
+    }
+
+    private void openChecklist() {
+        startActivity(new Intent(this, ChecklistActivity.class));
+    }
+
+    private void openTips() {
+        startActivity(new Intent(this, TipsActivity.class));
     }
 
     private void updateSirenButton() {
