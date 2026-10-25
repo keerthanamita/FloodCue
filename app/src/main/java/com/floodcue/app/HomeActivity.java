@@ -1,15 +1,29 @@
 package com.floodcue.app;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.media.AudioAttributes;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -20,6 +34,20 @@ public class HomeActivity extends AppCompatActivity {
     private static MediaPlayer sirenPlayer;
 
     private Button sirenButton;
+    private Button sosButton;
+
+    private static final int SOS_PERMISSION_REQUEST = 5101;
+    /** Guards against an accidental double tap sending two emergency messages. */
+    private static final long SOS_SEND_COOLDOWN_MS = 15_000L;
+    /** How long the message waits for a first GPS fix before sending without one. */
+    private static final long SOS_LOCATION_WAIT_MS = 6_000L;
+
+    private final Handler sosHandler = new Handler(Looper.getMainLooper());
+    private LocationListener sosLocationListener;
+    private Runnable sosLocationTimeout;
+    private List<String> pendingSosRecipients;
+    private boolean waitingForSosLocation;
+    private long lastSosSendAt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,6 +143,9 @@ public class HomeActivity extends AppCompatActivity {
         sosEmergencyButton.setOnClickListener(v -> openSosEmergency());
         checklistButton.setOnClickListener(v -> openChecklist());
         tipsButton.setOnClickListener(v -> openTips());
+
+        sosButton = findViewById(R.id.buttonSos);
+        sosButton.setOnClickListener(v -> toggleQuickSos());
 
         sirenButton = findViewById(R.id.buttonSiren);
         sirenButton.setOnClickListener(v -> toggleSiren());
@@ -220,13 +251,212 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(new Intent(this, TipsActivity.class));
     }
 
+    /**
+     * The red home SOS button. One tap starts the alarm and sends the
+     * emergency message on its own; the next tap stops the alarm. Nothing else
+     * is asked of the user, because an SMS that already left this device
+     * cannot be recalled.
+     */
+    private void toggleQuickSos() {
+        boolean alarmSounding = sirenPlayer != null && sirenPlayer.isPlaying();
+        if (alarmSounding) {
+            toggleSiren();
+            updateSirenButton();
+            Toast.makeText(getApplicationContext(),
+                    R.string.home_sos_siren_stopped, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Sound first: it needs no permission and is the fastest help.
+        toggleSiren();
+        updateSirenButton();
+
+        if (!SosQueue.hasSmsPermission(this) || !hasLocationPermission()) {
+            requestSosPermissions();
+            return;
+        }
+        startQuickSos();
+    }
+
+    private void requestSosPermissions() {
+        List<String> missing = new ArrayList<>();
+        if (!SosQueue.hasSmsPermission(this)) {
+            missing.add(Manifest.permission.SEND_SMS);
+        }
+        if (!hasLocationPermission()) {
+            missing.add(Manifest.permission.ACCESS_FINE_LOCATION);
+        }
+        if (missing.isEmpty()) {
+            startQuickSos();
+            return;
+        }
+        ActivityCompat.requestPermissions(this,
+                missing.toArray(new String[0]), SOS_PERMISSION_REQUEST);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode != SOS_PERMISSION_REQUEST) {
+            return;
+        }
+        if (!SosQueue.hasSmsPermission(this)) {
+            // The alarm keeps sounding; without SMS permission nothing can be sent.
+            Toast.makeText(getApplicationContext(),
+                    R.string.home_sos_sms_permission, Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (!hasLocationPermission()) {
+            Toast.makeText(getApplicationContext(),
+                    R.string.home_sos_location_permission, Toast.LENGTH_SHORT).show();
+        }
+        startQuickSos();
+    }
+
+    private void startQuickSos() {
+        long now = System.currentTimeMillis();
+        if (now - lastSosSendAt < SOS_SEND_COOLDOWN_MS) {
+            return;
+        }
+        Set<String> recipients = SosQuickSend.recipients(this);
+        if (recipients.isEmpty()) {
+            Toast.makeText(getApplicationContext(),
+                    R.string.home_sos_no_contacts, Toast.LENGTH_LONG).show();
+            return;
+        }
+        lastSosSendAt = now;
+        pendingSosRecipients = new ArrayList<>(recipients);
+
+        Location known = SosQuickSend.bestLastKnown(this, hasLocationPermission());
+        if (known != null) {
+            dispatchSos(known);
+            return;
+        }
+        waitForSosLocation();
+    }
+
+    /** Gives the GPS a short chance to produce a fix before sending anyway. */
+    private void waitForSosLocation() {
+        if (!hasLocationPermission()) {
+            dispatchSos(null);
+            return;
+        }
+        String provider = SosQuickSend.enabledProvider(this);
+        LocationManager manager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        if (provider == null || manager == null) {
+            dispatchSos(null);
+            return;
+        }
+
+        waitingForSosLocation = true;
+        sosLocationListener = new LocationListener() {
+            @Override
+            public void onLocationChanged(@NonNull Location location) {
+                if (!waitingForSosLocation) {
+                    return;
+                }
+                waitingForSosLocation = false;
+                stopSosLocationRequest();
+                dispatchSos(location);
+            }
+
+            @Override
+            public void onProviderEnabled(@NonNull String provider) {
+            }
+
+            @Override
+            public void onProviderDisabled(@NonNull String provider) {
+                if (waitingForSosLocation) {
+                    waitingForSosLocation = false;
+                    stopSosLocationRequest();
+                    dispatchSos(null);
+                }
+            }
+        };
+        try {
+            manager.requestLocationUpdates(provider, 0L, 0f,
+                    sosLocationListener, Looper.getMainLooper());
+        } catch (SecurityException | IllegalArgumentException failed) {
+            waitingForSosLocation = false;
+            sosLocationListener = null;
+            dispatchSos(null);
+            return;
+        }
+
+        sosLocationTimeout = () -> {
+            if (!waitingForSosLocation) {
+                return;
+            }
+            waitingForSosLocation = false;
+            stopSosLocationRequest();
+            dispatchSos(null);
+        };
+        sosHandler.postDelayed(sosLocationTimeout, SOS_LOCATION_WAIT_MS);
+    }
+
+    private void stopSosLocationRequest() {
+        sosHandler.removeCallbacksAndMessages(null);
+        sosLocationTimeout = null;
+        if (sosLocationListener == null) {
+            return;
+        }
+        LocationManager manager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        if (manager != null) {
+            try {
+                manager.removeUpdates(sosLocationListener);
+            } catch (SecurityException ignored) {
+            }
+        }
+        sosLocationListener = null;
+    }
+
+    /** Hands the message to the queue, which sends now and retries when a network returns. */
+    private void dispatchSos(Location location) {
+        List<String> recipients = pendingSosRecipients;
+        pendingSosRecipients = null;
+        if (recipients == null || recipients.isEmpty()) {
+            return;
+        }
+        if (location == null) {
+            Toast.makeText(getApplicationContext(),
+                    R.string.home_sos_location_unavailable, Toast.LENGTH_SHORT).show();
+        }
+        SosQueue.enqueue(getApplicationContext(), recipients,
+                SosQuickSend.buildMessage(location));
+        Toast.makeText(getApplicationContext(),
+                getString(R.string.home_sos_started, recipients.size()),
+                Toast.LENGTH_LONG).show();
+    }
+
+    private boolean hasLocationPermission() {
+        return ContextCompat.checkSelfPermission(
+                this, Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(
+                this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED;
+    }
+
     private void updateSirenButton() {
         boolean playing = sirenPlayer != null && sirenPlayer.isPlaying();
         sirenButton.setText(playing ? R.string.home_siren_stop : R.string.home_siren);
+        if (sosButton != null) {
+            sosButton.setText(playing ? R.string.home_sos_stop : R.string.home_sos);
+        }
     }
 
     @Override
     protected void onDestroy() {
+        // Leaving the screen mid-wait must not silently drop the SOS message.
+        if (waitingForSosLocation) {
+            waitingForSosLocation = false;
+            stopSosLocationRequest();
+            dispatchSos(null);
+        } else {
+            stopSosLocationRequest();
+        }
         // Leave the app entirely: release so no unstoppable siren keeps blaring.
         if (isFinishing() && sirenPlayer != null) {
             try {

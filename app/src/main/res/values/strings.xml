@@ -76,4 +76,13 @@
     <string name="home_sos_emergency">SOS Emergency</string>
     <string name="home_weather">Weather</string>
     <string name="home_flood_alerts">Flood Alerts</string>
+    <string name="home_sos">SOS</string>
+    <string name="home_sos_stop">Stop SOS alarm</string>
+    <string name="home_sos_started">SOS started. Sending the emergency message to %1$d contact(s).</string>
+    <string name="home_sos_sending">Sending the emergency message…</string>
+    <string name="home_sos_no_contacts">No emergency contacts found. Save personal contacts during setup, or pick numbers on the SOS Emergency Message screen.</string>
+    <string name="home_sos_sms_permission">SMS permission is needed to send the emergency message automatically.</string>
+    <string name="home_sos_location_permission">Location permission lets SOS add your coordinates to the message.</string>
+    <string name="home_sos_location_unavailable">No GPS fix yet, so the message says coordinates are unavailable.</string>
+    <string name="home_sos_siren_stopped">Siren stopped. Messages already sent cannot be recalled.</string>
 </resources>

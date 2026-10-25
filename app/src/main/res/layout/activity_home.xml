@@ -125,6 +125,22 @@
                     android:textAllCaps="false"
                     android:textColor="@color/button_primary_text"
                     android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/buttonSos"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_button_sos"
+                    android:backgroundTint="@null"
+                    android:elevation="0dp"
+                    android:minHeight="0dp"
+                    android:text="@string/home_sos"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_primary_text"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
                 <Button
                     android:id="@+id/buttonEmergencyGuide"
                     android:layout_width="match_parent"

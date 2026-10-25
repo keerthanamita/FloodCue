@@ -38,7 +38,8 @@ import java.util.Locale;
  * One-tap emergency SOS.
  *
  * <ul>
- *  <li>Sends the emergency SMS to every saved emergency contact.</li>
+ *  <li>Sends the emergency SMS to the personal emergency contacts saved during
+ *      setup and to the numbers chosen on the SOS Emergency Message screen.</li>
  *  <li>Activates the app siren.</li>
  *  <li>Attaches the current GPS coordinate plus a Google Maps link.</li>
  * </ul>
@@ -56,19 +57,7 @@ public class SosEmergencyActivity extends AppCompatActivity
     private static final long LOCATION_TIMEOUT_MS = 15000L;
 
     private static final String EMERGENCY_SMS_BODY =
-            "I NEED HELP! I may be in danger due to flooding. Please contact me or send emergency assistance.";
-
-    private static final String[] EMERGENCY_CONTACT_KEYS = {
-            "primary_contact_name",
-            "primary_contact_phone",
-            "primary_contact_alt_phone",
-            "second_contact_name",
-            "second_contact_phone",
-            "second_contact_alt_phone",
-            "third_contact_name",
-            "third_contact_phone",
-            "third_contact_alt_phone"
-    };
+            SosQuickSend.EMERGENCY_SMS_BODY;
 
     private static final int LOCATION_PERMISSION_REQUEST = 3101;
 
@@ -434,17 +423,13 @@ public class SosEmergencyActivity extends AppCompatActivity
         }
     }
 
+    /**
+     * Personal emergency contacts from profile setup plus the numbers the user
+     * picked on the SOS Emergency Message screen, so both SOS paths reach the
+     * same people.
+     */
     private String[] loadEmergencyContacts() {
-        SharedPreferences prefs =
-                getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-        android.util.ArraySet<String> contacts = new android.util.ArraySet<>();
-        for (String key : EMERGENCY_CONTACT_KEYS) {
-            String value = prefs.getString(key, null);
-            if (value != null && !value.trim().isEmpty()) {
-                contacts.add(value.trim());
-            }
-        }
-        return contacts.toArray(new String[0]);
+        return SosQuickSend.recipients(this).toArray(new String[0]);
     }
 
     private String formatCoordinate(double value) {

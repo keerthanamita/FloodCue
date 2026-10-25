@@ -41,6 +41,10 @@
   <!-- Error -->
   <color name="error_color">#B3261E</color>
 
+  <!-- Home SOS button -->
+  <color name="home_sos_red">#C62828</color>
+  <color name="home_sos_red_pressed">#9C1F1A</color>
+
   <!-- Existing splash colors retained -->
   <color name="primary_color">#3F51B5</color>
 
