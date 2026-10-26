@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Back navigation -->
+    <string name="weather_back_title">← వర్షాభావాలు</string>
+    <!-- Screen headings -->
+    <string name="weather_heading">🌤️ వర్షాభావాలు</string>
+    <string name="weather_subtitle">నీటి పిడుగుల వద్ద స్థానిక వర్షాభావాలు మరియు ఇతర వాతావరణ సమాచారం.</string>
+    <!-- Buttons -->
+    <string name="weather_refresh">మళ్లీ లోడ్ చేయి</string>
+    <string name="weather_oauth_closing">వెళ్లిపోవడం</string>
+    <string name="weather_select_location_title">మీరు ఇక్కడ ఉన్నారని తెలుసుకోండి</string>
+    <string name="weather_select_location_subtitle">మీరు నుండి దూరంగా ఉన్న స్థానాన్ని ఎన్నిక చేసుకోండి.</string>
+    <string name="weather_current_forecast">వర్తమాన అడ్వైస్</string>
+    <string name="weather_from_city">%1$s నుండి</string>
+    <!-- Weather conditions -->
+    <string name="weather_condition_clear">స్పష్టం</string>
+    <string name="weather_condition_mostly_clear">ప్రధానంగా స్పష్టం</string>
+    <string name="weather_condition_partly_cloudy">కొంతమంది మేఘాలు</string>
+    <string name="weather_condition_overcast">మేఘాలుగా ఉండి</string>
+    <string name="weather_condition_fair">బాగుండేలా</string>
+    <string name="weather_condition_foggy">ఆవులను</string>
+    <string name="weather_condition_drizzle">చిన్న వర్షం</string>
+    <string name="weather_condition_rain">వర్షం</string>
+    <string name="weather_condition_shower">నోటు వర్షం</string>
+    <string name="weather_condition_showers">నోటుల వర్షం</string>
+    <string name="weather_condition_thunderstorm">గాలి వలలు</string>
+    <string name="weather_condition_snow">వర్షం</string>
+    <string name="weather_condition_mist">ఆవులను</string>
+    <string name="weather_condition_haze">పొగలు</string>
+    <string name="weather_condition_sand">రాళ్ల వెలుతిరిగి</string>
+    <string name="weather_condition_dust">పూసల వెలుతిరిగి</string>
+    <!-- Warnings -->
+    <string name="weather_warning_thunderstorm">గాలి వలలు</string>
+    <string name="weather_warning_heavy_rain">అధిక వర్షం</string>
+    <string name="weather_warning_flood">పిడుగు వచ్చింది</string>
+    <string name="weather_warning_rain">వర్షం</string>
+    <string name="weather_warning_moderate">మధ్యమం</string>
+    <string name="weather_warning_weather">వర్షాభావం మార్పిడి</string>
+    <string name="weather_warning_rain_probability">వర్షం సంభావ్యత:</string>
+    <string name="weather_warning_hourly_rain">ప్రతి గంట వర్షం:</string>
+    <string name="weather_warning_hourly_rain_drop">%1$.1f మి.మీ</string>
+    <string name="weather_warning_tab_rain">వర్షం</string>
+    <string name="weather_warning_tab_wind">గాలి</string>
+    <string name="weather_warning_tab_weather">వాతావరణం</string>
+    <string name="weather_warning_tab_current">వర్తమానం</string>
+    <string name="weather_warning_warning">హెచ్చరిక</string>
+    <string name="weather_warning_today">ఈ రోజు</string>
+    <string name="weather_warning_warning_prone">ఈ ప్రాంతం వర్షాభావానికి సంబంధించినది</string>
+    <string name="weather_warning_warning_region">ఈ ప్రాంతం వర్షాభావానికి సంబంధించినది</string>
+    <string name="weather_warning_warning_continent">ఈ ఖండం వర్షాభావానికి సంబంధించినది</string>
+    <string name="weather_warning_warning_global">భూగోళం వర్షాభావానికి సంబంధించినది</string>
+    <string name="weather_warning_warning_global_danger">ఈ ఖండం ప్రపంచవ్యాప్తంగా వర్షాభావానికి సంబంధించినది</string>
+    <string name="weather_warning_warning_global_danger_drought">ఈ ఖండం ప్రపంచవ్యాప్తంగా వర్షాభావానికి సంబంధించినది మరియు వర్షాభావంలో తక్కువ సాధారణ ప్రాంతం ఇక్కడ ఉంది.</string>
+    <string name="weather_warning_warning_drought">ఈ ప్రాంతం వర్షాభావానికి సంబంధించినది మరియు వర్షాభావంలో తక్కువ సాధారణ ప్రాంతం.</string>
+    <string name="weather_warning_warning_drought_dry">ఈ ప్రాంతం వర్షాభావానికి సంబంధించినది మరియు వర్షాభావంలో తక్కువ సాధారణ ప్రాంతం.</string>
+    <string name="weather_warning_dry">ఆమెదుగా (ఈ ప్రాంతం వర్షాభావంలో తక్కువ)</string>
+    <string name="weather_warning_dry_tip">ఈ ప్రాంతం వర్షాభావంలో తక్కువ సాధారణ ప్రాంతం కావడం ద్వారా వర్షాభావం ఎక్కువగా ఉంటుంది.</string>
+    <string name="weather_warning_hot">గరిమెత్తు (ఈ ప్రాంతం వర్షాభావంలో తక్కువ సాధారణ ప్రాంతం కావడం ద్వారా వర్షాభావం ఎక్కువగా ఉంటుంది)</string>
+    <string name="weather_warning_hot_tip">ఈ ప్రాంతం వర్షాభావంలో తక్కువ సాధారణ ప్రాంతం కావడం ద్వారా వర్షాభావం ఎక్కువగా ఉంటుంది.</string>
+    <!-- States -->
+    <string name="weather_permission_required">అధికారిక వర్షాభావాల కోసం మీ స్థానం అవసరం.</string>
+    <string name="weather_no_location">మీ స్థానం లభ్యం కాదు. గమనిక: మీరు ఎక్కడ ఉన్నారో తెలియజేసే మార్గం లేనప్పటికీ ఇంటర్నెట్ లేకుండా నేరుగా అడ్వైస్ పొందవచ్చు.</string>
+    <string name="weather_refresh_ie">ఇంటర్నెట్ లేదు. మీరు ఇంటర్నెట్ కనెక్షన్ కలిగి ఉన్నట్లయితే మళ్లీ క్లిక్ చేసి అధికారిక నెట్‌వర్క్ సర్వీస్‌ను పొందండి.</string>
+    <string name="weather_refresh_no_data">డేటా లభ్యం కాలేదు. మీరు ఇంటర్నెట్ కనెక్షన్ కలిగి ఉన్నట్లయితే మళ్లీ క్లిక్ చేసి అధికారిక నెట్‌వర్క్ సర్వీస్‌ను పొందండి.</string>
+    <string name="weather_no_data">ఇంటర్నెట్ లేదు లేదా సర్వర్ నుండి డేటా అందుబాటులో లేదు.</string>
+    <string name="weather_cached">(ముందుగా సేవ్ చేయబడింది)</string>
+    <string name="weather_cached_since"><![CDATA[చివరిగా అప్‌డేట్ చేయబడినది: %1$s]]></string>
+    <string name="weather_rain_hint">వర్షం సాధారణంగా ఉండే ప్రదేశాల్లో సాధారణంగా కొంతమేరకు వర్షం ఉంటుంది. నీటి రావడం చూడటానికి కారణం కావచ్చు కాదు. మీ ఫ్లూడ్ మేజర్ అధికారిక వర్షాభావం లేదా ప్రచురణ సమాచారంతో సరిపోల్చండి.</string>
+    <string name="weather_unavailable">ఇంటర్నెట్ లేదు లేదా డేటా అందుబాటులో లేదు.</string>
+    <string name="weather_select">మీరు ఇక్కడ ఉన్నారని తెలుసుకోండి</string>
+    <string name="weather_select_title">రాష్ట్రం ఎంచుకోండి</string>
+    <string name="weather_select_placeholder">రాష్ట్రం ఎంచుకోండి</string>
+    <string name="weather_select_success">మీ స్థానం ఎంచుకోబడింది</string>
+    <string name="weather_select_city">పటాన్ని నొక్కి మీ నగరాన్ని ఎంచుకోండి</string>
+    <string name="weather_no_data_found">డేటా కనుగొనబడలేదు</string>
+    <string name="weather_no_data_found_desc">మీరు అడ్వైస్ పొందేంత సమయంలో మీ స్థానం లభ్యం కాకపోయింది. మీరు ఇంటర్నెట్ కనెక్షన్ కలిగి ఉన్నట్లయితే కొంత సమయం తర్వాత మళ్లీ ప్రయత్నించండి.</string>
+    <string name="weather_refresh_desc">వర్తమాన వర్షాభావాలు మరియు అడ్వైస్ మరిన్ని సమాచారం కొరకు ఆపరేషన్ను ప్రారంభించండి.</string>
+    <string name="weather_warning_significant">ఆధునికమైన అధికారిక వర్షాభావం కోసం మార్గదర్శకాలు ఇవి సరిగ్గా ఉన్నాయి.</string>
+    <string name="weather_warning_danger">ఈ ప్రాంతం వర్షాభావానికి సంబంధించినది మరియు వర్షాభావంలో తక్కువ సాధారణ ప్రాంతం కావడం ద్వారా వర్షాభావం ఎక్కువగా ఉంటుంది.</string>
+    <string name="weather_warning_danger_tip">మీరు ఎక్కడ ఉన్నారనే దృష్టి లేకుండా స్థానం చూడించుకోండి (మీ స్థానం లేదు) కాబట్టి వర్షాభావం ఎక్కువగా ఉండవచ్చు.</string>
+    <string name="weather_warning_global_danger_tip">మీరు ఎక్కడ ఉన్నారనే దృష్టి లేకుండా స్థానం చూడించుకోండి కాబట్టి వర్షాభావం ఎక్కువగా ఉండవచ్చు.</string>
+    <string name="weather_warning_drought">ఈ ప్రాంతం వర్షాభావంలో తక్కువ సాధారణ ప్రాంతం కావడం ద్వారా వర్షాభావం ఎక్కువగా ఉంటుంది.</string>
+    <string name="weather_warning_drought_tip">మీరు ఎక్కడ ఉన్నారనే దృష్టి లేకుండా స్థానం చూడించుకోండి కాబట్టి వర్షాభావం ఎక్కువగా ఉంటుంది.</string>
+    <string name="weather_warning_drought_dry">ఈ ప్రాంతం వర్షాభావంలో తక్కువ సాధారణ ప్రాంతం కావడం ద్వారా వర్షాభావం ఎక్కువగా ఉంటుంది.</string>
+    <string name="weather_warning_drought_dry_tip">ఈ ప్రాంతం వర్షాభావంలో తక్కువ సాధారణ ప్రాంతం కావడం ద్వారా వర్షాభావం ఎక్కువగా ఉంటుంది.</string>
+    <string name="weather_warning_hot_dry">ఈ ప్రాంతం వర్షాభావంలో తక్కువ సాధారణ ప్రాంతం కావడం ద్వారా వర్షాభావం ఎక్కువగా ఉంటుంది.</string>
+    <string name="weather_warning_hot_dry_tip">ఈ ప్రాంతం వర్షాభావంలో తక్కువ సాధారణ ప్రాంతం కావడం ద్వారా వర్షాభావం ఎక్కువగా ఉంటుంది.</string>
+    <string name="weather_warning_snow">పండుగ</string>
+    <string name="weather_warning_warnings">హెచ్చరికలు</string>
+    <string name="weather_warning_hail">బిందువులు</string>
+    <string name="weather_warning_no_warnings">ఈ రోజు హెచ్చరికలు లేవు.</string>
+    <string name="weather_warning_no_data">డేటా లభ్యం కాలేదు. మీరు ఇంటర్నెట్ కనెక్షన్ కలిగి ఉన్నట్లయితే మళ్లీ ప్రయత్నించండి.</string>
+    <string name="weather_warning_no_data_found">డేటా కనుగొనబడలేదు. మీరు ఇంటర్నెట్ కనెక్షన్ కలిగి ఉన్నట్లయితే మళ్లీ ప్రయత్నించండి.</string>
+    <string name="weather_warning_no_data_found_desc">మీరు అడ్వైస్ పొందేంత సమయంలో మీ స్థానం లభ్యం కాకపోయింది. మీరు ఇంటర్నెట్ కనెక్షన్ కలిగి ఉన్నట్లయితే కొంత సమయం తర్వాత మళ్లీ ప్రయత్నించండి.</string>
+</resources>

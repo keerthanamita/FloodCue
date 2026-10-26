@@ -587,11 +587,16 @@ public class SetupActivity extends FloodCueActivity {
             }
 
             if (profile.setup_completed && !isEditingProfile()) {
+                // The profile is finished. Log the user in and send them to
+                // the home screen, but only from the final page so this does
+                // not interrupt the current setup step on pages one or two.
                 preferences.edit()
                         .putBoolean("is_logged_in", true)
                         .apply();
 
-                openHome();
+                if (currentPage == 3) {
+                    openHome();
+                }
                 return;
             }
 

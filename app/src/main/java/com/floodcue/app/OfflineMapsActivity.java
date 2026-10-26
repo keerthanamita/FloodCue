@@ -75,142 +75,28 @@ public class OfflineMapsActivity extends FloodCueActivity {
                 getString(R.string.offline_map_connecting, map.name)
         );
 
-        File temporaryFile = new File(
-                getFilesDir(),
-                map.fileName + ".download"
-        );
-
-        new Thread(() -> {
-            HttpURLConnection connection = null;
-
-            try {
-                if (temporaryFile.exists() && !temporaryFile.delete()) {
-                    throw new IOException(
-                            "Could not remove the previous incomplete download."
-                    );
-                }
-
-                connection = (HttpURLConnection)
-                        new URL(map.url).openConnection();
-                connection.setRequestMethod("GET");
-                connection.setConnectTimeout(20000);
-                connection.setReadTimeout(30000);
-                connection.setInstanceFollowRedirects(true);
-                connection.setRequestProperty("Accept-Encoding", "identity");
-                connection.connect();
-
-                int responseCode = connection.getResponseCode();
-                if (responseCode != HttpURLConnection.HTTP_OK) {
-                    throw new IOException("Server returned HTTP " + responseCode);
-                }
-
-                long totalBytes = connection.getContentLengthLong();
-
-                mainHandler.post(() -> {
-                    downloadProgress.setIndeterminate(totalBytes <= 0);
-                    if (totalBytes > 0) {
-                        downloadPercent.setText(
-                                getString(
-                                        R.string.offline_map_downloading_percent,
-                                        map.name,
-                                        0
-                                )
-                        );
-                    } else {
-                        downloadPercent.setText(
-                                getString(
-                                        R.string.offline_map_downloading,
-                                        map.name
-                                )
-                        );
-                    }
-                });
-
-                long downloadedBytes = 0;
-                long lastUpdateTime = 0;
-
-                try (InputStream input = connection.getInputStream();
-                     FileOutputStream output =
-                             new FileOutputStream(temporaryFile)) {
-
-                    byte[] buffer = new byte[32 * 1024];
-                    int count;
-
-                    while ((count = input.read(buffer)) != -1) {
-                        output.write(buffer, 0, count);
-                        downloadedBytes += count;
-
-                        long now = System.currentTimeMillis();
-                        if (now - lastUpdateTime >= 150 && totalBytes > 0) {
-                            int percent = (int) Math.min(
-                                    100,
-                                    downloadedBytes * 100L / totalBytes
-                            );
-
-                            mainHandler.post(() -> {
-                                downloadProgress.setIndeterminate(false);
-                                downloadProgress.setProgress(percent);
-                                downloadPercent.setText(
-                                        getString(
-                                                R.string.offline_map_downloading_percent,
-                                                map.name,
-                                                percent
-                                        )
-                                );
-                            });
-
-                            lastUpdateTime = now;
-                        }
-                    }
-
-                    output.flush();
-                    output.getFD().sync();
-                }
-
-                if (downloadedBytes == 0
-                        || !temporaryFile.isFile()
-                        || temporaryFile.length() == 0) {
-                    throw new IOException("The downloaded file is empty.");
-                }
-
-                moveDownloadedFile(temporaryFile, destination);
-                mainHandler.post(() -> {
-                    downloadInProgress = false;
-                    setButtonsEnabled(true);
-                    setDownloadProgressVisible(false);
-                    openMap(map);
-                });
-
-            } catch (Exception e) {
-                if (temporaryFile.exists()) {
-                    temporaryFile.delete();
-                }
-
-                String message = e.getMessage() == null
-                        ? "Unknown download error"
-                        : e.getMessage();
-
-                mainHandler.post(() -> {
-                    downloadInProgress = false;
-                    setButtonsEnabled(true);
-                    setDownloadProgressVisible(false);
-                    Toast.makeText(
-                            OfflineMapsActivity.this,
-                            getString(
-                                    R.string.offline_map_download_failed,
-                                    map.name,
-                                    message
-                            ),
-                            Toast.LENGTH_LONG
-                    ).show();
-                });
-
-            } finally {
-                if (connection != null) {
-                    connection.disconnect();
-                }
-            }
-        }).start();
+        // Use the central download method in OfflineMapCatalog which
+        // writes a .download file and renames it to the final .mbtiles
+        // only when the download is complete and verified. The progress
+        // of the download is reported back on the main thread via a
+        // Handler.
+        if (!OfflineMapCatalog.download(this, map)) {
+            String message = getString(
+                    R.string.offline_map_download_failed,
+                    map.name,
+                    "Cannot start download"
+            );
+            mainHandler.post(() -> {
+                downloadInProgress = false;
+                setButtonsEnabled(true);
+                setDownloadProgressVisible(false);
+                Toast.makeText(
+                        OfflineMapsActivity.this,
+                        message,
+                        Toast.LENGTH_LONG
+                ).show();
+            });
+        }
     }
 
     private void moveDownloadedFile(File source, File destination)

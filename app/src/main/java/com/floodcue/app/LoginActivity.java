@@ -87,7 +87,8 @@ public class LoginActivity extends FloodCueActivity {
 
         forgotPasswordText = findViewById(R.id.textForgotPassword);
         createAccountText = findViewById(R.id.textCreateAccount);
-        TextView changeLanguageText =findViewById(R.id.textChangeLanguage);
+        TextView changeLanguageText =
+                findViewById(R.id.textChangeLanguage);
         // =========================================================
         // CREATE ACCOUNT TEXT
         // =========================================================

@@ -21,18 +21,6 @@
     <string name="flood_alert_cache_fresh">Showing saved alerts</string>
     <string name="flood_alert_cache_old">Showing saved alerts, they may be outdated</string>
 
-    <string name="flood_alert_imd_title">IMD district rainfall warning</string>
-    <string name="flood_alert_imd_not_configured">IMD district warnings are not connected yet. FloodCue needs an IMD API key, and IMD binds each key to one server address, so the key must stay on your own server (see server/README.md). SACHET alerts below work without it.</string>
-    <string name="flood_alert_imd_unavailable">The IMD data source did not answer. Try Refresh later.</string>
-    <string name="flood_alert_imd_issue">Issued %1$s %2$s UTC · five-day outlook</string>
-    <string name="flood_alert_imd_configure">IMD data source</string>
-    <string name="flood_alert_imd_configure_title">IMD proxy address</string>
-    <string name="flood_alert_imd_configure_hint">https://yourname.heliohost.org/imd_proxy.php</string>
-    <string name="flood_alert_imd_configure_help">Paste the address of the imd_proxy.php file you uploaded (see server/README.md). Leave empty to hide IMD data. The IMD key is never stored on the phone.</string>
-    <string name="flood_alert_imd_configure_saved">IMD data source saved</string>
-    <string name="flood_alert_imd_no_district_match">IMD has no warning row for this district name right now.</string>
-    <string name="flood_alert_imd_failed_setup">The proxy answered but the data could not be read. Check the proxy setup.</string>
-
     <string name="flood_alert_sachet_title">NDMA SACHET alerts</string>
     <string name="flood_alert_severity_unknown">Severity not stated</string>
     <string name="flood_alert_issued">Issued %1$s</string>
@@ -45,9 +33,10 @@
     <string name="flood_alert_open_sachet">Open NDMA SACHET portal</string>
     <string name="flood_alert_open_failed">Could not open the link in a browser.</string>
 
-    <string name="flood_alert_disclaimer">These are official warnings as published by IMD and NDMA SACHET. They are not a live flood sensor: rainfall warnings alone do not confirm flooding. Follow instructions from local authorities and disaster-management teams.</string>
+    <string name="flood_alert_disclaimer">These are official warnings as published by NDMA SACHET. They are not a live flood sensor: rainfall warnings alone do not confirm flooding. Follow instructions from local authorities and disaster-management teams.</string>
 
     <string name="flood_alert_channel_name">Flood alerts (siren)</string>
     <string name="flood_alert_channel_desc">Loud official flood and heavy-rain warnings: plays the FloodCue siren, vibrates, and appears over other apps even when FloodCue is closed</string>
     <string name="flood_alert_notification_title">Flood alert for %1$s</string>
+
 </resources>

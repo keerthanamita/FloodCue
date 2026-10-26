@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="checklist_back_title">← ఫ్లూడ్ చెక్‌లిస్ట్</string>
+    <string name="checklist_heading">🌧️ పిడుగుకు ముందు చెక్‌లిస్ట్</string>
+    <string name="checklist_subtitle">నీటి రావడానికి ముందు సిద్ధం చేయండి. మీ టిక్‌లు ఈ ఫోన్లో సేవ్ చేయబడతాయి మరియు ఇంటర్నెట్ లేకుండా పని చేస్తాయి.</string>
+    <string name="checklist_tab_essential">కీలకమైన</string>
+    <string name="checklist_tab_complete">పూర్తి</string>
+    <string name="checklist_progress">మొత్తం: %1$d కు %2$d పనులు చేసారు</string>
+    <string name="checklist_section_progress">%1$d/%2$d</string>
+    <string name="checklist_section_informed">📢 సమాచారం పొందండి &amp; సిద్ధం చేయండి</string>
+    <string name="checklist_section_gobag">🎒 ఎమర్జెన్సీ గో బ్యాగ్ సిద్ధం చేయండి</string>
+    <string name="checklist_section_phone">📱 మీ ఫోన్ &amp; FloodCue అప్‌ను సిద్ధం చేయండి</string>
+    <string name="checklist_section_home">🏠 మీ ఇంటి పరిరక్షణ</string>
+    <string name="checklist_section_family">👨‍👩‍👧 మీ కుటుంబాన్ని సిద్ధం చేయండి</string>
+    <string name="checklist_section_evac">🚨 ఎగరవడి హద్దులు విడుదలైంది</string>
+    <string name="checklist_note_informed">మీ ప్రమాదాన్ని ముందుగా తెలుసుకోండి.</string>
+    <string name="checklist_note_gobag">గో బ్యాగ్ తయారీ: %1$d కు %2$d అంశాలు</string>
+    <string name="checklist_note_phone">గమనిక: ఆఫ్‌లైన్ మ్యాప్‌లు కేవలం ఆఫ్‌లైన్ కార్డులు మరియు డౌన్‌లోడ్ చేసిన మ్యాప్‌ల కోసం పనిచేస్తాయి మరియు సాధారణ SMS కోసం మొబైల్ నెట్‌వర్క్ కవరేజ్ మరియు అందుబాటులో ఉన్న SMS సేవ అవసరం.</string>
+    <string name="checklist_note_home_safety">సురక్షణ గమనిక: పిడుగుల ద్వారా ఆవిష్కరణ సమయంలో ఆపేలా కాదు, మరియు పిడుగులతోండి.</string>
+    <string name="checklist_note_family">కుటుంబంలోని అన్ని వారు ఈ ప్లాన్ గురించి తెలిసి ఉండాలి.</string>
+    <string name="checklist_note_evac_critical">కృతిక సూచన: చెక్‌లిస్ట్‌ను ముగించడం ఎప్పుడూ ఎగరవడి ముందుగా వచ్చే దరిపు దగ్గర కంటే కాదు — అధికారిక ఎగరవడి ఆదేశాలు ఎల్లప్పుడూ ముందుకు వస్తాయి.</string>
+    <string name="home_flood_checklist">ఫ్లూడ్ చెక్‌లిస్ట్</string>
+</resources>

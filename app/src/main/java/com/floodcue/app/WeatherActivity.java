@@ -14,6 +14,9 @@ import android.os.Looper;
 import android.text.InputType;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.RecyclerView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -23,6 +26,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -91,7 +96,8 @@ public class WeatherActivity extends FloodCueActivity {
     private TextView rain24hText;
     private TextView windText;
     private TextView hourlyText;
-    private LinearLayout detailsGrid;
+    private RecyclerView detailsGrid;
+    private WeatherDetailAdapter detailAdapter;
     private TextView warningsText;
     private TextView cachedText;
     private TextView locationErrorText;
@@ -129,6 +135,9 @@ public class WeatherActivity extends FloodCueActivity {
         windText = findViewById(R.id.weatherWind);
         hourlyText = findViewById(R.id.weatherHourly);
         detailsGrid = findViewById(R.id.weatherDetailsGrid);
+        detailsGrid.setLayoutManager(new GridLayoutManager(this, 2));
+        detailAdapter = new WeatherDetailAdapter();
+        detailsGrid.setAdapter(detailAdapter);
         warningsText = findViewById(R.id.weatherWarnings);
         cachedText = findViewById(R.id.weatherCached);
         locationErrorText = findViewById(R.id.weatherLocationError);
@@ -667,90 +676,7 @@ public class WeatherActivity extends FloodCueActivity {
      * "Unavailable" rather than guessed.
      */
     private void renderDetails(WeatherData data) {
-        detailsGrid.removeAllViews();
-        String[][] entries = detailEntries(data);
-        LinearLayout row = null;
-
-        for (int i = 0; i < entries.length; i++) {
-            if (i % 2 == 0) {
-                row = new LinearLayout(this);
-                row.setOrientation(LinearLayout.HORIZONTAL);
-                LinearLayout.LayoutParams rowParams = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT);
-                rowParams.topMargin = dp(8);
-                detailsGrid.addView(row, rowParams);
-            }
-            LinearLayout.LayoutParams cardParams = new LinearLayout.LayoutParams(
-                    0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
-            cardParams.rightMargin = dp(8);
-            row.addView(buildDetailCard(entries[i][0], entries[i][1]), cardParams);
-        }
-    }
-
-    private String[][] detailEntries(WeatherData data) {
-        boolean none = data == null;
-        return new String[][]{
-                {getString(R.string.weather_label_humidity),
-                        readable(none || data.humidity < 0
-                                ? null : getString(R.string.weather_value_humidity,
-                                data.humidity))},
-                {getString(R.string.weather_label_feels_like),
-                        readable(none || data.feelsLike < 0
-                                ? null : getString(R.string.weather_value_feels_like,
-                                data.feelsLike))},
-                {getString(R.string.weather_label_pressure),
-                        readable(none || data.pressure < 0
-                                ? null : getString(R.string.weather_value_pressure,
-                                data.pressure))},
-                {getString(R.string.weather_label_cloud),
-                        readable(none || data.cloudCover < 0
-                                ? null : getString(R.string.weather_value_cloud,
-                                data.cloudCover))},
-                {getString(R.string.weather_label_gusts),
-                        readable(none || data.windGusts < 0
-                                ? null : getString(R.string.weather_value_gusts,
-                                data.windGusts))},
-                {getString(R.string.weather_label_visibility),
-                        readable(none || data.visibility < 0
-                                ? null : getString(R.string.weather_value_visibility,
-                                data.visibility / 1000d))},
-                {getString(R.string.weather_label_rain_6h),
-                        readable(none || data.rainNext6h < 0
-                                ? null : getString(R.string.weather_value_rain_6h,
-                                data.rainNext6h))},
-        };
-    }
-
-    private String readable(String value) {
-        return value == null ? getString(R.string.weather_unavailable) : value;
-    }
-
-    private View buildDetailCard(String label, String value) {
-        LinearLayout card = new LinearLayout(this);
-        card.setOrientation(LinearLayout.VERTICAL);
-        card.setBackgroundResource(R.drawable.bg_screen_card);
-        int pad = dp(14);
-        card.setPadding(pad, pad, pad, pad);
-
-        TextView labelView = new TextView(this);
-        labelView.setText(label);
-        labelView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13);
-        labelView.setTextColor(getColor(R.color.text_secondary));
-        card.addView(labelView);
-
-        TextView valueView = new TextView(this);
-        valueView.setText(value);
-        valueView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
-        valueView.setTextColor(getColor(R.color.text_primary));
-        valueView.setTypeface(valueView.getTypeface(), Typeface.BOLD);
-        LinearLayout.LayoutParams valueParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        valueParams.topMargin = dp(3);
-        card.addView(valueView, valueParams);
-
-        return card;
+        detailAdapter.setData(data);
     }
 
     private int dp(int value) {
@@ -779,7 +705,7 @@ public class WeatherActivity extends FloodCueActivity {
 
     // -------------------------------------------------------------- parsing
 
-    private WeatherData parseJson(String json, long updatedAt) {
+    public WeatherData parseJson(String json, long updatedAt) {
         if (json == null || json.isEmpty()) {
             return null;
         }
@@ -864,7 +790,7 @@ public class WeatherActivity extends FloodCueActivity {
 
     // --------------------------------------------------------------- models
 
-    private static final class WeatherData {
+    public static final class WeatherData {
         double latitude;
         double longitude;
         double temperature;
@@ -885,6 +811,124 @@ public class WeatherActivity extends FloodCueActivity {
         long updatedAt;
         final List<String> hourlyTimes = new ArrayList<>();
         final List<Double> hourlyRain = new ArrayList<>();
+    }
+
+    /**
+     * RecyclerView adapter for the weather details grid.
+     *
+     * Displays one metric per card in a two-column grid, using themed
+     * colors for text, backgrounds, and a subtle icon to make the grid
+     * scannable at a glance.
+     */
+    private class WeatherDetailAdapter extends RecyclerView.Adapter<WeatherDetailAdapter.ViewHolder> {
+
+        private WeatherData data;
+
+        void setData(WeatherData data) {
+            this.data = data;
+            notifyDataSetChanged();
+        }
+
+        @NonNull
+        @Override
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = getLayoutInflater().inflate(
+                    R.layout.item_weather_detail, parent, false);
+            return new ViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+            if (data == null || data.hourlyTimes.isEmpty()) {
+                return;
+            }
+            String label = getString(R.string.weather_label_humidity);
+            String value = getString(R.string.weather_unavailable);
+
+            switch (position) {
+                case 0:
+                    label = getString(R.string.weather_label_humidity);
+                    value = readable(data.humidity, 0);
+                    break;
+                case 1:
+                    label = getString(R.string.weather_label_feels_like);
+                    value = readable(data.feelsLike, 1);
+                    break;
+                case 2:
+                    label = getString(R.string.weather_label_pressure);
+                    value = readable(data.pressure, 2);
+                    break;
+                case 3:
+                    label = getString(R.string.weather_label_cloud);
+                    value = readable(data.cloudCover, 3);
+                    break;
+                case 4:
+                    label = getString(R.string.weather_label_gusts);
+                    value = readable(data.windGusts, 4);
+                    break;
+                case 5:
+                    label = getString(R.string.weather_label_visibility);
+                    value = readable(data.visibility, 5);
+                    break;
+                case 6:
+                    label = getString(R.string.weather_label_rain_6h);
+                    value = readable(data.rainNext6h, 6);
+                    break;
+            }
+
+            holder.label.setText(label);
+            holder.value.setText(value);
+        }
+
+        @Override
+        public int getItemCount() {
+            return 7;
+        }
+
+        class ViewHolder extends RecyclerView.ViewHolder {
+            TextView label;
+            TextView value;
+
+            ViewHolder(@NonNull View itemView) {
+                super(itemView);
+                label = itemView.findViewById(R.id.weatherDetailLabel);
+                value = itemView.findViewById(R.id.weatherDetailView);
+            }
+        }
+
+        private String readable(int value, int pos) {
+            if (value < 0) {
+                return getString(R.string.weather_unavailable);
+            }
+            switch (pos) {
+                case 0:
+                    return getString(R.string.weather_value_humidity, value);
+                case 3:
+                    return getString(R.string.weather_value_cloud, value);
+                default:
+                    return getString(R.string.weather_unavailable);
+            }
+        }
+
+        private String readable(double value, int pos) {
+            if (value < 0) {
+                return getString(R.string.weather_unavailable);
+            }
+            switch (pos) {
+                case 1:
+                    return getString(R.string.weather_value_feels_like, value);
+                case 2:
+                    return getString(R.string.weather_value_pressure, value);
+                case 4:
+                    return getString(R.string.weather_value_gusts, value);
+                case 5:
+                    return getString(R.string.weather_value_visibility, value / 1000d);
+                case 6:
+                    return getString(R.string.weather_value_rain_6h, value);
+                default:
+                    return getString(R.string.weather_unavailable);
+            }
+        }
     }
 
     @Override

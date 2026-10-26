@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="offline_comm_title">🔄 ఆఫ్‌లైన్ సమాచారం</string>
+    <string name="offline_comm_subtitle">ఫ్లూడ్ పరిస్థితి సమయంలో సమాచారం మరియు సందేశాలను పంచుకోవడానికి రిమోట్ మెష్‌నెట్ కలను ఉపయోగించండి.</string>
+    <string name="offline_comm_help">సహాయం</string>
+    <string name="offline_comm_help_text">రిమోట్ మెష్‌నెట్ కల అనేది అంతర్గత స్థానిక సమాచారం కోసం పనిచేసే ఒక కల విధానం. ఇది సమాచారం మరియు సందేశాలను పంచుకోవడానికి సహాయపడుతుంది.</string>
+    <string name="offline_comm_status">స్థితి</string>
+    <string name="offline_comm_status_offline">ఆఫ్‌లైన్</string>
+    <string name="offline_comm_status_online">ఆన్‌లైన్</string>
+    <string name="offline_comm_status_disconnected">కనెక్షన్ విడిచిపెట్టబడింది</string>
+    <string name="offline_comm_status_connected">కనెక్షన్ అవుతుంది</string>
+    <string name="offline_comm_status_waiting">ఎదుర్కోవడం</string>
+    <string name="offline_comm_status_error">లోపం ఉంది</string>
+    <string name="offline_comm_error">రిమోట్ మెష్‌నెట్ కల కోసం సాధ్యమయ్యింది. దయచేసి మళ్లీ ప్రయత్నించండి.</string>
+    <string name="offline_comm_warning">గమనిక: రిమోట్ మెష్‌నెట్ కల అనేది అంతర్గత స్థానిక సమాచారం కోసం పనిచేసే ఒక కల విధానం. ఇది అంతర్గత స్థానిక సమాచారం కోసం పనిచేసే ఒక కల విధానం. ఇది సమాచారం మరియు సందేశాలను పంచుకోవడానికి సహాయపడుతుంది.</string>
+</resources>

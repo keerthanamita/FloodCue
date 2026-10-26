@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Back navigation -->
+    <string name="guide_back_title">← ఎమర్జెన్సీ గైడ్</string>
+    <string name="guide_back_to_list">← సందర్భాలు</string>
+    <string name="guide_heading">అత్యంత కీలకమైన ఎమర్జెన్సీ గైడ్</string>
+    <string name="guide_subtitle">మీ సందర్భాన్ని ఎంచుకోండి మరియు సంక్షిప్త సంఖ్యాసూచిక చర్యలను చదవండి. అత్యంత కీలకమైన సందర్భాలు మొదలుగా ఉన్నాయి.</string>
+    <string name="guide_disclaimer">రక్షణా సేవల అధికారిక సలహా ముందు పాటించండి. FloodCue కేవలం సాధారణ ప్రజా భద్రతా సలహా సమాచారాన్ని పునరావృతం చేస్తుంది — అది భూమి పై పరిస్థితులను ధృవీకరించలేదు మరియు SMS, కాల్, GPS లేదా మెష్ నెట్‌వర్క్ సందేశలు మీ పరికరం, అనుమతులు మరియు నెట్‌వర్క్ అనుమతించిన పరిస్థితిలో మాత్రమే పని చేస్తాయి.</string>
+    <string name="guide_sos_button">ఎమర్జెన్సీ సోస్ సందేశం పంపండి</string>
+    <string name="home_emergency_guide">ఎమర్జెన్సీ గైడ్</string>
+</resources>

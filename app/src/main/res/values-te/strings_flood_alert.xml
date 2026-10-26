@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Back navigation -->
+    <string name="flood_alert_back_title">← వర్షాభావాలు</string>
+    <!-- Screen headings -->
+    <string name="flood_alert_heading">🌧️ వర్షాభావాలు</string>
+    <string name="flood_alert_subtitle">నీ ప్రాంతంలోని వర్షాభావాలు, కృతిక సమాచారం మరియు అధికారిక నెట్‌వర్క్ సర్వీస్ (SACHET) లేదా IMD వార్తలను చూడండి.</string>
+    <string name="flood_alert_caption">ఈ అధికారిక వెబ్‌సైట్ నుండి వర్షాభావాల లేదా కృతిక సమాచారాన్ని పొందిన తర్వాత వాటిని సరిపోల్చుకోండి.</string>
+    <!-- Buttons -->
+    <string name="flood_alert_select_district">మీ జిల్లా ఎంచుకోండి</string>
+    <string name="flood_alert_refresh">మళ్లీ లోడ్ చేయి</string>
+    <string name="flood_alert_report_issue">సమస్య ఉన్నట్లు పొందింది</string>
+    <string name="flood_alert_alert_title">వర్షాభావం</string>
+    <string name="flood_alert_no_alert">ఇప్పటికీ మీ జిల్లాకు అధికారిక వర్షాభావం లేదు. 😊</string>
+    <string name="flood_alert_offline">ఇంటర్నెట్ లేకుండా వర్షాభావాలు చూడలేకపోతున్నారు. మళ్లీ క్లిక్ చేసి అధికారిక నెట్‌వర్క్ సర్వీస్‌ను పొందండి.</string>
+    <string name="flood_alert_no_network">నెట్‌వర్క్ కనెక్షన్ లేదు. మీరు ఇంటర్నెట్ కనెక్షన్ కలిగి ఉన్నట్లయితే వర్షాభావాలు లేదా అధికారిక నెట్‌వర్క్ సర్వీస్‌ను పునరావృతం చేయండి.</string>
+    <string name="flood_alert_retry">మళ్లీ ప్రయత్నించండి</string>
+    <!-- Alerts -->
+    <string name="flood_alert_alert_downloaded">(ఇంటర్నెట్ లేకుండా చూడబడింది)</string>
+    <string name="flood_alert_last_updated">చివరిగా అప్‌డేట్ చేయబడినది: %1$s</string>
+    <string name="flood_alert_tap_for_details">వివరాల కోసం నొక్కండి</string>
+    <string name="flood_alert_severity_title">మేరకు సంబంధించిన వర్షాభావం</string>
+    <string name="flood_alert_region">ప్రాంతం:</string>
+    <string name="flood_alert_region_tip">మీరు ఎంపిక చేసిన జిల్లా లేదా అధికారిక ప్రాంతం</string>
+    <string name="flood_alert_issue">ప్రచురణ సమయం:</string>
+    <string name="flood_alert_validity">గుర్తింపు వయస్సు:</string>
+    <string name="flood_alert_alert_type">వర్గం:</string>
+    <string name="flood_alert_source">మూలం:</string>
+    <string name="flood_alert_provider">అభివృద్ధి చేసినది:</string>
+    <string name="flood_alert_message">సమాచారం:</string>
+    <string name="flood_alert_learn_more">మరింత తెలుసుకోండి</string>
+    <!-- District selection -->
+    <string name="flood_alert_district_select_title">మీ జిల్లా ఎంచుకోండి</string>
+    <string name="flood_alert_district_select_subtitle">ఈ జిల్లాలు మీ ప్రదేశంలో ఎక్కువగా ఉన్నాయి.</string>
+    <string name="flood_alert_district_placeholder">మీ జిల్లా ఎంచుకోండి</string>
+    <string name="flood_alert_district_label_other">మిగిలిన జిల్లాలు</string>
+    <string name="flood_alert_district_label_exit">మీ జిల్లా వెళ్లి వెళ్లండి</string>
+    <string name="flood_alert_district_label_none">జిల్లా పేరు లేదు</string>
+    <string name="flood_alert_district_label_none_note">ఈ ఎంపిక తప్పకుండా వర్షాభావాలు చూడడానికి మీ జిల్లా ఎంచుకోండి.</string>
+    <string name="flood_alert_district_label_note">జిల్లా ఎంపిక విస్తరణ: %1$d</string>
+    <string name="flood_alert_district_label_note_exit">మీ జిల్లా పేరు లేదు.</string>
+</resources>

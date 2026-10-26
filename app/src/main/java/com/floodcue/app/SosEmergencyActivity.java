@@ -9,7 +9,6 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.media.AudioAttributes;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CancellationSignal;
@@ -31,6 +30,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
 
@@ -71,6 +71,11 @@ public class SosEmergencyActivity extends FloodCueActivity
     private boolean hasLocationPermission;
     private boolean hasSmsPermission;
 
+    /** The location fix we are waiting for from a fresh GPS request. */
+    private Location pendingLocation;
+    /** Set when a fresh location arrives, cleared before a new request. */
+    private boolean locationReady;
+
     private TextView statusView;
     private LinearLayout contactsLayout;
     private MediaPlayer sirenPlayer;
@@ -79,11 +84,30 @@ public class SosEmergencyActivity extends FloodCueActivity
     private Button stopSirenButton;
 
     private boolean fetchingLocation;
-    private boolean sendingSms;
     private boolean sirenPlaying;
     private boolean finished;
 
-    private Location pendingLocation;
+    /** Tracks the whole send in one state so the screen only reports what
+     *  {@link SosQueue} actually observed: queued, submitting, or a confirmed
+     *  send outcome.  Never means "sent" before the queue reports a success.
+     */
+    private enum SendState {
+        /** A message is in the queue but not submitted to the radio yet. */
+        QUEUED,
+        /** The radio acknowledged submission for at least one number. */
+        SUBMITTED,
+        /** Every number's radio result has been received. */
+        COMPLETE
+    }
+
+    private SendState sendState = SendState.QUEUED;
+
+    /** Most recent radio result code per number (0 = none). */
+    private int lastSmsResult;
+
+    private final Handler locationWaitHandler = new Handler(Looper.getMainLooper());
+    /** Set true when a fresh location has arrived; cleared before a new request. */
+    private boolean waitingForFreshLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +128,22 @@ public class SosEmergencyActivity extends FloodCueActivity
 
         loadLastKnownLocation();
         checkPermissions();
+
+        // The queue's per-number send callbacks drive the status. The listener
+        // is replaced on every configuration change so it always points at the
+        // current activity and can always post to the main thread.
+        SosQueue.setStatusListener(() -> {
+            SosQueue.State state = SosQueue.getState(this);
+            if (SosQueue.isComplete(this)) {
+                onQueueResult(null, android.app.Activity.RESULT_OK);
+                return;
+            }
+            if (state == SosQueue.State.SENDING) {
+                onQueueResult(null, 0);
+            } else {
+                onQueueResult(null, SosQueue.getLastError(this));
+            }
+        });
     }
 
     @Override
@@ -180,19 +220,22 @@ public class SosEmergencyActivity extends FloodCueActivity
     }
 
     private void sendEmergencySos() {
-        if (sendingSms || finished) {
+        if (finished) {
             return;
         }
 
         sendButton.setEnabled(false);
         stopSirenButton.setEnabled(false);
-        sendingSms = true;
-        finished = false;
+        sendState = SendState.QUEUED;
+        lastSmsResult = 0;
         updateFeedback();
 
         Location location = getBestLocation();
         if (location != null && location.getTime() > 0) {
             saveLastKnownLocation(location);
+            // A recent location already exists, so use it immediately.
+            enqueueEmergencySend(loadEmergencyContacts(), location);
+            return;
         }
 
         String[] contacts = loadEmergencyContacts();
@@ -222,48 +265,71 @@ public class SosEmergencyActivity extends FloodCueActivity
             return;
         }
 
-        final String[] recipients = contacts;
-        if (location != null) {
-            enqueueEmergencySend(recipients, location);
+        // No location ready yet: request a fresh GPS fix and wait for it,
+        // or fall back to the last known location if the fix is recent.
+        if (hasLocationPermission) {
+            if (lastKnownLocation != null && lastKnownLocation.getTime() > 0) {
+                long age = System.currentTimeMillis() - lastKnownLocation.getTime();
+                if (age <= 60_000L) {
+                    // A recent saved fix is usable now.
+                    enqueueEmergencySend(contacts, lastKnownLocation);
+                    return;
+                }
+            }
+            // Request a fresh fix; the callback enqueues the message.
+            startFreshLocationRequest();
+            return;
+        }
+
+        // Location permission is not granted. Use the last known location
+        // if it is still reasonably fresh, otherwise send without coordinates.
+        if (lastKnownLocation != null && lastKnownLocation.getTime() > 0) {
+            long age = System.currentTimeMillis() - lastKnownLocation.getTime();
+            if (age <= 300_000L) {
+                enqueueEmergencySend(contacts, lastKnownLocation);
+                return;
+            }
+        }
+        enqueueEmergencySend(contacts, null);
+    }
+
+    /**
+     * Called by {@link SosQueue} whenever a per-number send result arrives.
+     * The queue reports COMPLETE only when every number's radio confirmed
+     * delivery, so that is the only moment this screen may say "sent".
+     */
+    private void onQueueResult(String number, int resultCode) {
+        if (finished) {
+            return;
+        }
+        if (resultCode == android.app.Activity.RESULT_OK) {
+            lastSmsResult = 0;
         } else {
-            enqueueEmergencySend(recipients, null);
+            lastSmsResult = resultCode;
+        }
+        if (SosQueue.isComplete(this)) {
+            sendState = SendState.COMPLETE;
+            runOnUiThread(() -> {
+                finished = true;
+                sendButton.setEnabled(true);
+                stopSirenButton.setEnabled(true);
+                updateFeedback();
+            });
+        } else if (SosQueue.getState(this) == SosQueue.State.SENDING) {
+            sendState = SendState.SUBMITTED;
+            runOnUiThread(() -> updateFeedback());
+        } else {
+            sendState = SendState.QUEUED;
+            runOnUiThread(() -> updateFeedback());
         }
     }
 
     private void enqueueEmergencySend(String[] recipients, Location location) {
-        new Thread(() -> {
-            try {
-                SmsManager smsManager = SmsManager.getDefault();
-                String message = buildEmergencyMessage(location);
-                for (String recipient : recipients) {
-                    smsManager.sendTextMessage(
-                            recipient, null, message, null, null);
-                }
-                runOnUiThread(() -> {
-                    finished = true;
-                    sendingSms = false;
-                    sendButton.setEnabled(true);
-                    stopSirenButton.setEnabled(true);
-                    showStatus(R.string.sos_emergency_sms_sent);
-                    Toast.makeText(
-                            SosEmergencyActivity.this,
-                            R.string.sos_emergency_sms_sent,
-                            Toast.LENGTH_LONG).show();
-                });
-            } catch (RuntimeException failed) {
-                runOnUiThread(() -> {
-                    finished = true;
-                    sendingSms = false;
-                    sendButton.setEnabled(true);
-                    stopSirenButton.setEnabled(true);
-                    showStatus(R.string.sos_emergency_sms_failed);
-                    Toast.makeText(
-                            SosEmergencyActivity.this,
-                            R.string.sos_emergency_sms_failed,
-                            Toast.LENGTH_LONG).show();
-                });
-            }
-        }).start();
+        String message = buildEmergencyMessage(location);
+        SosQueue.enqueue(this, java.util.Arrays.asList(recipients), message);
+        // The queue drives the status: the screen only ever reports what the
+        // per-number sent/delivery callbacks actually confirmed. Until one of
+        // those arrives the button stays enabled and the status stays "sending".
     }
 
     private String buildEmergencyMessage(Location location) {
@@ -327,25 +393,48 @@ public class SosEmergencyActivity extends FloodCueActivity
         }
     }
 
+    /**
+     * Best location to use in the emergency message.
+     *
+     *  - Returns a recent saved location immediately if one is available.
+     *  - Otherwise starts a fresh GPS/network request and returns the result
+     *    when it arrives or after the timeout. The caller must wait for the
+     *    result before enqueuing the message, so the message always carries
+     *    coordinates when a fix exists.
+     *  - Never returns a location that was just requested and not yet arrived.
+     */
+    /**
+     * Returns the location to attach to the SOS message.
+     *
+     *  - Returns a recent saved location immediately if one is available.
+     *  - Otherwise returns null and the caller waits for a fresh GPS fix.
+     *  - Never returns a location that was just requested and not yet arrived.
+     */
     private Location getBestLocation() {
         if (fetchingLocation) {
             return null;
         }
-        if (pendingLocation != null && pendingLocation.getTime() > 0) {
-            return pendingLocation;
-        }
+        // A saved fix is usable only if it is recent or the user is waiting
+        // for a fresh fix and has no better option yet.
         if (lastKnownLocation != null && lastKnownLocation.getTime() > 0) {
-            return lastKnownLocation;
-        }
-        if (hasLocationPermission) {
-            return requestFreshLocationNoUi();
+            long age = System.currentTimeMillis() - lastKnownLocation.getTime();
+            if (age <= 60_000L) {
+                return lastKnownLocation;
+            }
         }
         return null;
     }
 
-    private Location requestFreshLocationNoUi() {
+    /**
+     * Starts a fresh location request and returns immediately.
+     *
+     * The caller waits for {@link #locationReady} to become true (or for the
+     * timeout) before enqueuing the message. This matches the pattern used by
+     * {@link SosActivity}, which is verified working.
+     */
+    private void startFreshLocationRequest() {
         if (locationManager == null) {
-            return null;
+            return;
         }
 
         boolean gpsEnabled = locationManager
@@ -353,12 +442,13 @@ public class SosEmergencyActivity extends FloodCueActivity
         boolean networkEnabled = locationManager
                 .isProviderEnabled(LocationManager.NETWORK_PROVIDER);
         if (!gpsEnabled && !networkEnabled) {
-            return null;
+            return;
         }
 
         fetchingLocation = true;
-        Location result = null;
-        boolean locationReceived = false;
+        locationCancellation = null;
+        locationReady = false;
+        waitingForFreshLocation = true;
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                 locationCancellation = new CancellationSignal();
@@ -366,47 +456,78 @@ public class SosEmergencyActivity extends FloodCueActivity
                         ? LocationManager.GPS_PROVIDER
                         : LocationManager.NETWORK_PROVIDER;
                 locationManager.getCurrentLocation(
-                        provider, locationCancellation, getMainExecutor(),
+                        provider,
+                        locationCancellation,
+                        getMainExecutor(),
                         location -> {
                             if (location == null) {
                                 return;
                             }
+                            if (locationReady) {
+                                return;
+                            }
+                            locationReady = true;
                             pendingLocation = location;
+                            finishLocationRequest();
                         });
             } else {
                 if (gpsEnabled) {
                     locationManager.requestLocationUpdates(
                             LocationManager.GPS_PROVIDER,
-                            0L, 0f, this, Looper.getMainLooper());
+                            0L,
+                            0f,
+                            this,
+                            Looper.getMainLooper());
                 }
                 if (networkEnabled) {
                     locationManager.requestLocationUpdates(
                             LocationManager.NETWORK_PROVIDER,
-                            0L, 0f, this, Looper.getMainLooper());
+                            0L,
+                            0f,
+                            this,
+                            Looper.getMainLooper());
                 }
             }
         } catch (SecurityException ignored) {
-            return null;
-        } catch (Exception ignored) {
-            return null;
-        }
-
-        timeoutHandler.removeCallbacksAndMessages(null);
-        timeoutHandler.postDelayed(() -> {
-            if (!fetchingLocation) {
-                return;
-            }
             stopLocationUpdates();
             fetchingLocation = false;
-            if (result == null) {
-                locationLayout.setVisibility(View.VISIBLE);
-                TextView unavailable = new TextView(this);
-                unavailable.setText(R.string.sos_emergency_location_unavailable);
-                locationLayout.addView(unavailable);
-            }
-        }, LOCATION_TIMEOUT_MS);
+            locationReady = false;
+            waitingForFreshLocation = false;
+            return;
+        } catch (Exception ignored) {
+            stopLocationUpdates();
+            fetchingLocation = false;
+            locationReady = false;
+            waitingForFreshLocation = false;
+            return;
+        }
 
-        return result;
+        // Timeout after the bounded window; the app then sends without
+        // coordinates rather than blocking forever.
+        timeoutHandler.removeCallbacksAndMessages(null);
+        timeoutHandler.postDelayed(() -> {
+            if (!waitingForFreshLocation) {
+                return;
+            }
+            waitingForFreshLocation = false;
+            stopLocationUpdates();
+            fetchingLocation = false;
+        }, LOCATION_TIMEOUT_MS);
+    }
+
+    /**
+     * Called when a location arrives, so the caller can use it.
+     *
+     * Stops the request after a fresh location is obtained so no extra
+     * updates are requested while the SOS message is being sent.
+     */
+    private void finishLocationRequest() {
+        fetchingLocation = false;
+        if (locationCancellation != null) {
+            locationCancellation.cancel();
+            locationCancellation = null;
+        }
+        stopLocationUpdates();
     }
 
     private void stopLocationUpdates() {
@@ -455,12 +576,27 @@ public class SosEmergencyActivity extends FloodCueActivity
         statusView.setVisibility(View.VISIBLE);
     }
 
+    /**
+     * The queue can move through several send attempts, so only the most
+     * recent radio result is reported.  A result is known as soon as a number
+     * leaves this device and reported as delivered once the receiver confirms.
+     */
     private void updateFeedback() {
         if (finished) {
-            if (sendingSms && !finished) {
-                statusView.setText(R.string.sos_emergency_feeding_sms);
-            } else {
-                statusView.setText(R.string.sos_emergency_sms_pending);
+            switch (sendState) {
+                case SUBMITTED:
+                    statusView.setText(R.string.sos_emergency_sms_pending);
+                    break;
+                case COMPLETE:
+                    statusView.setText(R.string.sos_emergency_sms_sent);
+                    break;
+                default:
+                    if (lastSmsResult != 0) {
+                        statusView.setText(R.string.sos_emergency_sms_failed);
+                    } else {
+                        statusView.setText(R.string.sos_emergency_sms_pending);
+                    }
+                    break;
             }
             contactsLayout.setVisibility(View.GONE);
             locationLayout.setVisibility(View.GONE);
@@ -558,6 +694,7 @@ public class SosEmergencyActivity extends FloodCueActivity
 
     @Override
     protected void onDestroy() {
+        SosQueue.setStatusListener(null);
         stopLocationUpdates();
         if (sirenPlayer != null) {
             sirenPlayer.release();

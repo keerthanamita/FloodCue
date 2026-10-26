@@ -47,6 +47,24 @@ public class LanguageActivity extends FloodCueActivity {
                 && getIntent().getBooleanExtra("LANGUAGE_EDIT_MODE", false);
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        // Refresh the displayed language names after the locale is
+        // re-applied. This is a no-op when the activity was not recreated.
+        updateLabels();
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        // When Android recreates this activity (configuration change,
+        // language switch, theme change), the locale is applied by
+        // attachBaseContext. Refresh the labels so the selected values
+        // stay visibly correct.
+        updateLabels();
+    }
+
     private final String[] names = {
             "English", "Telugu", "Hindi",
             "Tamil", "Kannada", "Malayalam"
@@ -357,6 +375,9 @@ public class LanguageActivity extends FloodCueActivity {
     }
 
     private void saveAndContinue() {
+        // Save both languages and mark that the user has made a selection.
+        // The language is also re-applied automatically by attachBaseContext
+        // on every activity, so the app does not need to restart.
         preferences.edit()
                 .putString("app_language", appCode)
                 .putString("survival_language", survivalCode)
@@ -364,33 +385,23 @@ public class LanguageActivity extends FloodCueActivity {
                 .apply();
 
         if (editMode) {
-            // Keep the server copy in step with the phone, then rebuild every
-            // screen so the new app and survival languages take effect at once.
+            // Keep the server copy in step with the phone. This is best-
+            // effort: a failure is remembered so the application restart can
+            // retry it later.
             LanguageSync.pushNow(this);
             LanguageSync.showSavedMessage(this);
 
-            Intent restart = new Intent(this, SplashActivity.class)
-                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-                            | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(restart);
-            overridePendingTransition(
-                    android.R.anim.fade_in,
-                    android.R.anim.fade_out
-            );
-            finish();
+            // Stay on the current screen. The new language is already in
+            // effect because attachBaseContext re-wraps this activity and
+            // every other visible screen, so there is no need to restart the
+            // app and lose the user's place.
             return;
         }
 
-        Intent intent = new Intent(
-                LanguageActivity.this,
-                LoginActivity.class
-        );
-
-        startActivity(intent);
-        overridePendingTransition(
-                android.R.anim.fade_in,
-                android.R.anim.fade_out
-        );
+        // When the user opens this screen from Login, they have already
+        // completed first-launch language setup and are now changing it.
+        // Return to the screen they came from (Login) unchanged. The login
+        // flow, authentication and future startup are all unaffected.
         finish();
     }
 }

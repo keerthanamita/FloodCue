@@ -57,6 +57,8 @@ import java.util.Locale;
 import java.util.TimeZone;
 import java.util.regex.Pattern;
 
+import com.floodcue.app.OfflineMapCatalog;
+
 /**
  * Flood and heavy-rain warnings for one district.
  *
@@ -79,11 +81,8 @@ public class FloodAlertActivity extends FloodCueActivity {
 
     private static final String PREFS_NAME = "FloodCuePrefs";
     private static final String KEY_DISTRICT = "flood_alert_district";
-    private static final String KEY_IMD_PROXY = "flood_alert_imd_proxy";
     private static final String KEY_RSS_CACHE = "flood_alert_rss_cache";
     private static final String KEY_RSS_CACHE_AT = "flood_alert_rss_cache_at";
-    private static final String KEY_IMD_CACHE = "flood_alert_imd_cache";
-    private static final String KEY_IMD_CACHE_AT = "flood_alert_imd_cache_at";
     private static final String KEY_SEVERITY_CACHE = "flood_alert_severity_cache";
     private static final String KEY_NOTIFIED = "flood_alert_notified";
     private static final String KEY_NOTIF_ASKED = "flood_alert_notif_asked";
@@ -119,8 +118,6 @@ public class FloodAlertActivity extends FloodCueActivity {
 
     private TextView statusText;
     private TextView cachedText;
-    private TextView imdStatus;
-    private LinearLayout imdDays;
     private LinearLayout sachetList;
     private EditText districtInput;
     private Button refreshButton;
@@ -150,22 +147,12 @@ public class FloodAlertActivity extends FloodCueActivity {
         int severity = SEVERITY_UNKNOWN;
     }
 
-    private static final class ImdDay {
-        final int day;
-        final int severity;
-        final String label;
 
-        ImdDay(int day, int severity, String label) {
-            this.day = day;
-            this.severity = severity;
-            this.label = label;
-        }
-    }
 
     private static final class ImdResult {
         boolean readable;
         boolean matched;
-        final List<ImdDay> days = new ArrayList<>();
+        final List<Integer> days = new ArrayList<>();
         String districtName = "";
         String issueDate = "";
         String issueTime = "";
@@ -180,8 +167,6 @@ public class FloodAlertActivity extends FloodCueActivity {
 
         statusText = findViewById(R.id.floodAlertStatus);
         cachedText = findViewById(R.id.floodAlertCached);
-        imdStatus = findViewById(R.id.floodImdStatus);
-        imdDays = findViewById(R.id.floodImdDays);
         sachetList = findViewById(R.id.floodSachetList);
         districtInput = findViewById(R.id.floodDistrictInput);
         refreshButton = findViewById(R.id.buttonFloodRefresh);
@@ -190,7 +175,7 @@ public class FloodAlertActivity extends FloodCueActivity {
         findViewById(R.id.buttonBackFromFloodAlert).setOnClickListener(v -> finish());
         findViewById(R.id.buttonFloodDistrictSet).setOnClickListener(v -> applyTypedDistrict());
         findViewById(R.id.buttonFloodRefresh).setOnClickListener(v -> refresh());
-        findViewById(R.id.buttonFloodImdConfigure).setOnClickListener(v -> showProxyDialog());
+
         findViewById(R.id.buttonFloodSachet).setOnClickListener(v ->
                 openLink(SACHET_PORTAL_URL));
         findViewById(R.id.buttonFloodCwc).setOnClickListener(v -> openLink(CWC_FLOOD_URL));
@@ -202,17 +187,12 @@ public class FloodAlertActivity extends FloodCueActivity {
         district = preferences().getString(KEY_DISTRICT, "");
         districtInput.setText(district);
 
-        imdStatus.setText(usesImdProxy()
-                ? R.string.flood_alert_loading
-                : R.string.flood_alert_imd_not_configured);
-
         if (district.isEmpty()) {
             showStatus(R.string.flood_alert_district_empty);
             renderSachetFromCache();
-            renderImdFromCache();
+            renderSachetFromCache();
         } else {
             renderSachetFromCache();
-            renderImdFromCache();
             refresh();
         }
     }
@@ -224,10 +204,6 @@ public class FloodAlertActivity extends FloodCueActivity {
     /** The same preferences, readable from the background check without an Activity. */
     static SharedPreferences preferences(Context context) {
         return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-    }
-
-    private boolean usesImdProxy() {
-        return !preferences().getString(KEY_IMD_PROXY, "").trim().isEmpty();
     }
 
     private void createNotificationChannel() {
@@ -498,7 +474,6 @@ public class FloodAlertActivity extends FloodCueActivity {
         showStatus(R.string.flood_alert_loading);
 
         final String wantedDistrict = district;
-        final String proxy = preferences().getString(KEY_IMD_PROXY, "").trim();
 
         new Thread(() -> {
             boolean offline = false;
@@ -520,34 +495,15 @@ public class FloodAlertActivity extends FloodCueActivity {
                         .apply();
             }
 
-            String imdJson = null;
-            boolean imdAttempted = !proxy.isEmpty();
-            if (imdAttempted) {
-                try {
-                    imdJson = httpGet(withEndpoint(proxy, "districtwarning"),
-                            FETCH_TIMEOUT_MS);
-                } catch (IOException networkDown) {
-                    offline = true;
-                }
-                if (imdJson != null) {
-                    preferences().edit()
-                            .putString(KEY_IMD_CACHE, imdJson)
-                            .putLong(KEY_IMD_CACHE_AT, System.currentTimeMillis())
-                            .apply();
-                }
-            }
-
             final String freshRss = rss;
             final List<Alert> freshMatched = matched;
-            final String freshImd = imdJson;
             final boolean wasOffline = offline;
-            final boolean attemptedImd = imdAttempted;
 
             runOnUiThread(() -> {
                 loading = false;
                 refreshButton.setEnabled(true);
                 locationButton.setEnabled(true);
-                applyResults(freshRss, freshMatched, freshImd, wasOffline, attemptedImd);
+                applyResults(freshRss, freshMatched, wasOffline);
             });
         }).start();
     }
@@ -593,9 +549,7 @@ public class FloodAlertActivity extends FloodCueActivity {
 
     private void applyResults(String freshRss,
                               List<Alert> freshMatched,
-                              String freshImd,
-                              boolean offline,
-                              boolean imdAttempted) {
+                              boolean offline) {
         if (freshRss != null) {
             renderSachet(freshMatched, false, System.currentTimeMillis());
         } else {
@@ -603,15 +557,6 @@ public class FloodAlertActivity extends FloodCueActivity {
             showStatus(offline ? R.string.flood_alert_offline : R.string.flood_alert_error);
         }
 
-        if (!imdAttempted) {
-            imdStatus.setText(R.string.flood_alert_imd_not_configured);
-            imdDays.removeAllViews();
-        } else if (freshImd != null) {
-            renderImd(parseImd(freshImd, district));
-        } else if (!renderImdFromCache()) {
-            imdStatus.setText(R.string.flood_alert_imd_unavailable);
-            imdDays.removeAllViews();
-        }
 
         if (freshRss != null && freshMatched.isEmpty()) {
             showStatus(getString(R.string.flood_alert_none, district));
@@ -814,191 +759,6 @@ public class FloodAlertActivity extends FloodCueActivity {
         }
     }
 
-    private ImdResult parseImd(String json, String wantedDistrict) {
-        ImdResult result = new ImdResult();
-        if (json == null || json.trim().isEmpty()) {
-            return result;
-        }
-        try {
-            JSONArray records = extractImdRecords(json);
-            if (records == null) {
-                return result;
-            }
-            result.readable = true;
-            for (int i = 0; i < records.length(); i++) {
-                JSONObject record = records.optJSONObject(i);
-                if (record == null) {
-                    continue;
-                }
-                String name = record.optString("District", record.optString("district", ""));
-                if (!districtMatches(name, wantedDistrict)) {
-                    continue;
-                }
-                result.matched = true;
-                result.districtName = name;
-                result.issueDate = record.optString("Date", record.optString("date", ""));
-                result.issueTime = record.optString("UTC", record.optString("utc", ""));
-                for (int day = 1; day <= 5; day++) {
-                    String codes = record.optString("Day_" + day, "");
-                    String colour = record.has("Day" + day + "_Color")
-                            ? String.valueOf(record.opt("Day" + day + "_Color"))
-                            : "";
-                    if (codes.isEmpty() && colour.isEmpty()) {
-                        continue;
-                    }
-                    result.days.add(new ImdDay(
-                            day, severityFromImdColour(colour), describeCodes(codes)));
-                }
-                break;
-            }
-            return result;
-        } catch (Exception malformed) {
-            return result;
-        }
-    }
-
-    private static JSONArray extractImdRecords(String json) throws Exception {
-        String trimmed = json.trim();
-        if (trimmed.startsWith("[")) {
-            return new JSONArray(trimmed);
-        }
-        JSONObject root = new JSONObject(trimmed);
-        if (root.has("District") || root.has("district")) {
-            JSONArray single = new JSONArray();
-            single.put(root);
-            return single;
-        }
-        String[] candidates = {"data", "result", "records", "warnings", "items", "response"};
-        for (String key : candidates) {
-            Object value = root.opt(key);
-            if (value instanceof JSONArray) {
-                return (JSONArray) value;
-            }
-            if (value instanceof JSONObject) {
-                JSONArray flattened = flatten((JSONObject) value);
-                if (flattened != null) {
-                    return flattened;
-                }
-            }
-        }
-        Iterator<String> keys = root.keys();
-        while (keys.hasNext()) {
-            Object value = root.opt(keys.next());
-            if (value instanceof JSONArray) {
-                return (JSONArray) value;
-            }
-            if (value instanceof JSONObject) {
-                JSONArray flattened = flatten((JSONObject) value);
-                if (flattened != null) {
-                    return flattened;
-                }
-            }
-        }
-        return null;
-    }
-
-    /** Handles proxies that key districts by id instead of returning a list. */
-    private static JSONArray flatten(Object value) {
-        JSONArray flat = new JSONArray();
-        if (value instanceof JSONObject) {
-            JSONObject object = (JSONObject) value;
-            if (object.has("District") || object.has("district")) {
-                flat.put(object);
-                return flat;
-            }
-            Iterator<String> keys = object.keys();
-            while (keys.hasNext()) {
-                Object child = object.opt(keys.next());
-                if (child instanceof JSONObject) {
-                    flat.put(child);
-                }
-            }
-            return flat.length() == 0 ? null : flat;
-        }
-        if (value instanceof JSONArray) {
-            return (JSONArray) value;
-        }
-        return null;
-    }
-
-    private static boolean districtMatches(String name, String wanted) {
-        if (name == null || wanted == null || wanted.isEmpty()) {
-            return false;
-        }
-        String clean = name.trim();
-        if (clean.isEmpty()) {
-            return false;
-        }
-        if (clean.equalsIgnoreCase(wanted.trim())) {
-            return true;
-        }
-        return Pattern.compile("(?i)(?<![a-z])" + Pattern.quote(wanted.trim()) + "(?![a-z])")
-                .matcher(clean).find();
-    }
-
-    /**
-     * IMD district-warning colours: 1 Red, 2 Orange, 3 Yellow, 4 Green.
-     * Text colour names are accepted too, in case the proxy relabels them.
-     */
-    private static int severityFromImdColour(String value) {
-        if (value == null) {
-            return SEVERITY_UNKNOWN;
-        }
-        String text = value.trim().toLowerCase(Locale.US);
-        switch (text) {
-            case "1":
-            case "red":
-                return SEVERITY_RED;
-            case "2":
-            case "orange":
-                return SEVERITY_ORANGE;
-            case "3":
-            case "yellow":
-                return SEVERITY_YELLOW;
-            case "4":
-            case "green":
-                return SEVERITY_GREEN;
-            default:
-                return SEVERITY_UNKNOWN;
-        }
-    }
-
-    /** IMD rain codes: 2 heavy, 16 very heavy, 17 extremely heavy. */
-    private static String describeCodes(String codes) {
-        if (codes == null || codes.trim().isEmpty()) {
-            return "";
-        }
-        StringBuilder label = new StringBuilder();
-        for (String part : codes.split(",")) {
-            String known;
-            switch (part.trim()) {
-                case "2":
-                    known = "Heavy rain";
-                    break;
-                case "16":
-                    known = "Very heavy rain";
-                    break;
-                case "17":
-                    known = "Extremely heavy rain";
-                    break;
-                default:
-                    known = "";
-                    break;
-            }
-            if (label.length() > 0) {
-                label.append(", ");
-            }
-            if (known.isEmpty()) {
-                // Unknown code: show it as it is instead of guessing a meaning.
-                label.append("code ").append(part.trim());
-            } else {
-                label.append(known);
-            }
-        }
-        return label.toString();
-    }
-
-    // --------------------------------------------------------------- rendering
 
     private void renderSachetFromCache() {
         String cached = preferences().getString(KEY_RSS_CACHE, null);
@@ -1088,75 +848,6 @@ public class FloodAlertActivity extends FloodCueActivity {
         }
 
         return card;
-    }
-
-    private boolean renderImdFromCache() {
-        String cached = preferences().getString(KEY_IMD_CACHE, null);
-        if (cached == null || district.isEmpty()) {
-            return false;
-        }
-        ImdResult result = parseImd(cached, district);
-        if (!result.readable || !result.matched) {
-            return false;
-        }
-        renderImd(result);
-        long updatedAt = preferences().getLong(KEY_IMD_CACHE_AT, 0L);
-        imdStatus.setText(withUpdatedSuffix(
-                getString(R.string.flood_alert_imd_issue, result.issueDate, result.issueTime),
-                updatedAt));
-        return true;
-    }
-
-    private void renderImd(ImdResult result) {
-        imdDays.removeAllViews();
-        if (result == null || !result.readable) {
-            imdStatus.setText(R.string.flood_alert_imd_failed_setup);
-            return;
-        }
-        if (!result.matched) {
-            imdStatus.setText(R.string.flood_alert_imd_no_district_match);
-            return;
-        }
-        imdStatus.setText(withUpdatedSuffix(
-                getString(R.string.flood_alert_imd_issue, result.issueDate, result.issueTime),
-                System.currentTimeMillis()));
-        for (ImdDay day : result.days) {
-            imdDays.addView(buildDayRow(day));
-        }
-    }
-
-    private View buildDayRow(ImdDay day) {
-        LinearLayout row = new LinearLayout(this);
-        row.setOrientation(LinearLayout.HORIZONTAL);
-        row.setGravity(android.view.Gravity.CENTER_VERTICAL);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        params.topMargin = dp(6);
-        row.setLayoutParams(params);
-
-        TextView label = new TextView(this);
-        label.setText("Day " + day.day);
-        label.setTextSize(14f);
-        label.setTextColor(ContextCompat.getColor(this, R.color.text_primary));
-        LinearLayout.LayoutParams labelParams = new LinearLayout.LayoutParams(dp(64),
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        label.setLayoutParams(labelParams);
-        row.addView(label);
-
-        TextView chip = new TextView(this);
-        String text = severityName(day.severity);
-        if (!day.label.isEmpty()) {
-            text = text + " · " + day.label;
-        }
-        chip.setText(text);
-        chip.setTextSize(13f);
-        chip.setTextColor(severityTextColour(day.severity));
-        chip.setPadding(dp(10), dp(4), dp(10), dp(4));
-        chip.setBackground(chipBackground(day.severity));
-        row.addView(chip);
-
-        return row;
     }
 
     private void showCacheNote(long updatedAt) {
@@ -1315,43 +1006,6 @@ public class FloodAlertActivity extends FloodCueActivity {
     }
 
     // ----------------------------------------------------------------- helpers
-
-    private void showProxyDialog() {
-        EditText input = new EditText(this);
-        input.setHint(R.string.flood_alert_imd_configure_hint);
-        input.setText(preferences().getString(KEY_IMD_PROXY, ""));
-        input.setSingleLine(true);
-
-        LinearLayout wrapper = new LinearLayout(this);
-        int padding = dp(20);
-        wrapper.setOrientation(LinearLayout.VERTICAL);
-        wrapper.setPadding(padding, padding / 2, padding, 0);
-        wrapper.addView(input);
-
-        TextView help = new TextView(this);
-        help.setText(R.string.flood_alert_imd_configure_help);
-        help.setTextSize(13f);
-        help.setTextColor(ContextCompat.getColor(this, R.color.text_secondary));
-        LinearLayout.LayoutParams helpParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        helpParams.topMargin = dp(8);
-        help.setLayoutParams(helpParams);
-        wrapper.addView(help);
-
-        new MaterialAlertDialogBuilder(this)
-                .setTitle(R.string.flood_alert_imd_configure_title)
-                .setView(wrapper)
-                .setNegativeButton(android.R.string.cancel, null)
-                .setPositiveButton(R.string.flood_alert_district_set, (dialog, which) -> {
-                    String value = input.getText().toString().trim();
-                    preferences().edit().putString(KEY_IMD_PROXY, value).apply();
-                    Toast.makeText(this, R.string.flood_alert_imd_configure_saved,
-                            Toast.LENGTH_SHORT).show();
-                    refresh();
-                })
-                .show();
-    }
 
     private void openLink(String address) {
         try {

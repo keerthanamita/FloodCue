@@ -146,43 +146,6 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/floodImdTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="@string/flood_alert_imd_title"
-                android:textColor="@color/text_primary"
-                android:textSize="17sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/floodImdStatus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp" />
-
-            <LinearLayout
-                android:id="@+id/floodImdDays"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="vertical" />
-
-            <Button
-                android:id="@+id/buttonFloodImdConfigure"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_button_secondary"
-                android:minHeight="0dp"
-                android:text="@string/flood_alert_imd_configure"
-                android:textAllCaps="false"
-                android:textColor="@color/text_primary"
-                android:textSize="15sp" />
-
-            <TextView
                 android:id="@+id/floodSachetTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
