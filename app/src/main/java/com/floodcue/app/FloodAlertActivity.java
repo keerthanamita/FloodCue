@@ -477,33 +477,82 @@ public class FloodAlertActivity extends FloodCueActivity {
 
         new Thread(() -> {
             boolean offline = false;
-
             String rss = null;
+            List<Alert> allAlerts = new ArrayList<>();
             List<Alert> matched = new ArrayList<>();
+
             try {
                 rss = httpGet(SACHET_RSS_URL, FETCH_TIMEOUT_MS);
+                // Diagnose HTTP result
+                if (rss != null) {
+                    // Check response size to avoid memory issues
+                    int bodyLength = rss.length();
+                    if (bodyLength < 200) {
+                        // Likely an error page or empty response
+                        rss = null;
+                        offline = true;
+                    }
+                }
             } catch (IOException networkDown) {
                 offline = true;
             }
+
             if (rss != null) {
-                List<Alert> all = parseRss(rss);
-                matched = filterByDistrict(all, wantedDistrict);
-                enrich(matched);
-                preferences().edit()
-                        .putString(KEY_RSS_CACHE, rss)
-                        .putLong(KEY_RSS_CACHE_AT, System.currentTimeMillis())
-                        .apply();
+                try {
+                    allAlerts = parseRss(rss);
+                } catch (Exception parseFailed) {
+                    allAlerts = new ArrayList<>();
+                    rss = null;
+                }
+                if (rss != null) {
+                    matched = filterByDistrict(allAlerts, wantedDistrict);
+                    enrich(matched);
+                }
             }
 
-            final String freshRss = rss;
+            // Only save cache after successful fetch and parse
+            final String freshRss = (allAlerts.isEmpty() && rss != null) ? null : rss;
             final List<Alert> freshMatched = matched;
-            final boolean wasOffline = offline;
+            final boolean wasOffline = offline || (rss == null);
 
+            // Build UI status based on what we have
             runOnUiThread(() -> {
                 loading = false;
                 refreshButton.setEnabled(true);
                 locationButton.setEnabled(true);
-                applyResults(freshRss, freshMatched, wasOffline);
+
+                if (wasOffline && freshRss == null) {
+                    // No internet and no cache
+                    showStatus(R.string.flood_alert_offline);
+                    renderSachetFromCache();
+                } else if (freshRss == null && !allAlerts.isEmpty()) {
+                    // Had data but parsing failed
+                    showStatus(R.string.flood_alert_error);
+                    renderSachetFromCache();
+                } else if (freshRss != null && freshMatched.isEmpty()) {
+                    // Feed updated but no matching alert for this district
+                    showStatus(getString(R.string.flood_alert_none, district));
+                    renderSachet(freshMatched, false, System.currentTimeMillis());
+                } else if (freshRss != null) {
+                    // Feed updated with alerts
+                    renderSachet(freshMatched, false, System.currentTimeMillis());
+                    if (freshMatched.isEmpty()) {
+                        showStatus(getString(R.string.flood_alert_none, district));
+                    }
+                } else if (freshMatched.isEmpty() && allAlerts.isEmpty()) {
+                    // No data at all
+                    showStatus(R.string.flood_alert_error);
+                    renderSachetFromCache();
+                } else {
+                    // Fallback: show cached
+                    renderSachetFromCache();
+                    showStatus(R.string.flood_alert_cache_fresh);
+                }
+
+                // Notify about new alerts if we have fresh results
+                if (freshRss != null) {
+                    notifyNew(this, freshMatched, district);
+                }
             });
         }).start();
     }
@@ -545,25 +594,33 @@ public class FloodAlertActivity extends FloodCueActivity {
         } finally {
             connection.disconnect();
         }
-    }
-
-    private void applyResults(String freshRss,
+    }private void applyResults(String freshRss,
                               List<Alert> freshMatched,
                               boolean offline) {
+        // State 1: Loading already handled; now determine which static state to show
         if (freshRss != null) {
-            renderSachet(freshMatched, false, System.currentTimeMillis());
-        } else {
+            // Feed was fetched successfully
+            if (freshMatched.isEmpty()) {
+                // State: Feed updated, no matching alert for this district
+                showStatus(getString(R.string.flood_alert_no_matching, district));
+            } else {
+                // State: Feed updated with matching alerts
+                renderSachet(freshMatched, false, System.currentTimeMillis());
+                showStatus(R.string.flood_alert_feed_updated);
+            }
+            // Notify about new alerts (de-duplicated)
+            if (freshMatched.size() > 0) {
+                notifyNew(this, freshMatched, district);
+            }
+        } else if (!offline) {
+            // State: Could not fetch feed (network error, not offline)
+            showStatus(R.string.flood_alert_error);
+            // Try cache as fallback
             renderSachetFromCache();
-            showStatus(offline ? R.string.flood_alert_offline : R.string.flood_alert_error);
-        }
-
-
-        if (freshRss != null && freshMatched.isEmpty()) {
-            showStatus(getString(R.string.flood_alert_none, district));
-        }
-
-        if (freshRss != null) {
-            notifyNew(this, freshMatched, district);
+        } else {
+            // State: Offline - showing what's saved on device
+            renderSachetFromCache();
+            showStatus(R.string.flood_alert_offline);
         }
     }
 
@@ -644,11 +701,31 @@ public class FloodAlertActivity extends FloodCueActivity {
             return matched;
         }
         String needle = wantedDistrict.trim();
+// Match district name as a whole word (case‑insensitive), allowing for
+// common prefixes/suffixes and punctuation.  Use \b‑style look‑behind/
+// look‑ahead that works even when the name appears inside other text.
+        Pattern loose = Pattern.compile(
+                "(?i)\b" + Pattern.quote(needle) + "\b");
         Pattern exact = Pattern.compile(
                 "(?i)(?<![a-z])" + Pattern.quote(needle) + "(?![a-z])");
         for (Alert alert : alerts) {
-            boolean hit = exact.matcher(alert.title).find()
-                    || exact.matcher(alert.area).find();
+            boolean hit = false;
+            if (alert.title != null) {
+                hit = loose.matcher(alert.title).find();
+            }
+            // After enrich(), alert.area is populated from CAP areaDesc
+            if (!hit && alert.area != null) {
+                hit = loose.matcher(alert.area).find();
+            }
+            if (!hit) {
+                // Also try exact‑word match on both fields as a fallback
+                if (alert.title != null) {
+                    hit = exact.matcher(alert.title).find();
+                }
+                if (!hit && alert.area != null) {
+                    hit = exact.matcher(alert.area).find();
+                }
+            }
             if (hit) {
                 matched.add(alert);
             }
@@ -894,9 +971,9 @@ public class FloodAlertActivity extends FloodCueActivity {
             return;
         }
         if (Build.VERSION.SDK_INT >= 33
-                && ContextCompat.checkSelfPermission(context,
-                        Manifest.permission.POST_NOTIFICATIONS)
-                != PackageManager.PERMISSION_GRANTED) {
+                && ContextCompat.checkSelfPermission(context,                        Manifest.permission.POST_NOTIFICATIONS)                != PackageManager.PERMISSION_GRANTED) {
+            // Permission denied: do not fire notifications, but still update cache
+            // so the screen can show what was found when permission is later granted.
             return;
         }
         NotificationManagerCompat manager = NotificationManagerCompat.from(context);
@@ -919,10 +996,9 @@ public class FloodAlertActivity extends FloodCueActivity {
             notified.add(alert.id);
             sent++;
             try {
-                manager.notify(alert.id.hashCode(),
-                        buildNotification(context, alert, districtName));
+                manager.notify(alert.id.hashCode(),                        buildNotification(context, alert, districtName));
             } catch (SecurityException noPermission) {
-                return;
+                // Permission revoked after starting; stop sending further notifications.                return;
             }
         }
         if (sent == 0) {
@@ -936,6 +1012,28 @@ public class FloodAlertActivity extends FloodCueActivity {
             iterator.next();
             iterator.remove();
         }
+        prefs.edit().putString(KEY_NOTIFIED, join(new ArrayList<>(notified))).apply();
+    }
+
+    /** Show a brief Snackbar-like toast if notifications are blocked, so the user
+     * isn't left wondering why alerts aren't appearing.
+     */
+    private void showNotificationBlockedToast() {
+        if (Build.VERSION.SDK_INT >= 33) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)                    != PackageManager.PERMISSION_GRANTED) {
+                showStatus(R.string.flood_alert_notifications_blocked);
+            }
+        }
+    }
+
+    private static void notifyNewSafe(Context context,
+                                  List<Alert> alerts,
+                                  String districtName) {
+        // Caller should show showNotificationBlockedToast() if desired after calling.        if (alerts.isEmpty()) {            return;        }        NotificationManagerCompat manager = NotificationManagerCompat.from(context);        SharedPreferences prefs = preferences(context);        LinkedHashSet<String> notified = new LinkedHashSet<>();        for (String id : prefs.getString(KEY_NOTIFIED, "").split(",")) {            if (!id.trim().isEmpty()) {                notified.add(id.trim());            }        }
+
+        int sent = 0;        for (Alert alert : alerts) {            if (sent >= NOTIFY_PER_REFRESH) {                break;            }            if (alert.id.isEmpty() || notified.contains(alert.id)) {                continue;            }            notified.add(alert.id);            sent++;            try {                manager.notify(alert.id.hashCode(),                        buildNotification(context, alert, districtName));            } catch (SecurityException noPermission) {                return;            }        }
+        if (sent == 0) {            return;        }
+        while (notified.size() > MAX_NOTIFIED_IDS) {            Iterator<String> iterator = notified.iterator();            if (!iterator.hasNext()) {                break;            }            iterator.next();            iterator.remove();        }
         prefs.edit().putString(KEY_NOTIFIED, join(new ArrayList<>(notified))).apply();
     }
 

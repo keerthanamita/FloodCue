@@ -202,6 +202,20 @@ public class LoginActivity extends FloodCueActivity {
                     android.R.anim.fade_out
             );
         });
+
+        // =========================================================
+        // GUEST MODE
+        // =========================================================
+
+        findViewById(R.id.textGuestMode).setOnClickListener(v -> {
+            addClickEffect((TextView) v);
+            openGuestHome();
+        });
+
+        findViewById(R.id.textGuestSubtitle).setOnClickListener(v -> {
+            addClickEffect((TextView) v);
+            openGuestHome();
+        });
         changeLanguageText.setOnClickListener(v -> {
             Intent intent = new Intent(
                     LoginActivity.this,
@@ -855,6 +869,48 @@ public class LoginActivity extends FloodCueActivity {
     // =========================================================
     // NEXT SCREEN
     // =========================================================
+
+    private void openGuestHome() {
+        startActivity(new Intent(this, HomeActivity.class));
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        finish();
+    }
+
+    /**
+     * Clears all user-specific data and returns to the login screen.
+     * Should be called after Firebase sign-out completes.
+     */
+    private void clearAllUserData() {
+        // Clear Firebase current user
+        FirebaseAuth.getInstance().signOut();
+
+        // Clear all app preferences
+        getSharedPreferences(
+                "FloodCuePrefs",
+                MODE_PRIVATE
+        ).edit().clear().apply();
+
+        // Delete all local databases
+        for (String databaseName : databaseList()) {
+            deleteDatabase(databaseName);
+        }
+
+        // Clean up app-private directories
+        deleteDirectoryContents(getFilesDir());
+        deleteDirectoryContents(getCacheDir());
+        deleteDirectoryContents(getNoBackupFilesDir());
+        deleteDirectoryContents(getCodeCacheDir());
+
+        // Clean external files directory too
+        java.io.File[] externalDirs = getExternalFilesDirs(null);
+        if (externalDirs != null) {
+            for (java.io.File dir : externalDirs) {
+                if (dir != null) {
+                    deleteDirectoryContents(dir);
+                }
+            }
+        }
+    }
 
     private void openNextScreen() {
 

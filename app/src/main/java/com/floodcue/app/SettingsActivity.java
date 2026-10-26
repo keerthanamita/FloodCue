@@ -119,7 +119,7 @@ public class SettingsActivity extends FloodCueActivity {
 
         Intent intent = new Intent(
                 SettingsActivity.this,
-                LanguageActivity.class
+                LoginActivity.class
         );
 
         intent.setFlags(

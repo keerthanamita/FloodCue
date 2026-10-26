@@ -66,7 +66,9 @@
     <string name="weather_cached">(ముందుగా సేవ్ చేయబడింది)</string>
     <string name="weather_cached_since"><![CDATA[చివరిగా అప్‌డేట్ చేయబడినది: %1$s]]></string>
     <string name="weather_rain_hint">వర్షం సాధారణంగా ఉండే ప్రదేశాల్లో సాధారణంగా కొంతమేరకు వర్షం ఉంటుంది. నీటి రావడం చూడటానికి కారణం కావచ్చు కాదు. మీ ఫ్లూడ్ మేజర్ అధికారిక వర్షాభావం లేదా ప్రచురణ సమాచారంతో సరిపోల్చండి.</string>
-    <string name="weather_unavailable">ఇంటర్నెట్ లేదు లేదా డేటా అందుబాటులో లేదు.</string>
+    <string name="weather_label_humidity">ఉdalaadalu</string>
+    <string name="weather_value_humidity">%1$d%%</string>
+    <string name="weather_unavailable">ఇంటర్నెట్ Gaulle లేదా డేటా అందుబాటులోaleko</string>
     <string name="weather_select">మీరు ఇక్కడ ఉన్నారని తెలుసుకోండి</string>
     <string name="weather_select_title">రాష్ట్రం ఎంచుకోండి</string>
     <string name="weather_select_placeholder">రాష్ట్రం ఎంచుకోండి</string>

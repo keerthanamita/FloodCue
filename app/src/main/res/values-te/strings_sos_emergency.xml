@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Back navigation -->
+    <string name="sos_emergency_back_title">← ఎమర్జెన్సీ SOS</string>
+    <string name="sos_emergency_heading">ఎమర్జెన్సీ సందేశం</string>
+    <string name="sos_emergency_short">మూడు విషయాలు కలిసి: మీ ఎమర్జెన్సీ కరెంట్లకు ఒక ఎమర్జెన్సీ సందేశం, సైరన్ మరియు మ్యాప్ లింక్‌తో మీ GPS స్థానం.</string>
+    <string name="sos_emergency_send">ఎమర్జెన్సీ SOS పంపండి</string>
+    <string name="sos_emergency_sms_sent">మీ ఎమర్జెన్సీ కరెంట్లకు SOS సందేశం పంపించబడింది.</string>
+    <string name="sos_emergency_sms_failed">SOS సందేశాన్ని పంపించలేకపోయింది. మీ నెట్‌వర్క్ మరియు కనీసం ఒక ఎమర్జెన్సీ కరెంట్ ఉన్నారా తనిఖీ చేయండి.</string>
+    <string name="sos_emergency_sms_pending">పంపాలని ఉంది</string>
+    <string name="sos_emergency_no_contacts">ఎమర్జెన్సీ కరెంట్లు అందుబాటులో లేవు. ఎమర్జెన్సీ సందేశాన్ని పంపేంతవరకు ఎమర్జెన్సీ కరెంట్ల స్క్రీన్‌లో వాటిని జోడించండి.</string>
+    <string name="sos_emergency_location">స్థానం</string>
+    <string name="sos_emergency_location_available">ప్రస్తుత స్థానం పొందబడింది — నిర్దేశాలు మరియు మ్యాప్ లింక్ చేర్చబడ్డాయి.</string>
+    <string name="sos_emergency_location_unavailable">స్థానం పొందలేకపోయింది.</string>
+    <string name="sos_emergency_location_last_known">చివరి జాగ్రత్త నంబర్ మాత్రమే: %1$s (పరిమితి: %2$s).</string>
+    <string name="sos_emergency_siren">సైరన్ సక్రియం చేయబడింది — సైరన్ ఆపడానికి సోపాను ట్యాప్ చేయండి లేదా అప్లికేషన్‌ను వదిలిపెట్టండి.</string>
+    <string name="sos_emergency_feeding_sms">ప్రస్తుతం SMS పంపించబడుతుంది…</string>
+    <string name="sos_emergency_contact">ఎమర్జెన్సీ కరెంట్</string>
+    <string name="sos_emergency_perm_denied">నిర్దేశాలు కోసం స్థాన అనుమతి అవసరం. సిస్టమ్ సెట్టింగ్స్‌లో దాన్ని తెరిచి చూడండి.</string>
+    <string name="sos_emergency_no_sim">ఈ ఫోనులో SIM గుర్తించబడలేదు — SMS పంపలేరు.</string>
+</resources>

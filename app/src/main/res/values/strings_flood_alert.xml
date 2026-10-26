@@ -17,6 +17,10 @@
     <string name="flood_alert_offline">No internet connection. Showing alerts saved on this device.</string>
     <string name="flood_alert_error">Could not read the alert feeds right now. Try Refresh again.</string>
     <string name="flood_alert_none">No official alert mentions %1$s in the current feed.</string>
+    <string name="flood_alert_feed_updated">Feed updated</string>
+    <string name="flood_alert_no_matching">No matching alert for %1$s in current feed</string>
+    <string name="flood_alert_cached_data">Showing cached alerts from %1$s</string>
+    <string name="flood_alert_notifications_blocked">Notifications blocked in settings</string>
     <string name="flood_alert_cached_note">%1$s · Last updated %2$s</string>
     <string name="flood_alert_cache_fresh">Showing saved alerts</string>
     <string name="flood_alert_cache_old">Showing saved alerts, they may be outdated</string>
