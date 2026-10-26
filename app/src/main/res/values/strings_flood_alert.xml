@@ -50,7 +50,7 @@
 
     <string name="flood_alert_disclaimer">These are official warnings as published by IMD and NDMA SACHET. They are not a live flood sensor: rainfall warnings alone do not confirm flooding. Follow instructions from local authorities and disaster-management teams.</string>
 
-    <string name="flood_alert_channel_name">Flood alerts</string>
-    <string name="flood_alert_channel_desc">Warnings for your district from IMD and NDMA SACHET</string>
+    <string name="flood_alert_channel_name">Flood alerts (siren)</string>
+    <string name="flood_alert_channel_desc">Loud official flood and heavy-rain warnings: plays the FloodCue siren, vibrates, and appears over other apps even when FloodCue is closed</string>
     <string name="flood_alert_notification_title">Flood alert for %1$s</string>
 </resources>

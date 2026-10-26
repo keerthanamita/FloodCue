@@ -8,6 +8,10 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- Lets a flood alert wake the screen with the alert sound while FloodCue is
+         closed. Android 14+ grants this only to alarm-style apps; if it is off the
+         alert still appears in the shade with its sound and vibration. -->
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
 
     <!-- Calling and SMS are optional: the app must install on devices without them. -->
     <uses-feature
@@ -143,6 +147,11 @@
             android:name=".FloodAlertActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
+        <service
+            android:name=".FloodAlertJobService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
     </application>
 

@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -14,6 +15,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.media.AudioAttributes;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -91,7 +93,14 @@ public class FloodAlertActivity extends AppCompatActivity {
     private static final String SACHET_PORTAL_URL = "https://sachet.ndma.gov.in/";
     private static final String CWC_FLOOD_URL = "https://ffs.india-water.gov.in/";
 
-    private static final String CHANNEL_ID = "flood_alerts";
+    /**
+     * The first channel was silent and Android never lets an existing channel
+     * change its sound afterwards, so alerts moved to a fresh channel.
+     */
+    private static final String CHANNEL_ID = "flood_alerts_v2";
+    private static final String LEGACY_CHANNEL_ID = "flood_alerts";
+    /** Strong repeating buzz, so the alert is felt as well as heard. */
+    private static final long[] ALERT_VIBRATION = {0, 400, 250, 400, 250, 400, 250, 400};
     private static final int LOCATION_PERMISSION_REQUEST = 4201;
     private static final int NOTIFICATION_PERMISSION_REQUEST = 4202;
     private static final int FETCH_TIMEOUT_MS = 9_000;
@@ -209,7 +218,12 @@ public class FloodAlertActivity extends AppCompatActivity {
     }
 
     private SharedPreferences preferences() {
-        return getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        return preferences(this);
+    }
+
+    /** The same preferences, readable from the background check without an Activity. */
+    static SharedPreferences preferences(Context context) {
+        return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
     }
 
     private boolean usesImdProxy() {
@@ -217,19 +231,47 @@ public class FloodAlertActivity extends AppCompatActivity {
     }
 
     private void createNotificationChannel() {
+        ensureChannel(this);
+    }
+
+    /**
+     * The alert channel plays the bundled siren on the alarm stream, vibrates,
+     * and is important enough for Android to show it as a heads-up over other
+     * apps while FloodCue is closed. The legacy channel was silent, and channel
+     * settings cannot change after creation, so it is deleted and replaced.
+     */
+    static void ensureChannel(Context context) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
             return;
         }
-        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        NotificationManager manager =
+                (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         if (manager == null) {
             return;
         }
+        manager.deleteNotificationChannel(LEGACY_CHANNEL_ID);
         NotificationChannel channel = new NotificationChannel(
                 CHANNEL_ID,
-                getString(R.string.flood_alert_channel_name),
+                context.getString(R.string.flood_alert_channel_name),
                 NotificationManager.IMPORTANCE_HIGH);
-        channel.setDescription(getString(R.string.flood_alert_channel_desc));
+        channel.setDescription(context.getString(R.string.flood_alert_channel_desc));
+        channel.setSound(alarmSound(context), new AudioAttributes.Builder()
+                .setUsage(AudioAttributes.USAGE_ALARM)
+                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                .build());
+        channel.enableVibration(true);
+        channel.setVibrationPattern(ALERT_VIBRATION.clone());
+        channel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
         manager.createNotificationChannel(channel);
+    }
+
+    /**
+     * The app's own siren, played as an alarm so it rings even when the phone
+     * is on vibrate or silent.
+     */
+    private static Uri alarmSound(Context context) {
+        return Uri.parse("android.resource://" + context.getPackageName()
+                + "/" + R.raw.siren);
     }
 
     private void requestNotificationPermissionOnce() {
@@ -524,7 +566,7 @@ public class FloodAlertActivity extends AppCompatActivity {
         return proxy + separator + "endpoint=" + endpoint;
     }
 
-    private String httpGet(String address, int timeoutMs) throws IOException {
+    private static String httpGet(String address, int timeoutMs) throws IOException {
         HttpURLConnection connection =
                 (HttpURLConnection) new URL(address).openConnection();
         connection.setConnectTimeout(timeoutMs);
@@ -576,13 +618,13 @@ public class FloodAlertActivity extends AppCompatActivity {
         }
 
         if (freshRss != null) {
-            notifyNew(freshMatched);
+            notifyNew(this, freshMatched, district);
         }
     }
 
     // ----------------------------------------------------------------- parse
 
-    private List<Alert> parseRss(String xml) {
+    private static List<Alert> parseRss(String xml) {
         List<Alert> alerts = new ArrayList<>();
         try {
             XmlPullParser parser = Xml.newPullParser();
@@ -651,7 +693,7 @@ public class FloodAlertActivity extends AppCompatActivity {
         return alerts;
     }
 
-    private List<Alert> filterByDistrict(List<Alert> alerts, String wantedDistrict) {
+    private static List<Alert> filterByDistrict(List<Alert> alerts, String wantedDistrict) {
         List<Alert> matched = new ArrayList<>();
         if (wantedDistrict == null || wantedDistrict.trim().isEmpty()) {
             return matched;
@@ -1149,17 +1191,25 @@ public class FloodAlertActivity extends AppCompatActivity {
 
     // ----------------------------------------------------------- notifications
 
-    private void notifyNew(List<Alert> alerts) {
+    /**
+     * Announces alerts that have not been shown before. Shared with
+     * FloodAlertJobService, so a warning is announced exactly once whether it
+     * is found while FloodCue is open or by the background check.
+     */
+    private static void notifyNew(Context context,
+                                  List<Alert> alerts,
+                                  String districtName) {
         if (alerts.isEmpty()) {
             return;
         }
         if (Build.VERSION.SDK_INT >= 33
-                && ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+                && ContextCompat.checkSelfPermission(context,
+                        Manifest.permission.POST_NOTIFICATIONS)
                 != PackageManager.PERMISSION_GRANTED) {
             return;
         }
-        NotificationManagerCompat manager = NotificationManagerCompat.from(this);
-        SharedPreferences prefs = preferences();
+        NotificationManagerCompat manager = NotificationManagerCompat.from(context);
+        SharedPreferences prefs = preferences(context);
         LinkedHashSet<String> notified = new LinkedHashSet<>();
         for (String id : prefs.getString(KEY_NOTIFIED, "").split(",")) {
             if (!id.trim().isEmpty()) {
@@ -1178,7 +1228,8 @@ public class FloodAlertActivity extends AppCompatActivity {
             notified.add(alert.id);
             sent++;
             try {
-                manager.notify(alert.id.hashCode(), buildNotification(alert));
+                manager.notify(alert.id.hashCode(),
+                        buildNotification(context, alert, districtName));
             } catch (SecurityException noPermission) {
                 return;
             }
@@ -1197,24 +1248,67 @@ public class FloodAlertActivity extends AppCompatActivity {
         prefs.edit().putString(KEY_NOTIFIED, join(new ArrayList<>(notified))).apply();
     }
 
-    private Notification buildNotification(Alert alert) {
-        Intent open = new Intent(this, FloodAlertActivity.class)
-                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+    private static Notification buildNotification(Context context,
+                                                  Alert alert,
+                                                  String districtName) {
+        Intent open = new Intent(context, FloodAlertActivity.class)
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        int pendingFlags = android.app.PendingIntent.FLAG_UPDATE_CURRENT
+                | android.app.PendingIntent.FLAG_IMMUTABLE;
+        android.app.PendingIntent contentIntent = android.app.PendingIntent.getActivity(
+                context, 0, open, pendingFlags);
+        android.app.PendingIntent fullScreenIntent = android.app.PendingIntent.getActivity(
+                context, 1, open, pendingFlags);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle(getString(R.string.flood_alert_notification_title, district))
+                .setContentTitle(context.getString(
+                        R.string.flood_alert_notification_title, districtName))
                 .setContentText(alert.title)
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(alert.title))
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setTicker(alert.title)
+                .setPriority(NotificationCompat.PRIORITY_MAX)
+                .setCategory(NotificationCompat.CATEGORY_ALARM)
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                .setSound(alarmSound(context))
+                .setVibrate(ALERT_VIBRATION)
+                .setFullScreenIntent(fullScreenIntent, true)
                 .setAutoCancel(true)
-                .setContentIntent(android.app.PendingIntent.getActivity(
-                        this, 0, open,
-                        android.app.PendingIntent.FLAG_UPDATE_CURRENT
-                                | android.app.PendingIntent.FLAG_IMMUTABLE));
+                .setContentIntent(contentIntent);
         if (alert.publishedAt > 0L) {
             builder.setWhen(alert.publishedAt);
         }
         return builder.build();
+    }
+
+    /**
+     * Background check used by FloodAlertJobService while FloodCue is closed:
+     * it reads the district chosen on this screen, refreshes the same cache and
+     * announces through the same de-duplicated path, so the notification and
+     * what the screen later shows always agree.
+     */
+    static void checkForNewAlerts(Context context) {
+        SharedPreferences prefs = preferences(context);
+        String wanted = prefs.getString(KEY_DISTRICT, "").trim();
+        if (wanted.isEmpty()) {
+            return;
+        }
+
+        String rss;
+        try {
+            rss = httpGet(SACHET_RSS_URL, FETCH_TIMEOUT_MS);
+        } catch (IOException noNetwork) {
+            return;
+        }
+        if (rss == null) {
+            return;
+        }
+
+        prefs.edit()
+                .putString(KEY_RSS_CACHE, rss)
+                .putLong(KEY_RSS_CACHE_AT, System.currentTimeMillis())
+                .apply();
+        ensureChannel(context);
+        notifyNew(context, filterByDistrict(parseRss(rss), wanted), wanted);
     }
 
     // ----------------------------------------------------------------- helpers

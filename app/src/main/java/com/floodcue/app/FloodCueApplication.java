@@ -13,5 +13,8 @@ public class FloodCueApplication extends Application {
     public void onCreate() {
         super.onCreate();
         SosQueue.resumeIfPending(this);
+        // Keep checking official flood warnings while FloodCue is closed, so
+        // an alert is announced on the screen even if the app is not open.
+        FloodAlertJobService.schedule(this);
     }
 }
