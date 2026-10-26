@@ -11,6 +11,24 @@
     <string name="weather_rain_24h">Rain next 24h: %1$.1f mm</string>
     <string name="weather_wind">Wind: %1$.1f m/s · %2$s</string>
     <string name="weather_hourly">Hourly rain (next 24h)</string>
+
+    <!-- Extra readings shown as a card grid. Argument types must match the
+         getString calls in WeatherActivity. -->
+    <string name="weather_details_title">More details</string>
+    <string name="weather_label_humidity">Humidity</string>
+    <string name="weather_value_humidity">%1$d%%</string>
+    <string name="weather_label_feels_like">Feels like</string>
+    <string name="weather_value_feels_like">%1$.1f°C</string>
+    <string name="weather_label_pressure">Air pressure</string>
+    <string name="weather_value_pressure">%1$.1f hPa</string>
+    <string name="weather_label_cloud">Cloud cover</string>
+    <string name="weather_value_cloud">%1$d%%</string>
+    <string name="weather_label_gusts">Wind gusts</string>
+    <string name="weather_value_gusts">%1$.1f m/s</string>
+    <string name="weather_label_visibility">Visibility</string>
+    <string name="weather_value_visibility">%1$.1f km</string>
+    <string name="weather_label_rain_6h">Rain next 6 hours</string>
+    <string name="weather_value_rain_6h">%1$.1f mm</string>
     <string name="weather_selected_location">Selected: %1$.3f, %2$.3f</string>
     <string name="weather_cache_note">%1$s · Last updated %2$s</string>
 

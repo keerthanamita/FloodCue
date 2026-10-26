@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.InputType;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -61,7 +63,8 @@ public class WeatherActivity extends FloodCueActivity {
     private static final String OPEN_METEO_URL =
             "https://api.open-meteo.com/v1/forecast?latitude=%1$f&longitude=%2$f"
                     + "&current=temperature_2m,weather_code,rain,wind_speed_10m,wind_direction_10m"
-                    + "&hourly=rain,rain_probability"
+                    + ",relativehumidity_2m,apparent_temperature,pressure_msl,cloud_cover,wind_gusts_10m"
+                    + "&hourly=rain,rain_probability,visibility"
                     + "&temperature_unit=celsius&wind_speed_unit=ms&timezone=auto&forecast_days=2";
 
     private static final String[] WEATHER_CODES = {
@@ -88,6 +91,7 @@ public class WeatherActivity extends FloodCueActivity {
     private TextView rain24hText;
     private TextView windText;
     private TextView hourlyText;
+    private LinearLayout detailsGrid;
     private TextView warningsText;
     private TextView cachedText;
     private TextView locationErrorText;
@@ -124,6 +128,7 @@ public class WeatherActivity extends FloodCueActivity {
         rain24hText = findViewById(R.id.weatherRain24h);
         windText = findViewById(R.id.weatherWind);
         hourlyText = findViewById(R.id.weatherHourly);
+        detailsGrid = findViewById(R.id.weatherDetailsGrid);
         warningsText = findViewById(R.id.weatherWarnings);
         cachedText = findViewById(R.id.weatherCached);
         locationErrorText = findViewById(R.id.weatherLocationError);
@@ -499,6 +504,7 @@ public class WeatherActivity extends FloodCueActivity {
         rain24hText.setText(R.string.weather_unavailable);
         windText.setText(R.string.weather_unavailable);
         hourlyText.setText(R.string.weather_hourly);
+        renderDetails(null);
         warningsText.setVisibility(View.GONE);
         hideCacheNote();
     }
@@ -529,6 +535,8 @@ public class WeatherActivity extends FloodCueActivity {
 
         hourlyText.setText(String.format(Locale.US, "%s\n%s",
                 getString(R.string.weather_hourly), hourlyForecast(data)));
+
+        renderDetails(data);
 
         // No official alert feed is bundled, so alerts are never invented.
         warningsText.setVisibility(View.GONE);
@@ -652,6 +660,103 @@ public class WeatherActivity extends FloodCueActivity {
         return -1;
     }
 
+    /**
+     * Two-column card grid with the extra readings that matter during a flood:
+     * humidity, feels-like, pressure, cloud, gusts, visibility and the rain
+     * expected over the next six hours. A missing value is shown as
+     * "Unavailable" rather than guessed.
+     */
+    private void renderDetails(WeatherData data) {
+        detailsGrid.removeAllViews();
+        String[][] entries = detailEntries(data);
+        LinearLayout row = null;
+
+        for (int i = 0; i < entries.length; i++) {
+            if (i % 2 == 0) {
+                row = new LinearLayout(this);
+                row.setOrientation(LinearLayout.HORIZONTAL);
+                LinearLayout.LayoutParams rowParams = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT);
+                rowParams.topMargin = dp(8);
+                detailsGrid.addView(row, rowParams);
+            }
+            LinearLayout.LayoutParams cardParams = new LinearLayout.LayoutParams(
+                    0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
+            cardParams.rightMargin = dp(8);
+            row.addView(buildDetailCard(entries[i][0], entries[i][1]), cardParams);
+        }
+    }
+
+    private String[][] detailEntries(WeatherData data) {
+        boolean none = data == null;
+        return new String[][]{
+                {getString(R.string.weather_label_humidity),
+                        readable(none || data.humidity < 0
+                                ? null : getString(R.string.weather_value_humidity,
+                                data.humidity))},
+                {getString(R.string.weather_label_feels_like),
+                        readable(none || data.feelsLike < 0
+                                ? null : getString(R.string.weather_value_feels_like,
+                                data.feelsLike))},
+                {getString(R.string.weather_label_pressure),
+                        readable(none || data.pressure < 0
+                                ? null : getString(R.string.weather_value_pressure,
+                                data.pressure))},
+                {getString(R.string.weather_label_cloud),
+                        readable(none || data.cloudCover < 0
+                                ? null : getString(R.string.weather_value_cloud,
+                                data.cloudCover))},
+                {getString(R.string.weather_label_gusts),
+                        readable(none || data.windGusts < 0
+                                ? null : getString(R.string.weather_value_gusts,
+                                data.windGusts))},
+                {getString(R.string.weather_label_visibility),
+                        readable(none || data.visibility < 0
+                                ? null : getString(R.string.weather_value_visibility,
+                                data.visibility / 1000d))},
+                {getString(R.string.weather_label_rain_6h),
+                        readable(none || data.rainNext6h < 0
+                                ? null : getString(R.string.weather_value_rain_6h,
+                                data.rainNext6h))},
+        };
+    }
+
+    private String readable(String value) {
+        return value == null ? getString(R.string.weather_unavailable) : value;
+    }
+
+    private View buildDetailCard(String label, String value) {
+        LinearLayout card = new LinearLayout(this);
+        card.setOrientation(LinearLayout.VERTICAL);
+        card.setBackgroundResource(R.drawable.bg_screen_card);
+        int pad = dp(14);
+        card.setPadding(pad, pad, pad, pad);
+
+        TextView labelView = new TextView(this);
+        labelView.setText(label);
+        labelView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13);
+        labelView.setTextColor(getColor(R.color.text_secondary));
+        card.addView(labelView);
+
+        TextView valueView = new TextView(this);
+        valueView.setText(value);
+        valueView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+        valueView.setTextColor(getColor(R.color.text_primary));
+        valueView.setTypeface(valueView.getTypeface(), Typeface.BOLD);
+        LinearLayout.LayoutParams valueParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        valueParams.topMargin = dp(3);
+        card.addView(valueView, valueParams);
+
+        return card;
+    }
+
+    private int dp(int value) {
+        return Math.round(value * getResources().getDisplayMetrics().density);
+    }
+
     private void openWarningHelp() {
         new MaterialAlertDialogBuilder(this)
                 .setTitle(R.string.weather_warning_help)
@@ -696,6 +801,16 @@ public class WeatherActivity extends FloodCueActivity {
             data.windDirection = current.has("wind_direction_10m")
                     ? current.optInt("wind_direction_10m", -1) : -1;
             data.currentTime = current.optString("time", "");
+            data.humidity = current.has("relativehumidity_2m")
+                    ? current.optInt("relativehumidity_2m", -1) : -1;
+            data.feelsLike = current.has("apparent_temperature")
+                    ? current.optDouble("apparent_temperature", -1d) : -1d;
+            data.pressure = current.has("pressure_msl")
+                    ? current.optDouble("pressure_msl", -1d) : -1d;
+            data.cloudCover = current.has("cloud_cover")
+                    ? current.optInt("cloud_cover", -1) : -1;
+            data.windGusts = current.has("wind_gusts_10m")
+                    ? current.optDouble("wind_gusts_10m", -1d) : -1d;
             data.updatedAt = updatedAt;
 
             JSONObject hourly = root.optJSONObject("hourly");
@@ -703,6 +818,8 @@ public class WeatherActivity extends FloodCueActivity {
             JSONArray rains = hourly == null ? null : hourly.optJSONArray("rain");
             JSONArray probabilities =
                     hourly == null ? null : hourly.optJSONArray("rain_probability");
+            JSONArray visibility =
+                    hourly == null ? null : hourly.optJSONArray("visibility");
             if (times != null) {
                 for (int i = 0; i < times.length(); i++) {
                     data.hourlyTimes.add(times.optString(i, ""));
@@ -716,14 +833,24 @@ public class WeatherActivity extends FloodCueActivity {
 
             int now = currentIndex(data);
             data.rainNext24h = 0d;
+            data.rainNext6h = -1d;
+            data.visibility = -1d;
             data.rainProbability = -1;
             if (now >= 0) {
                 int end = Math.min(now + FORECAST_HOURS, data.hourlyRain.size());
                 for (int i = now; i < end; i++) {
                     data.rainNext24h += data.hourlyRain.get(i);
                 }
+                int soon = Math.min(now + 6, data.hourlyRain.size());
+                data.rainNext6h = 0d;
+                for (int i = now; i < soon; i++) {
+                    data.rainNext6h += data.hourlyRain.get(i);
+                }
                 if (probabilities != null && now < probabilities.length()) {
                     data.rainProbability = probabilities.optInt(now, -1);
+                }
+                if (visibility != null && now < visibility.length()) {
+                    data.visibility = visibility.optDouble(now, -1d);
                 }
             } else {
                 data.rainNext24h = -1d;
@@ -747,6 +874,13 @@ public class WeatherActivity extends FloodCueActivity {
         double rainNext24h = -1d;
         double windSpeed = -1d;
         int windDirection = -1;
+        int humidity = -1;
+        double feelsLike = -1d;
+        double pressure = -1d;
+        int cloudCover = -1;
+        double windGusts = -1d;
+        double visibility = -1d;      // metres, from the hourly array
+        double rainNext6h = -1d;
         String currentTime = "";
         long updatedAt;
         final List<String> hourlyTimes = new ArrayList<>();
