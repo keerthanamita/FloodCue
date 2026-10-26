@@ -83,6 +83,9 @@
             android:name=".AboutBridgefyActivity"
             android:exported="false" />
         <activity
+            android:name=".AboutFloodCueActivity"
+            android:exported="false" />
+        <activity
             android:name=".OfflineMapViewActivity"
             android:exported="false" />
         <activity

@@ -36,6 +36,7 @@ public class SettingsActivity extends FloodCueActivity {
         TextView buttonBackToHome = findViewById(R.id.buttonBackToHome);
         Button changeLanguageButton = findViewById(R.id.buttonChangeLanguage);
         Button changeUserDetailsButton = findViewById(R.id.buttonChangeUserDetails);
+        Button aboutFloodcueButton = findViewById(R.id.buttonAboutFloodcue);
         Button aboutBridgefyButton = findViewById(R.id.buttonAboutBridgefy);
         Button logoutButton = findViewById(R.id.buttonLogout);
 
@@ -47,6 +48,8 @@ public class SettingsActivity extends FloodCueActivity {
         buttonBackToHome.setOnClickListener(v -> finish());
         changeUserDetailsButton.setOnClickListener(v -> openUserProfile());
         changeLanguageButton.setOnClickListener(v -> openLanguagePicker());
+        aboutFloodcueButton.setOnClickListener(v ->
+                startActivity(new Intent(this, AboutFloodCueActivity.class)));
         aboutBridgefyButton.setOnClickListener(v -> openAboutBridgefy());
         logoutButton.setOnClickListener(v -> logoutUser());
     }

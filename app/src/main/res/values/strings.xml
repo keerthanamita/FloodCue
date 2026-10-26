@@ -34,6 +34,7 @@
     <string name="settings_subtitle">Manage your details and account</string>
     <string name="settings_change_user_details">User profile</string>
     <string name="settings_logout">Log out</string>
+    <string name="settings_about_floodcue">About FloodCue</string>
     <string name="profile_details_back_title">← User Profile</string>
     <string name="profile_details_edit">Edit</string>
     <string name="profile_details_empty">No profile found on this device yet. Tap Edit to add your details.</string>

@@ -95,6 +95,20 @@
                     android:textSize="16sp" />
 
                 <Button
+                    android:id="@+id/buttonAboutFloodcue"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_button_secondary"
+                    android:backgroundTint="@null"
+                    android:elevation="0dp"
+                    android:minHeight="0dp"
+                    android:text="@string/settings_about_floodcue"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+
+                <Button
                     android:id="@+id/buttonAboutBridgefy"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
