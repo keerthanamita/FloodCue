@@ -38,6 +38,12 @@ import java.util.concurrent.Executors;
 
 public class LoginActivity extends FloodCueActivity {
 
+    @Override
+    protected boolean showsBottomNavigation() {
+        return false;
+    }
+
+
     private TextInputLayout emailInputLayout;
     private TextInputLayout passwordInputLayout;
 

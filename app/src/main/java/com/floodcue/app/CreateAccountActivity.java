@@ -29,6 +29,12 @@ import android.widget.LinearLayout;
 
 public class CreateAccountActivity extends FloodCueActivity {
 
+    @Override
+    protected boolean showsBottomNavigation() {
+        return false;
+    }
+
+
     private EditText emailEditText;
     private EditText passwordEditText;
     private EditText confirmPasswordEditText;

@@ -37,6 +37,16 @@ public class LanguageActivity extends FloodCueActivity {
     private String survivalCode = "en";
     private boolean editMode;
 
+    /**
+     * Shown only when the user reaches this screen from Settings after setup;
+     * the first-run language pick is part of onboarding and stays clean.
+     */
+    @Override
+    protected boolean showsBottomNavigation() {
+        return getIntent() != null
+                && getIntent().getBooleanExtra("LANGUAGE_EDIT_MODE", false);
+    }
+
     private final String[] names = {
             "English", "Telugu", "Hindi",
             "Tamil", "Kannada", "Malayalam"

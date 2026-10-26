@@ -13,6 +13,12 @@ import com.google.firebase.auth.FirebaseUser;
 public class SplashActivity extends FloodCueActivity {
 
     private TextView loadingStatus;
+
+    @Override
+    protected boolean showsBottomNavigation() {
+        return false;
+    }
+
     private SharedPreferences preferences;
 
     @Override

@@ -35,6 +35,12 @@ import java.util.Locale;
 
 public class SetupActivity extends FloodCueActivity {
 
+    @Override
+    protected boolean showsBottomNavigation() {
+        return false;
+    }
+
+
     public static final String EXTRA_EDIT_PROFILE = "edit_profile";
 
     private static final String PREFS_NAME = "FloodCuePrefs";
