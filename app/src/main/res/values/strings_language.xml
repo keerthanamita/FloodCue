@@ -13,7 +13,7 @@
     <string name="language_picker_app_title">Choose app language</string>
     <string name="language_picker_survival_title">Choose safety language</string>
     <string name="language_picker_subtitle">Search and select a language</string>
-    <string name="language_picker_search_hint">Search language...</string>
+    <string name="language_picker_search_hint">Search language…</string>
     <string name="language_picker_empty">No languages found.\nTry another search.</string>
 
     <string name="language_updated">Language updated</string>

@@ -14,11 +14,11 @@
     <string name="offline_map_tirupati_district">Tirupati District</string>
     <string name="offline_map_nellore_district">Nellore District</string>
     <string name="offline_map_back_title">← %1$s</string>
-    <string name="offline_map_connecting">Connecting to download %1$s...</string>
-    <string name="offline_map_downloading">Downloading %1$s...</string>
+    <string name="offline_map_connecting">Connecting to download %1$s…</string>
+    <string name="offline_map_downloading">Downloading %1$s…</string>
     <string name="offline_map_downloading_percent">Downloading %1$s: %2$d%%</string>
     <string name="offline_map_download_failed">Could not download %1$s: %2$s</string>
-    <string name="offline_map_opening">Opening %1$s offline map...</string>
+    <string name="offline_map_opening">Opening %1$s offline map…</string>
     <string name="offline_map_loaded">%1$s offline map loaded</string>
     <string name="offline_map_missing">That offline map is not downloaded on this device.</string>
     <string name="offline_map_location_denied">Location permission was not granted.</string>
@@ -80,7 +80,6 @@
     <string name="home_sos">SOS</string>
     <string name="home_sos_stop">Stop SOS alarm</string>
     <string name="home_sos_started">SOS started. Sending your emergency message to %1$d of your contacts.</string>
-    <string name="home_sos_sending">Sending the emergency message…</string>
     <string name="home_sos_no_contacts">No emergency contacts found. Save personal contacts during setup, or pick numbers on the SOS Emergency Message screen.</string>
     <string name="home_sos_sms_permission">SMS permission is needed to send the emergency message automatically.</string>
     <string name="home_sos_location_permission">Location permission lets SOS add your coordinates to the message.</string>

@@ -849,13 +849,6 @@ public class SetupActivity extends FloodCueActivity {
                 String message = "Couldn't save your profile. "
                         + "Check your connection and try again.";
 
-                if (error != null && !error.trim().isEmpty()) {
-                    android.util.Log.e(
-                            "FloodCueSetup",
-                            "Profile save failed: " + error
-                    );
-                }
-
                 Toast.makeText(
                         SetupActivity.this,
                         message,

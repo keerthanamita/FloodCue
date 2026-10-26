@@ -9,7 +9,6 @@
     <string name="flood_alert_use_location">Use my location</string>
     <string name="flood_alert_refresh">Refresh</string>
     <string name="flood_alert_district_empty">Enter a district name or use your location to see alerts.</string>
-    <string name="flood_alert_district_saved">Checking alerts for %1$s</string>
     <string name="flood_alert_location_reading">Reading your district from GPS…</string>
     <string name="flood_alert_district_location_failed">Could not read your district from GPS. Type the district name instead.</string>
     <string name="flood_alert_district_location_permission">Location permission is needed to detect your district. You can also type it.</string>
@@ -26,7 +25,6 @@
     <string name="flood_alert_imd_not_configured">IMD district warnings are not connected yet. FloodCue needs an IMD API key, and IMD binds each key to one server address, so the key must stay on your own server (see server/README.md). SACHET alerts below work without it.</string>
     <string name="flood_alert_imd_unavailable">The IMD data source did not answer. Try Refresh later.</string>
     <string name="flood_alert_imd_issue">Issued %1$s %2$s UTC · five-day outlook</string>
-    <string name="flood_alert_imd_validity">Valid until %1$s</string>
     <string name="flood_alert_imd_configure">IMD data source</string>
     <string name="flood_alert_imd_configure_title">IMD proxy address</string>
     <string name="flood_alert_imd_configure_hint">https://yourname.heliohost.org/imd_proxy.php</string>
@@ -40,7 +38,6 @@
     <string name="flood_alert_issued">Issued %1$s</string>
     <string name="flood_alert_valid_until">Valid until %1$s</string>
     <string name="flood_alert_source">Source: %1$s</string>
-    <string name="flood_alert_severity_checked_offline">Severity not re-checked offline</string>
 
     <string name="flood_alert_river_title">River and flood forecasts</string>
     <string name="flood_alert_river_body">River levels and flood forecasts come from the Central Water Commission. FloodCue does not receive them as live data, so open the official CWC portal to check them.</string>

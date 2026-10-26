@@ -33,7 +33,7 @@ public class SplashActivity extends FloodCueActivity {
                 preferences.getBoolean("language_selected", false);
 
         if (!languageSelected) {
-            loadingStatus.setText("Choose your language...");
+            loadingStatus.setText("Choose your language…");
             intent = new Intent(this, LanguageActivity.class);
 
         } else {
@@ -45,7 +45,7 @@ public class SplashActivity extends FloodCueActivity {
                         .putBoolean("is_logged_in", false)
                         .apply();
 
-                loadingStatus.setText("Opening sign in...");
+                loadingStatus.setText("Opening sign in…");
                 intent = new Intent(this, LoginActivity.class);
 
             } else {
@@ -58,10 +58,10 @@ public class SplashActivity extends FloodCueActivity {
                         preferences.getBoolean(setupKey, false);
 
                 if (setupCompleted) {
-                    loadingStatus.setText("Opening FloodCue...");
+                    loadingStatus.setText("Opening FloodCue…");
                     intent = new Intent(this, HomeActivity.class);
                 } else {
-                    loadingStatus.setText("Opening profile setup...");
+                    loadingStatus.setText("Opening profile setup…");
                     intent = new Intent(this, SetupActivity.class);
                 }
             }

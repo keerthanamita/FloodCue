@@ -30,7 +30,6 @@
     <string name="sos_location_current">Current location\nLatitude: %1$s\nLongitude: %2$s\nRecorded: %3$s</string>
     <string name="sos_location_last_known">Last known location (not a live GPS reading)\nLatitude: %1$s\nLongitude: %2$s\nRecorded: %3$s</string>
     <string name="sos_location_last_known_available">A last known location is available from this device. It is not your current location unless you choose to use it.</string>
-    <string name="sos_location_permission_needed">Location permission is needed to read GPS. You can still send the SOS without coordinates.</string>
     <string name="sos_location_permission_denied">Location permission was denied. You can continue without coordinates, or enable location permission in system settings.</string>
     <string name="sos_location_gps_off">GPS is turned off. Turn on location services to get coordinates, or continue without them.</string>
     <string name="sos_location_unavailable">Could not get a current location. Check that GPS is on and try again, or continue without coordinates.</string>

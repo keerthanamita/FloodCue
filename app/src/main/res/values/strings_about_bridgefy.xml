@@ -4,11 +4,9 @@
     <string name="about_bridgefy_back_title">← About Bridgefy</string>
     <string name="about_bridgefy_heading">About Bridgefy</string>
     <string name="about_bridgefy_tagline">Connecting People When the Internet Fails</string>
-    <string name="about_bridgefy_website_label">Official website</string>
     <string name="about_bridgefy_website_url">https://bridgefy.me/</string>
     <string name="about_bridgefy_open_website">Open Bridgefy website</string>
     <string name="about_bridgefy_get_app">Get Bridgefy on Google Play</string>
-    <string name="about_bridgefy_play_url">https://play.google.com/store/apps/details?id=me.bridgefy.main</string>
     <string name="about_bridgefy_open_failed">Unable to open that link.</string>
 
     <string name="about_bridgefy_intro">Bridgefy is a technology company that develops offline communication technology for mobile applications. Its technology is designed to help people exchange information even when internet connectivity and traditional communication services are unavailable.\n\nFounded in 2014, Bridgefy was created with the goal of helping people stay connected during large events and natural disasters. The company later expanded its focus to provide a Software Development Kit (SDK) that allows other developers to add offline communication capabilities to their own mobile applications.</string>

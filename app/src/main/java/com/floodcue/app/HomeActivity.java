@@ -111,8 +111,7 @@ public class HomeActivity extends FloodCueActivity {
                                 "\nState: " + profile.state +
                                 "\nDistrict: " + profile.district +
                                 "\nApp Language: " + profile.app_language +
-                                "\nSurvival Language: " + profile.survival_language +
-                                "\nSetup Completed: " + profile.setup_completed;
+                                "\nSurvival Language: " + profile.survival_language;
 
                 txtSavedDetails.setText(details);
             }

@@ -831,7 +831,7 @@ public class CreateAccountActivity extends FloodCueActivity {
 
             String firebaseMessage =
                     exception.getMessage()
-                            .toLowerCase();
+                            .toLowerCase(java.util.Locale.ROOT);
 
             // =================================================
             // EMAIL ALREADY EXISTS

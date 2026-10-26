@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
-            android:text="Preparing FloodCue..."
+            android:text="Preparing FloodCue…"
             android:textColor="#A9C4CA"
             android:textSize="11sp"
             android:fontFamily="sans-serif-light"

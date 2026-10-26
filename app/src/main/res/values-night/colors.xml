@@ -35,9 +35,7 @@
     <color name="ripple_color">#33FFFFFF</color>
 
     <!-- Google button -->
-    <color name="google_button_background">#303030</color>
     <color name="google_button_text">#F5F5F5</color>
-    <color name="google_button_border">#555555</color>
 
     <!-- Error -->
     <color name="error_color">#F2B8B5</color>
@@ -47,6 +45,5 @@
     <color name="home_sos_red_pressed">#9C1F1A</color>
 
     <!-- Existing splash colors retained -->
-    <color name="primary_color">#9FA8DA</color>
 
 </resources>
