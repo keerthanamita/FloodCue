@@ -104,13 +104,13 @@ public class CreateAccountActivity extends FloodCueActivity {
                 findViewById(R.id.textBackToLogin);
 
         String loginLabel =
-                "Already have an account? Login";
+                "Already have an account? Sign in";
 
         SpannableStringBuilder spannable =
                 new SpannableStringBuilder(loginLabel);
 
-        int start = loginLabel.indexOf("Login");
-        int end = start + "Login".length();
+        int start = loginLabel.indexOf("Sign in");
+        int end = start + "Sign in".length();
 
         if (start >= 0) {
 

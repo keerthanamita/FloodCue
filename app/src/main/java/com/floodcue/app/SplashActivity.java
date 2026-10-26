@@ -45,7 +45,7 @@ public class SplashActivity extends FloodCueActivity {
                         .putBoolean("is_logged_in", false)
                         .apply();
 
-                loadingStatus.setText("Opening login...");
+                loadingStatus.setText("Opening sign in...");
                 intent = new Intent(this, LoginActivity.class);
 
             } else {

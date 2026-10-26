@@ -50,7 +50,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Create an account to get started with FloodCue"
+            android:text="Create an account to get started"
             android:textColor="@color/text_secondary"
             android:textSize="14sp"
             android:fontFamily="sans"
@@ -202,7 +202,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="You'll receive a verification email after creating your account."
+            android:text="We'll send you a verification email to confirm your address."
             android:textColor="@color/text_secondary"
             android:textSize="12sp"
             android:fontFamily="sans"
@@ -225,7 +225,7 @@
             android:paddingTop="2dp"
             android:paddingEnd="4dp"
             android:paddingBottom="2dp"
-            android:text="Already have an account? Login"
+            android:text="Already have an account? Sign in"
             android:textColor="@color/link_color"
             android:textSize="13sp"
             android:textStyle="bold" />

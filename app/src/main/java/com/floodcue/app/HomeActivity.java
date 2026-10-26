@@ -70,7 +70,7 @@ public class HomeActivity extends FloodCueActivity {
                             .getInstance().getCurrentUser();
 
             if (user == null) {
-                txtSavedDetails.setText("Please login first.");
+                txtSavedDetails.setText("Sign in first to see your saved details.");
                 savedDetailsScroll.setVisibility(android.view.View.VISIBLE);
                 return;
             }

@@ -5,7 +5,7 @@
     <string name="default_web_client_id">263570444879-t0u106l5sj1ntmtq1fo328rcfuhhnlv0.apps.googleusercontent.com</string>
 
     <string name="offline_maps_title">Offline maps</string>
-    <string name="offline_maps_download_prompt">Please download map for offline assistance</string>
+    <string name="offline_maps_download_prompt">Download the map to use it without internet</string>
     <string name="offline_maps_go">Go</string>
     <string name="offline_maps_cancel">Cancel</string>
     <string name="offline_maps_back_title">← Offline Maps</string>
@@ -38,7 +38,7 @@
     <string name="profile_details_back_title">← User Profile</string>
     <string name="profile_details_edit">Edit</string>
     <string name="profile_details_empty">No profile found on this device yet. Tap Edit to add your details.</string>
-    <string name="profile_details_login_required">Please login first to see your profile.</string>
+    <string name="profile_details_login_required">Sign in to view your profile.</string>
     <string name="profile_value_empty">Not added</string>
     <string name="profile_section_personal">Personal and medical details</string>
     <string name="profile_section_primary_contact">Primary emergency contact</string>
@@ -66,20 +66,20 @@
     <string name="emergency_contacts_subtitle">Call your saved contacts or official emergency contacts</string>
     <string name="emergency_contacts_personal_title">My personal emergency contacts</string>
     <string name="emergency_contacts_personal_empty">No personal emergency contacts saved on this device yet. Add them during setup.</string>
-    <string name="emergency_contacts_login_required">Please login first to see your saved contacts.</string>
+    <string name="emergency_contacts_login_required">Sign in to view your saved contacts.</string>
     <string name="emergency_contacts_services_title">Official emergency contacts</string>
     <string name="emergency_contacts_info">Emergency contact numbers are provided for quick access. Verify local availability before you depend on them.</string>
     <string name="emergency_contacts_call">Call</string>
     <string name="emergency_contacts_alternate">Alternate: %1$s</string>
-    <string name="emergency_contacts_invalid_number">Phone number is not available</string>
+    <string name="emergency_contacts_invalid_number">No phone number available</string>
     <string name="emergency_contacts_unable_to_call">Unable to make the call</string>
-    <string name="emergency_contacts_permission_required">Call permission is required to make calls directly</string>
+    <string name="emergency_contacts_permission_required">Phone permission is required to place calls</string>
     <string name="home_sos_emergency">SOS Emergency</string>
     <string name="home_weather">Weather</string>
     <string name="home_flood_alerts">Flood Alerts</string>
     <string name="home_sos">SOS</string>
     <string name="home_sos_stop">Stop SOS alarm</string>
-    <string name="home_sos_started">SOS started. Sending the emergency message to %1$d contact(s).</string>
+    <string name="home_sos_started">SOS started. Sending your emergency message to %1$d of your contacts.</string>
     <string name="home_sos_sending">Sending the emergency message…</string>
     <string name="home_sos_no_contacts">No emergency contacts found. Save personal contacts during setup, or pick numbers on the SOS Emergency Message screen.</string>
     <string name="home_sos_sms_permission">SMS permission is needed to send the emergency message automatically.</string>

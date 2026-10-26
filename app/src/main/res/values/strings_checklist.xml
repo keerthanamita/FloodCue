@@ -18,7 +18,7 @@
 
     <string name="checklist_note_informed">Know your flood risk before it happens.</string>
     <string name="checklist_note_gobag">Go-Bag Readiness: %1$d of %2$d items</string>
-    <string name="checklist_note_phone">Technical detail: offline maps work without internet only if the map data is already stored on this device. Sending a normal SMS still requires mobile network coverage and an available SMS service.</string>
+    <string name="checklist_note_phone">Note: offline maps work without internet only if the map data is already stored on this device, and a normal SMS still needs mobile network coverage and an available SMS service.</string>
     <string name="checklist_note_home_safety">Safety note: never approach electrical equipment surrounded by floodwater, and never touch wet electrical equipment.</string>
     <string name="checklist_note_family">Everyone at home should know this plan.</string>
     <string name="checklist_note_evac_critical">Critical rule: finishing the checklist is never as important as evacuating on time — official evacuation instructions always come first.</string>

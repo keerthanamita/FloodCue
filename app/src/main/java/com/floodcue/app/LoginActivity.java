@@ -87,13 +87,13 @@ public class LoginActivity extends FloodCueActivity {
         // =========================================================
 
         String createAccountLabel =
-                "Don't have an account? Create Account";
+                "Don't have an account? Create account";
 
         SpannableString spannable =
                 new SpannableString(createAccountLabel);
 
-        int start = createAccountLabel.indexOf("Create Account");
-        int end = start + "Create Account".length();
+        int start = createAccountLabel.indexOf("Create account");
+        int end = start + "Create account".length();
 
         spannable.setSpan(
                 new ForegroundColorSpan(
@@ -342,7 +342,7 @@ public class LoginActivity extends FloodCueActivity {
 
                         setLoginLoading(false);
 
-                        String message = "Login failed";
+                        String message = "Sign in failed";
 
                         if (task.getException() != null) {
 

@@ -884,7 +884,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="Your profile will be saved to your FloodCue account. Offline map availability depends on the maps actually installed on your device."
+                        android:text="Your profile is saved to your FloodCue account. Offline maps appear only after they have been downloaded on this device."
                         android:textColor="#557185"
                         android:textSize="13sp" />
                 </LinearLayout>

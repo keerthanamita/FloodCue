@@ -66,7 +66,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:text="Home screen"
+                    android:text="Everything you need before, during and after a flood"
                     android:textColor="@color/text_secondary"
                     android:textSize="15sp" />
 
@@ -260,7 +260,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:text="View Saved Setup Details" />
+                android:text="View saved details" />
 
             <ScrollView
                 android:id="@+id/savedDetailsScroll"
