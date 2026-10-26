@@ -24,7 +24,7 @@ import com.google.android.material.button.MaterialButton;
 
 import java.util.Locale;
 
-public class LanguageActivity extends AppCompatActivity {
+public class LanguageActivity extends FloodCueActivity {
 
     private static final String PREFS_NAME = "FloodCuePrefs";
 
@@ -116,8 +116,8 @@ public class LanguageActivity extends AppCompatActivity {
 
         TextView heading = new TextView(this);
         heading.setText(appLanguage
-                ? "Choose app language"
-                : "Choose safety language");
+                ? R.string.language_picker_app_title
+                : R.string.language_picker_survival_title);
         heading.setTextSize(21);
         heading.setTypeface(null, Typeface.BOLD);
         heading.setTextColor(getColor(R.color.text_primary));
@@ -125,7 +125,7 @@ public class LanguageActivity extends AppCompatActivity {
         content.addView(heading);
 
         TextView subtitle = new TextView(this);
-        subtitle.setText("Search and select a language");
+        subtitle.setText(R.string.language_picker_subtitle);
         subtitle.setTextSize(14);
         subtitle.setTextColor(getColor(R.color.text_secondary));
 
@@ -138,7 +138,7 @@ public class LanguageActivity extends AppCompatActivity {
 
         EditText search = new EditText(this);
         search.setSingleLine(true);
-        search.setHint("Search language...");
+        search.setHint(R.string.language_picker_search_hint);
         search.setTextSize(15);
         search.setPadding(dp(14), 0, dp(14), 0);
         search.setBackgroundResource(R.drawable.bg_input);
@@ -287,7 +287,7 @@ public class LanguageActivity extends AppCompatActivity {
 
         if (count == 0) {
             TextView empty = new TextView(this);
-            empty.setText("No languages found.\nTry another search.");
+            empty.setText(R.string.language_picker_empty);
             empty.setGravity(Gravity.CENTER);
             empty.setPadding(dp(12), dp(28), dp(12), dp(28));
             empty.setTextSize(14);
@@ -354,7 +354,19 @@ public class LanguageActivity extends AppCompatActivity {
                 .apply();
 
         if (editMode) {
-            setResult(RESULT_OK);
+            // Keep the server copy in step with the phone, then rebuild every
+            // screen so the new app and survival languages take effect at once.
+            LanguageSync.pushNow(this);
+            LanguageSync.showSavedMessage(this);
+
+            Intent restart = new Intent(this, SplashActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                            | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(restart);
+            overridePendingTransition(
+                    android.R.anim.fade_in,
+                    android.R.anim.fade_out
+            );
             finish();
             return;
         }

@@ -20,7 +20,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class OfflineMapsActivity extends AppCompatActivity {
+public class OfflineMapsActivity extends FloodCueActivity {
 
     private Button btnTirupati;
     private Button btnNellore;

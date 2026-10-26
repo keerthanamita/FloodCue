@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Safety tip text. Translations go in res/values-XX/. Survival language screen. -->
+    <string name="tip_before_1">Know your risk: find evacuation routes and high-ground shelters near you.</string>
+    <string name="tip_before_2">Pack a go-bag: flashlight, spare batteries, first-aid kit, medicines, drinking water, dry food and a power bank.</string>
+    <string name="tip_before_3">Keep IDs, insurance cards, emergency contacts and important documents in a waterproof bag.</string>
+    <string name="tip_before_4">Keep phones and power banks charged, and store emergency food and clean drinking water.</string>
+    <string name="tip_before_5">Move valuables, electronics, vehicles and pets to higher ground before water rises.</string>
+    <string name="tip_before_6">Learn how to switch off electricity and gas safely — only ever do it when it is safe to do so.</string>
+    <string name="tip_before_7">Arrange early evacuation help for children, elderly people, pregnant women and people with disabilities.</string>
+    <string name="tip_before_8">Keep a battery or hand-crank radio and learn your local warning signals.</string>
+    <string name="tip_before_9">Agree one family meeting point and one out-of-area contact everyone can reach.</string>
+    <string name="tip_before_10">Save FloodCue\'s emergency numbers, and test the siren and SOS screens once before the monsoon.</string>
+    <string name="tip_before_11">Keep the vehicle fuelled during flood season — you may need to leave at short notice.</string>
+    <string name="tip_during_1">Move to higher ground immediately — do not wait to see how high the water will rise.</string>
+    <string name="tip_during_2">Never walk, swim or drive through floodwater. Avoid flooded roads, bridges and underpasses.</string>
+    <string name="tip_during_3">Avoid touching electrical equipment, sockets or power lines that are near water.</string>
+    <string name="tip_during_4">Moving water is stronger than it looks: 15 cm can knock you off your feet and about 60 cm can float a car.</string>
+    <string name="tip_during_5">Keep children away from floodwater and fast-flowing drains.</string>
+    <string name="tip_during_6">Follow official evacuation instructions and avoid contact with contaminated floodwater.</string>
+    <string name="tip_during_7">Drink only safe water and avoid food contaminated by floodwater.</string>
+    <string name="tip_during_8">If trapped, move to a safe elevated place and contact emergency services when possible.</string>
+    <string name="tip_during_9">Signal for rescue: wave a bright cloth by day; at night flash a flashlight in repeated SOS patterns or use a phone torch.</string>
+    <string name="tip_during_10">Use a whistle, mirror or other visible signal to attract rescuers — they spot these before they spot you.</string>
+    <string name="tip_during_11">No phone signal? Keep retrying emergency calls when possible and signal nearby rescuers without putting yourself at risk.</string>
+    <string name="tip_during_12">Do not light fires or create smoke indoors or near flammable materials. Use smoke signals only when it is safe and cannot start a fire.</string>
+    <string name="tip_during_13">Turn off electricity and gas at the main before water reaches sockets, only if it is safe to do so.</string>
+    <string name="tip_during_14">Keep your phone dry and save its battery — you may need it to call for help.</string>
+    <string name="tip_during_15">Go to the highest floor; move onto the roof only as a last resort.</string>
+    <string name="tip_during_16">Listen to official alerts on a radio if the power and internet are out.</string>
+    <string name="tip_after_1">Return home only when authorities declare it safe.</string>
+    <string name="tip_after_2">Stay away from damaged buildings, fallen power lines and electrical equipment exposed to water.</string>
+    <string name="tip_after_3">Do not switch on any electrical appliance until it has been inspected and declared safe.</string>
+    <string name="tip_after_4">Discard food contaminated by floodwater and drink only safe, treated water.</string>
+    <string name="tip_after_5">Wear protective footwear and gloves while cleaning up.</string>
+    <string name="tip_after_6">Photograph property damage for insurance if it is safe, and seek medical help for injuries or contaminated-water exposure.</string>
+    <string name="tip_after_7">Wash your hands and any cuts thoroughly after contact with floodwater.</string>
+    <string name="tip_after_8">Dry and ventilate buildings quickly to stop mould from growing.</string>
+    <string name="tip_after_9">Boil or treat drinking water until the supply is declared safe.</string>
+    <string name="tip_after_10">Watch for snakes, insects or animals brought in by the floodwater.</string>
+</resources>

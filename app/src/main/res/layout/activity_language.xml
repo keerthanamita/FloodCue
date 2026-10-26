@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
-            android:text="Your language.\nYour safety."
+            android:text="@string/language_title"
             android:textColor="@color/text_primary"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Choose the languages you are comfortable with."
+            android:text="@string/language_subtitle"
             android:textColor="@color/text_secondary"
             android:textSize="15sp"
             android:lineSpacingExtra="4dp" />
@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="APP LANGUAGE"
+            android:text="@string/language_app_heading"
             android:textColor="@color/text_primary"
             android:textSize="12sp"
             android:textStyle="bold"
@@ -55,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="For menus and app instructions"
+            android:text="@string/language_app_hint"
             android:textColor="@color/text_secondary"
             android:textSize="13sp" />
 
@@ -80,7 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
-            android:text="EMERGENCY / SAFETY LANGUAGE"
+            android:text="@string/language_survival_heading"
             android:textColor="@color/text_primary"
             android:textSize="12sp"
             android:textStyle="bold"
@@ -90,7 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="For emergency and safety information"
+            android:text="@string/language_survival_hint"
             android:textColor="@color/text_secondary"
             android:textSize="13sp" />
 
@@ -115,7 +115,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:text="You can change these preferences later."
+            android:text="@string/language_change_later"
             android:textColor="@color/text_secondary"
             android:textSize="12sp" />
 
@@ -124,7 +124,7 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="30dp"
-            android:text="Continue"
+            android:text="@string/language_continue"
             android:textAllCaps="false"
             android:textSize="16sp"
             android:textStyle="bold"

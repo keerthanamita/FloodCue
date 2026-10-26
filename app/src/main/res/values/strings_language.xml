@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Language picker screen and dialogs (shown in the app language). -->
+    <string name="language_title">Your language.\nYour safety.</string>
+    <string name="language_subtitle">Choose the languages you are comfortable with.</string>
+    <string name="language_app_heading">APP LANGUAGE</string>
+    <string name="language_app_hint">For menus and app instructions</string>
+    <string name="language_survival_heading">EMERGENCY / SAFETY LANGUAGE</string>
+    <string name="language_survival_hint">For emergency and safety information</string>
+    <string name="language_change_later">You can change these preferences later.</string>
+    <string name="language_continue">Continue</string>
+
+    <string name="language_picker_app_title">Choose app language</string>
+    <string name="language_picker_survival_title">Choose safety language</string>
+    <string name="language_picker_subtitle">Search and select a language</string>
+    <string name="language_picker_search_hint">Search language...</string>
+    <string name="language_picker_empty">No languages found.\nTry another search.</string>
+
+    <string name="language_updated">Language updated</string>
+    <string name="settings_change_language">Change language</string>
+</resources>

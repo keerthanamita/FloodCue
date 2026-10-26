@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class SetupActivity extends AppCompatActivity {
+public class SetupActivity extends FloodCueActivity {
 
     public static final String EXTRA_EDIT_PROFILE = "edit_profile";
 

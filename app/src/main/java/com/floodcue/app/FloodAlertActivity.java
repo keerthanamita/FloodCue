@@ -75,7 +75,7 @@ import java.util.regex.Pattern;
  * clearly labelled when shown from cache. Notifications fire only for alerts
  * that match the district and only once per alert id.
  */
-public class FloodAlertActivity extends AppCompatActivity {
+public class FloodAlertActivity extends FloodCueActivity {
 
     private static final String PREFS_NAME = "FloodCuePrefs";
     private static final String KEY_DISTRICT = "flood_alert_district";
@@ -1287,6 +1287,9 @@ public class FloodAlertActivity extends AppCompatActivity {
      * what the screen later shows always agree.
      */
     static void checkForNewAlerts(Context context) {
+        // Background notifications must use FloodCue's app language, not the
+        // phone's system language.
+        context = LocaleManager.withAppLanguage(context);
         SharedPreferences prefs = preferences(context);
         String wanted = prefs.getString(KEY_DISTRICT, "").trim();
         if (wanted.isEmpty()) {

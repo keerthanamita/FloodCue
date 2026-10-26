@@ -45,7 +45,7 @@ import java.util.Locale;
  * Works offline for cached readings; forecasts are guidance only and
  * cannot confirm flooding.
  */
-public class WeatherActivity extends AppCompatActivity {
+public class WeatherActivity extends FloodCueActivity {
 
     private static final String PREFS_NAME = "FloodCuePrefs";
     private static final String KEY_CACHE = "weather_cache";

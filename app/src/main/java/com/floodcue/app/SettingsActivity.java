@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends FloodCueActivity {
 
     private static final String PREFS_NAME = "FloodCuePrefs";
 
@@ -34,6 +34,7 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         TextView buttonBackToHome = findViewById(R.id.buttonBackToHome);
+        Button changeLanguageButton = findViewById(R.id.buttonChangeLanguage);
         Button changeUserDetailsButton = findViewById(R.id.buttonChangeUserDetails);
         Button aboutBridgefyButton = findViewById(R.id.buttonAboutBridgefy);
         Button logoutButton = findViewById(R.id.buttonLogout);
@@ -45,12 +46,19 @@ public class SettingsActivity extends AppCompatActivity {
 
         buttonBackToHome.setOnClickListener(v -> finish());
         changeUserDetailsButton.setOnClickListener(v -> openUserProfile());
+        changeLanguageButton.setOnClickListener(v -> openLanguagePicker());
         aboutBridgefyButton.setOnClickListener(v -> openAboutBridgefy());
         logoutButton.setOnClickListener(v -> logoutUser());
     }
 
     private void openUserProfile() {
         startActivity(new Intent(this, ProfileDetailsActivity.class));
+    }
+
+    private void openLanguagePicker() {
+        Intent intent = new Intent(this, LanguageActivity.class);
+        intent.putExtra("LANGUAGE_EDIT_MODE", true);
+        startActivity(intent);
     }
 
     private void openAboutBridgefy() {

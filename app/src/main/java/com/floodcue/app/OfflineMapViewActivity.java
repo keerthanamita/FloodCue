@@ -39,7 +39,7 @@ import static org.maplibre.android.style.layers.PropertyFactory.textHaloColor;
 import static org.maplibre.android.style.layers.PropertyFactory.textHaloWidth;
 import static org.maplibre.android.style.layers.PropertyFactory.textSize;
 
-public class OfflineMapViewActivity extends AppCompatActivity {
+public class OfflineMapViewActivity extends FloodCueActivity {
 
     private static final int LOCATION_PERMISSION_REQUEST = 1001;
 

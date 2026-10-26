@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class AboutBridgefyActivity extends AppCompatActivity {
+public class AboutBridgefyActivity extends FloodCueActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

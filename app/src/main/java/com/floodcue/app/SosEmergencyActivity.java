@@ -47,7 +47,7 @@ import java.util.Locale;
  * Reuses the existing location pattern from {@link SosActivity}, keeps
  * everything on the device, and never claims delivery it cannot confirm.
  */
-public class SosEmergencyActivity extends AppCompatActivity
+public class SosEmergencyActivity extends FloodCueActivity
         implements LocationListener {
 
     private static final String PREFS_NAME = "FloodCuePrefs";

@@ -27,7 +27,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import android.widget.LinearLayout;
 
-public class CreateAccountActivity extends AppCompatActivity {
+public class CreateAccountActivity extends FloodCueActivity {
 
     private EditText emailEditText;
     private EditText passwordEditText;

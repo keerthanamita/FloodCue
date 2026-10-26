@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends FloodCueActivity {
 
     /**
      * Held statically so the siren keeps sounding across rotations and while

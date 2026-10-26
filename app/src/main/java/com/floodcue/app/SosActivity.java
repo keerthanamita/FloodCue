@@ -43,7 +43,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
-public class SosActivity extends AppCompatActivity implements LocationListener {
+public class SosActivity extends FloodCueActivity implements LocationListener {
 
     private static final String PREFS_NAME = "FloodCuePrefs";
     private static final String DRAFT_NUMBERS_KEY = "sos_draft_numbers";

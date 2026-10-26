@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
  * Bridgefy is a separate app; FloodCue only explains it and opens it.
  * Everything on this screen is bundled, so it works fully offline.
  */
-public class OfflineCommunicationActivity extends AppCompatActivity {
+public class OfflineCommunicationActivity extends FloodCueActivity {
 
     private static final String BRIDGEFY_PACKAGE = "me.bridgefy.main";
     private static final String BRIDGEFY_PLAY_URL =

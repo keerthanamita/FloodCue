@@ -19,16 +19,16 @@ import androidx.activity.OnBackPressedCallback;
  * fully offline. FloodCue only repeats general public-safety guidance —
  * official instructions from emergency services always come first.
  */
-public class EmergencyGuideActivity extends AppCompatActivity {
+public class EmergencyGuideActivity extends FloodCueActivity {
 
     /** One styled block of content inside a situation detail page. */
     private static final class Block {
-        final String header;      // e.g. "What to do", "Never", "During Daylight"
+        final int header;        // string resource, so the survival language applies
         final boolean numbered;   // render lines as 1., 2., 3. …
         final boolean warning;    // render header and lines as critical warnings
-        final String[] lines;
+        final int[] lines;
 
-        Block(String header, boolean numbered, boolean warning, String[] lines) {
+        Block(int header, boolean numbered, boolean warning, int[] lines) {
             this.header = header;
             this.numbered = numbered;
             this.warning = warning;
@@ -37,12 +37,12 @@ public class EmergencyGuideActivity extends AppCompatActivity {
     }
 
     private static final class Situation {
-        final String title;
-        final String subtitle;
+        final int title;
+        final int subtitle;
         final boolean showSosButton; // offer the SOS screen at the end of the detail page
         final Block[] blocks;
 
-        Situation(String title, String subtitle, boolean showSosButton, Block[] blocks) {
+        Situation(int title, int subtitle, boolean showSosButton, Block[] blocks) {
             this.title = title;
             this.subtitle = subtitle;
             this.showSosButton = showSosButton;
@@ -50,274 +50,270 @@ public class EmergencyGuideActivity extends AppCompatActivity {
         }
     }
 
-    private static final String WHAT_TO_DO = "What to do";
-    private static final String NEVER = "Never";
-    private static final String IMPORTANT_WARNINGS = "Important warnings";
-
     /** Ordered most-urgent first, as required for emergency use. */
     private static final Situation[] SITUATIONS = {
-            new Situation("🌊 Floodwater Is Rising Quickly",
-                    "Act now — move to higher ground.", false, new Block[]{
-                    new Block(WHAT_TO_DO, true, false, new String[]{
-                            "Move to higher ground immediately if a safe route is available.",
-                            "Follow official evacuation orders without delay.",
-                            "Take your emergency go-bag only if it is readily accessible.",
-                            "Help children and people who need assistance evacuate early, without putting yourself in danger.",
-                            "If your escape route becomes flooded, do not attempt to cross it. Move to a safer elevated location and call for help.",
-                            "Watch for further official instructions.",
+            new Situation(R.string.guide_situation_1_title,
+                    R.string.guide_situation_1_subtitle, false, new Block[]{
+                    new Block(R.string.guide_header_what_to_do, true, false, new int[]{
+                            R.string.guide_situation_1_block_1_line_1,
+                            R.string.guide_situation_1_block_1_line_2,
+                            R.string.guide_situation_1_block_1_line_3,
+                            R.string.guide_situation_1_block_1_line_4,
+                            R.string.guide_situation_1_block_1_line_5,
+                            R.string.guide_situation_1_block_1_line_6,
                     }),
-                    new Block(NEVER, false, true, new String[]{
-                            "Walk, swim, or drive through floodwater.",
-                            "Cross flooded bridges, underpasses, or drains.",
-                            "Delay evacuation to collect belongings.",
-                    }),
-            }),
-
-            new Situation("🏠 I Am Trapped Inside My Home",
-                    "Move up, stay visible, call for help.", false, new Block[]{
-                    new Block(WHAT_TO_DO, true, false, new String[]{
-                            "If floodwater is approaching, evacuate early using a safe route when possible.",
-                            "If escape is no longer safe, move to a sturdy, elevated location away from rising water.",
-                            "Contact emergency services and share your exact location or GPS coordinates if available.",
-                            "Send an SOS message to your emergency contacts if communication is available.",
-                            "Signal rescuers using a bright cloth during daylight or a flashlight at night.",
-                            "If safe, move away from electrical equipment and flooded rooms.",
-                            "Keep children, elderly people, and people with disabilities close and assist them.",
-                    }),
-                    new Block(IMPORTANT_WARNINGS, false, true, new String[]{
-                            "Do not enter fast-moving floodwater to escape.",
-                            "Avoid entering enclosed roof spaces where rising water could trap you.",
-                            "Access a roof only if it is safe and you have no safer option; remain visible to rescuers.",
+                    new Block(R.string.guide_header_never, false, true, new int[]{
+                            R.string.guide_situation_1_block_2_line_1,
+                            R.string.guide_situation_1_block_2_line_2,
+                            R.string.guide_situation_1_block_2_line_3,
                     }),
             }),
 
-            new Situation("🚗 I Am Trapped in a Vehicle",
-                    "Leave a sinking vehicle only when it is safe.", false, new Block[]{
-                    new Block(WHAT_TO_DO, true, false, new String[]{
-                            "Avoid driving into flooded roads, even if the water looks shallow.",
-                            "If water begins surrounding your vehicle, assess the safest available escape route immediately.",
-                            "If the vehicle is in rising water and escape is possible, leave promptly and move towards safe, higher ground.",
-                            "If you cannot escape safely, contact emergency services and communicate your location.",
-                            "Signal rescuers using a flashlight, bright cloth, or repeated visible signals when possible.",
+            new Situation(R.string.guide_situation_2_title,
+                    R.string.guide_situation_2_subtitle, false, new Block[]{
+                    new Block(R.string.guide_header_what_to_do, true, false, new int[]{
+                            R.string.guide_situation_2_block_1_line_1,
+                            R.string.guide_situation_2_block_1_line_2,
+                            R.string.guide_situation_2_block_1_line_3,
+                            R.string.guide_situation_2_block_1_line_4,
+                            R.string.guide_situation_2_block_1_line_5,
+                            R.string.guide_situation_2_block_1_line_6,
+                            R.string.guide_situation_2_block_1_line_7,
                     }),
-                    new Block(NEVER, false, true, new String[]{
-                            "Assume your vehicle can safely cross floodwater.",
-                            "Enter fast-moving water on foot.",
-                            "Remain inside a vehicle that is being submerged when a safe escape is possible.",
-                    }),
-                    new Block("Note", false, false, new String[]{
-                            "Vehicle escape depends on the situation. Do not delay escaping a rapidly submerging vehicle to make a phone call.",
-                    }),
-            }),
-
-            new Situation("⚡ I Am Near Electrical Wires or Equipment",
-                    "Assume every fallen wire is live.", false, new Block[]{
-                    new Block(WHAT_TO_DO, true, false, new String[]{
-                            "Stay away from fallen power lines, electrical poles, exposed wiring, and electrical equipment in water.",
-                            "Assume fallen power lines are live.",
-                            "Warn others to keep away if you can do so safely.",
-                            "Report the hazard to the electricity provider or emergency services.",
-                            "If your home is flooded, do not touch electrical switches or appliances while standing in water.",
-                            "Have a qualified professional inspect affected electrical systems before using them again.",
-                    }),
-                    new Block(NEVER, false, true, new String[]{
-                            "Walk through water near suspected live electrical equipment.",
-                            "Attempt to move a fallen power line.",
+                    new Block(R.string.guide_header_important_warnings, false, true, new int[]{
+                            R.string.guide_situation_2_block_2_line_1,
+                            R.string.guide_situation_2_block_2_line_2,
+                            R.string.guide_situation_2_block_2_line_3,
                     }),
             }),
 
-            new Situation("🩹 Someone Is Injured",
-                    "Check safety first, then stop the bleeding.", false, new Block[]{
-                    new Block(WHAT_TO_DO, true, false, new String[]{
-                            "Check that the area is safe before approaching the injured person.",
-                            "Contact emergency medical services when possible.",
-                            "For heavy external bleeding, apply firm, continuous pressure with a clean cloth or dressing.",
-                            "Keep the injured person as still and comfortable as possible.",
-                            "If the person is unconscious, check whether they are breathing normally and follow emergency dispatcher instructions.",
-                            "Do not give food or drink to an unconscious person.",
-                            "Avoid moving someone with a suspected serious head, neck, or spinal injury unless staying there presents an immediate danger.",
-                            "If the person is in immediate danger from rising water, prioritize getting to safety without exposing yourself to the same danger.",
+            new Situation(R.string.guide_situation_3_title,
+                    R.string.guide_situation_3_subtitle, false, new Block[]{
+                    new Block(R.string.guide_header_what_to_do, true, false, new int[]{
+                            R.string.guide_situation_3_block_1_line_1,
+                            R.string.guide_situation_3_block_1_line_2,
+                            R.string.guide_situation_3_block_1_line_3,
+                            R.string.guide_situation_3_block_1_line_4,
+                            R.string.guide_situation_3_block_1_line_5,
                     }),
-                    new Block("Important", false, true, new String[]{
-                            "Do not enter dangerous floodwater to rescue someone without appropriate training and equipment. Call trained rescuers.",
+                    new Block(R.string.guide_header_never, false, true, new int[]{
+                            R.string.guide_situation_3_block_2_line_1,
+                            R.string.guide_situation_3_block_2_line_2,
+                            R.string.guide_situation_3_block_2_line_3,
                     }),
-            }),
-
-            new Situation("👨‍👩‍👧 My Family Member Is Missing",
-                    "Call, coordinate, never search flooded areas alone.", false, new Block[]{
-                    new Block(WHAT_TO_DO, true, false, new String[]{
-                            "Contact the person using a phone call or SMS if possible.",
-                            "Ask family members to share their last known safe location.",
-                            "Inform emergency services if the person may be in danger.",
-                            "Provide rescuers with the person's name, age, appearance, clothing, medical needs, and last known location.",
-                            "Keep one family contact available to receive updates.",
-                            "Do not enter flooded areas to search alone.",
-                    }),
-                    new Block("Family safety tip", false, false, new String[]{
-                            "Agree on an emergency meeting point before floods occur, and ensure every family member knows important contact numbers.",
+                    new Block(R.string.guide_situation_3_block_3_header, false, false, new int[]{
+                            R.string.guide_situation_3_block_3_line_1,
                     }),
             }),
 
-            new Situation("🧒 A Child, Elderly Person, or Person With a Disability Needs Help",
-                    "Evacuate early, calmly and together.", false, new Block[]{
-                    new Block(WHAT_TO_DO, true, false, new String[]{
-                            "Evacuate early when flooding threatens.",
-                            "Explain instructions calmly and clearly.",
-                            "Carry essential medicines, assistive devices, and identification if immediately accessible.",
-                            "Help the person use a safe evacuation route.",
-                            "Inform rescuers about mobility limitations, medical conditions, or communication needs.",
-                            "Keep family members together when safe to do so.",
-                            "Never leave someone who needs assistance in a dangerous location if you can safely help them.",
+            new Situation(R.string.guide_situation_4_title,
+                    R.string.guide_situation_4_subtitle, false, new Block[]{
+                    new Block(R.string.guide_header_what_to_do, true, false, new int[]{
+                            R.string.guide_situation_4_block_1_line_1,
+                            R.string.guide_situation_4_block_1_line_2,
+                            R.string.guide_situation_4_block_1_line_3,
+                            R.string.guide_situation_4_block_1_line_4,
+                            R.string.guide_situation_4_block_1_line_5,
+                            R.string.guide_situation_4_block_1_line_6,
                     }),
-                    new Block("Important", false, true, new String[]{
-                            "Do not delay your own evacuation to collect nonessential belongings or equipment.",
-                    }),
-            }),
-
-            new Situation("📵 My Phone Has No Network",
-                    "SMS and emergency calls can still work without data.", false, new Block[]{
-                    new Block(WHAT_TO_DO, true, false, new String[]{
-                            "Move to a safer elevated location if possible; do not risk entering floodwater to find a signal.",
-                            "Try an emergency call if available. Emergency calling availability depends on your region, device, and accessible cellular networks.",
-                            "Try sending a short SMS to emergency contacts. It may be delivered if cellular SMS service becomes available.",
-                            "If a compatible emergency communication or mesh-network app is already installed and other users are nearby, try it.",
-                            "Use a flashlight, whistle, or bright cloth to attract nearby rescuers.",
-                            "Conserve phone battery by reducing screen brightness and closing unnecessary apps.",
-                            "If you have no working communication method, remain in the safest accessible location and continue signalling when rescuers may be nearby.",
-                    }),
-                    new Block("Important", false, false, new String[]{
-                            "Normal SMS requires cellular service; mobile data is not required. Bluetooth or mesh networking works only when compatible devices and the required network conditions are available.",
+                    new Block(R.string.guide_header_never, false, true, new int[]{
+                            R.string.guide_situation_4_block_2_line_1,
+                            R.string.guide_situation_4_block_2_line_2,
                     }),
             }),
 
-            new Situation("🔋 My Phone Battery Is Almost Dead",
-                    "Spend your battery only on what can save you.", false, new Block[]{
-                    new Block(WHAT_TO_DO, true, false, new String[]{
-                            "Send your most important emergency message first, including your location, number of people with you, and immediate danger.",
-                            "Make an emergency call if you need urgent rescue.",
-                            "Reduce screen brightness and enable battery saver.",
-                            "Close unnecessary applications and avoid watching videos or using nonessential features.",
-                            "Switch off Bluetooth, Wi-Fi, and other features you do not need, but keep any communication method you are actively using enabled.",
-                            "Use a power bank if available.",
-                            "Keep your phone protected from water in a suitable waterproof pouch or sealed bag.",
+            new Situation(R.string.guide_situation_5_title,
+                    R.string.guide_situation_5_subtitle, false, new Block[]{
+                    new Block(R.string.guide_header_what_to_do, true, false, new int[]{
+                            R.string.guide_situation_5_block_1_line_1,
+                            R.string.guide_situation_5_block_1_line_2,
+                            R.string.guide_situation_5_block_1_line_3,
+                            R.string.guide_situation_5_block_1_line_4,
+                            R.string.guide_situation_5_block_1_line_5,
+                            R.string.guide_situation_5_block_1_line_6,
+                            R.string.guide_situation_5_block_1_line_7,
+                            R.string.guide_situation_5_block_1_line_8,
                     }),
-                    new Block("Emergency message example", false, false, new String[]{
-                            "\u201cI need emergency assistance. My location is [GPS coordinates or landmark]. There are [number] people with me. We are at risk because of flooding. Please send help.\u201d",
-                    }),
-            }),
-
-            new Situation("🔦 How to Attract Rescuers",
-                    "Repeated signals beat one brief attempt.", false, new Block[]{
-                    new Block("During Daylight", false, false, new String[]{
-                            "• Wave a bright-coloured cloth from a visible, safe location.",
-                            "• Use a mirror or another reflective object to flash sunlight towards rescuers.",
-                            "• Call out for help when rescuers are nearby.",
-                            "• Use a whistle in repeated bursts to attract attention.",
-                            "• Display a clearly visible HELP sign if materials are available.",
-                    }),
-                    new Block("At Night", false, false, new String[]{
-                            "• Use a flashlight or phone torch to create repeated visible signals.",
-                            "• Use a whistle or call out when rescuers are close enough to hear.",
-                            "• Keep yourself in a visible location without moving into dangerous areas.",
-                            "• Conserve battery by switching the light off when it is not needed, then signal when you see or hear rescuers.",
-                    }),
-                    new Block("If You Have No Phone", false, false, new String[]{
-                            "• Use a bright cloth, whistle, mirror, or reflective object.",
-                            "• Make repeated signals rather than relying on one brief attempt.",
-                            "• Stay where rescuers can see you, provided that location remains safe.",
-                    }),
-                    new Block(NEVER, false, true, new String[]{
-                            "Enter floodwater, climb unstable structures, or stand near power lines just to attract attention.",
-                            "Light fires or create smoke in enclosed spaces or near flammable materials. Smoke signals are not recommended during floods because of fire and inhalation risks.",
+                    new Block(R.string.guide_situation_5_block_2_header, false, true, new int[]{
+                            R.string.guide_situation_5_block_2_line_1,
                     }),
             }),
 
-            new Situation("🐍 I See Snakes or Other Animals in Floodwater",
-                    "Keep your distance and never handle animals.", false, new Block[]{
-                    new Block(WHAT_TO_DO, true, false, new String[]{
-                            "Keep a safe distance from snakes and unfamiliar animals.",
-                            "Avoid putting your hands or feet into water where you cannot see the ground.",
-                            "Do not attempt to catch, handle, or kill animals.",
-                            "Move away calmly towards a safer location.",
-                            "If bitten by a snake, seek emergency medical help immediately and keep the affected person as still as possible.",
+            new Situation(R.string.guide_situation_6_title,
+                    R.string.guide_situation_6_subtitle, false, new Block[]{
+                    new Block(R.string.guide_header_what_to_do, true, false, new int[]{
+                            R.string.guide_situation_6_block_1_line_1,
+                            R.string.guide_situation_6_block_1_line_2,
+                            R.string.guide_situation_6_block_1_line_3,
+                            R.string.guide_situation_6_block_1_line_4,
+                            R.string.guide_situation_6_block_1_line_5,
+                            R.string.guide_situation_6_block_1_line_6,
                     }),
-                    new Block(NEVER, false, true, new String[]{
-                            "Cut the wound, suck out venom, or apply a tourniquet.",
-                            "Try to catch the snake for identification.",
-                            "Enter floodwater to avoid an animal if doing so creates a greater danger.",
-                    }),
-            }),
-
-            new Situation("🌧️ I Hear a Flood Warning but Water Has Not Arrived",
-                    "Prepare before the water arrives.", false, new Block[]{
-                    new Block(WHAT_TO_DO, true, false, new String[]{
-                            "Monitor official weather and disaster-management announcements.",
-                            "Prepare your emergency bag and charge your phone.",
-                            "Identify the nearest safe evacuation destination and route.",
-                            "Move essential medicines, documents, and valuables to a safer location if time permits.",
-                            "Inform family members about your evacuation plan.",
-                            "Evacuate immediately when authorities direct you to do so or when conditions make staying unsafe.",
-                    }),
-                    new Block(NEVER, false, true, new String[]{
-                            "Wait until water reaches your home before preparing to leave.",
+                    new Block(R.string.guide_situation_6_block_2_header, false, false, new int[]{
+                            R.string.guide_situation_6_block_2_line_1,
                     }),
             }),
 
-            new Situation("🚰 I Have No Safe Drinking Water",
-                    "Boil it, treat it, or find another source.", false, new Block[]{
-                    new Block(WHAT_TO_DO, true, false, new String[]{
-                            "Use sealed bottled water from a reliable source when available.",
-                            "Follow official local water-safety advisories.",
-                            "If authorities advise boiling and the water is not suspected to contain chemical contamination, bring it to a rolling boil for at least one minute; at elevations above approximately 2,000 metres, boil for three minutes.",
-                            "If chemical contamination is suspected, boiling will not make the water safe. Use an alternative safe source.",
-                            "Keep drinking water in clean, covered containers.",
-                            "Do not drink floodwater or water that may be contaminated by sewage, fuel, or chemicals.",
+            new Situation(R.string.guide_situation_7_title,
+                    R.string.guide_situation_7_subtitle, false, new Block[]{
+                    new Block(R.string.guide_header_what_to_do, true, false, new int[]{
+                            R.string.guide_situation_7_block_1_line_1,
+                            R.string.guide_situation_7_block_1_line_2,
+                            R.string.guide_situation_7_block_1_line_3,
+                            R.string.guide_situation_7_block_1_line_4,
+                            R.string.guide_situation_7_block_1_line_5,
+                            R.string.guide_situation_7_block_1_line_6,
+                            R.string.guide_situation_7_block_1_line_7,
                     }),
-                    new Block("Important", false, true, new String[]{
-                            "Water that looks clear is not necessarily safe to drink.",
-                    }),
-            }),
-
-            new Situation("🍱 My Food May Be Contaminated",
-                    "When in doubt, throw it out.", false, new Block[]{
-                    new Block(WHAT_TO_DO, true, false, new String[]{
-                            "Throw away food that touched floodwater unless it is in packaging officially confirmed safe for recovery.",
-                            "Discard food with damaged seals, leaks, unusual smells, or signs of contamination.",
-                            "Do not taste food to determine whether it is safe.",
-                            "Use safe drinking water for food preparation.",
-                            "Wash hands with soap and safe water before eating or handling food.",
+                    new Block(R.string.guide_situation_7_block_2_header, false, true, new int[]{
+                            R.string.guide_situation_7_block_2_line_1,
                     }),
             }),
 
-            new Situation("🏚️ I Have Returned Home After a Flood",
-                    "Return only when authorities say it is safe.", false, new Block[]{
-                    new Block(WHAT_TO_DO, true, false, new String[]{
-                            "Return only after authorities declare the area safe.",
-                            "Watch for structural damage, unstable walls, and contaminated water.",
-                            "Stay away from fallen power lines and damaged electrical equipment.",
-                            "Wear protective footwear and gloves during cleanup.",
-                            "Do not use electrical appliances until the electrical system has been inspected and declared safe.",
-                            "Discard food contaminated by floodwater.",
-                            "Seek medical attention for injuries, fever, or symptoms following possible exposure to contaminated water.",
-                            "Photograph damage for insurance purposes if it is safe to do so.",
+            new Situation(R.string.guide_situation_8_title,
+                    R.string.guide_situation_8_subtitle, false, new Block[]{
+                    new Block(R.string.guide_header_what_to_do, true, false, new int[]{
+                            R.string.guide_situation_8_block_1_line_1,
+                            R.string.guide_situation_8_block_1_line_2,
+                            R.string.guide_situation_8_block_1_line_3,
+                            R.string.guide_situation_8_block_1_line_4,
+                            R.string.guide_situation_8_block_1_line_5,
+                            R.string.guide_situation_8_block_1_line_6,
+                            R.string.guide_situation_8_block_1_line_7,
+                    }),
+                    new Block(R.string.guide_situation_8_block_2_header, false, false, new int[]{
+                            R.string.guide_situation_8_block_2_line_1,
                     }),
             }),
 
-            new Situation("🆘 Emergency Contact and SOS Checklist",
-                    "What to include in your emergency message.", true, new Block[]{
-                    new Block("Include as many of these details as possible", false, false, new String[]{
-                            "• Your name.",
-                            "• Your GPS coordinates or a recognisable nearby landmark.",
-                            "• The number of people needing help.",
-                            "• Whether anyone is injured or needs urgent medical assistance.",
-                            "• Whether water is rising or the location is unsafe.",
-                            "• A safe way for rescuers or family members to contact you.",
+            new Situation(R.string.guide_situation_9_title,
+                    R.string.guide_situation_9_subtitle, false, new Block[]{
+                    new Block(R.string.guide_header_what_to_do, true, false, new int[]{
+                            R.string.guide_situation_9_block_1_line_1,
+                            R.string.guide_situation_9_block_1_line_2,
+                            R.string.guide_situation_9_block_1_line_3,
+                            R.string.guide_situation_9_block_1_line_4,
+                            R.string.guide_situation_9_block_1_line_5,
+                            R.string.guide_situation_9_block_1_line_6,
+                            R.string.guide_situation_9_block_1_line_7,
                     }),
-                    new Block("Example", false, false, new String[]{
-                            "\u201cEMERGENCY — We need rescue assistance. Location: [coordinates/landmark]. People: [number]. Injuries: [details]. Water level: [rising/stable]. Contact: [phone number].\u201d",
+                    new Block(R.string.guide_situation_9_block_2_header, false, false, new int[]{
+                            R.string.guide_situation_9_block_2_line_1,
                     }),
-                    new Block("Note", false, false, new String[]{
-                            "If GPS coordinates are unavailable, share the nearest road, building, landmark, or known location.",
+            }),
+
+            new Situation(R.string.guide_situation_10_title,
+                    R.string.guide_situation_10_subtitle, false, new Block[]{
+                    new Block(R.string.guide_situation_10_block_1_header, false, false, new int[]{
+                            R.string.guide_situation_10_block_1_line_1,
+                            R.string.guide_situation_10_block_1_line_2,
+                            R.string.guide_situation_10_block_1_line_3,
+                            R.string.guide_situation_10_block_1_line_4,
+                            R.string.guide_situation_10_block_1_line_5,
+                    }),
+                    new Block(R.string.guide_situation_10_block_2_header, false, false, new int[]{
+                            R.string.guide_situation_10_block_2_line_1,
+                            R.string.guide_situation_10_block_2_line_2,
+                            R.string.guide_situation_10_block_2_line_3,
+                            R.string.guide_situation_10_block_2_line_4,
+                    }),
+                    new Block(R.string.guide_situation_10_block_3_header, false, false, new int[]{
+                            R.string.guide_situation_10_block_3_line_1,
+                            R.string.guide_situation_10_block_3_line_2,
+                            R.string.guide_situation_10_block_3_line_3,
+                    }),
+                    new Block(R.string.guide_header_never, false, true, new int[]{
+                            R.string.guide_situation_10_block_4_line_1,
+                            R.string.guide_situation_10_block_4_line_2,
+                    }),
+            }),
+
+            new Situation(R.string.guide_situation_11_title,
+                    R.string.guide_situation_11_subtitle, false, new Block[]{
+                    new Block(R.string.guide_header_what_to_do, true, false, new int[]{
+                            R.string.guide_situation_11_block_1_line_1,
+                            R.string.guide_situation_11_block_1_line_2,
+                            R.string.guide_situation_11_block_1_line_3,
+                            R.string.guide_situation_11_block_1_line_4,
+                            R.string.guide_situation_11_block_1_line_5,
+                    }),
+                    new Block(R.string.guide_header_never, false, true, new int[]{
+                            R.string.guide_situation_11_block_2_line_1,
+                            R.string.guide_situation_11_block_2_line_2,
+                            R.string.guide_situation_11_block_2_line_3,
+                    }),
+            }),
+
+            new Situation(R.string.guide_situation_12_title,
+                    R.string.guide_situation_12_subtitle, false, new Block[]{
+                    new Block(R.string.guide_header_what_to_do, true, false, new int[]{
+                            R.string.guide_situation_12_block_1_line_1,
+                            R.string.guide_situation_12_block_1_line_2,
+                            R.string.guide_situation_12_block_1_line_3,
+                            R.string.guide_situation_12_block_1_line_4,
+                            R.string.guide_situation_12_block_1_line_5,
+                            R.string.guide_situation_12_block_1_line_6,
+                    }),
+                    new Block(R.string.guide_header_never, false, true, new int[]{
+                            R.string.guide_situation_12_block_2_line_1,
+                    }),
+            }),
+
+            new Situation(R.string.guide_situation_13_title,
+                    R.string.guide_situation_13_subtitle, false, new Block[]{
+                    new Block(R.string.guide_header_what_to_do, true, false, new int[]{
+                            R.string.guide_situation_13_block_1_line_1,
+                            R.string.guide_situation_13_block_1_line_2,
+                            R.string.guide_situation_13_block_1_line_3,
+                            R.string.guide_situation_13_block_1_line_4,
+                            R.string.guide_situation_13_block_1_line_5,
+                            R.string.guide_situation_13_block_1_line_6,
+                    }),
+                    new Block(R.string.guide_situation_13_block_2_header, false, true, new int[]{
+                            R.string.guide_situation_13_block_2_line_1,
+                    }),
+            }),
+
+            new Situation(R.string.guide_situation_14_title,
+                    R.string.guide_situation_14_subtitle, false, new Block[]{
+                    new Block(R.string.guide_header_what_to_do, true, false, new int[]{
+                            R.string.guide_situation_14_block_1_line_1,
+                            R.string.guide_situation_14_block_1_line_2,
+                            R.string.guide_situation_14_block_1_line_3,
+                            R.string.guide_situation_14_block_1_line_4,
+                            R.string.guide_situation_14_block_1_line_5,
+                    }),
+            }),
+
+            new Situation(R.string.guide_situation_15_title,
+                    R.string.guide_situation_15_subtitle, false, new Block[]{
+                    new Block(R.string.guide_header_what_to_do, true, false, new int[]{
+                            R.string.guide_situation_15_block_1_line_1,
+                            R.string.guide_situation_15_block_1_line_2,
+                            R.string.guide_situation_15_block_1_line_3,
+                            R.string.guide_situation_15_block_1_line_4,
+                            R.string.guide_situation_15_block_1_line_5,
+                            R.string.guide_situation_15_block_1_line_6,
+                            R.string.guide_situation_15_block_1_line_7,
+                            R.string.guide_situation_15_block_1_line_8,
+                    }),
+            }),
+
+            new Situation(R.string.guide_situation_16_title,
+                    R.string.guide_situation_16_subtitle, true, new Block[]{
+                    new Block(R.string.guide_situation_16_block_1_header, false, false, new int[]{
+                            R.string.guide_situation_16_block_1_line_1,
+                            R.string.guide_situation_16_block_1_line_2,
+                            R.string.guide_situation_16_block_1_line_3,
+                            R.string.guide_situation_16_block_1_line_4,
+                            R.string.guide_situation_16_block_1_line_5,
+                            R.string.guide_situation_16_block_1_line_6,
+                    }),
+                    new Block(R.string.guide_situation_16_block_2_header, false, false, new int[]{
+                            R.string.guide_situation_16_block_2_line_1,
+                    }),
+                    new Block(R.string.guide_situation_16_block_3_header, false, false, new int[]{
+                            R.string.guide_situation_16_block_3_line_1,
                     }),
             }),
     };
@@ -402,14 +398,14 @@ public class EmergencyGuideActivity extends AppCompatActivity {
             card.setLayoutParams(cardParams);
 
             TextView title = new TextView(this);
-            title.setText(situation.title);
+            title.setText(getString(situation.title));
             title.setTextColor(getColor(R.color.text_primary));
             title.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
             title.setTypeface(title.getTypeface(), android.graphics.Typeface.BOLD);
             card.addView(title);
 
             TextView subtitle = new TextView(this);
-            subtitle.setText(situation.subtitle);
+            subtitle.setText(getString(situation.subtitle));
             subtitle.setTextColor(getColor(R.color.text_secondary));
             subtitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
             LinearLayout.LayoutParams subtitleParams = new LinearLayout.LayoutParams(
@@ -435,7 +431,7 @@ public class EmergencyGuideActivity extends AppCompatActivity {
         currentSituationIndex = java.util.Arrays.asList(SITUATIONS).indexOf(situation);
 
         TextView title = new TextView(this);
-        title.setText(situation.title);
+        title.setText(getString(situation.title));
         title.setTextColor(getColor(R.color.text_primary));
         title.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
         title.setTypeface(title.getTypeface(), android.graphics.Typeface.BOLD);
@@ -443,7 +439,7 @@ public class EmergencyGuideActivity extends AppCompatActivity {
 
         for (Block block : situation.blocks) {
             TextView header = new TextView(this);
-            header.setText(block.header);
+            header.setText(getString(block.header));
             header.setTextColor(getColor(block.warning
                     ? R.color.error_color : R.color.text_secondary));
             header.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
@@ -456,7 +452,7 @@ public class EmergencyGuideActivity extends AppCompatActivity {
             detailContainer.addView(header);
 
             for (int i = 0; i < block.lines.length; i++) {
-                String line = block.lines[i];
+                String line = getString(block.lines[i]);
                 TextView row = new TextView(this);
                 row.setText(block.numbered ? (i + 1) + ". " + line : line);
                 row.setTextColor(getColor(block.warning
@@ -501,6 +497,12 @@ public class EmergencyGuideActivity extends AppCompatActivity {
         detailScroll.setVisibility(android.view.View.GONE);
         listScroll.setVisibility(android.view.View.VISIBLE);
         listScroll.scrollTo(0, 0);
+    }
+
+    /** The guide is survival information, so it follows the survival language. */
+    @Override
+    protected boolean usesSurvivalLanguage() {
+        return true;
     }
 
     private int dp(int value) {

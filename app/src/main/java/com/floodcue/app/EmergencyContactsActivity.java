@@ -20,7 +20,7 @@ import androidx.core.content.ContextCompat;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class EmergencyContactsActivity extends AppCompatActivity {
+public class EmergencyContactsActivity extends FloodCueActivity {
 
     private static final int CALL_PHONE_PERMISSION_REQUEST = 1001;
 
