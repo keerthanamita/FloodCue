@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- About FloodCue screen (shown in the app language). -->
-    <string name="about_floodcue_back_title">← FloodCue గురించి</string>
-    <string name="about_floodcue_heading">FloodCue</string>
-    <string name="about_floodcue_tagline">నీరు రాకముందే వరద మనుగడ సిద్ధం.</string>
-    <string name="about_floodcue_version_label">వర్షన్ %1$s · Android కోసం ఆఫ్‌లైన్ వరద మనుగడ యాప్</string>
 
     <string name="about_floodcue_intro">FloodCue వరద సమయంలో మీకు అవసరం కావచ్చు సమాచారం, హెచ్చరికలు మరియు సందేశాలను మీ ఫోన్‌లో ఉంచుతుంది. నెట్‌వర్క్ లేనప్పుడు కూడా ముందుగా సిద్ధం అవ్వడానికి, వేగంగా స్పందించడానికి మరియు సహాయం అడగడానికి వీలుగా వీలైనంత వరకు ఇంటర్నెట్ లేకుండా పని చేస్తుంది.</string>
 

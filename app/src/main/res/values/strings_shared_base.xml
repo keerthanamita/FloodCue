@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- About screens visible in the app language. -->
+    <string name="about_title">About</string>
+    <string name="about_app_name">FloodCue</string>
+    <string name="about_app_description">Offline flood survival app for Android</string>
+
+    <string name="about_language">Language</string>
+    <string name="about_language_text">FloodCue keeps the app interface and the survival content on two separate languages. The app language controls menus, buttons, settings and screen text. The survival language controls the checklist, safety tips and emergency guide. Change either one in Settings → Change language.</string>
+
+    <string name="about_floodcue_description">Flood survival, ready before the water arrives.</string>
+    <string name="about_floodcue_features">What FloodCue does</string>
+    <string name="about_floodcue_features_text">FloodCue keeps the information, warnings and messages you may need during a flood on your phone. It works without internet as much as possible, so you can prepare early, act quickly and ask for help even when the network is down.</string>
+    <string name="about_floodcue_alerts">Flood alerts</string>
+    <string name="about_floodcue_alerts_text">Official warnings from the NDMA SACHET public CAP feed, checked periodically in the background and announced with a loud alert notification. Where your own server key is configured, district rainfall warnings from the IMD are also included.</string>
+    <string name="about_floodcue_sos">SOS and emergency message</string>
+    <string name="about_floodcue_sos_text">Tap the SOS button to start the siren and send your help message with your location to your emergency contacts. You can also compose a custom emergency message and choose who receives it. A message queued while offline is sent automatically when a network returns.</string>
+    <string name="about_floodcue_tips">Safety tips</string>
+    <string name="about_floodcue_tips_text">Short, scannable tips for before, during and after a flood, with life-threatening warnings shown clearly.</string>
+    <string name="about_floodcue_guide">Emergency guide</string>
+    <string name="about_floodcue_guide_text">16 situation-based guides ordered by urgency, such as trapped inside a rising home, trapped in a vehicle, no phone network, dying phone battery, snakes in floodwater, contaminated water and attracting rescuers.</string>
+    <string name="about_floodcue_offline_maps">Offline maps</string>
+    <string name="about_floodcue_offline_maps_text">Download your district map once and open it without internet.</string>
+    <string name="about_floodcue_about_bridgefy">Offline communication</string>
+    <string name="about_floodcue_about_bridgefy_text">Bridgefy is a separate offline messaging app. FloodCue can guide you to install and open it before an emergency, but opening it does not add its messaging features inside FloodCue.</string>
+
+    <string name="about_bridgefy_description">Connecting people when the internet fails</string>
+    <string name="about_bridgefy_downloading">Downloading Bridgefy information…</string>
+    <string name="about_bridgefy_install">Install Bridgefy</string>
+    <string name="about_bridgefy_install_note">Install Bridgefy before an emergency, while you still have internet.</string>
+    <string name="about_bridgefy_note">Bridgefy is a separate app. Opening it here opens the Google Play store listing; it does not add offline messaging inside FloodCue.</string>
+
+    <!-- Bottom navigation -->
+    <string name="bottom_nav_home">Home</string>
+    <string name="bottom_nav_contacts">Contacts</string>
+    <string name="bottom_nav_sos">SOS</string>
+    <string name="bottom_nav_weather">Weather</string>
+    <string name="bottom_nav_alerts">Alerts</string>
+    <string name="bottom_nav_more">More</string>
+
+    <!-- Generic buttons -->
+    <string name="btn_back">Back</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_close">Close</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_add">Add</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_edit">Edit</string>
+    <string name="btn_delete">Delete</string>
+    <string name="btn_remove">Remove</string>
+    <string name="btn_continue">Continue</string>
+    <string name="btn_retry">Retry</string>
+
+    <!-- Checklist -->
+    <string name="checklist_all_done">All done</string>
+    <string name="checklist_reset">Reset</string>
+    <string name="checklist_reset_cancel">Cancel</string>
+    <string name="checklist_reset_confirm">Reset checklist</string>
+    <string name="checklist_reset_message">This clears your progress on the current checklist layer. Your saved checklist state is not changed.</string>
+
+    <!-- Emergency contacts -->
+    <string name="contacts_heading">Emergency Contacts</string>
+    <string name="contacts_subtitle">Call your saved contacts or official emergency contacts</string>
+    <string name="contacts_empty">No emergency contacts here yet.</string>
+    <string name="contacts_add">Add contact</string>
+    <string name="contacts_add_title">Add contact</string>
+    <string name="contacts_edit_title">Edit contact</string>
+    <string name="contacts_delete_title">Delete contact</string>
+    <string name="contacts_delete_message">Remove this emergency contact? This cannot be undone here.</string>
+    <string name="contacts_delete_confirm">Delete</string>
+    <string name="contacts_saved">Contact saved</string>
+    <string name="contacts_removed">Contact removed</string>
+    <string name="contacts_required_field">Name and phone number are required</string>
+    <string name="contacts_invalid_number">No phone number available</string>
+    <string name="contacts_help_intro">Add the people you want to reach quickly in an emergency.</string>
+    <string name="contacts_help_number">A valid phone number helps the call or message go through.</string>
+    <string name="contacts_help_add">Tap Add contact to add a personal emergency contact.</string>
+
+    <!-- Flood alerts -->
+    <string name="flood_alert_no_alerts">No active flood alerts.</string>
+    <string name="flood_alert_no_alert">No alert details available.</string>
+    <string name="flood_alert_no_district">No district selected.</string>
+    <string name="flood_alert_select_district">Choose your district</string>
+    <string name="flood_alert_district_select_title">Select district</string>
+    <string name="flood_alert_district_select_subtitle">Alerts are shown for the district you choose.</string>
+    <string name="flood_alert_district_placeholder">Select a district</string>
+    <string name="flood_alert_district_label_none">No district</string>
+    <string name="flood_alert_district_label_none_note">Alerts will not be shown until you choose a district.</string>
+    <string name="flood_alert_district_label_other">Other</string>
+    <string name="flood_alert_district_label_note">Choose the district closest to your location.</string>
+    <string name="flood_alert_district_label_exit">Lack of water for crop exit</string>
+    <string name="flood_alert_district_label_note_exit">District chosen for exit-related crop water shortage alerts.</string>
+    <string name="flood_alert_provider">Source: %1$s</string>
+    <string name="flood_alert_region">Region: %1$s</string>
+    <string name="flood_alert_region_tip">This alert is for the district shown above.</string>
+    <string name="flood_alert_meta_loading">Loading alerts…</string>
+    <string name="flood_alert_meta_offline">Showing the last saved alerts.</string>
+    <string name="flood_alert_meta_last_updated">Last updated: %1$s</string>
+    <string name="flood_alert_meta_last_fetched">Last fetched: %1$s</string>
+    <string name="flood_alert_last_updated">Last updated</string>
+    <string name="flood_alert_fetch_failed">Could not load alerts.</string>
+    <string name="flood_alert_retry">Retry</string>
+    <string name="flood_alert_issue">Report issue</string>
+    <string name="flood_alert_report_issue">Report issue</string>
+    <string name="flood_alert_learn_more">Learn more</string>
+    <string name="flood_alert_see_more">See more</string>
+    <string name="flood_alert_no_alert_title">No alert</string>
+    <string name="flood_alert_alert_title">Alert title</string>
+    <string name="flood_alert_alert_type">Alert type</string>
+    <string name="flood_alert_severity_title">Severity</string>
+    <string name="flood_alert_validity">Valid until</string>
+    <string name="flood_alert_message">Message</string>
+    <string name="flood_alert_tap_for_details">Tap an alert for details</string>
+    <string name="flood_alert_alert_downloaded">Alert downloaded</string>
+    <string name="flood_alert_attach_map">Attach map</string>
+    <string name="flood_alert_sms_failed">Could not send the alert by SMS.</string>
+    <string name="flood_alert_sms_unavailable">SMS is not available on this device.</string>
+    <string name="flood_alert_sms_missing_number">No phone number available to send the alert.</string>
+    <string name="flood_alert_sms_help">Send an alert by SMS</string>
+    <string name="flood_alert_sms_opened">SMS app opened. Review and send the alert manually.</string>
+
+    <!-- Guide / emergency content links -->
+    <string name="guide_back_to_title">Back to guide</string>
+    <string name="guide_back_to_card">Back to card</string>
+    <string name="guide_read_more">Read more</string>
+
+    <!-- Hints -->
+    <string name="hint_add_name">Name</string>
+    <string name="hint_add_number">Phone number</string>
+    <string name="hint_add_message">Message</string>
+
+    <!-- Navigation drawers / menus -->
+    <string name="nav_alerts">Flood Alerts</string>
+    <string name="nav_weather">Weather</string>
+    <string name="nav_more">More</string>
+
+    <!-- Offline communication -->
+    <string name="offline_comm_turn_on">Turn on offline communication</string>
+
+    <!-- Offline maps -->
+    <string name="offline_maps_title_detail">Offline Maps</string>
+    <string name="offline_maps_subtitle">Download once, then use without internet</string>
+    <string name="offline_maps_download">Download</string>
+    <string name="offline_maps_download_cancel">Cancel download</string>
+    <string name="offline_maps_download_retry">Retry download</string>
+    <string name="offline_maps_remove">Remove</string>
+    <string name="offline_maps_remove_confirm">Remove map</string>
+    <string name="offline_maps_removed">Map removed</string>
+    <string name="offline_maps_status_available">Available offline</string>
+    <string name="offline_maps_status_downloading">Downloading</string>
+    <string name="offline_maps_status_not_downloaded">Not downloaded</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_about">About</string>
+    <string name="settings_language">Change language</string>
+
+    <!-- SOS -->
+    <string name="sos_attachments_heading">Attachments</string>
+    <string name="sos_hint_message">Message</string>
+    <string name="sos_hint_add_number">Add phone number</string>
+    <string name="sos_emergency_sms_fail_title">Could not send the message</string>
+    <string name="sos_emergency_sms_quick_note">The message was prepared but could not be sent.</string>
+    <string name="sos_emergency_sms_try_again">Try again</string>
+
+    <!-- Shared, dynamic UI text -->
+    <string name="text_loading">Loading…</string>
+    <string name="text_unavailable">Unavailable</string>
+    <string name="text_no_items">No items</string>
+    <string name="text_error_network">No internet connection</string>
+    <string name="text_error_retry">Retry</string>
+
+    <!-- Weather -->
+    <string name="weather_heading">Weather</string>
+    <string name="weather_subtitle">Current conditions and 24-hour forecast</string>
+    <string name="weather_load">Load weather</string>
+    <string name="weather_load_failed">Could not load weather</string>
+    <string name="weather_loader">Loading weather…</string>
+    <string name="weather_ziphelp">Weather data is cached for offline viewing after the first load.</string>
+</resources>

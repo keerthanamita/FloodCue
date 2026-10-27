@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="sos_emergency_back_title">← SOS అత్యవసరం</string>
-    <string name="sos_emergency_heading">అత్యవసర SOS</string>
-    <string name="sos_emergency_short">మూడు పనులు ఒకేసారి: అత్యవసర పరిచయస్తులకు SOS సందేశం, సైరన్, మ్యాప్ లింక్‌తో మీ GPS స్థానం.</string>
     <string name="sos_emergency_send">అత్యవసర SOS పంపించు</string>
-    <string name="sos_emergency_sms_sent">అత్యవసర పరిచయస్తులకు SOS సందేశం పంపబడింది.</string>
-    <string name="sos_emergency_sms_failed">SOS సందేశం పంపలేకపోయాం. నెట్‌వర్క్ ఉందో, కనీసం ఒక అత్యవసర పరిచయస్తు ఉన్నారో తనిఖీ చేయండి.</string>
-    <string name="sos_emergency_sms_pending">SOS పంపే వరుసలో ఉంది</string>
     <string name="sos_emergency_no_contacts">అత్యవసర పరిచయస్తులు లేరు. SOS పంపే ముందు Emergency Contacts స్క్రీన్‌లో వారిని జోడించండి.</string>
-    <string name="sos_emergency_location">స్థానం</string>
-    <string name="sos_emergency_location_available">ప్రస్తుత స్థానం దొరికింది — కోఆర్డినేట్లు, మ్యాప్ లింక్ చేర్చబడ్డాయి.</string>
-    <string name="sos_emergency_location_unavailable">స్థానం దొరకలేదు.</string>
     <string name="sos_emergency_location_last_known">చివరిగా తెలిసిన స్థానం మాత్రమే — %1$s (నాటిది: %2$s).</string>
-    <string name="sos_emergency_siren">సైరన్ మోగుతున్నది — ఆపడానికి "సైరన్ ఆపు" నొక్కండి లేదా యాప్ వదిలివేయండి.</string>
     <string name="sos_emergency_feeding_sms">SMS పంపుతోంది…</string>
-    <string name="sos_emergency_contact">అత్యవసర పరిచయస్తు</string>
-    <string name="sos_emergency_perm_denied">కోఆర్డినేట్ల కోసం లొకేషన్ అనుమతి కావాలి. సిస్టమ్ సెట్టింగ్స్‌లో ఆన్ చేయండి.</string>
     <string name="sos_emergency_no_sim">SIM గుర్తించబడలేదు — SMS పంపలేము.</string>
 </resources>

@@ -61,6 +61,9 @@ public class SettingsActivity extends FloodCueActivity {
     private void openLanguagePicker() {
         Intent intent = new Intent(this, LanguageActivity.class);
         intent.putExtra("LANGUAGE_EDIT_MODE", true);
+        // Lets the picker rebuild this screen (in the new language) after the
+        // user saves a change, instead of leaving a stale instance behind.
+        intent.putExtra("LANGUAGE_RETURN_TO", "settings");
         startActivity(intent);
     }
 

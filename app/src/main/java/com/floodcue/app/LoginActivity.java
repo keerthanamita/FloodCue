@@ -225,6 +225,9 @@ public class LoginActivity extends FloodCueActivity {
             );
 
             intent.putExtra("LANGUAGE_EDIT_MODE", true);
+            // Lets the picker rebuild this screen (in the new language) after
+            // the user saves a change, instead of leaving a stale instance.
+            intent.putExtra("LANGUAGE_RETURN_TO", "login");
             startActivity(intent);
         });
 

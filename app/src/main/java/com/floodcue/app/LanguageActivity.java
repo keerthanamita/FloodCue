@@ -376,8 +376,6 @@ public class LanguageActivity extends FloodCueActivity {
 
     private void saveAndContinue() {
         // Save both languages and mark that the user has made a selection.
-        // The language is also re-applied automatically by attachBaseContext
-        // on every activity, so the app does not need to restart.
         preferences.edit()
                 .putString("app_language", appCode)
                 .putString("survival_language", survivalCode)
@@ -390,18 +388,44 @@ public class LanguageActivity extends FloodCueActivity {
             // retry it later.
             LanguageSync.pushNow(this);
             LanguageSync.showSavedMessage(this);
-
-            // Stay on the current screen. The new language is already in
-            // effect because attachBaseContext re-wraps this activity and
-            // every other visible screen, so there is no need to restart the
-            // app and lose the user's place.
-            return;
         }
 
-        // When the user opens this screen from Login, they have already
-        // completed first-launch language setup and are now changing it.
-        // Return to the screen they came from (Login) unchanged. The login
-        // flow, authentication and future startup are all unaffected.
+        // attachBaseContext only applies the locale when a screen is created,
+        // so the screens already sitting in the back stack (Home, Settings,
+        // SOS, weather …) would keep the old language until they happen to be
+        // rebuilt. Restart the whole task so every screen is recreated with the
+        // language the user just chose, instead of leaving stale copies behind.
+        startActivity(languageChangeRestartIntent());
         finish();
+    }
+
+    /**
+     * Where to land after a language change. Every activity in the old task is
+     * cleared so none of them can show the previous language.
+     *
+     *  - From Settings (edit mode): return to a fresh Settings screen.
+     *  - From Login (edit mode): return to a fresh Login screen, so the sign-in
+     *    flow keeps working in the newly selected language.
+     *  - First-run pick: re-run Splash so it routes to Login/Setup/Home in the
+     *    new language exactly as a cold start would.
+     */
+    private Intent languageChangeRestartIntent() {
+        Intent intent;
+
+        if (editMode) {
+            String returnTo = getIntent().getStringExtra("LANGUAGE_RETURN_TO");
+            if ("login".equals(returnTo)) {
+                intent = new Intent(this, LoginActivity.class);
+            } else if ("settings".equals(returnTo)) {
+                intent = new Intent(this, SettingsActivity.class);
+            } else {
+                intent = new Intent(this, HomeActivity.class);
+            }
+        } else {
+            intent = new Intent(this, SplashActivity.class);
+        }
+
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        return intent;
     }
 }

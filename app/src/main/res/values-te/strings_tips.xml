@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="tips_back_title">← భద్రతా చిట్కాలు</string>
-    <string name="tips_heading">వరద భద్రతా చిట్కాలు</string>
-    <string name="tips_subtitle">వరదకు ముందు, సమయంలో, తర్వాత అమలు చేసే చిన్న సలహాలు. ఇంటర్నెట్ లేకున్నా పనిచేస్తాయి.</string>
     <string name="tips_warning_legend">⚠️ ఎరుపు రంగులో ఉన్న చిట్కాలు ప్రాణాంతక హెచ్చరికలు.</string>
 
     <string name="tips_category_before">🛡️ వరదకు ముందు</string>

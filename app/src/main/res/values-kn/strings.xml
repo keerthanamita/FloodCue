@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">FloodCue</string>
     <string name="default_web_client_id">263570444879-t0u106l5sj1ntmtq1fo328rcfuhhnlv0.apps.googleusercontent.com</string>
 
     <!-- Language feature -->
     <string name="offline_maps_title">ಆಫ್‌ಲೈನ್ ನಕಶೆಗಳು</string>
-    <string name="offline_maps_download_prompt">ಮಾಪವನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿಕೊಂಡು ಇಂಟರ್ನೆಟ್‌ ಇಲ್ಲದೆ ಬಳಸಿ</string>
-    <string name="offline_maps_go">ತೆರಳಿ</string>
+    <string name="offline_maps_download_prompt">ಇಂಟರ್ನೆಟ್ ಇಲ್ಲದೆ ಬಳಕೆಗೆ ನಕಶೆ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ</string>
+    <string name="offline_maps_go">ಹೋಗು</string>
     <string name="offline_maps_cancel">ರದ್ದುಗೊಳಿಸಿ</string>
     <string name="offline_maps_back_title">← ಆಫ್‌ಲೈನ್ ನಕಶೆಗಳು</string>
     <string name="offline_maps_choose_title">ಆಫ್‌ಲೈನ್ ನಕಶೆ ಆರಿಸಿ</string>
-    <string name="offline_maps_choose_subtitle">ಒಮ್ಮೆ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ, ನಂತರ ಇಂಟರ್ನೆಟ್‌ ಇಲ್ಲದೆ ಬಳಸಿ</string>
+    <string name="offline_maps_choose_subtitle">ಒಂದು ಸಲ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ ನಂತರ ಇಂಟರ್ನೆಟ್ ಇಲ್ಲದೆ ಬಳಸಿ</string>
     <string name="offline_map_tirupati_district">ತಿರುಪತಿ ಜಿಲ್ಲೆ</string>
     <string name="offline_map_nellore_district">ನೆಲ್ಲೂರು ಜಿಲ್ಲೆ</string>
     <string name="offline_map_back_title">← %1$s</string>
-    <string name="offline_map_connecting">%1$s ನಕಶೆಯನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ…</string>
+    <string name="offline_map_connecting">%1$s ನಕಶೆ ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ…</string>
     <string name="offline_map_downloading">%1$s ಡೌನ್‌ಲೋಡ್ ಆಗುತ್ತಿದೆ…</string>
     <string name="offline_map_downloading_percent">%1$s ಡೌನ್‌ಲೋಡ್: %2$d%%</string>
-    <string name="offline_map_download_failed">%1$s ಡೌನ್‌ಲೋಡ್ ಮಾಡಲಾಗಲಿಲ್ಲ: %2$s</string>
+    <string name="offline_map_download_failed">%1$s ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ: %2$s</string>
     <string name="offline_map_opening">%1$s ಆಫ್‌ಲೈನ್ ನಕಶೆ ತೆರೆಯಲಾಗುತ್ತಿದೆ…</string>
     <string name="offline_map_loaded">%1$s ಆಫ್‌ಲೈನ್ ನಕಶೆ ಲೋಡ್ ಆಗಿದೆ</string>
     <string name="offline_map_missing"><![CDATA[ಈ ಆಫ್‌ಲೈನ್ ನಕಶೆ ಈ ಸಾಧನದಲ್ಲಿ ಡೌನ್‌ಲೋಡ್ ಆಗಿಲ್ಲ.]]></string>

@@ -14,8 +14,13 @@
     <string name="language_picker_survival_title">സുരക്ഷാ ഭാഷ തിരഞ്ഞെടുക്കുക</string>
     <string name="language_picker_subtitle">തിരയുകയും ഭാഷ തിരഞ്ഞെടുക്കുകയും ചെയ്യുക</string>
     <string name="language_picker_search_hint">ഭാഷ തിരയുക…</string>
+
+
     <string name="language_picker_empty">ഭാഷകൾ കണ്ടെത്തിയില്ല.\nവേറൊരു തിരയൽ നോക്കുക.</string>
 
     <string name="language_updated">ഭാഷ പുതുക്കി</string>
     <string name="settings_change_language">ഭാഷ പുതുക്കി</string>
+
+    
+
 </resources>

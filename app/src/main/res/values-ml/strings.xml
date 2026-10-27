@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">FloodCue</string>
     <string name="default_web_client_id">263570444879-t0u106l5sj1ntmtq1fo328rcfuhhnlv0.apps.googleusercontent.com</string>
 
-    <!-- Language feature -->
     <string name="offline_maps_title">ഓഫ്‌ലൈൻ ഭൂപടങ്ങൾ</string>
     <string name="offline_maps_download_prompt">ഇന്റർനെറ്റ് ഇല്ലാതെ ഉപയോഗിക്കാൻ ഭൂപടം ഡൗൺലോഡ് ചെയ്യുക</string>
     <string name="offline_maps_go">പോകുക</string>
@@ -15,8 +13,8 @@
     <string name="offline_map_tirupati_district">തിരുപതി ജില്ല</string>
     <string name="offline_map_nellore_district">നെല്ലൂർ ജില്ല</string>
     <string name="offline_map_back_title">← %1$s</string>
-    <string name="offline_map_connecting">%1$s ഡൗൺലോഡ് ചെയ്യാൻ കണക്റ്റ് ചെയ്യുന്നു…</string>
-    <string name="offline_map_downloading">%1$s ഡൗൺലോഡ് ആകുന്നു…</string>
+    <string name="offline_map_connecting">%1$s ഭൂപടം ഡൗൺലോഡ് ചെയ്യാൻ കണക്റ്റ് ചെയ്യുന്നു…</string>
+    <string name="offline_map_downloading">%1$s ഡൗൺലോഡ് ചെയ്യുന്നു…</string>
     <string name="offline_map_downloading_percent">%1$s ഡൗൺലോഡ്: %2$d%%</string>
     <string name="offline_map_download_failed">%1$s ഡൗൺലോഡ് ചെയ്യാൻ സാധിച്ചില്ല: %2$s</string>
     <string name="offline_map_opening">%1$s ഓഫ്‌ലൈൻ ഭൂപടം തുറക്കുന്നു…</string>

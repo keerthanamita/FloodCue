@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="sos_back_title">← SOS</string>
-    <string name="sos_heading">SOS అత్యవసర సందేశం</string>
-    <string name="sos_subtitle">ఒక సందేశాన్ని సిద్ధం చేసి, మీ SMS యాప్ ద్వారా పంపండి. FloodCue స్వయంగా SMS పంపదు.</string>
 
     <string name="sos_recipients_title">అత్యవసర పరిచయస్తుల నంబర్లు</string>
     <string name="sos_recipients_hint">ఫోన్ నంబర్</string>
@@ -11,13 +8,11 @@
     <string name="sos_recipients_empty">ఇంకా నంబర్లు చేర్చలేదు.</string>
     <string name="sos_number_invalid">ఈ ఎంట్రీ చెల్లుబాటు అయ్యే ఫోన్ నంబర్ కాదు: %1$s</string>
     <string name="sos_number_duplicate">ఆ నంబర్ ఇప్పటికే జాబితాలో ఉంది.</string>
-    <string name="sos_number_removed">నంబర్ తొలగించబడింది.</string>
     <string name="sos_remove_number">%1$s తొలగించు</string>
     <string name="sos_saved_contacts_title">సేవ్ చేసిన అత్యవసర పరిచయస్తులు</string>
     <string name="sos_saved_contacts_help">నంబర్‌ను ట్యాప్ చేసి చేర్చండి. మీరు చేర్చి నిర్ధారించే వరకు ఏదీ పంపబడదు.</string>
 
     <string name="sos_message_title">అత్యవసర సందేశం</string>
-    <string name="sos_default_message">అత్యవసరం! నాకు సహాయం కావాలి. వీలైనంత త్వరగా నన్ను సంప్రదించండి.</string>
 
     <string name="sos_location_title">ప్రస్తుత స్థానం</string>
     <string name="sos_location_help">స్థానం ఐచ్ఛికం. ఇంటర్నెట్ లేకున్నా GPS పనిచేయవచ్చు. మీరు చెల్లుబాటు అయ్యే స్థానాన్ని చేర్చకుంటే/ఎంచుకోకుంటే FloodCue కోఆర్డినేట్లు చేర్చదు.</string>
@@ -25,8 +20,6 @@
     <string name="sos_use_last_known">చివరిగా తెలిసిన స్థానం వాడు</string>
     <string name="sos_clear_location">స్థానం చేర్చవద్దు</string>
     <string name="sos_location_time_unknown">ఈ పరికరంలో సమయం నమోదు కాలేదు</string>
-    <string name="sos_location_idle">ఇంకా స్థానం చేర్చలేదు.</string>
-    <string name="sos_location_loading">మీ ప్రస్తుత స్థానం తేబడుతోంది…</string>
     <string name="sos_location_current">ప్రస్తుత స్థానం\nఅక్షాంశం: %1$s\nరేఖాంశం: %2$s\nనమోదైన సమయం: %3$s</string>
     <string name="sos_location_last_known">చివరిగా తెలిసిన స్థానం (ప్రస్తుత GPS లెక్క కాదు)\nఅక్షాంశం: %1$s\nరేఖాంశం: %2$s\nనమోదైన సమయం: %3$s</string>
     <string name="sos_location_last_known_available">ఈ పరికరం నుండి చివరిగా తెలిసిన స్థానం అందుబాటులో ఉంది. మీరు వాడుతానని ఎంచుకున్నప్పుడు అది మీ ప్రస్తుత స్థానం అవుతుంది.</string>
@@ -44,20 +37,14 @@
     <string name="sos_preview_sms_note">సందేశం ఈ ఫోన్‌లో నిల్వ ఉంటుంది; నెట్‌వర్క్ అందుబాటులోకి వస్తే స్వయంచాలకంగా పంపబడుతుంది. చేరడం నిర్ధారించలేము.</string>
 
     <string name="sos_send_button">SOS సందేశం పంపు</string>
-    <string name="sos_send_disabled_reason">పంపే ముందు కనీసం ఒక చెల్లుబాటు నంబర్, ఒక సందేశం చేర్చండి.</string>
-    <string name="sos_confirm_title">SMS తెరవేటండి ముందు సమీక్షించండి</string>
     <string name="sos_confirm_message">ఈ నంబర్లలో ఒక్కొక్కదానికీ ఈ ఫోన్ నుండి SOS వెళ్తుంది:\n\n%1$s\n\nసందేశం:\n\n%2$s\n\nసందేశం మొదట ఈ ఫోన్‌లో నిల్వ అవుతుంది; నెట్‌వర్క్ అందుబాటులోకి వస్తే స్వయంచాలకంగా పంపబడుతుంది. వరుసలో ఉన్నప్పుడు దాన్ని రద్దు చేసుకోవచ్చు. FloodCue సందేశం ఈ పరికరం నుండి నిష్క్రమించిందని మాత్రమే తెలుపుతుంది — చేరుతుందో లేదో మీ క్యారియర్‌పై ఆధారపడి ఉంటుంది.</string>
     <string name="sos_confirm_permission_note">స్వయంచాలకంగా పంపేందుకు FloodCue కి SMS అనుమతి కావాలి. మీరు ఇవ్వకపోతే, FloodCue మీ SMS యాప్‌ను తెరుస్తుంది; అక్కడే మీరు Send నొక్కాలి.</string>
     <string name="sos_sms_also_notify">ఈ నంబర్లకు తెలియజేయి: %1$s</string>
     <string name="sos_confirm_continue">పంపు</string>
     <string name="sos_confirm_cancel">రద్దు చేయి</string>
-    <string name="sos_sms_opened">SMS యాప్ తెరిచింది. మీరు సందేశాన్ని పంపి ప్రధాని అందుకునే వరకు డెలివరీ నిర్ధారించినట్లు కాదు.</string>
-    <string name="sos_sms_unavailable">అనుకూలమైన SMS యాప్ దొరకలేదు. మీ నంబర్లు, సందేశం ఈ స్క్రీన్‌లో నిల్వ ఉన్నాయి.</string>
-    <string name="sos_sms_failed">SMS యాప్ తెరవలేకపోయాం. మీ నంబర్లు, సందేశం ఈ స్క్రీన్‌లో నిల్వ ఉన్నాయి.</string>
     <string name="sos_offline_note">ఇంటర్నెట్ లేకున్నా ఈ SOS ను సిద్ధం చేసుకోవచ్చు. SMS పంపడానికి పనిชేసే సెల్యులార్ SMS సర్వీసు అవసరమే.</string>
     <string name="sos_battery_note">చిట్కా: అత్యవసర సందేశాలు వేగంగా పంపడానికి FloodCue బ్యాటరీ వాడకాన్ని అపరిమితం (Unrestricted) గా పెట్టండి — Settings → Apps → FloodCue → Battery.</string>
 
-    <string name="sos_queued_toast">SOS ఈ ఫోన్‌లో నిల్వ అయింది. నెట్‌వర్క్ అందుబాటులోకి వస్తే స్వయంచాలకంగా పంపబడుతుంది.</string>
     <string name="sos_queue_waiting">SOS వరుసలో ఉంది. ఈ ఫోన్‌కు మొబైల్ సిగ్నల్ వచ్చేసరికి స్వయంచాలకంగా పంపబడుతుంది — SMS మొబైల్ నెట్‌వర్క్ ద్వారా వెళ్తుంది, Wi‑Fi ద్వారా కాదు.</string>
     <string name="sos_queue_error_no_service">చివరి ప్రయత్నం విఫలమైంది: మొబైల్ నెట్‌వర్క్ లేదు. SMS కు మొబైల్ సిగ్నల్ (SIM + నెట్‌వర్క్) కావాలి; ఇంటర్నెట్/Wi‑Fi కాదు. సిగ్నల్ వచ్చేసరికి SOS స్వయంచాలకంగా మళ్లీ ప్రయత్నిస్తుంది.</string>
     <string name="sos_queue_error_radio_off">చివరి ప్రయత్నం విఫలమైంది: మొబైల్ రేడియో ఆఫ్ — ఎయిర్‌ప్లేన్ మోడ్ చూడండి. తిరిగి ఆన్ అయ్యేసరికి SOS స్వయంచాలకంగా మళ్లీ ప్రయత్నిస్తుంది.</string>
@@ -66,10 +53,7 @@
     <string name="sos_queue_sending">ఈ ఫోన్ నుండి SOS పంపుతోంది…</string>
     <string name="sos_queue_partial">%2$d నంబర్లలో %1$d దీనికి ఈ ఫోన్ నుండి పంపబడింది. మిగిలినవి నెట్‌వర్క్ అందుబాటులోకి వచ్చేసరికి పంపబడతాయి.</string>
     <string name="sos_queue_complete">%2$s కు మొత్తం %1$d నంబర్లకు SOS ఈ ఫోన్ నుండి వెళ్లింది. చేరడం మీ క్యారియర్‌పై ఆధారపడి ఉంటుంది.</string>
-    <string name="sos_queue_cancel">వరుసలో ఉన్న SOS రద్దు చేయి</string>
-    <string name="sos_queue_dismiss">మూసివేయి</string>
     <string name="sos_queue_cancel_confirm">వరుసలో ఉన్న ఈ SOS ను రద్దు చేయాలా? ఇక ఏదీ పంపబడదు.</string>
     <string name="sos_queue_cancelled">వరుసలో ఉన్న SOS రద్దయింది. ఇక ఏదీ పంపబడదు.</string>
-    <string name="sos_send_queued_reason">ఒక SOS ఇప్పటికే వరుసలో ఉంది. కొత్తది సిద్ధం చేయాలంటే మొదట దాన్ని రద్దు చేయండి.</string>
     <string name="sos_permission_denied_fallback">SMS అనుమతి ఇవ్వలేదు, కాబట్టి FloodCue మీ SMS యాప్‌ను తెరుస్తుంది — అక్కడ పంపడానికి Send నొక్కండి.</string>
 </resources>
