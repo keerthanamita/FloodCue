@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="language_title">भाषा चुनें</string>
+    <string name="language_subtitle">अपनी सुविधा की भाषाएँ चुनें.</string>
+    <string name="language_app_heading">ऐप भाषा</string>
+    <string name="language_app_hint">मेनू और ऐप निर्देशों के लिए</string>
+    <string name="language_survival_heading">आपातकाल / सुरक्षा भाषा</string>
+    <string name="language_survival_hint">आपातकालीन और सुरक्षा जानकारी के लिए</string>
+    <string name="language_change_later">आप ये पसंद बाद में बदल सकते हैं.</string>
+    <string name="language_continue">आगे बढ़ें</string>
+
+    <string name="language_picker_app_title">ऐप भाषा चुनें</string>
+    <string name="language_picker_survival_title">सुरक्षा भाषा चुनें</string>
+    <string name="language_picker_subtitle">खोजें और एक भाषा चुनें</string>
+    <string name="language_picker_search_hint">भाषा खोजें…</string>
+    <string name="language_picker_empty">कोई भाषा नहीं मिली.\nदूसरे शब्द से खोजें.</string>
+
+    <string name="language_updated">भाषा अपडेट हो गई</string>
+    <string name="settings_change_language">भाषा अपडेट हो गई</string>
+</resources>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sos_back_title">← SOS</string>
+    <string name="sos_heading">SOS आपातकालीन संदेश</string>
+    <string name="sos_subtitle">एक संदेश तैयार करें और अपने SMS ऐप से भेजें. FloodCue अपने आप SMS नहीं भेजता.</string>
+
+    <string name="sos_recipients_title">आपातकालीन संपर्क नंबर</string>
+    <string name="sos_recipients_hint">फ़ोन नंबर</string>
+    <string name="sos_recipients_help">एक-एक नंबर डालें या कॉमा से अलग करके कई नंबर डालें. केवल यहाँ जोड़े नंबर ही इस्तेमाल होंगे.</string>
+    <string name="sos_add_number">जोड़ें</string>
+    <string name="sos_recipients_empty">अभी कोई नंबर जोड़ा नहीं गया.</string>
+    <string name="sos_number_invalid">यह एंट्री वैध फ़ोन नंबर नहीं है: %1$s</string>
+    <string name="sos_number_duplicate">यह नंबर पहले से सूची में है.</string>
+    <string name="sos_number_removed">नंबर हटा दिया गया.</string>
+    <string name="sos_remove_number">%1$s हटाएँ</string>
+    <string name="sos_saved_contacts_title">सेव किए आपातकालीन संपर्क</string>
+    <string name="sos_saved_contacts_help">नंबर पर टैप करके जोड़ें. जोड़ने और पुष्टि करने तक कुछ भी नहीं भेजा जाता.</string>
+
+    <string name="sos_message_title">आपातकालीन संदेश</string>
+    <string name="sos_default_message">आपातकाल! मुझे मदद चाहिए. कृपया जल्द संपर्क करें.</string>
+
+    <string name="sos_location_title">वर्तमान स्थान</string>
+    <string name="sos_location_help">स्थान वैकल्पिक है. इंटरनेट के बिना भी GPS चल सकता है. FloodCue तब तक निर्देशांक नहीं जोड़ता जब तक आप वैध स्थान न दें या न चुनें.</string>
+    <string name="sos_get_current_location">वर्तमान स्थान लें</string>
+    <string name="sos_use_last_known">आख़िरी ज्ञात स्थान उपयोग करें</string>
+    <string name="sos_clear_location">स्थान न जोड़ें</string>
+    <string name="sos_location_time_unknown">इस डिवाइस पर समय दर्ज नहीं है</string>
+    <string name="sos_location_idle">अभी कोई स्थान जोड़ा नहीं गया.</string>
+    <string name="sos_location_loading">वर्तमान स्थान लिया जा रहा है…</string>
+    <string name="sos_location_current">वर्तमान स्थान\nअक्षांश: %1$s\nदेशांतर: %2$s\nदर्ज: %3$s</string>
+    <string name="sos_location_last_known">आख़िरी ज्ञात स्थान (लाइव GPS रीडिंग नहीं)\nअक्षांश: %1$s\nदेशांतर: %2$s\nदर्ज: %3$s</string>
+    <string name="sos_location_last_known_available">इस डिवाइस से आख़िरी ज्ञात स्थान उपलब्ध है. जब तक आप चुनें, यह आपका वर्तमान स्थान नहीं है.</string>
+    <string name="sos_location_permission_denied">लोकेशन की अनुमति नहीं मिली. आप निर्देशांक रिक्त रखकर जारी रख सकते हैं, या सिस्टम सेटिंग्स में अनुमति चालू करें.</string>
+    <string name="sos_location_gps_off">GPS बंद है. निर्देशांक के लिए लोकेशन सर्विस चालू करें, या बिना निर्देशांक जारी रखें.</string>
+    <string name="sos_location_unavailable">वर्तमान स्थान नहीं मिल सका. GPS चालू है क्या देखकर फिर कोशिश करें, या बिना निर्देशांक जारी रखें.</string>
+    <string name="sos_location_timeout">समय पर ताज़ा GPS रीडिंग नहीं मिली. आप फिर कोशिश कर सकते हैं, दिख रहा हो तो आख़िरी ज्ञात स्थान उपयोग कर सकते हैं, या बिना निर्देशांक जारी रख सकते हैं.</string>
+
+    <string name="sos_preview_title">संदेश पूर्वावलोकन</string>
+    <string name="sos_preview_recipients">प्राप्तकर्ता: %1$s</string>
+    <string name="sos_preview_no_recipients">प्राप्तकर्ता: कोई नहीं</string>
+    <string name="sos_preview_no_location">स्थान: नहीं जोड़ा गया</string>
+    <string name="sos_preview_location">स्थान: %1$s, %2$s\nदर्ज: %3$s</string>
+    <string name="sos_preview_location_last_known">आख़िरी ज्ञात स्थान: %1$s, %2$s\nदर्ज: %3$s</string>
+    <string name="sos_preview_sms_note">संदेश इस फ़ोन पर सहेजा जाता है और नेटवर्क उपलब्ध ही स्वतः भेजा जाता है. डिलीवरी की पुष्टि नहीं की जा सकती.</string>
+
+    <string name="sos_send_button">SOS संदेश भेजें</string>
+    <string name="sos_send_disabled_reason">भेजने से पहले कम से कम एक वैध नंबर और एक संदेश जोड़ें.</string>
+    <string name="sos_confirm_title">SMS खोलने से पहले समीक्षा करें</string>
+    <string name="sos_confirm_message">इन नंबरों में से हर एक को इस फ़ोन से SOS जाएगा:\n\n%1$s\n\nसंदेश:\n\n%2$s\n\nसंदेश पहले इस फ़ोन पर सहेजा जाता है और नेटवर्क उपलब्ध ही स्वतः भेजा जाता है. कतार में होने पर रद्द कर सकते हैं. FloodCue केवल यह बताता है कि संदेश इस डिवाइस से निकला — पहुँचना आपके ऑपरेटर पर निर्भर करता है.</string>
+    <string name="sos_confirm_permission_note">स्वतः भेजने के लिए FloodCue को SMS अनुमति चाहिए. न देने पर FloodCue आपका SMS ऐप खोलेगा और वहाँ आप खुद Send दबाएँगे.</string>
+    <string name="sos_sms_also_notify">इन नंबरों को भी सूचित करें: %1$s</string>
+    <string name="sos_confirm_continue">भेजें</string>
+    <string name="sos_confirm_cancel">रद्द करें</string>
+    <string name="sos_sms_opened">SMS ऐप खुल गया. जब तक आप संदेश न भेजें और प्राप्तकर्ता न ले, डिलीवरी पुष्ट नहीं है.</string>
+    <string name="sos_sms_unavailable">कोई उपयुक्त SMS ऐप नहीं मिला. आपके नंबर और संदेश इस स्क्रीन पर सहेजे हैं.</string>
+    <string name="sos_sms_failed">SMS ऐप नहीं खुल सका. आपके नंबर और संदेश इस स्क्रीन पर सहेजे हैं.</string>
+    <string name="sos_offline_note">बिना इंटरनेट के भी यह SOS तैयार कर सकते हैं. SMS भेजने के लिए चालू सेल्युलर SMS सर्विस अभी भी अनिवार्य है.</string>
+    <string name="sos_battery_note">सुझाव: आपातकालीन संदेश जल्द भेजने के लिए FloodCue की बैटरी खपत बिना सीमा (Unrestricted) करें — सेटिंग्स → ऐप्स → FloodCue → बैटरी.</string>
+
+    <string name="sos_queued_toast">SOS इस फ़ोन पर सहेजा गया. नेटवर्क मिलने पर स्वतः भेजा जाएगा.</string>
+    <string name="sos_queue_waiting">SOS कतार में है. इस फ़ोन को मोबाइल सिग्नल मिलते ही स्वतः भेजा जाएगा — SMS मोबाइल नेटवर्क से जाता है, Wi‑Fi से नहीं.</string>
+    <string name="sos_queue_error_no_service">आख़िरी कोशिश विफल: मोबाइल नेटवर्क नहीं. SMS के लिए मोबाइल सिग्नल (SIM + नेटवर्क) चाहिए; इंटरनेट/Wi‑Fi नहीं. सिग्नल लौटते ही SOS स्वतः फिर कोशिश करता है.</string>
+    <string name="sos_queue_error_radio_off">आख़िरी कोशिश विफल: मोबाइल रेडियो बंद है — एयरप्लेन मोड देखें. वापस चालू होने पर SOS स्वतः फिर कोशिश करता है.</string>
+    <string name="sos_queue_error_generic">आख़िरी कोशिश विफल. संदेश कतार में रहता है और स्वतः फिर कोशिश करता है.</string>
+    <string name="sos_queue_no_sim">इस फ़ोन में SIM नहीं डाली है — उसके बिना SMS नहीं जा सकता.</string>
+    <string name="sos_queue_sending">इस फ़ोन से SOS भेजा जा रहा है…</string>
+    <string name="sos_queue_partial">इस फ़ोन से %2$d में से %1$d नंबरों को भेजा गया. बाकी नेटवर्क मिलने पर भेजे जाएँगे.</string>
+    <string name="sos_queue_complete">सभी %1$d नंबरों के लिए SOS इस फ़ोन से निकल गया (%2$s). पहुँचना आपके ऑपरेटर पर निर्भर करता है.</string>
+    <string name="sos_queue_cancel">कतार में SOS रद्द करें</string>
+    <string name="sos_queue_dismiss">बंद करें</string>
+    <string name="sos_queue_cancel_confirm">कतार में रखा यह SOS रद्द करें? आगे कुछ भी नहीं जाएगा.</string>
+    <string name="sos_queue_cancelled">कतार में SOS रद्द हुआ. आगे कुछ भी नहीं जाएगा.</string>
+    <string name="sos_send_queued_reason">एक SOS पहले से कतार में है. नया तैयार करने के लिए पहले उसे रद्द करें.</string>
+    <string name="sos_permission_denied_fallback">SMS अनुमति नहीं मिली, इसलिए FloodCue आपका SMS ऐप खोलेगा — वहाँ Send दबाएँ.</string>
+</resources>

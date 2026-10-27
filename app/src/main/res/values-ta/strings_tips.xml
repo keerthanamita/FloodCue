@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tips_back_title">← பாதுகாப்பு திறன்கள்</string>
+    <string name="tips_heading">வெள்ள பாதுகாப்பு திறன்கள்</string>
+    <string name="tips_subtitle">வெள்ளத்திற்கு முன், போது மற்றும் பின் — சுருக்கமான, செய்யத்தக்க அறிவுரை. இணையம் இல்லாமல் வேலை செய்யும்.</string>
+    <string name="tips_warning_legend">⚠️ சிவப்பில் காட்டப்படும் திறன்கள் உயிருக்கு ஆபத்தான எச்சரிக்கைகள்.</string>
+
+    <string name="tips_category_before">🛡️ வெள்ளத்திற்கு முன்</string>
+    <string name="tips_category_during">🌊 வெள்ளத்தின் போது</string>
+    <string name="tips_category_after">🏥 வெள்ளத்திற்குப் பின்</string>
+
+    <string name="home_safety_tips">பாதுகாப்பு திறன்கள்</string>
+</resources>

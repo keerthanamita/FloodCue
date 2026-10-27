@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="checklist_back_title">← बाढ़ चेकलिस्ट</string>
+    <string name="checklist_heading">🌧️ बाढ़ से पहले की चेकलिस्ट</string>
+    <string name="checklist_subtitle">पानी आने से पहले तैयारी करें. आपके निशान इस फ़ोन पर सहेजे जाते हैं और बिना इंटरनेट भी चलते हैं.</string>
+
+    <string name="checklist_tab_essential">आवश्यक</string>
+    <string name="checklist_tab_complete">विस्तृत</string>
+    <string name="checklist_progress">कुल: %2$d में %1$d काम पूरे</string>
+    <string name="checklist_section_progress">%1$d/%2$d</string>
+
+    <string name="checklist_section_informed">📢 सूचित रहें और तैयारी करें</string>
+    <string name="checklist_section_gobag">🎒 आपातकालीन गो-बैग तैयार करें</string>
+    <string name="checklist_section_phone">📱 अपना फ़ोन और FloodCue तैयार करें</string>
+    <string name="checklist_section_home">🏠 अपना घर सुरक्षित करें</string>
+    <string name="checklist_section_family">👨‍👩‍👧 परिवार तैयार करें</string>
+    <string name="checklist_section_evac">🚨 निकासी चेतावनी आने पर</string>
+
+    <string name="checklist_note_informed">अपना बाढ़-जोखिम समय रहते जानें.</string>
+    <string name="checklist_note_gobag">गो-बैग तैयारी: %2$d में %1$d चीज़ें</string>
+    <string name="checklist_note_phone">ध्यान दें: ऑफ़लाइन मैप केवल तब तक चलता है जब तक मैप डेटा इस डिवाइस पर सहेजा हो; साधारण SMS के लिए फिर भी मोबाइल नेटवर्क कवरेज और उपलब्ध SMS सर्विस ज़रूरी है.</string>
+    <string name="checklist_note_home_safety">सुरक्षा: बाढ़ के पानी से घिरे बिजली के उपकरण से कभी न पास जाएँ और गीले उपकरण को कभी न छुएँ.</string>
+    <string name="checklist_note_family">घर के हर सदस्य को यह योजना पता हो.</string>
+    <string name="checklist_note_evac_critical">मुख्य नियम: चेकलिस्ट पूरी करना निकासी से ज़्यादा ज़रूरी कभी नहीं — आधिकारिक निकासी निर्देश सबसे ऊपर.</string>
+
+    <string name="home_flood_checklist">बाढ़ चेकलिस्ट</string>
+</resources>

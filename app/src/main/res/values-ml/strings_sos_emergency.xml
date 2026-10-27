@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sos_emergency_back_title">← SOS അടിയന്തരം</string>
+    <string name="sos_emergency_heading">SOS അടിയന്തരം</string>
+    <string name="sos_emergency_short">മൂന്ന് കാര്യങ്ങളും ഒന്നിച്ച്: നിങ്ങളുടെ അടിയന്തര കോൺടാക്റ്റുകൾക്ക് ഒരു SOS സന്ദേശം, സൈറൺ, മാപ്പ് ലിങ്ക് സഹിതം നിങ്ങളുടെ GPS ലൊക്കേഷനും.</string>
+    <string name="sos_emergency_send">അടിയന്തര SOS അയയ്ക്കുക</string>
+    <string name="sos_emergency_sms_sent">SOS സന്ദേശം നിങ്ങളുടെ അടിയന്തര കോൺടാക്റ്റുകൾക്ക് അയച്ചു.</string>
+    <string name="sos_emergency_sms_failed">SOS സന്ദേശം അയയ്ക്കാൻ സാധിച്ചില്ല. നിങ്ങളുടെ നെറ്റ്‌വർക്കും കുറഞ്ഞത് ഒരു അടിയന്തര കോൺടാക്റ്റും ഉണ്ടോ എന്ന് പരിശോധിക്കുക.</string>
+    <string name="sos_emergency_sms_pending">SOS അയയ്ക്കാൻ കാത്തിരിക്കുന്നു</string>
+    <string name="sos_emergency_no_contacts">അടിയന്തര കോൺടാക്റ്റുകൾ ലഭ്യമല്ല. SOS അയയ്ക്കുന്നതിന് മുമ്പ് അടിയന്തര കോൺടാക്റ്റ് സ്ക്രീനിൽ അവ ചേർക്കുക.</string>
+    <string name="sos_emergency_location">ലൊക്കേഷൻ</string>
+    <string name="sos_emergency_location_available">നിലവിലെ ലൊക്കേഷൻ ലഭിച്ചു — കോർഡിനേറ്റുകളും മാപ്പ് ലിങ്കും ഉൾപ്പെടുത്തി.</string>
+    <string name="sos_emergency_location_unavailable">ലൊക്കേഷൻ ലഭിച്ചില്ല.</string>
+    <string name="sos_emergency_location_last_known">അവസാനം അറിയാവുന്ന ലൊക്കേഷൻ മാത്രം — %1$s (പ്രായം: %2$s).</string>
+    <string name="sos_emergency_siren">സൈറൺ സജീവമായി — നിർത്താൻ “സൈറൺ നിർത്തുക” അമർത്തുക അല്ലെങ്കിൽ ആപ്പ് വിട്ടുപോകുക.</string>
+    <string name="sos_emergency_feeding_sms">ഇപ്പോൾ SMS അയയ്ക്കുന്നു…</string>
+    <string name="sos_emergency_contact">അടിയന്തര കോൺടാക്റ്റ്</string>
+    <string name="sos_emergency_perm_denied">കോർഡിനേറ്റുകൾക്ക് ലൊക്കേഷൻ അനുമതി ആവശ്യമാണ്. സിസ്റ്റം ക്രമീകരണങ്ങളിൽ അത് ഓൺ ചെയ്യുക.</string>
+    <string name="sos_emergency_no_sim">SIM കണ്ടെത്തിയില്ല — SMS അയയ്ക്കാൻ കഴിയില്ല.</string>
+</resources>

@@ -14,6 +14,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 import android.widget.TextView;
+import java.io.File;
+import java.io.IOException;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.credentials.Credential;
@@ -880,6 +882,20 @@ public class LoginActivity extends FloodCueActivity {
      * Clears all user-specific data and returns to the login screen.
      * Should be called after Firebase sign-out completes.
      */
+
+    /** Delete the contents of a directory (but keep the directory itself). */
+    private void deleteDirectoryContents(File dir) {
+        if (dir != null && dir.isDirectory()) {
+            for (File child : dir.listFiles()) {
+                if (child.isDirectory()) {
+                    deleteDirectoryContents(child);
+                }
+                child.delete();
+            }
+        }
+    }
+
+    /** Clean up app-private directories after logout. */
     private void clearAllUserData() {
         // Clear Firebase current user
         FirebaseAuth.getInstance().signOut();

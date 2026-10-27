@@ -57,6 +57,10 @@ import java.util.Locale;
 import java.util.TimeZone;
 import java.util.regex.Pattern;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.File;
+import java.io.IOException;
 import com.floodcue.app.OfflineMapCatalog;
 
 /**
@@ -189,7 +193,6 @@ public class FloodAlertActivity extends FloodCueActivity {
 
         if (district.isEmpty()) {
             showStatus(R.string.flood_alert_district_empty);
-            renderSachetFromCache();
             renderSachetFromCache();
         } else {
             renderSachetFromCache();
@@ -480,40 +483,44 @@ public class FloodAlertActivity extends FloodCueActivity {
             String rss = null;
             List<Alert> allAlerts = new ArrayList<>();
             List<Alert> matched = new ArrayList<>();
+            boolean offlineSaved = offline;
+            String rssSaved = rss;
+            List<Alert> allAlertsSaved = allAlerts;
+            List<Alert> matchedSaved = matched;
 
             try {
-                rss = httpGet(SACHET_RSS_URL, FETCH_TIMEOUT_MS);
                 // Diagnose HTTP result
                 if (rss != null) {
                     // Check response size to avoid memory issues
                     int bodyLength = rss.length();
                     if (bodyLength < 200) {
                         // Likely an error page or empty response
-                        rss = null;
-                        offline = true;
+                        rssSaved = null;
+                        offlineSaved = true;
                     }
                 }
-            } catch (IOException networkDown) {
-                offline = true;
+            } catch (Exception e) {
+                // Network error detected
+                offlineSaved = true;
             }
 
-            if (rss != null) {
+            if (rssSaved != null) {
                 try {
-                    allAlerts = parseRss(rss);
+                    allAlertsSaved = parseRss(rssSaved);
                 } catch (Exception parseFailed) {
-                    allAlerts = new ArrayList<>();
-                    rss = null;
+                    allAlertsSaved = new ArrayList<>();
+                    rssSaved = null;
                 }
-                if (rss != null) {
-                    matched = filterByDistrict(allAlerts, wantedDistrict);
-                    enrich(matched);
+                if (rssSaved != null) {
+                    matchedSaved = filterByDistrict(allAlertsSaved, wantedDistrict);
+                    enrich(matchedSaved);
                 }
             }
 
             // Only save cache after successful fetch and parse
-            final String freshRss = (allAlerts.isEmpty() && rss != null) ? null : rss;
-            final List<Alert> freshMatched = matched;
-            final boolean wasOffline = offline || (rss == null);
+            final String freshRss = (allAlertsSaved.isEmpty() && rssSaved != null) ? null : rssSaved;
+            final List<Alert> freshMatched = matchedSaved;
+            final boolean wasOffline = offlineSaved || (rssSaved == null);
 
             // Build UI status based on what we have
             runOnUiThread(() -> {
@@ -847,14 +854,40 @@ public class FloodAlertActivity extends FloodCueActivity {
         renderSachet(matched, true, preferences().getLong(KEY_RSS_CACHE_AT, 0L));
     }
 
+    /**
+     * Signature of the currently drawn alert panel. Re-rendering the same
+     * content removes and re-adds every card, which makes the screen visually
+     * jump; this lets us skip identical repaints entirely.
+     */
+    private String lastSachetSignature = null;
+
     private void renderSachet(List<Alert> alerts, boolean fromCache, long updatedAt) {
+        StringBuilder signature = new StringBuilder(String.valueOf(alerts.size()));
+        for (Alert alert : alerts) {
+            signature.append('|')
+                    .append(alert.severity).append('|')
+                    .append(alert.title).append('|')
+                    .append(alert.expiry).append('|')
+                    .append(alert.source);
+        }
+        String signatureString = signature.toString();
+        if (signatureString.equals(lastSachetSignature)) {
+            // Same alert cards already drawn — only refresh the cached note.
+            if (fromCache) {
+                showCacheNote(updatedAt);
+            } else {
+                cachedText.setText("");
+            }
+            return;
+        }
+        lastSachetSignature = signatureString;
         sachetList.removeAllViews();
         if (alerts.isEmpty()) {
             if (!district.isEmpty()) {
                 showStatus(getString(R.string.flood_alert_none, district));
             }
         } else {
-            statusText.setVisibility(View.GONE);
+            statusText.setText("");
         }
         for (int i = 0; i < Math.min(alerts.size(), MAX_SHOWN); i++) {
             sachetList.addView(buildAlertCard(alerts.get(i)));
@@ -862,7 +895,7 @@ public class FloodAlertActivity extends FloodCueActivity {
         if (fromCache) {
             showCacheNote(updatedAt);
         } else {
-            cachedText.setVisibility(View.GONE);
+            cachedText.setText("");
         }
     }
 
@@ -971,7 +1004,9 @@ public class FloodAlertActivity extends FloodCueActivity {
             return;
         }
         if (Build.VERSION.SDK_INT >= 33
-                && ContextCompat.checkSelfPermission(context,                        Manifest.permission.POST_NOTIFICATIONS)                != PackageManager.PERMISSION_GRANTED) {
+                && ContextCompat.checkSelfPermission(context,
+                        Manifest.permission.POST_NOTIFICATIONS)
+                != PackageManager.PERMISSION_GRANTED) {
             // Permission denied: do not fire notifications, but still update cache
             // so the screen can show what was found when permission is later granted.
             return;
@@ -996,9 +1031,11 @@ public class FloodAlertActivity extends FloodCueActivity {
             notified.add(alert.id);
             sent++;
             try {
-                manager.notify(alert.id.hashCode(),                        buildNotification(context, alert, districtName));
+                manager.notify(alert.id.hashCode(),
+                        buildNotification(context, alert, districtName));
             } catch (SecurityException noPermission) {
-                // Permission revoked after starting; stop sending further notifications.                return;
+                // Permission revoked after starting; stop sending further notifications.
+                return;
             }
         }
         if (sent == 0) {
@@ -1020,7 +1057,8 @@ public class FloodAlertActivity extends FloodCueActivity {
      */
     private void showNotificationBlockedToast() {
         if (Build.VERSION.SDK_INT >= 33) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)                    != PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+                    != PackageManager.PERMISSION_GRANTED) {
                 showStatus(R.string.flood_alert_notifications_blocked);
             }
         }
@@ -1029,11 +1067,47 @@ public class FloodAlertActivity extends FloodCueActivity {
     private static void notifyNewSafe(Context context,
                                   List<Alert> alerts,
                                   String districtName) {
-        // Caller should show showNotificationBlockedToast() if desired after calling.        if (alerts.isEmpty()) {            return;        }        NotificationManagerCompat manager = NotificationManagerCompat.from(context);        SharedPreferences prefs = preferences(context);        LinkedHashSet<String> notified = new LinkedHashSet<>();        for (String id : prefs.getString(KEY_NOTIFIED, "").split(",")) {            if (!id.trim().isEmpty()) {                notified.add(id.trim());            }        }
+        // Caller should show showNotificationBlockedToast() if desired after calling.
+        if (alerts.isEmpty()) {
+            return;
+        }
+        NotificationManagerCompat manager = NotificationManagerCompat.from(context);
+        SharedPreferences prefs = preferences(context);
+        LinkedHashSet<String> notified = new LinkedHashSet<>();
+        for (String id : prefs.getString(KEY_NOTIFIED, "").split(",")) {
+            if (!id.trim().isEmpty()) {
+                notified.add(id.trim());
+            }
+        }
 
-        int sent = 0;        for (Alert alert : alerts) {            if (sent >= NOTIFY_PER_REFRESH) {                break;            }            if (alert.id.isEmpty() || notified.contains(alert.id)) {                continue;            }            notified.add(alert.id);            sent++;            try {                manager.notify(alert.id.hashCode(),                        buildNotification(context, alert, districtName));            } catch (SecurityException noPermission) {                return;            }        }
-        if (sent == 0) {            return;        }
-        while (notified.size() > MAX_NOTIFIED_IDS) {            Iterator<String> iterator = notified.iterator();            if (!iterator.hasNext()) {                break;            }            iterator.next();            iterator.remove();        }
+        int sent = 0;
+        for (Alert alert : alerts) {
+            if (sent >= NOTIFY_PER_REFRESH) {
+                break;
+            }
+            if (alert.id.isEmpty() || notified.contains(alert.id)) {
+                continue;
+            }
+            notified.add(alert.id);
+            sent++;
+            try {
+                manager.notify(alert.id.hashCode(),
+                        buildNotification(context, alert, districtName));
+            } catch (SecurityException noPermission) {
+                return;
+            }
+        }
+        if (sent == 0) {
+            return;
+        }
+        while (notified.size() > MAX_NOTIFIED_IDS) {
+            Iterator<String> iterator = notified.iterator();
+            if (!iterator.hasNext()) {
+                break;
+            }
+            iterator.next();
+            iterator.remove();
+        }
         prefs.edit().putString(KEY_NOTIFIED, join(new ArrayList<>(notified))).apply();
     }
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="language_title">மொழி தேர்வாளர்</string>
+    <string name="language_subtitle">உங்களுக்கு வசதியான மொழிகளைத் தேர்ந்தெடுங்கள்.</string>
+    <string name="language_app_heading">செயலி மொழி</string>
+    <string name="language_app_hint">பட்டியல் மற்றும் செயலி வழிமுறைகளுக்கு</string>
+    <string name="language_survival_heading">அவசர / பாதுகாப்பு மொழி</string>
+    <string name="language_survival_hint">அவசர மற்றும் பாதுகாப்பு தகவல்களுக்கு</string>
+    <string name="language_change_later">இந்த விருப்பங்களை பின்னர் மாற்றலாம்.</string>
+    <string name="language_continue">தொடரவும்</string>
+
+    <string name="language_picker_app_title">செயலி மொழியைத் தேர்ந்தெடுங்கள்</string>
+    <string name="language_picker_survival_title">பாதுகாப்பு மொழியைத் தேர்ந்தெடுங்கள்</string>
+    <string name="language_picker_subtitle">தேடி ஒரு மொழியைத் தேர்ந்தெடுங்கள்</string>
+    <string name="language_picker_search_hint">மொழியைத் தேடுங்கள்…</string>
+    <string name="language_picker_empty">மொழிகள் எதுவும் கிடைக்கவில்லை.\nவேறு தேடலை முயற்சிக்கவும்.</string>
+
+    <string name="language_updated">மொழி புதுப்பிக்கப்பட்டது</string>
+    <string name="settings_change_language">மொழி புதுப்பிக்கப்பட்டது</string>
+</resources>

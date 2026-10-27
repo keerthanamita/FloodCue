@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="flood_alert_back_title">← പ്രളയ മുന്നറിയിപ്പുകൾ</string>
+    <string name="flood_alert_header">പ്രളയ മുന്നറിയിപ്പുകൾ</string>
+    <string name="flood_alert_subtitle">നിങ്ങളുടെ ജില്ലയെ പരാമർശിക്കുന്ന ഔദ്യോഗിക മുന്നറിയിപ്പുകൾ</string>
+
+    <string name="flood_alert_district_hint">ജില്ലയുടെ പേര്</string>
+    <string name="flood_alert_district_set">സജ്ജമാക്കുക</string>
+    <string name="flood_alert_use_location">എന്റെ ലൊക്കേഷൻ ഉപയോഗിക്കുക</string>
+    <string name="flood_alert_refresh">പുതുക്കുക</string>
+    <string name="flood_alert_district_empty">മുന്നറിയിപ്പുകൾ കാണാൻ ജില്ലയുടെ പേര് നൽകുക അല്ലെങ്കിൽ നിങ്ങളുടെ ലൊക്കേഷൻ ഉപയോഗിക്കുക.</string>
+    <string name="flood_alert_location_reading">GPS-ൽ നിന്ന് നിങ്ങളുടെ ജില്ല വായിക്കുന്നു…</string>
+    <string name="flood_alert_district_location_failed">GPS-ൽ നിന്ന് നിങ്ങളുടെ ജില്ല വായിക്കാൻ സാധിച്ചില്ല. പകരം ജില്ലയുടെ പേര് ടൈപ്പ് ചെയ്യുക.</string>
+    <string name="flood_alert_district_location_permission">നിങ്ങളുടെ ജില്ല കണ്ടെത്താൻ ലൊക്കേഷൻ അനുമതി ആവശ്യമാണ്. നിങ്ങൾക്ക് അത് ടൈപ്പ് ചെയ്യാവുന്നതാണ്.</string>
+
+    <string name="flood_alert_loading">ഔദ്യോഗിക മുന്നറിയിപ്പ് ഫീഡുകൾ പരിശോധിക്കുന്നു…</string>
+    <string name="flood_alert_offline">ഇന്റർനെറ്റ് ഇല്ല. ഈ ഉപകരണത്തിൽ സൂക്ഷിച്ച മുന്നറിയിപ്പുകൾ കാണിക്കുന്നു.</string>
+    <string name="flood_alert_error">ഇപ്പോൾ മുന്നറിയിപ്പ് ഫീഡുകൾ വായിക്കാൻ സാധിച്ചില്ല. വീണ്ടും പുതുക്കൽ ശ്രമിക്കുക.</string>
+    <string name="flood_alert_none">നിലവിലെ ഫീഡിൽ %1$s പരാമർശിക്കുന്ന ഔദ്യോഗിക മുന്നറിയിപ്പില്ല.</string>
+    <string name="flood_alert_feed_updated">ഫീഡ് പുതുക്കി</string>
+    <string name="flood_alert_no_matching">നിലവിലെ ഫീഡിൽ %1$s എന്നതിന് പൊരുത്തമുള്ള മുന്നറിയിപ്പില്ല</string>
+    <string name="flood_alert_cached_data">%1$s ഇൽ നിന്നുള്ള ക്യാഷ് ചെയ്ത മുന്നറിയിപ്പുകൾ കാണിക്കുന്നു</string>
+    <string name="flood_alert_notifications_blocked">ക്രമീകരണങ്ങളിൽ അറിയിപ്പുകൾ തടഞ്ഞിരിക്കുന്നു</string>
+    <string name="flood_alert_cached_note">%1$s · അവസാനം പുതുക്കിയത് %2$s</string>
+    <string name="flood_alert_cache_fresh">സൂക്ഷിച്ച മുന്നറിയിപ്പുകൾ കാണിക്കുന്നു</string>
+    <string name="flood_alert_cache_old">സൂക്ഷിച്ച മുന്നറിയിപ്പുകൾ കാണിക്കുന്നു; അവ പഴയതാകാം</string>
+
+    <string name="flood_alert_sachet_title">NDMA SACHET മുന്നറിയിപ്പുകൾ</string>
+    <string name="flood_alert_severity_unknown">തീവ്രത പറഞ്ഞിട്ടില്ല</string>
+    <string name="flood_alert_issued">പുറപ്പെടുവിച്ചത് %1$s</string>
+    <string name="flood_alert_valid_until">സാധുത %1$s വരെ</string>
+    <string name="flood_alert_source">ഉറവിടം: %1$s</string>
+
+    <string name="flood_alert_river_title">നദി, പ്രളയ പ്രവചനങ്ങൾ</string>
+    <string name="flood_alert_river_body">നദിനിരപ്പും പ്രളയ പ്രവചനങ്ങളും കേന്ദ്ര ജല കമ്മീഷനിൽ നിന്നാണ്. FloodCue അവയെ ലൈവ് ഡാറ്റയായി സ്വീകരിക്കുന്നില്ല, അതിനാൽ പരിശോധിക്കാൻ ഔദ്യോഗിക CWC പോർട്ടൽ തുറക്കുക.</string>
+    <string name="flood_alert_open_cwc">CWC പ്രളയ പ്രവചനങ്ങൾ തുറക്കുക</string>
+    <string name="flood_alert_open_sachet">NDMA SACHET പോർട്ടൽ തുറക്കുക</string>
+    <string name="flood_alert_open_failed">ലിങ്ക് ബ്രൗസറിൽ തുറക്കാൻ സാധിച്ചില്ല.</string>
+
+    <string name="flood_alert_disclaimer">ഇവ NDMA SACHET പ്രസിദ്ധീകരിച്ച ഔദ്യോഗിക മുന്നറിയിപ്പുകളാണ്. ഇവ ലൈവ് പ്രളയ സെൻസർ അല്ല: മഴ മുന്നറിയിപ്പ് മാത്രം പ്രളയം ഉറപ്പാക്കുന്നില്ല. പ്രാദേശിക അധികൃതരുടെയും ദുരന്തനിവാരണ ടീമുകളുടെയും നിർദ്ദേശങ്ങൾ പാലിക്കുക.</string>
+
+    <string name="flood_alert_channel_name">പ്രളയ മുന്നറിയിപ്പുകൾ (സൈറൺ)</string>
+    <string name="flood_alert_channel_desc">ഉച്ചസ്ഥായിയിലുള്ള ഔദ്യോഗിക പ്രളയ, കനത്ത മഴ മുന്നറിയിപ്പുകൾ: FloodCue സൈറൺ പ്ലേ ചെയ്യും, കമ്പിക്കും, FloodCue അടച്ചിരുന്നാലും മറ്റ് ആപ്പുകൾക്ക് മുകളിൽ പ്രത്യക്ഷപ്പെടും</string>
+    <string name="flood_alert_notification_title">%1$s-നുള്ള പ്രളയ മുന്നറിയിപ്പ്</string>
+
+</resources>

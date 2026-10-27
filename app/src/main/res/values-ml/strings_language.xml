@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Language picker screen and dialogs (shown in the app language). -->
+    <string name="language_title">ഭാഷ തിരഞ്ഞെടുപ്പ്</string>
+    <string name="language_subtitle">നിങ്ങൾ സ്വീകരിക്കുന്ന ഭാഷകൾ തിരഞ്ഞെടുക്കുക.</string>
+    <string name="language_app_heading">ആപ്പ് ഭാഷ</string>
+    <string name="language_app_hint">മെനുവിനും ആപ്പ് നിർദ്ദേശങ്ങൾക്കും</string>
+    <string name="language_survival_heading">അടിയന്തര / സുരക്ഷാ ഭാഷ</string>
+    <string name="language_survival_hint">അടിയന്തര, സുരക്ഷാ വിവരങ്ങൾക്ക്</string>
+    <string name="language_change_later">പിന്നീട് നിങ്ങൾക്ക് ഈ മുൻഗണനകൾ മാറ്റാം.</string>
+    <string name="language_continue">തുടരുക</string>
+
+    <string name="language_picker_app_title">ആപ്പ് ഭാഷ തിരഞ്ഞെടുക്കുക</string>
+    <string name="language_picker_survival_title">സുരക്ഷാ ഭാഷ തിരഞ്ഞെടുക്കുക</string>
+    <string name="language_picker_subtitle">തിരയുകയും ഭാഷ തിരഞ്ഞെടുക്കുകയും ചെയ്യുക</string>
+    <string name="language_picker_search_hint">ഭാഷ തിരയുക…</string>
+    <string name="language_picker_empty">ഭാഷകൾ കണ്ടെത്തിയില്ല.\nവേറൊരു തിരയൽ നോക്കുക.</string>
+
+    <string name="language_updated">ഭാഷ പുതുക്കി</string>
+    <string name="settings_change_language">ഭാഷ പുതുക്കി</string>
+</resources>

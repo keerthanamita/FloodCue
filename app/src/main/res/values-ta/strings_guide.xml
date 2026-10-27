@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="guide_back_title">← அவசர வழிகாட்டி</string>
+    <string name="guide_back_to_list">← சூழ்நிலைகள்</string>
+    <string name="guide_heading">அவசர உயிர்வாழ்வு வழிகாட்டி</string>
+    <string name="guide_subtitle">உங்கள் சூழ்நிலையைத் தேர்ந்தெடுத்து, சுருக்கமான எண்ணிட்ட படிகளைப் படியுங்கள். மிக அவசரமான சூழ்நிலைகள் முதலில் பட்டியலிடப்படுகின்றன.</string>
+    <string name="guide_disclaimer">முதலில் அவசர சேவைகளின் அதிகாரப்பூர்வ அறிவுறுத்தல்களைப் பின்பற்றுங்கள். FloodCue பொதுவான பொது-பாதுகாப்பு வழிகாட்டலை மட்டுமே மீண்டும் கூறுகிறது — தரையில் உள்ள நிலையை அது சரிபார்க்க முடியாது, SMS, அழைப்புகள், GPS அல்லது மெஷ் செய்தியிடல் உங்கள் சாதனம், அனுமதிகள் மற்றும் வலையமைப்பு அனுமதித்தால் மட்டுமே வேலை செய்யும்.</string>
+    <string name="guide_sos_button">SOS அவசர செய்தியை அனுப்பு</string>
+    <string name="home_emergency_guide">அவசர வழிகாட்டி</string>
+</resources>

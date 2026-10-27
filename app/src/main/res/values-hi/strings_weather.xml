@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="weather_back_title">← मौसम</string>
+    <string name="weather_header">मौसम</string>
+
+    <string name="weather_temp">%1$.1f°C</string>
+    <string name="weather_condition">%1$s</string>
+    <string name="weather_rain">वर्षा: %1$.1f mm</string>
+    <string name="weather_rain_prob">वर्षा संभावना: %1$d%%</string>
+    <string name="weather_rain_24h">अगले 24 घंटे: %1$.1f mm</string>
+    <string name="weather_wind">हवा: %1$.1f m/s · %2$s</string>
+    <string name="weather_hourly">घंटेवार वर्षा (अगले 24 घंटे)</string>
+
+    <string name="weather_details_title">और विवरण</string>
+    <string name="weather_label_humidity">आर्द्रता</string>
+    <string name="weather_value_humidity">%1$d%%</string>
+    <string name="weather_label_feels_like">अनुभूत तापमान</string>
+    <string name="weather_value_feels_like">%1$.1f°C</string>
+    <string name="weather_label_pressure">वायुदाब</string>
+    <string name="weather_value_pressure">%1$.1f hPa</string>
+    <string name="weather_label_cloud">बादल</string>
+    <string name="weather_value_cloud">%1$d%%</string>
+    <string name="weather_label_gusts">हवा के झोंके</string>
+    <string name="weather_value_gusts">%1$.1f m/s</string>
+    <string name="weather_label_visibility">दृश्यता</string>
+    <string name="weather_value_visibility">%1$.1f km</string>
+    <string name="weather_label_rain_6h">अगले 6 घंटे की वर्षा</string>
+    <string name="weather_value_rain_6h">%1$.1f mm</string>
+    <string name="weather_selected_location">चयनित: %1$.3f, %2$.3f</string>
+    <string name="weather_cache_note">%1$s · आख़िरी अपडेट %2$s</string>
+
+    <string name="weather_unavailable">अनुपलब्ध</string>
+    <string name="weather_ok">ठीक</string>
+    <string name="weather_cancel">रद्द करें</string>
+    <string name="weather_use_location">स्थान उपयोग करें</string>
+    <string name="weather_refresh">रिफ़्रेश</string>
+
+    <string name="weather_loading">मौसम लोड हो रहा है…</string>
+    <string name="weather_getting_location">आपका स्थान लिया जा रहा है…</string>
+    <string name="weather_no_data">अभी मौसम डेटा नहीं. स्थान चुनें, फिर रिफ़्रेश दबाएँ.</string>
+    <string name="weather_network_error">मौसम नहीं मिल सका. इंटरनेट देखकर रिफ़्रेश दबाएँ.</string>
+    <string name="weather_no_location">कोई स्थान नहीं चुना. "स्थान चुनें" दबाएँ.</string>
+
+    <string name="weather_location_request">स्थान एक्सेस बंद है. अनुमति देने या निर्देशांक डालने के लिए "स्थान चुनें" दबाएँ.</string>
+    <string name="weather_location_denied">लोकेशन अनुमति नहीं मिली. आप निर्देशांक हाथ से डाल सकते हैं.</string>
+    <string name="weather_location_fix_failed">स्थान फ़िक्स नहीं मिला. GPS चालू करें या निर्देशांक हाथ से डालें.</string>
+    <string name="weather_invalid_coordinates">वैध अक्षांश-देशांतर डालें.</string>
+
+    <string name="weather_select_location">स्थान चुनें</string>
+    <string name="weather_choose_location">एक स्थान चुनें</string>
+    <string name="weather_use_current_location">मेरा वर्तमान स्थान</string>
+    <string name="weather_enter_coordinates">निर्देशांक हाथ से डालें</string>
+    <string name="weather_manual_title">निर्देशांक डालें</string>
+    <string name="weather_lat_hint">अक्षांश (-90 से 90)</string>
+    <string name="weather_lon_hint">देशांतर (-180 से 180)</string>
+
+    <string name="weather_cache_fresh">सहेजा डेटा दिख रहा है</string>
+    <string name="weather_using_cache">सहेजा डेटा दिख रहा है, पुराना हो सकता है</string>
+
+    <string name="weather_warning_help">चेतावनियाँ क्यों दिखती हैं</string>
+    <string name="weather_warning_help_text">मौसम पूर्वानुमान बताता है कि वातावरण क्या करने जा रहा है. यह यह पुष्टि नहीं कर सकता कि बाढ़ आ रही है या आएगी, और यह ऐप कभी आधिकारिक चेतावनियाँ गढ़ता नहीं. आधिकारिक निकासी (evacuation) आदेश की प्रतीक्षा में कभी न रहें; स्थानीय आपदा-प्रबंधन की बात सीधे मानें.</string>
+</resources>

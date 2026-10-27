@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="checklist_back_title">← പ്രളയ ചെക്ക്ലിസ്റ്റ്</string>
+    <string name="checklist_heading">🌧️ പ്രളയത്തിന് മുമ്പുള്ള ചെക്ക്ലിസ്റ്റ്</string>
+    <string name="checklist_subtitle">വെള്ളം ഉയരുന്നതിന് മുമ്പ് തയ്യാറെടുക്കുക. നിങ്ങളുടെ ടിക്കുകൾ ഈ ഫോണിൽ സൂക്ഷിക്കുന്നു, ഇന്റർനെറ്റ് ഇല്ലാതെയും പ്രവർത്തിക്കുന്നു.</string>
+
+    <string name="checklist_tab_essential">അത്യാവശ്യം</string>
+    <string name="checklist_tab_complete">പൂർണ്ണം</string>
+    <string name="checklist_progress">ആകെ: %2$d ജോലികളിൽ %1$d പൂർത്തിയായി</string>
+    <string name="checklist_section_progress">%1$d/%2$d</string>
+
+    <string name="checklist_section_informed">📢 വിവരം ലഭിച്ചുകൊണ്ടിരിക്കുകയും തയ്യാറെടുക്കുകയും ചെയ്യുക</string>
+    <string name="checklist_section_gobag">🎒 ഒരു അടിയന്തര ഗോ-ബാഗ് തയ്യാറാക്കുക</string>
+    <string name="checklist_section_phone">📱 നിങ്ങളുടെ ഫോണും FloodCue ആപ്പും തയ്യാറാക്കുക</string>
+    <string name="checklist_section_home">🏠 നിങ്ങളുടെ വീട് സംരക്ഷിക്കുക</string>
+    <string name="checklist_section_family">👨‍👩‍👧 നിങ്ങളുടെ കുടുംബം തയ്യാറാക്കുക</string>
+    <string name="checklist_section_evac">🚨 ഒഴിപ്പിക്കൽ മുന്നറിയിപ്പ് ലഭിച്ചാൽ</string>
+
+    <string name="checklist_note_informed">പ്രളയം വരുന്നതിന് മുമ്പ് നിങ്ങളുടെ അപകടസാധ്യത അറിയുക.</string>
+    <string name="checklist_note_gobag">ഗോ-ബാഗ് തയ്യാറാക്കൽ: %2$d ഇനങ്ങളിൽ %1$d</string>
+    <string name="checklist_note_phone">കുറിപ്പ്: ഭൂപട ഡാറ്റ ഈ ഉപകരണത്തിൽ നേരത്തേ സൂക്ഷിച്ചിട്ടുണ്ടെങ്കിൽ മാത്രമേ ഓഫ്‌ലൈൻ ഭൂപടം ഇന്റർനെറ്റ് ഇല്ലാതെ പ്രവർത്തിക്കൂ; സാധാരണ SMS-ന് ഇപ്പോഴും മൊബൈൽ നെറ്റ്‌വർക്ക് കവറേജും ലഭ്യമായ SMS സേവനവും ആവശ്യമാണ്.</string>
+    <string name="checklist_note_home_safety">സുരക്ഷാ കുറിപ്പ്: പ്രളയവെള്ളം ചുറ്റുമുള്ള ഇലക്ട്രിക്കൽ ഉപകരണങ്ങളോട് ഒരിക്കലും അടുക്കരുത്, നനഞ്ഞ ഇലക്ട്രിക്കൽ ഉപകരണം ഒരിക്കലും തൊടരുത്.</string>
+    <string name="checklist_note_family">വീട്ടിലുള്ള എല്ലാവരും ഈ പദ്ധതി അറിഞ്ഞിരിക്കണം.</string>
+    <string name="checklist_note_evac_critical">നിർണായക നിയമം: സമയത്തിന് ഒഴിപ്പിക്കലാണ് ഏറ്റവും പ്രധാനം — ചെക്ക്ലിസ്റ്റ് പൂർത്തിയാക്കുന്നതിനേക്കാൾ ഒരിക്കലും കുറവല്ല; ഔദ്യോഗിക ഒഴിപ്പിക്കൽ നിർദ്ദേശങ്ങൾ എപ്പോഴും ആദ്യം.</string>
+
+    <string name="home_flood_checklist">പ്രളയ ചെക്ക്ലിസ്റ്റ്</string>
+</resources>

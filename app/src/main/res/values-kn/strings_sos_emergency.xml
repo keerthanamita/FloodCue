@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sos_emergency_back_title">← SOS ತುರ್ತು</string>
+    <string name="sos_emergency_heading">SOS ತುರ್ತು</string>
+    <string name="sos_emergency_short">ಮೂರು ವಿಷಯಗಳು ಒಟ್ಟಿಗೆ: ನಿಮ್ಮ ತುರ್ತು ಸಂಪರ್ಕಗಳಿಗೆ SOS ಸಂದೇಶ, ಸೈರನ್, ಮತ್ತು ನಕಶೆ ಲಿಂಕ್‌ನೊಂದಿಗೆ ನಿಮ್ಮ GPS ಸ್ಥಳ.</string>
+    <string name="sos_emergency_send">ತುರ್ತು SOS ಕಳುಹಿಸಿ</string>
+    <string name="sos_emergency_sms_sent">SOS ಸಂದೇಶ ನಿಮ್ಮ ತುರ್ತು ಸಂಪರ್ಕಗಳಿಗೆ ಕಳುಹಿಸಲಾಗಿದೆ.</string>
+    <string name="sos_emergency_sms_failed">SOS ಸಂದೇಶ ಕಳುಹಿಸಲಾಗಲಿಲ್ಲ. ನಿಮ್ಮ ಜಾಲ ಮತ್ತು ಕನಿಷ್ಠ ಒಂದು ತುರ್ತು ಸಂಪರ್ಕ ಇದೆಯೇ ಎಂದು ಪರಿಶೀಲಿಸಿ.</string>
+    <string name="sos_emergency_sms_pending">SOS ಕಳುಹಿಸಲು ಕಾಯುತ್ತಿದೆ</string>
+    <string name="sos_emergency_no_contacts">ತುರ್ತು ಸಂಪರ್ಕಗಳು ಲಭ್ಯವಿಲ್ಲ. SOS ಕಳುಹಿಸುವ ಮೊದಲು ತುರ್ತು ಸಂಪರ್ಕಗಳ ಪುಟದಲ್ಲಿ ಸೇರಿಸಿ.</string>
+    <string name="sos_emergency_location">ಸ್ಥಳ</string>
+    <string name="sos_emergency_location_available">ಪ್ರಸ್ತುತ ಸ್ಥಳ ಪಡೆಯಲಾಗಿದೆ — ನಿರ್ದೇಶಾಂಕಗಳು ಮತ್ತು ನಕಶೆ ಲಿಂಕ್ ಸೇರಿಸಲಾಗಿದೆ.</string>
+    <string name="sos_emergency_location_unavailable">ಸ್ಥಳ ಪಡೆಯಲಾಗಲಿಲ್ಲ.</string>
+    <string name="sos_emergency_location_last_known">ಕೊನೆಯದಾಗಿ ತಿಳಿದಿದ್ದ ಸ್ಥಳ ಮಾತ್ರ — %1$s (ಹರಿಯುವಿಕೆ: %2$s).</string>
+    <string name="sos_emergency_siren">ಸೈರನ್ ಸಕ್ರಿಯಗೊಂಡಿದೆ — ನಿಲ್ಲಿಸಲು “ಸೈರನ್ ನಿಲ್ಲಿಸಿ” ಒತ್ತಿ ಅಥವಾ ಆಪ್ ಬಿಟ್ಟುಹೋಗಿ.</string>
+    <string name="sos_emergency_feeding_sms">ಈಗ SMS ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ…</string>
+    <string name="sos_emergency_contact">ತುರ್ತು ಸಂಪರ್ಕ</string>
+    <string name="sos_emergency_perm_denied">ನಿರ್ದೇಶಾಂಕಗಳಿಗೆ ಸ್ಥಳ ಅನುಮತಿ ಅಗತ್ಯ. ಸಿಸ್ಟಮ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಅದನ್ನು ಆನ್ ಮಾಡಿ.</string>
+    <string name="sos_emergency_no_sim">SIM ಕಂಡುಬಂದಿಲ್ಲ — SMS ಕಳುಹಿಸಲಾಗದು.</string>
+</resources>

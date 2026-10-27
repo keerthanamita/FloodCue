@@ -4,6 +4,7 @@
     <string name="app_name">FloodCue</string>
     <string name="default_web_client_id">263570444879-t0u106l5sj1ntmtq1fo328rcfuhhnlv0.apps.googleusercontent.com</string>
 
+    <!-- Language feature -->
     <string name="offline_maps_title">Offline maps</string>
     <string name="offline_maps_download_prompt">Download the map to use it without internet</string>
     <string name="offline_maps_go">Go</string>
@@ -24,7 +25,7 @@
     <string name="offline_map_location_denied">Location permission was not granted.</string>
     <string name="home_offline_maps">Offline Maps</string>
     <string name="home_emergency_contacts">Emergency Contacts</string>
-    <string name="home_sos_emergency_message">SOS Emergency Message</string>
+    <string name="home_sos_emergency_message">Emergency Message</string>
     <string name="home_settings">Settings</string>
     <string name="home_siren">Siren</string>
     <string name="home_siren_stop">Stop Siren</string>
@@ -35,7 +36,6 @@
     <string name="settings_change_user_details">User profile</string>
     <string name="settings_logout">Log out</string>
     <string name="settings_about_floodcue">About FloodCue</string>
-
     <!-- Bottom navigation (shown on every screen after setup). -->
     <string name="nav_home">Home</string>
     <string name="nav_contacts">Contacts</string>
@@ -80,7 +80,7 @@
     <string name="emergency_contacts_invalid_number">No phone number available</string>
     <string name="emergency_contacts_unable_to_call">Unable to make the call</string>
     <string name="emergency_contacts_permission_required">Phone permission is required to place calls</string>
-    <string name="home_sos_emergency">SOS Emergency</string>
+    <string name="home_sos_emergency">Emergency</string>
     <string name="home_weather">Weather</string>
     <string name="home_flood_alerts">Flood Alerts</string>
     <string name="home_sos">SOS</string>
@@ -92,5 +92,4 @@
     <string name="home_sos_sms_permission">SMS permission is needed to send the emergency message automatically.</string>
     <string name="home_sos_location_permission">Location permission lets SOS add your coordinates to the message.</string>
     <string name="home_sos_location_unavailable">No GPS fix yet, so the message says coordinates are unavailable.</string>
-    <string name="home_sos_siren_stopped">Siren stopped. Messages already sent cannot be recalled.</string>
-</resources>
+    <string name="home_sos_siren_stopped">Siren stopped. Messages already sent cannot be recalled.</string></resources>

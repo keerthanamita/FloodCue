@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="checklist_back_title">← வெள்ள சரிபார்ப்பு பட்டியல்</string>
+    <string name="checklist_heading">🌧️ வெள்ளத்திற்கு முன் சரிபார்ப்பு பட்டியல்</string>
+    <string name="checklist_subtitle">நீர் உயரும் முன் தயாராகுங்கள். உங்கள் குறிகள் இந்தப் ஃபோனில் சேமித்து, இணையம் இல்லாமல் வேலை செய்யும்.</string>
+
+    <string name="checklist_tab_essential">அவசியம்</string>
+    <string name="checklist_tab_complete">முழுமை</string>
+    <string name="checklist_progress">மொத்தம்: %2$d பணிகளில் %1$d முடிந்தது</string>
+    <string name="checklist_section_progress">%1$d/%2$d</string>
+
+    <string name="checklist_section_informed">📢 தகவல் பெறுங்கள் &amp; தயாராகுங்கள்</string>
+    <string name="checklist_section_gobag">🎒 அவசர கோ-பேக் தயார் செய்யுங்கள்</string>
+    <string name="checklist_section_phone">📱 உங்கள் ஃபோனையும் FloodCue செயலியையும் தயார் செய்யுங்கள்</string>
+    <string name="checklist_section_home">🏠 உங்கள் வீட்டைப் பாதுகாய்ங்கள்</string>
+    <string name="checklist_section_family">👨‍👩‍👧 உங்கள் குடும்பத்தைத் தயார் செய்யுங்கள்</string>
+    <string name="checklist_section_evac">🚨 வெளியேற்ற எச்சரிக்கை வந்தால்</string>
+
+    <string name="checklist_note_informed">நிகழும் முன்பே உங்கள் வெள்ள ஆபத்தை அறியுங்கள்.</string>
+    <string name="checklist_note_gobag">கோ-பேக் தயார்நிலை: %2$d பொருட்களில் %1$d</string>
+    <string name="checklist_note_phone">குறிப்பு: ஆஃப்லைன் வரைபடங்கள் இணையம் இல்லாமல் வேலை செய்ய, வரைபட தரவு இந்த சாதனத்தில் ஏற்கனவே சேமிக்கப்பட்டிருக்க வேண்டும்; வழக்கமான SMS-க்கு மொபைல் வலையமைப்பு கவரேஜும் கிடைக்கக்கூடிய SMS சேவையும் தேவை.</string>
+    <string name="checklist_note_home_safety">பாதுகாப்பு குறிப்பு: வெள்ள நீர் சூழ்ந்த மின் சாதனங்களை அணுக வேண்டாம், மேலும் ஈரமான மின் சாதனங்களைத் தொட வேண்டாம்.</string>
+    <string name="checklist_note_family">மூங்கில அனைவரும் இந்தத் திட்டத்தை அறிந்திருக்க வேண்டும்.</string>
+    <string name="checklist_note_evac_critical">முக்கிய விதி: சரிபார்ப்பு பட்டியலை முடிப்பதும் நேரத்தில் வெளியேறுவதும் ஒரே முக்கியத்வத்தில் அல்ல — அதிகாரப்பூர்வ வெளியேற்ற அறிவுறுத்தல்கள் எப்போதும் முதலில்.</string>
+
+    <string name="home_flood_checklist">வெள்ள சரிபார்ப்பு பட்டியல்</string>
+</resources>

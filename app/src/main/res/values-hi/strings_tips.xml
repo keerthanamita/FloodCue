@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tips_back_title">← सुरक्षा सुझाव</string>
+    <string name="tips_heading">बाढ़ सुरक्षा सुझाव</string>
+    <string name="tips_subtitle">बाढ़ से पहले, दौरान और बाद के छोटे व्यावहारिक सुझाव. बिना इंटरनेट के भी काम करते हैं.</string>
+    <string name="tips_warning_legend">⚠️ लाल रंग में दिखाए सुझाव जानलेवा चेतावनियाँ हैं.</string>
+
+    <string name="tips_category_before">🛡️ बाढ़ से पहले</string>
+    <string name="tips_category_during">🌊 बाढ़ के दौरान</string>
+    <string name="tips_category_after">🏥 बाढ़ के बाद</string>
+
+    <string name="home_safety_tips">सुरक्षा सुझाव</string>
+</resources>

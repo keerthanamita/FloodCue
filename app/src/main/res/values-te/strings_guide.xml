@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Back navigation -->
     <string name="guide_back_title">← ఎమర్జెన్సీ గైడ్</string>
     <string name="guide_back_to_list">← సందర్భాలు</string>
     <string name="guide_heading">అత్యంత కీలకమైన ఎమర్జెన్సీ గైడ్</string>

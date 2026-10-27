@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="offline_comm_back_title">← ऑफ़लाइन संचार</string>
+    <string name="offline_comm_heading">ऑफ़लाइन संचार</string>
+    <string name="offline_comm_short">जब बाढ़ इंटरनेट बंद कर दे, तब भी आप Bridgefy — मोबाइल डेटा या Wi‑Fi के बिना सीधे ब्लूटूथ पर चलने वाला एक अलग निःशुल्क ऐप — से पास के फ़ोनों से संदेश भेज सकते हैं.</string>
+    <string name="offline_comm_open_button">Bridgefy खोलें</string>
+    <string name="offline_comm_not_installed">इस फ़ोन पर Bridgefy इंस्टॉल नहीं है. Google Play से लें — इंस्टॉल करने और पहली बार सक्रिय करने के लिए ही इंटरनेट चाहिए.</string>
+    <string name="offline_comm_open_failed">इस डिवाइस पर Bridgefy नहीं खुल सका.</string>
+    <string name="offline_comm_howto_title">बाढ़ के दौरान Bridgefy कैसे इस्तेमाल करें</string>
+    <string name="offline_comm_more_title">जानने योग्य बातें</string>
+    <string name="offline_comm_limitations">Bridgefy केवल तभी चलता है जब दोनों फ़ोनों पर ऐप इंस्टॉल हो, ब्लूटूथ चालू हो और फ़ोन पास-पास हों. संदेश पहुँचना कभी भी पक्का नहीं होता; Bridgefy SMS, आपातकालीन कॉल या आधिकारिक बचाव स्रोतों की जगह नहीं लेता — FloodCue का SOS अपना बैकअप बनाए रखें.</string>
+    <string name="home_offline_communication">ऑफ़लाइन संचार</string>
+</resources>

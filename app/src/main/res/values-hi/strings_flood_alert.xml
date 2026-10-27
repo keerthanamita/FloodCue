@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="flood_alert_back_title">← बाढ़ चेतावनियाँ</string>
+    <string name="flood_alert_header">बाढ़ चेतावनियाँ</string>
+    <string name="flood_alert_subtitle">आपके ज़िले का ज़िक्र करने वाली आधिकारिक चेतावनियाँ</string>
+
+    <string name="flood_alert_district_hint">ज़िले का नाम</string>
+    <string name="flood_alert_district_set">सेट करें</string>
+    <string name="flood_alert_use_location">मेरा स्थान उपयोग करें</string>
+    <string name="flood_alert_refresh">रिफ़्रेश</string>
+    <string name="flood_alert_district_empty">चेतावनियाँ देखने के लिए ज़िला नाम लिखें या अपना स्थान उपयोग करें.</string>
+    <string name="flood_alert_location_reading">GPS से आपका ज़िला पढ़ा जा रहा है…</string>
+    <string name="flood_alert_district_location_failed">GPS से आपका ज़िला नहीं पढ़ा जा सका. ज़िले का नाम लिखें.</string>
+    <string name="flood_alert_district_location_permission">ज़िला पहचानने के लिए लोकेशन अनुमति चाहिए. आप उसे लिख भी सकते हैं.</string>
+
+    <string name="flood_alert_loading">आधिकारिक चेतावनी फ़ीड जाँची जा रही है…</string>
+    <string name="flood_alert_offline">इंटरनेट नहीं. इस डिवाइस पर सेव चेतावनियाँ दिख रही हैं.</string>
+    <string name="flood_alert_error">फ़ीड अभी पढ़ा नहीं जा सका. फिर से रिफ़्रेश दबाएँ.</string>
+    <string name="flood_alert_none">मौजूदा फ़ीड में कोई आधिकारिक चेतावनी %1$s का ज़िक्र नहीं करती.</string>
+    <string name="flood_alert_feed_updated">फ़ीड अपडेट हुई</string>
+    <string name="flood_alert_no_matching">मौजूदा फ़ीड में %1$s की कोई चेतावनी नहीं</string>
+    <string name="flood_alert_cached_data">%1$s की सेव चेतावनियाँ दिखाई जा रही हैं</string>
+    <string name="flood_alert_notifications_blocked">सेटिंग्स में नोटिफ़िकेशन बंद हैं</string>
+    <string name="flood_alert_cached_note">%1$s · आख़िरी अपडेट %2$s</string>
+    <string name="flood_alert_cache_fresh">सेव चेतावनियाँ दिख रही हैं</string>
+    <string name="flood_alert_cache_old">सेव चेतावनियाँ दिख रही हैं, पुरानी हो सकती हैं</string>
+
+    <string name="flood_alert_sachet_title">NDMA SACHET चेतावनियाँ</string>
+    <string name="flood_alert_severity_unknown">गंभीरता नहीं बताई गई</string>
+    <string name="flood_alert_issued">जारी: %1$s</string>
+    <string name="flood_alert_valid_until">%1$s तक वैध</string>
+    <string name="flood_alert_source">स्रोत: %1$s</string>
+
+    <string name="flood_alert_river_title">नदी और बाढ़ पूर्वानुमान</string>
+    <string name="flood_alert_river_body">नदी स्तर और बाढ़ पूर्वानुमान केंद्रीय जल आयोग (CWC) से आते हैं. FloodCue को वे लाइव डेटा के रूप में नहीं मिलते, इसलिए आधिकारिक CWC पोर्टल खोलकर देखें.</string>
+    <string name="flood_alert_open_cwc">CWC बाढ़ पूर्वानुमान खोलें</string>
+    <string name="flood_alert_open_sachet">NDMA SACHET पोर्टल खोलें</string>
+    <string name="flood_alert_open_failed">लिंक ब्राउज़र में नहीं खुल सका.</string>
+
+    <string name="flood_alert_disclaimer">ये NDMA SACHET द्वारा प्रकाशित आधिकारिक चेतावनियाँ हैं. ये लाइव बाढ़ सेंसर नहीं हैं: केवल वर्षा चेतावनी बाढ़ की पुष्टि नहीं करती. स्थानीय प्रशासन और आपदा-प्रबंधन टीमों के निर्देश मानें.</string>
+
+    <string name="flood_alert_channel_name">बाढ़ चेतावनियाँ (सायरन)</string>
+    <string name="flood_alert_channel_desc">तेज़ आधिकारिक बाढ़ और भारी वर्षा चेतावनियाँ: FloodCue सायरन बजाता है, काँपता है और अन्य ऐप्स के ऊपर दिखता है यहाँ तक कि ऐप बंद होने पर भी</string>
+    <string name="flood_alert_notification_title">%1$s के लिए बाढ़ चेतावनी</string>
+</resources>

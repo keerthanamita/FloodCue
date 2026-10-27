@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="offline_comm_back_title">← ஆஃப்லைன் தொடர்பு</string>
+    <string name="offline_comm_heading">ஆஃப்லைன் தொடர்பு</string>
+    <string name="offline_comm_short">வெள்ளத்தின்போது இணையம் துண்டிக்கப்பட்டாலும், Bridgefy — ஒரு தனி, இலவச செயலி — மூன்றிலும் வைத்த அருகில் உள்ள ஃபோன்களுக்கு நேரடியாக புளூடூத் வழியாக, மொபைல் டேட்டா அல்லது Wi-Fi இல்லாமல், செய்திகளைப் பரிமாறலாம்.</string>
+    <string name="offline_comm_open_button">Bridgefy-ஐத் திற</string>
+    <string name="offline_comm_not_installed">இந்த ஃபோனில் Bridgefy நிறுவப்படவில்லை. Google Play-யில் பெறுங்கள் — இணையம் நிறுவவும் முதல் செயல்படுத்தலுக்கும் மட்டுமே தேவை.</string>
+    <string name="offline_comm_open_failed">இந்த சாதனத்தில் Bridgefy-ஐத் திறக்க முடியவில்லை.</string>
+    <string name="offline_comm_howto_title">வெள்ளத்தின்போது Bridgefy-ஐப் பயன்படுத்தும் வழி</string>
+    <string name="offline_comm_more_title">தெரிந்துகொள்ள நல்லது</string>
+    <string name="offline_comm_limitations">Bridgefy இரண்டு ஃபோன்களிலும் செயலி நிறுவப்பட்டிருந்து, புளூடூத் இயக்கப்பட்டு, ஃபோன்கள் போதிய தூரத்தில் இருக்கும்போது மட்டுமே வேலை செய்கிறது. செய்தி வந்தடைவு என்றும் உறுதியாக இருக்காது, Bridgefy SMS, அவசர அழைப்புகள் அல்லது அதிகாரப்பூர்வ மீட்பு வழிகளுக்கு மாற்றாக அமையாது — FloodCue-ன் SOS-ஐ காப்பாக வையுங்கள்.</string>
+    <string name="home_offline_communication">ஆஃப்லைன் தொடர்பு</string>
+</resources>

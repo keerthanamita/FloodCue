@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="flood_alert_back_title">← ಪ್ರವಾಹ ಎಚ್ಚರಿಕೆಗಳು</string>
+    <string name="flood_alert_header">ಪ್ರವಾಹ ಎಚ್ಚರಿಕೆಗಳು</string>
+    <string name="flood_alert_subtitle">ನಿಮ್ಮ ಜಿಲ್ಲೆಯನ್ನು ಉಲ್ಲೇಖಿಸುವ ಅಧಿಕೃತ ಎಚ್ಚರಿಕೆಗಳು</string>
+
+    <string name="flood_alert_district_hint">ಜಿಲ್ಲೆಯ ಹೆಸರು</string>
+    <string name="flood_alert_district_set">ಹೊಂದಿಸಿ</string>
+    <string name="flood_alert_use_location">ನನ್ನ ಸ್ಥಳ ಬಳಸಿ</string>
+    <string name="flood_alert_refresh">ರಿಫ್ರೆಶ್</string>
+    <string name="flood_alert_district_empty">ಎಚ್ಚರಿಕೆಗಳನ್ನು ನೋಡಲು ಜಿಲ್ಲೆಯ ಹೆಸರು ನಮೂದಿಸಿ ಅಥವಾ ನಿಮ್ಮ ಸ್ಥಳ ಬಳಸಿ.</string>
+    <string name="flood_alert_location_reading">GPS ನಿಂದ ನಿಮ್ಮ ಜಿಲ್ಲೆ ಓದಲಾಗುತ್ತಿದೆ…</string>
+    <string name="flood_alert_district_location_failed">GPS ನಿಂದ ನಿಮ್ಮ ಜಿಲ್ಲೆ ಓದಲಾಗಲಿಲ್ಲ. ಬದಲಿಗೆ ಜಿಲ್ಲೆಯ ಹೆಸರು ಟೈಪ್ ಮಾಡಿ.</string>
+    <string name="flood_alert_district_location_permission">ನಿಮ್ಮ ಜಿಲ್ಲೆ ಗುರುತಿಸಲು ಸ್ಥಳ ಅನುಮತಿ ಅಗತ್ಯ. ನೀವ೅ದನ್ನು ಟೈಪ್ ಮಾಡಬಹುದು.</string>
+
+    <string name="flood_alert_loading">ಅಧಿಕೃತ ಎಚ್ಚರಿಕೆ ಫೀಡ್‌ಗಳ ಪರಿಶೀಲನೆ…</string>
+    <string name="flood_alert_offline">ಇಂಟರ್ನೆಟ್ ಇಲ್ಲ. ಈ ಸಾಧನದಲ್ಲಿ ಉಳಿಸಿದ ಎಚ್ಚರಿಕೆಗಳನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ.</string>
+    <string name="flood_alert_error">ಈಗ ಎಚ್ಚರಿಕೆ ಫೀಡ್‌ಗಳನ್ನು ಓದಲಾಗಲಿಲ್ಲ. ರಿಫ್ರೆಶ್ ಮತ್ತೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ.</string>
+    <string name="flood_alert_none">ಪ್ರಸ್ತುತ ಫೀಡ್‌ನಲ್ಲಿ %1$s ಅನ್ನು ಉಲ್ಲೇಖಿಸುವ ಅಧಿಕೃತ ಎಚ್ಚರಿಕೆ ಇಲ್ಲ.</string>
+    <string name="flood_alert_feed_updated">ಫೀಡ್ ನವೀಕರಿಸಲಾಗಿದೆ</string>
+    <string name="flood_alert_no_matching">ಪ್ರಸ್ತುತ ಫೀಡ್‌ನಲ್ಲಿ %1$s ಗೆ ಹೊಂದುವ ಎಚ್ಚರಿಕೆ ಇಲ್ಲ</string>
+    <string name="flood_alert_cached_data">%1$s ಇಂದ ಉಳಿಸಿದ ಎಚ್ಚರಿಕೆಗಳನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ</string>
+    <string name="flood_alert_notifications_blocked">ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಅಧಿಸೂಚನೆಗಳು ನಿರ್ಬಂಧಿಸಲ್ಪಟ್ಟಿವೆ</string>
+    <string name="flood_alert_cached_note">%1$s · ಕೊನೆಯದಾಗಿ ನವೀಕರಿಸಲಾಗಿದೆ %2$s</string>
+    <string name="flood_alert_cache_fresh">ಉಳಿಸಿದ ಎಚ್ಚರಿಕೆಗಳನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ</string>
+    <string name="flood_alert_cache_old">ಉಳಿಸಿದ ಎಚ್ಚರಿಕೆಗಳನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ; ಅವು ಹಳೆಯದಾಗಿರಬಹುದು</string>
+
+    <string name="flood_alert_sachet_title">NDMA SACHET ಎಚ್ಚರಿಕೆಗಳು</string>
+    <string name="flood_alert_severity_unknown">ತೀವ್ರತೆ ತಿಳಿಸಿಲ್ಲ</string>
+    <string name="flood_alert_issued">ಹೊರಡಿಸಲಾಗಿದೆ %1$s</string>
+    <string name="flood_alert_valid_until">ಮಾನ್ಯತೆ %1$s ವರೆಗೆ</string>
+    <string name="flood_alert_source">ಮೂಲ: %1$s</string>
+
+    <string name="flood_alert_river_title">ನದಿ ಮತ್ತು ಪ್ರವಾಹ ಮುನ್ಸೂಚನೆಗಳು</string>
+    <string name="flood_alert_river_body">ನದಿ ಮಟ್ಟಗಳು ಮತ್ತು ಪ್ರವಾಹ ಮುನ್ಸೂಚನೆಗಳು ಕೇಂದ್ರ ಜಲ ಆಯೋಗದಿಂದ ಬರುತ್ತವೆ. FloodCue ಅವುಗಳನ್ನು ಲೈವ್ ಡೇಟಾವಾಗಿ ಸ್ವೀಕರಿಸುವುದಿಲ್ಲ, ಆದ್ದರಿಂದ ಪರಿಶೀಲಿಸಲು ಅಧಿಕೃತ CWC ಪೋರ್ಟಲ್ ತೆರಳಿ.</string>
+    <string name="flood_alert_open_cwc">CWC ಪ್ರವಾಹ ಮುನ್ಸೂಚನೆಗಳನ್ನು ತೆರಳಿ</string>
+    <string name="flood_alert_open_sachet">NDMA SACHET ಪೋರ್ಟಲ್ ತೆರಳಿ</string>
+    <string name="flood_alert_open_failed">ಲಿಂಕ್ ಅನ್ನು ಬ್ರೌಸರ್‌ನಲ್ಲಿ ತೆರೆಯಲಾಗಲಿಲ್ಲ.</string>
+
+    <string name="flood_alert_disclaimer">ಇವು NDMA SACHET ಪ್ರಕಟಿಸಿದ ಅಧಿಕೃತ ಎಚ್ಚರಿಕೆಗಳು. ಇವು ಲೈವ್ ಪ್ರವಾಹ ಸೆನ್ಸರ್ ಅಲ್ಲ: ಮಳೆ ಎಚ್ಚರಿಕೆ ಮಾತ್ರ ಪ್ರವಾಹದ ದೃಢೀಕರಣ ಅಲ್ಲ. ಸ್ಥಳೀಯ ಪ್ರಾಧಿಕಾರಗಳು ಮತ್ತು ವಿಪತ್ತು ನಿರ್ವಹಣಾ ತಂಡಗಳ ಸೂಚನೆಗಳನ್ನು ಪಾಲಿಸಿ.</string>
+
+    <string name="flood_alert_channel_name">ಪ್ರವಾಹ ಎಚ್ಚರಿಕೆಗಳು (ಸೈರನ್)</string>
+    <string name="flood_alert_channel_desc">ಜೋರಾದ ಅಧಿಕೃತ ಪ್ರವಾಹ ಮತ್ತು ಭಾರೀ ಮಳೆ ಎಚ್ಚರಿಕೆಗಳು: FloodCue ಸೈರನ್ ನುಡಿಸುತ್ತದೆ, ಕಂಪಿಸುತ್ತದೆ, ಮತ್ತು FloodCue ಮುಚ್ಚಿದ್ದರೂ ಇತರ ಆಪ್‌ಗಳ ಮೇಲೆ ಕಾಣಿಸುತ್ತದೆ</string>
+    <string name="flood_alert_notification_title">%1$s ಗೆ ಪ್ರವಾಹ ಎಚ್ಚರಿಕೆ</string>
+
+</resources>

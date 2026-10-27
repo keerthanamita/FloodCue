@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="weather_back_title">← ಹವಾಮಾನ</string>
+    <string name="weather_header">ಹವಾಮಾನ</string>
+
+    <string name="weather_temp">%1$.1f°C</string>
+    <string name="weather_condition">%1$s</string>
+    <string name="weather_rain">ಮಳೆ: %1$.1f mm</string>
+    <string name="weather_rain_prob">ಮಳೆ ಸಾಧ್ಯತೆ: %1$d%%</string>
+    <string name="weather_rain_24h">ಮುಂದಿನ 24 ಗಂಟೆಗಳ ಮಳೆ: %1$.1f mm</string>
+    <string name="weather_wind">ಗಾಳಿ: %1$.1f m/s · %2$s</string>
+    <string name="weather_hourly">ಗಂಟೆಯ ಮಳೆ (ಮುಂದಿನ 24 ಗಂಟೆ)</string>
+
+    <string name="weather_details_title">ಇನ್ನಷ್ಟು ವಿವರಗಳು</string>
+    <string name="weather_label_humidity">ಆರ್ದ್ರತೆ</string>
+    <string name="weather_value_humidity">%1$d%%</string>
+    <string name="weather_label_feels_like">ಹೇಗೆ ಅನುಭವ</string>
+    <string name="weather_value_feels_like">%1$.1f°C</string>
+    <string name="weather_label_pressure">ವಾಯು ಒತ್ತಡ</string>
+    <string name="weather_value_pressure">%1$.1f hPa</string>
+    <string name="weather_label_cloud">ಮೇಘ ಆವರಣ</string>
+    <string name="weather_value_cloud">%1$d%%</string>
+    <string name="weather_label_gusts">ಗಾಳಿ ರಭಸ</string>
+    <string name="weather_value_gusts">%1$.1f m/s</string>
+    <string name="weather_label_visibility">ಗೋಚರತೆ</string>
+    <string name="weather_value_visibility">%1$.1f km</string>
+    <string name="weather_label_rain_6h">ಮುಂದಿನ 6 ಗಂಟೆಗಳ ಮಳೆ</string>
+    <string name="weather_value_rain_6h">%1$.1f mm</string>
+    <string name="weather_selected_location">ಆರಿಸಲಾಗಿದೆ: %1$.3f, %2$.3f</string>
+    <string name="weather_cache_note">%1$s · ಕೊನೆಯದಾಗಿ ನವೀಕರಿಸಲಾಗಿದೆ %2$s</string>
+
+    <string name="weather_unavailable">ಲಭ್ಯವಿಲ್ಲ</string>
+    <string name="weather_ok">ಸರಿ</string>
+    <string name="weather_cancel">ರದ್ದುಗೊಳಿಸಿ</string>
+    <string name="weather_use_location">ಸ್ಥಳ ಬಳಸಿ</string>
+    <string name="weather_refresh">ರಿಫ್ರೆಶ್</string>
+
+    <string name="weather_loading">ಹವಾಮಾನ ಲೋಡ್ ಆಗುತ್ತಿದೆ…</string>
+    <string name="weather_getting_location">ನಿಮ್ಮ ಸ್ಥಳ ಪಡೆಯಲಾಗುತ್ತಿದೆ…</string>
+    <string name="weather_no_data">ಇನ್ನೂ ಹವಾಮಾನ ಡೇಟಾ ಇಲ್ಲ. ಸ್ಥಳ ಆರಿಸಿ, ನಂತರ ರಿಫ್ರೆಶ್ ಒತ್ತಿ.</string>
+    <string name="weather_network_error">ಹವಾಮಾನ ಪಡೆಯಲಾಗಲಿಲ್ಲ. ನಿಮ್ಮ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕ ಪರಿಶೀಲಿಸಿ, ನಂತರ ರಿಫ್ರೆಶ್ ಒತ್ತಿ.</string>
+    <string name="weather_no_location">ಯಾವ ಸ್ಥಳವೂ ಆರಿಸಲಾಗಿಲ್ಲ. ಸ್ಥಳ ಆರಿಸಿ ಒತ್ತಿ.</string>
+
+    <string name="weather_location_request">ಸ್ಥಳ ಪ್ರವೇಶ ಆಫ್ ಇದೆ. ಅದನ್ನು ಅನುಮತಿಸಲು ಅಥವಾ ನಿರ್ದೇಶಾಂಕ ನಮೂದಿಸಲು ಸ್ಥಳ ಆರಿಸಿ ಒತ್ತಿ.</string>
+    <string name="weather_location_denied">ಸ್ಥಳ ಅನುಮತಿ ನಿರಾಕರಿಸಲಾಗಿದೆ. ನೀವೂ ನಿರ್ದೇಶಾಂಕಗಳನ್ನು ಕೈಯಾರೆ ನಮೂದಿಸಬಹುದು.</string>
+    <string name="weather_location_fix_failed">ಸ್ಥಳ ಪಿಕ್ಸ್ ಪಡೆಯಲಾಗಲಿಲ್ಲ. GPS ಆನ್ ಮಾಡಿ, ಅಥವಾ ನಿರ್ದೇಶಾಂಕಗಳನ್ನು ಕೈಯಾರೆ ನಮೂದಿಸಿ.</string>
+    <string name="weather_invalid_coordinates">ಮಾನ್ಯ ಅಕ್ಷಾಂಶ ಮತ್ತು ರೇಖಾಂಶ ನಮೂದಿಸಿ.</string>
+
+    <string name="weather_select_location">ಸ್ಥಳ ಆರಿಸಿ</string>
+    <string name="weather_choose_location">ಸ್ಥಳ ಆರಿಸಿ</string>
+    <string name="weather_use_current_location">ನನ್ನ ಪ್ರಸ್ತುತ ಸ್ಥಳ ಬಳಸಿ</string>
+    <string name="weather_enter_coordinates">ನಿರ್ದೇಶಾಂಕಗಳನ್ನು ಕೈಯಾರೆ ನಮೂದಿಸಿ</string>
+    <string name="weather_manual_title">ನಿರ್ದೇಶಾಂಕಗಳನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="weather_lat_hint">ಅಕ್ಷಾಂಶ (-90 ರಿಂದ 90)</string>
+    <string name="weather_lon_hint">ರೇಖಾಂಶ (-180 ರಿಂದ 180)</string>
+
+    <string name="weather_cache_fresh">ಉಳಿಸಿದ ಡೇಟಾ ತೋರಿಸಲಾಗುತ್ತಿದೆ</string>
+    <string name="weather_using_cache">ಉಳಿಸಿದ ಡೇಟಾ ತೋರಿಸಲಾಗುತ್ತಿದೆ; ಅದು ಹಳೆಯದಾಗಿರಬಹುದು</string>
+
+    <string name="weather_warning_help">ಎಚ್ಚರಿಕೆಗಳು ಕಾಣಿಸುವುದೇಕೆ</string>
+    <string name="weather_warning_help_text">ಹವಾಮಾನ ಮುನ್ಸೂಚನೆಗಳು ವಾಯುಮಂಡಲ ಹೇಗೆ ವರ್ತಿಸಬಹುದೆಂದು ತೋರಿಸುತ್ತವೆ. ಪ್ರವಾಹ ಆಗುತ್ತಿದೆ ಅಥವಾ ಆಗುತ್ತದೆ ಎಂದು ಅವು ದೃಢೀಕರಿಸಲಾರವು, ಮತ್ತು ಈ ಆಪ್ ಎಂದಿಗೂ ಅಧಿಕೃತ ಎಚ್ಚರಿಕೆಗಳನ್ನು ಸೃಷ್ಟಿಸುವುದಿಲ್ಲ. ಅಧಿಕೃತ ಸ್ಥಳಾಂತರ ಆದೇಶಕ್ಕಾಗಿ ಮುನ್ಸೂಚನೆಗೆ ಕಾಯಬೇಡಿ. ಸ್ಥಳೀಯ ವಿಪತ್ತು ನಿರ್ವಹಣಾ ಸೂಚನೆಗಳನ್ನು ತಕ್ಷಣ ಪಾಲಿಸಿ.</string>
+</resources>

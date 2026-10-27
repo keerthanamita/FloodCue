@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sos_emergency_back_title">← SOS அவசரம்</string>
+    <string name="sos_emergency_heading">SOS அவசரம்</string>
+    <string name="sos_emergency_short">மூன்றும் ஒரே நேரத்தில்: உங்கள் அவசர தொடர்புகளுக்கு SOS செய்தி, சைரன், மற்றும் வரைபட இணைப்புடன் உங்கள் GPS இருப்பிடம்.</string>
+    <string name="sos_emergency_send">அவசர SOS அனுப்பு</string>
+    <string name="sos_emergency_sms_sent">SOS செய்தி உங்கள் அவசர தொடர்புகளுக்கு அனுப்பப்பட்டது.</string>
+    <string name="sos_emergency_sms_failed">SOS செய்தியை அனுப்ப முடியவில்லை. உங்கள் வலையமைப்பையும் குறைந்தது ஒரு அவசர தொடர்பு உள்ளதா என்பதையும் சரிபார்க்கவும்.</string>
+    <string name="sos_emergency_sms_pending">SOS அனுப்ப காத்திருக்கிறது</string>
+    <string name="sos_emergency_no_contacts">அவசர தொடர்புகள் இல்லை. SOS அனுப்பும் முன் அவசர தொடர்புகள் திரையில் அவற்றைச் சேர்க்கவும்.</string>
+    <string name="sos_emergency_location">இருப்பிடம்</string>
+    <string name="sos_emergency_location_available">தற்போதைய இருப்பிடம் பெறப்பட்டது — ஒருங்கிணைப்புகளும் வரைபட இணைப்பும் சேர்க்கப்பட்டன.</string>
+    <string name="sos_emergency_location_unavailable">இருப்பிடம் பெற முடியவில்லை.</string>
+    <string name="sos_emergency_location_last_known">அறிந்த கடைசி இருப்பிடம் மட்டுமே — %1$s (வயது: %2$s).</string>
+    <string name="sos_emergency_siren">சைரன் இயக்கப்பட்டது — நிறுத்த “சைரனை நிறுத்து” தட்டுங்கள் அல்லது செயலியை விட்டு வெளியேறுங்கள்.</string>
+    <string name="sos_emergency_feeding_sms">SMS இப்போது அனுப்பப்படுகிறது…</string>
+    <string name="sos_emergency_contact">அவசர தொடர்பு</string>
+    <string name="sos_emergency_perm_denied">ஒருங்கிணைப்புகளுக்கு இருப்பிட அனுமதி தேவை. கணினி அமைப்புகளில் இயக்கவும்.</string>
+    <string name="sos_emergency_no_sim">SIM கண்டறியவில்லை — SMS அனுப்ப முடியாது.</string>
+</resources>

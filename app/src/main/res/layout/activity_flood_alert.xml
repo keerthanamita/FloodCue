@@ -66,18 +66,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
+                android:minLines="2"
+                android:maxLines="2"
                 android:textColor="@color/text_secondary"
-                android:textSize="14sp"
-                android:visibility="gone" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/floodAlertCached"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
+                android:minLines="1"
+                android:maxLines="1"
+                android:ellipsize="end"
                 android:textColor="@color/text_secondary"
-                android:textSize="13sp"
-                android:visibility="gone" />
+                android:textSize="13sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"

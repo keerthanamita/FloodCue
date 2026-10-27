@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Language picker screen and dialogs (shown in the app language). -->
-    <string name="language_title">Your language.\nYour safety.</string>
+    <string name="language_title">Language Picker</string>
     <string name="language_subtitle">Choose the languages you are comfortable with.</string>
     <string name="language_app_heading">APP LANGUAGE</string>
     <string name="language_app_hint">For menus and app instructions</string>
@@ -17,5 +17,5 @@
     <string name="language_picker_empty">No languages found.\nTry another search.</string>
 
     <string name="language_updated">Language updated</string>
-    <string name="settings_change_language">Change language</string>
+    <string name="settings_change_language">Language updated</string>
 </resources>

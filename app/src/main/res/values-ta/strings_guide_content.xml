@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Emergency guide content (survival language screen). -->
+    <string name="guide_header_what_to_do">என்ன செய்யவேண்டும்</string>
+    <string name="guide_header_never">செய்யக்கூடாதவை</string>
+    <string name="guide_header_important_warnings">முக்கிய எச்சரிக்கைகள்</string>
+
+    <string name="guide_situation_1_title">🌊 வெள்ள நீர் வேகமாக உயருகிறது</string>
+    <string name="guide_situation_1_subtitle">உடனே நடவடிக்கை எடுங்கள் — உயர்நிலத்திற்குச் செல்லுங்கள்.</string>
+    <string name="guide_situation_1_block_1_line_1">பாதுகாப்பான பாதை இருந்தால், உடனே உயர்நிலத்திற்குச் செல்லுங்கள்.</string>
+    <string name="guide_situation_1_block_1_line_2">அதிகாரப்பூர்வ வெளியேற்ற உத்தரவுகளை தாமதமின்றி பின்பற்றுங்கள்.</string>
+    <string name="guide_situation_1_block_1_line_3">உங்கள் அவசர கோ-பேக் உடனடியாக அணுகக்கூடியதாக இருந்தால் மட்டுமே எடுங்கள்.</string>
+    <string name="guide_situation_1_block_1_line_4">உங்களை ஆபத்தில் தள்ளாமல், உதவி தேவைப்படும் குழந்தைகள் மற்றும் பேருக்கு ஆரம்பத்திலேயே வெளியேற உதவுங்கள்.</string>
+    <string name="guide_situation_1_block_1_line_5">தப்பிக்கும் பாதை வெள்ளத்தால் மூடப்பட்டால், அதைக் கடக்க முயற்சிக்க வேண்டாம். பாதுகாப்பான உயர்நில இடத்திற்கு நகர்ந்து உதவி கேட்குங்கள்.</string>
+    <string name="guide_situation_1_block_1_line_6">மேலும் அதிகாரப்பூர்வ அறிவுறுத்தல்களைப் பின்பற்றுங்கள்.</string>
+    <string name="guide_situation_1_block_2_line_1">வெள்ள நீரில் நடக்க, நீந்த அல்லது ஓட்டவேண்டாம்.</string>
+    <string name="guide_situation_1_block_2_line_2">வெள்ளம் மூடிய பாலங்கள், கீழ்க்கடவுகள் அல்லது ஓடைகளைக் கடக்கவேண்டாம்.</string>
+    <string name="guide_situation_1_block_2_line_3">சாமான்களை எடுக்க வெளியேற்றத்தைத் தாமதிக்கவேண்டாம்.</string>
+
+    <string name="guide_situation_2_title">🏠 நான் என் வீட்டுக்குள் சிக்கிவிட்டேன்</string>
+    <string name="guide_situation_2_subtitle">மேலே செல்லுங்கள், தெரியும்படி இருங்கள், உதவி கேட்குங்கள்.</string>
+    <string name="guide_situation_2_block_1_line_1">வெள்ள நீர் வந்து கொண்டிருந்தால், முடிந்தவரை பாதுகாப்பான பாதையில் ஆரம்பத்திலேயே வெளியேறுங்கள்.</string>
+    <string name="guide_situation_2_block_1_line_2">தப்பிக்க பாதுகாப்பாக இருக்கவில்லை என்றால், எழும் நீரிலிருந்து தூரமான வலுவான உயர்நில இடத்திற்கு மாறுங்கள்.</string>
+    <string name="guide_situation_2_block_1_line_3">அவசர சேவைகளைத் தொடர்பு கொண்டு, முடிந்தால் உங்கள் சரியான இருப்பிடம் அல்லது GPS ஒருங்கிணைப்புகளைப் பகிருங்கள்.</string>
+    <string name="guide_situation_2_block_1_line_4">தொடர்பு கிடைத்தால், உங்கள் அவசர தொடர்புகளுக்கு SOS செய்தி அனுப்புங்கள்.</string>
+    <string name="guide_situation_2_block_1_line_5">பகலில் பிரகாசமான துணியால், இரவில் டார்ச்சால் மீட்பவர்களுக்கு அறிவிப்பு கொடுங்கள்.</string>
+    <string name="guide_situation_2_block_1_line_6">பாதுகாப்பாக இருந்தால், மின் சாதனங்கள் மற்றும் வெள்ளம் நிறைந்த அறைகளிலிருந்து விலகுங்கள்.</string>
+    <string name="guide_situation_2_block_1_line_7">குழந்தைகள், முதியோர் மற்றும் இயலாதோரை உங்கள் அருகில் வைத்து உதவுங்கள்.</string>
+    <string name="guide_situation_2_block_2_line_1">தப்பிக்க வேகமாகப் பாயும் வெள்ள நீரில் நுழையவேண்டாம்.</string>
+    <string name="guide_situation_2_block_2_line_2">உயரும் நீர் சிக்கவைக்கக்கூடிய மூடிய கூரைவிடங்களில் நுழையவேண்டாம்.</string>
+    <string name="guide_situation_2_block_2_line_3">கூரைக்கு ஏறுவது பாதுகாப்பாகவும் வேறு நன்னேர்வு இல்லாதபோதும் மட்டுமே; மீட்பவர்களுக்குத் தெரியும்படி இருங்கள்.</string>
+
+    <string name="guide_situation_3_title">🚗 நான் வாகனத்தில் சிக்கிவிட்டேன்</string>
+    <string name="guide_situation_3_subtitle">மூழ்கும் வாகனத்தை விட்டு வெளிவருவது பாதுகாப்பாக இருக்கும்போது மட்டுமே.</string>
+    <string name="guide_situation_3_block_1_line_1">நீர் ஆழமாகத் தோன்றினாலும், வெள்ளம் மூடிய சாலைகளில் ஓட்டாதீர்கள்.</string>
+    <string name="guide_situation_3_block_1_line_2">நீர் உங்கள் வாகனத்தைச் சூழ ஆரம்பித்தால், உடனே மிக பாதுகாப்பான முடிந்த தப்பிக்கும் பாதையை மதிப்பிடுங்கள்.</string>
+    <string name="guide_situation_3_block_1_line_3">வாகனம் உயரும் நீரில் இருந்து, தப்பிக்க முடிந்தால், உடனே வெளியேறி பாதுகாப்பான உயர்நிலத்தை நோக்கி நகருங்கள்.</string>
+    <string name="guide_situation_3_block_1_line_4">பாதுகாப்பாக தப்பிக்க முடியவில்லை என்றால், அவசர சேவைகளைத் தொடர்பு கொண்டு உங்கள் இருப்பிடத்தைத் தெரிவியுங்கள்.</string>
+    <string name="guide_situation_3_block_1_line_5">முடிந்தால் டார்ச், பிரகாசமான துணி அல்லது தெரியும் சமிக்ஞைகளால் மீட்பவர்களுக்கு அறிவியுங்கள்.</string>
+    <string name="guide_situation_3_block_2_line_1">உங்கள் வாகனம் வெள்ள நீரை பாதுகாப்பாகக் கடக்கும் என எண்ணாதீர்கள்.</string>
+    <string name="guide_situation_3_block_2_line_2">வேகமாகப் பாயும் நீரில் காலால் நுழையாதீர்கள்.</string>
+    <string name="guide_situation_3_block_2_line_3">பாதுகாப்பான தப்பிக்கை சாத்தியமாக இருக்கும்போது மூழ்கும் வாகனத்திற்குள் தங்காதீர்கள்.</string>
+    <string name="guide_situation_3_block_3_header">குறிப்பு</string>
+    <string name="guide_situation_3_block_3_line_1">வாகனத்திலிருந்து தப்பிப்பது நிலையைச் சார்ந்தது. வேகமாக மூழ்கும் வாகனத்திலிருந்து தப்பிக்கத் தொலைபேசி அழைப்புக்காக தாமதிக்காதீர்கள்.</string>
+
+    <string name="guide_situation_4_title">⚡ நான் மின் கோடுகள் அல்லது சாதனங்களுக்கு அருகில் இருக்கும்போது</string>
+    <string name="guide_situation_4_subtitle">ஒவ்வொரு இடிந்த மின்க்கோடும் மின்சாரத்தில் உள்ளதாகவே எண்ணுங்கள்.</string>
+    <string name="guide_situation_4_block_1_line_1">இடிந்த மின்க்கோடுகள், மின் கம்பங்கள், வெளிப்படும் கம்பிகள் மற்றும் நீரில் இருக்கும் மின் சாதனங்களிலிருந்து தூரமாக இருங்கள்.</string>
+    <string name="guide_situation_4_block_1_line_2">இடிந்த மின்க்கோடுகள் மின்சாரத்தில் உள்ளதாகவே எண்ணுங்கள்.</string>
+    <string name="guide_situation_4_block_1_line_3">பாதுகாப்பாக செய்ய முடிந்தால், மற்றவர்களை தூரமாக இருக்க எச்சரிக்கவும்.</string>
+    <string name="guide_situation_4_block_1_line_4">ஆபத்தை மின் வழங்குநர் அல்லது அவசர சேவைகளுக்குத் தெரிவியுங்கள்.</string>
+    <string name="guide_situation_4_block_1_line_5">உங்கள் வீடு வெள்ளப்பெருக்கில் இருந்தால், நீரில் நின்றுகொண்டு மின் நிலைமாற்றிகள் அல்லது உபகரணங்களைத் தொடாதீர்கள்.</string>
+    <string name="guide_situation_4_block_1_line_6">பாதிக்கப்பட்ட மின் அமைப்புகளை மீண்டும் பயன்படுத்தும் முன், தகுதியான நிபுணர் பரிசோதித்திருக்கவேண்டும்.</string>
+    <string name="guide_situation_4_block_2_line_1">மின்சாரத்தில் இருக்கலாம் என சந்தேகிக்கும் மின் சாதனத்தின் அருகே நீரில் நடந்து செல்லாதீர்கள்.</string>
+    <string name="guide_situation_4_block_2_line_2">இடிந்த மின்க்கோடை நகர்த்த முயற்சிக்காதீர்கள்.</string>
+
+    <string name="guide_situation_5_title">🩹 ஒருவர் காயமடைந்துள்ளார்</string>
+    <string name="guide_situation_5_subtitle">முதலில் பாதுகாப்பை சரிபாருங்கள், பிறகு இரத்தத்தை நிறுத்துங்கள்.</string>
+    <string name="guide_situation_5_block_1_line_1">காயப்பட்டவரை அணுகும் முன் பகுதி பாதுகாப்பானதா என சரிபாருங்கள்.</string>
+    <string name="guide_situation_5_block_1_line_2">முடிந்தால் அவசர மருத்துவ சேவைகளைத் தொடர்பு கொள்ளுங்கள்.</string>
+    <string name="guide_situation_5_block_1_line_3">அதிக வெளி இரத்தப்போக்குக்கு, கட்டுத்துணி அல்லது சுத்தமான துணியால் வலுவான, தொடர்ந்த அழுத்தம் கொடுங்கள்.</string>
+    <string name="guide_situation_5_block_1_line_4">காயப்படவரை அதிகமாக நகராமல், வசதியாக வையுங்கள்.</string>
+    <string name="guide_situation_5_block_1_line_5">உணர்வற்றார் என்றால், இயல்பாக மூச்சுவிடுகிறாரா என சரிபாருங்கள்; அவசர அழைப்பு வழிமுறைகளைப் பின்பற்றுங்கள்.</string>
+    <string name="guide_situation_5_block_1_line_6">உணர்வற்ற ஒருவருக்கு உணவு அல்லது தண்ணீர் கொடுக்காதீர்கள்.</string>
+    <string name="guide_situation_5_block_1_line_7">தலை, கழுத்து அல்லது முதுகுத்தண்டிற்கு கடுங்காயம் என சந்தேகிக்கும் ஒருவரை, இங்கேயே இருப்பதால் அவருக்கு உடனடி ஆபத்து இருந்தாலன்றி நகர்த்தாதீர்கள்.</string>
+    <string name="guide_situation_5_block_1_line_8">உயரும் நீரால் அவர் உடனடி ஆபத்தில் இருந்தால், உங்களை அதே ஆபத்தில் ஆக்காமல் பாதுகாப்பை முதலில் முன்னுரிமையாக்குங்கள்.</string>
+    <string name="guide_situation_5_block_2_header">முக்கியம்</string>
+    <string name="guide_situation_5_block_2_line_1">தகுந்த பயிற்சியும் உபகரணமும் இல்லாதபோது ஒருவரை மீட்க ஆபத்தான வெள்ள நீரில் நுழையாதீர்கள். பயிற்சி பெற்ற மீட்பர்களை அழையுங்கள்.</string>
+
+    <string name="guide_situation_6_title">👨‍👩‍👧 என் குடும்ப உறுப்பினர் தொலைந்துள்ளார்</string>
+    <string name="guide_situation_6_subtitle">அழையுங்கள், ஒருங்கிணையுங்கள், வெள்ளக் கிளர்ந்துள்ள இடங்களை தனியாக நேரத் தேடாதீர்கள்.</string>
+    <string name="guide_situation_6_block_1_line_1">முடிந்தால் தொலைபேசி அழைப்பு அல்லது SMS மூலம் அவரைத் தொடர்பு கொள்ளுங்கள்.</string>
+    <string name="guide_situation_6_block_1_line_2">அவர்கள் அறிந்த கடைசி பாதுகாப்பான இருப்பிடத்தை குடும்ப உறுப்பினர்களிடம் கேளுங்கள்.</string>
+    <string name="guide_situation_6_block_1_line_3">அவர் ஆபத்தில் இருக்கலாம் எனில் அவசர சேவைகளைத் தெரிவியுங்கள்.</string>
+    <string name="guide_situation_6_block_1_line_4">மீட்பர்களுக்கு அவரது பெயர், வயது, தோற்றம், உடை, மருத்துவத் தேவைகள் மற்றும் அறிந்த கடைசி இருப்பிடத்தைத் தருங்கள்.</string>
+    <string name="guide_situation_6_block_1_line_5">தொடர் தகவல்கள் பெற, ஒரு குடும்பத் தொடர்பை எப்போதும் கிடைக்கும்படி வையுங்கள்.</string>
+    <string name="guide_situation_6_block_1_line_6">வெள்ளப்பெருக்கு இடங்களில் தனியாகச் சென்று தேடாதீர்கள்.</string>
+    <string name="guide_situation_6_block_2_header">குடும்பப் பாதுகாப்பு குறிப்பு</string>
+    <string name="guide_situation_6_block_2_line_1">வெள்ளம் வரும் முன் ஒரு அவசர சந்திப்பிடத்தை ஒப்புக்கொள்ளுங்கள், மற்றும் ஒவ்வொரு குடும்ப உறுப்பினரும் முக்கிய தொடர்பு எண்களை அறியும்படி செய்யுங்கள்.</string>
+
+    <string name="guide_situation_7_title">🧒 குழந்தை, முதியவர் அல்லது இயலாதோருக்கு உதவி தேவை</string>
+    <string name="guide_situation_7_subtitle">ஆரம்பத்தில், அமைதியாக மற்றும் ஒன்றாக வெளியேறுங்கள்.</string>
+    <string name="guide_situation_7_block_1_line_1">வெள்ளம் அச்சுறுத்தும்போது ஆரம்பத்தில் வெளியேறுங்கள்.</string>
+    <string name="guide_situation_7_block_1_line_2">அறிவுறுத்தல்களை அமைதியாகவும் தெளிவாகவும் விளக்குங்கள்.</string>
+    <string name="guide_situation_7_block_1_line_3">முக்கிய மருந்து, உதவிச் சாதனங்கள், அடையாளத் துண்டுகளை பயன்படுத்தல்முன் உடனடியாக அணுகக்கூடியதாக இருந்தால் எடுத்துக்கொள்ளுங்கள்.</string>
+    <string name="guide_situation_7_block_1_line_4">அவரை பாதுகாப்பான வெளியேற்ற பாதையைப் பயன்படுத்த உதவுங்கள்.</string>
+    <string name="guide_situation_7_block_1_line_5">நடைப்படு இன்னல்கள், மருத்துவ நிலைகள் அல்லது தொடர்புத் தேவைகள் பற்றி மீட்பர்களுக்குத் தெரிவியுங்கள்.</string>
+    <string name="guide_situation_7_block_1_line_6">பாதுகாப்பானதாக இருந்தால் குடும்ப உறுப்பினர்களை ஒன்றாக வையுங்கள்.</string>
+    <string name="guide_situation_7_block_1_line_7">நீங்கள் பாதுகாப்பாக உதவ முடிந்தால், உதவி தேவைப்படும் ஒருவரை ஆபத்தான இடத்தில் ஒருவிடத்தில் விடாதீர்கள்.</string>
+    <string name="guide_situation_7_block_2_header">முக்கியம்</string>
+    <string name="guide_situation_7_block_2_line_1">முக்கியமன்ற சாமான்களை எடுக்க உங்கள் வெளியேற்றத்தைத் தாமதிக்காதீர்கள்.</string>
+
+    <string name="guide_situation_8_title">📵 என் ஃபோனில் வலையமைப்பு இல்லை</string>
+    <string name="guide_situation_8_subtitle">டேட்டா இல்லாமலும் SMS மற்றும் அவசர அழைப்புகள் வேலை செய்யலாம்.</string>
+    <string name="guide_situation_8_block_1_line_1">முடிந்தால் பாதுகாப்பான உயர்நில இடத்திற்கு நகருங்கள்; சிக்னல் தேடி வெள்ள நீரில் நுழைய வேண்டாம்.</string>
+    <string name="guide_situation_8_block_1_line_2">கிடைத்தால் அவசர அழைப்பு முயற்சிக்கவும். அது உங்கள் பகுதி, சாதனம் மற்றும் அணுகக்கூடிய செல்லுலார் வலையமைப்புகளைச் சார்ந்தது.</string>
+    <string name="guide_situation_8_block_1_line_3">அவசர தொடர்புகளுக்கு சுருக்கமான SMS அனுப்ப முயற்சிக்கவும். செல்லுலார் SMS சேவை பெறக்கூடினால் அது வரலாம்.</string>
+    <string name="guide_situation_8_block_1_line_4">பொருந்தும் வெளியேற்ற புரியாதது அவசரத் தொடர்புத் தேவை இருந்தால் பயன்படுத்துங்கள்.</string>
+    <string name="guide_situation_8_block_1_line_5">டார்ச், விசில் அல்லது பிரகாசமான துணியால் அருகில் உள்ள மீட்பர்களை கவருங்கள்.</string>
+    <string name="guide_situation_8_block_1_line_6">திரை ஒளி குறைத்து தேவையில்லாத செயலிகளை மூடுவதன் மூலம் பேட்டரியை மிதவுங்கள்.</string>
+    <string name="guide_situation_8_block_1_line_7">வேலை செய்யும் தொடர்பு முறைமை இல்லாதபோது, மிக பாதுகாப்பான அணுகத்தக்க இடத்தில் தங்குங்கள்; மீட்பர்கள் அருகில் வரலாம் எனில் அறிவிப்பாக தொடருங்கள்.</string>
+    <string name="guide_situation_8_block_2_header">முக்கியம்</string>
+    <string name="guide_situation_8_block_2_line_1">வழக்கமான SMS செல்லுலார் சேவை தேவை; மொபைல் டேட்டா தேவையில்லை. புளூடூத் அல்லது மெஷ் வலையமைப்பு வேலை செய்ய பொருந்தும் சாதனங்கள் மற்றும் தேவையான வலையமைப்பு நகர்வு இருக்க வேண்டும.</string>
+
+    <string name="guide_situation_9_title">🔋 என் ஃபோன் பேட்டரி கிட்டத்தட்ட முடிந்தது</string>
+    <string name="guide_situation_9_subtitle">உங்களை காப்பாற்றக்கூடியவைக்காக மட்டுமே பேட்டரியை செய்யுங்கள்.</string>
+    <string name="guide_situation_9_block_1_line_1">மிக முக்கியமான அவசர செய்தியை முதலில் அனுப்புங்கள், உங்கள் இருப்பிடம், உங்களுடன் உள்ள மக்களின் எண்ணிக்கை மற்றும் உடனடி ஆபத்து உள்பட.</string>
+    <string name="guide_situation_9_block_1_line_2">தாங்கள் தாங்கள் தேவை என அவசர அழைப்பு செய்யுங்கள்.</string>
+    <string name="guide_situation_9_block_1_line_3">திரை ஒளி குறைத்து பேட்டரி சமுக்கத்தை இசைவுங்கள்.</string>
+    <string name="guide_situation_9_block_1_line_4">தேவையில்லாத செயலிகளை மூடுவதன் மூலம் வீடியோக்களை பார்க்கோ மூடுவதன் மேற்படி நிர்வாகியுங்கள்.</string>
+    <string name="guide_situation_9_block_1_line_5">புளூடூத், Wi-Fi மற்றும் தேவையில்லாத அம்சங்களை அணையுங்கள், ஆனால் தற்போது பயன்படுத்தும் தொடர்பு முறையை இசைவாக வையுங்கள்.</string>
+    <string name="guide_situation_9_block_1_line_6">கிடைத்தால் பவர் வங்கியைப் பயன்படுத்துங்கள்.</string>
+    <string name="guide_situation_9_block_1_line_7">ஃபோனை திரவநிர்பத்திலிருந்து காக்க பொருந்தும் நீர்ச்சுழு பொட்டலம் அல்லது சரக்கு பொத்தாவில் வையுங்கள்.</string>
+    <string name="guide_situation_9_block_2_header">அவசர செய்தி எடுத்துக்காட்டு</string>
+    <string name="guide_situation_9_block_2_line_1">“எனக்கு அவசர உதவி தேவை. என் இருப்பிடம் [GPS ஒருங்கிணைப்பு அல்லது அடையாள இடம்]. என்னுடன் [எண்ணிக்கை] பேர் உள்ளனர். வெள்ளத்தால் நாங்கள் ஆபத்தில் உள்ளோம். தயவுசெய்து உதவி அனுப்புங்கள்.”</string>
+
+    <string name="guide_situation_10_title">🔦 மீட்பர்களை கவரும் வழி</string>
+    <string name="guide_situation_10_subtitle">ஒரு சிறிய முயற்சியைவிட, மீண்டும்-மீண்டும் செய்யும் சமிக்ஞைகள் அதிக வேலையாகும்.</string>
+    <string name="guide_situation_10_block_1_header">பகல் நேரத்தில்</string>
+    <string name="guide_situation_10_block_1_line_1">• தெரியும், பாதுகாப்பான இடத்திலிருந்து பிரகாசமான வண்ணத் துணியை அலையுங்கள்.</string>
+    <string name="guide_situation_10_block_1_line_2">• கண்ணாடி அல்லது வேறு பிரதிபதிப்பது பொருளால் சூரிய ஒளியை மீட்பர்கள் நோக்கி மின்னவுங்கள்.</string>
+    <string name="guide_situation_10_block_1_line_3">• மீட்பர்கள் அருகில் இருந்தால் கத்திக் கொண்டே உதவி கேட்குங்கள்.</string>
+    <string name="guide_situation_10_block_1_line_4">• கவனம் ஈர்க்க விசிலை தொடர்ந்து வீசுங்கள்.</string>
+    <string name="guide_situation_10_block_1_line_5">• பொருட்கள் கிடைத்தால், தெளிவாகத் தெரியும் HELP பலகையைக் காட்டுங்கள்.</string>
+    <string name="guide_situation_10_block_2_header">இரவில்</string>
+    <string name="guide_situation_10_block_2_line_1">• தெரியும் அறிவிப்புகளை உருவாக்க டார்ச் அல்லது ஃபோன் டார்ச்சைப் பயன்படுத்துங்கள்.</string>
+    <string name="guide_situation_10_block_2_line_2">• மீட்பர்கள் கேட்கும் தூரத்தில் இருந்தால் விசில் வீசுங்கள் அல்லது கத்துங்கள்.</string>
+    <string name="guide_situation_10_block_2_line_3">• தெரியும் இடத்தில் தங்குங்கள், ஆபத்தான இடங்களுக்கு நகராதீர்கள்.</string>
+    <string name="guide_situation_10_block_2_line_4">• தேவை இல்லாதபோது விளக்கை அணைத்து பேட்டரியை மிச்சப்படுத்துங்கள்; மீட்பர்களைக் காணும்போது அல்லது கேட்கும்போது அறிவிப்பு கொடுங்கள்.</string>
+    <string name="guide_situation_10_block_3_header">ஃபோன் இல்லாதபோது</string>
+    <string name="guide_situation_10_block_3_line_1">• பிரகாசமான துணி, விசில், கண்ணாடி அல்லது பிரதிபலிப்புப் பொருளைப் பயன்படுத்துங்கள்.</string>
+    <string name="guide_situation_10_block_3_line_2">• ஒரு சிறிய முயற்சியில் நிற்காமல், தொடர்ந்து தொடர்ந்த சமிக்ஞைகளைக் கொடுங்கள்.</string>
+    <string name="guide_situation_10_block_3_line_3">• அந்த இடம் பாதுகாப்பானதாக இருக்கும்படியானால், மீட்பர்களால் காணக்கூடிய இடத்தில் தங்குங்கள்.</string>
+    <string name="guide_situation_10_block_4_line_1">கவனம் கூறுவதற்காக மட்டும் வெள்ளப்பெருக்கில் நுழைந்து, நிலையற்ற கட்டிடங்களில் ஏற, அல்லது மின்னிய கோடுகள் அருகில் நிற்காதீர்கள்.</string>
+    <string name="guide_situation_10_block_4_line_2">மூடிய இடங்களில் அல்லது எரியக்கூடிய பொருட்கள் அருகில் தீ மூட்டவோ புகை உருவாக்கவோ வேண்டாம். வெள்ளத்தில் தீ ஆபத்தால் புகையில் சமிக்ஞை பரிந்துரைக்கப்படவில்லை.</string>
+
+    <string name="guide_situation_11_title">🐍 வெள்ள நீரில் பாம்புகள் அல்லது விலங்குகளை காணும்போது</string>
+    <string name="guide_situation_11_subtitle">தூரமாக இருங்கள், விலங்குகளை கையில் எடுக்காதீர்கள்.</string>
+    <string name="guide_situation_11_block_1_line_1">பாம்புகள் மற்றும் அறியாத விலங்குகளிலிருந்து பாதுகாப்பான தூரத்திற்கு மிதவுங்கள்.</string>
+    <string name="guide_situation_11_block_1_line_2">நீரில் கை அல்லது கால் இடுவது தரை தெரியாத இடங்களில் தொடுவதை தவிர்க்கவும்.</string>
+    <string name="guide_situation_11_block_1_line_3">விலங்குகளை பிடி, கட்டி, அல்லது களைய முயற்சிக்காதீர்கள்.</string>
+    <string name="guide_situation_11_block_1_line_4">மிதவாக நகர்ந்து பாதுகாப்பான இடத்திற்கு செல்லுங்கள்.</string>
+    <string name="guide_situation_11_block_1_line_5">பாம்பு கடித்திருந்தால் உடனடியாக அவசர மருத்துவ உதவி வேண்டும், கடிதத்தால் பாதிக்கப்பட்டவரை மிதவாக வையுங்கள்.</string>
+    <string name="guide_situation_11_block_2_line_1">காயத்தை அகத்துத்து, விடத்தை காற்றில் எறிந்து, அல்லது தூக்கையை கட்டாதீர்கள்.</string>
+    <string name="guide_situation_11_block_2_line_2">விலங்குகள் எந்த இனம் என்று சொல்ல பாம்பை பிடிக்க முயற்சி செய்யவேண்டாம்.</string>
+    <string name="guide_situation_11_block_2_line_3">விலங்கைத் தவிர்க்க வேண்டி அதைவிட அதிக ஆபத்து உருவாகினால் வெள்ள நீரில் நுழையவேண்டாம்.</string>
+
+    <string name="guide_situation_12_title">🌧️ வெள்ள எச்சரிக்கை கேட்டுள்ளேன் ஆனால் நீர் இன்னும் வரவில்லை</string>
+    <string name="guide_situation_12_subtitle">நீர் வந்து சேரும் முன் தயாருங்கள்.</string>
+    <string name="guide_situation_12_block_1_line_1">அதிகாரப்பூர்வ வானிலை மற்றும் பேரழிவு-நிர்வாக அறிவிப்புகளை குறிவாங்குங்கள்.</string>
+    <string name="guide_situation_12_block_1_line_2">அவசர பொட்டலம் தயாரித்து ஃபோனை சார்ஜ் செய்யுங்கள்.</string>
+    <string name="guide_situation_12_block_1_line_3">அருகில் உள்ள பாதுகாப்பான வெளியேற்ற இடம் மற்றும் பாதையை பெறும் தொடர்பு அறிந்துகொள்ளுங்கள்.</string>
+    <string name="guide_situation_12_block_1_line_4">முக்கிய மருந்து, ஆவணங்கள் மற்றும் விலையுள்ள பொருட்களை நேரம் கிடைத்தால் பாதுகாப்பான இடத்திற்கு மாற்றுங்கள்.</string>
+    <string name="guide_situation_12_block_1_line_5">குடும்ப உறுப்பினர்களிடம் உங்கள் வெளியேற்ற திட்டத்தைத் தெரிவியுங்கள்.</string>
+    <string name="guide_situation_12_block_1_line_6">அதிகாரிகள் உத்தரவிடும்போது அல்லது தங்குவது பாதுகாப்பற்றதாக மாறும்போது உடனே வெளியேறுங்கள்.</string>
+    <string name="guide_situation_12_block_2_line_1">வெள்ள நீர் உங்கள் வீட்டை அடையும் வரையிலும் வெளியேறுவதற்கான தயாரிப்பை நிறுத்திவிடாதீர்கள்.</string>
+
+    <string name="guide_situation_13_title">🚰 எனக்கு குடிக்கத்தான பாதுகாப்பான தண்ணீர் இல்லை</string>
+    <string name="guide_situation_13_subtitle">கொதித்து, தூய்மையோ அல்லது வேறு மூலத்தோ காணுங்கள்.</string>
+    <string name="guide_situation_13_block_1_line_1">கிடைத்தால் நம்பகமான மூலத்திலிருந்து முக்கியமான போத்தல் தண்ணீரைப் பயன்படுத்துங்கள்.</string>
+    <string name="guide_situation_13_block_1_line_2">அதிகாரப்பூர்வ உள்ளூர் நீர்-பாதுகாப்பு அறிவுரைகளைப் பின்பற்றுங்கள்.</string>
+    <string name="guide_situation_13_block_1_line_3">அதிகாரிகள் கொதிக்க ஆலோசித்து, நீரில் ரசாயன மாசு இருப்பதாக சந்தேகம் இல்லாதபோது, குறைந்தது ஒரு நிமிடம் கடுமையாகக் கொதிக்கவும்; சுமார் 2,000 மீட்டருக்கு மேல் உள்ள இடங்களில் மூன்று நிமிடம் கொதிக்கவும்.</string>
+    <string name="guide_situation_13_block_1_line_4">ரசாயன மாசுக்கு சந்தேகம் இருந்தால் கொதிப்பதால் நீர் பாதுகாப்பாகாது; பாதுகாப்பான மாற்று மூலத்தைப் பயன்படுத்துங்கள்.</string>
+    <string name="guide_situation_13_block_1_line_5">குடிநீரை சுத்தமான, மூடிய பாத்திரங்களில் வைத்திருங்கள்.</string>
+    <string name="guide_situation_13_block_1_line_6">வெள்ள நீரையோ, பாதாள அல்லது ரசாயனங்களால் மாசுபடக்கூடிய நீரையோ குடிக்காதீர்கள்.</string>
+    <string name="guide_situation_13_block_2_header">முக்கியம்</string>
+    <string name="guide_situation_13_block_2_line_1">தெளிவாகத் தோன்றும் நீர் குடிப்பதற்கு பாதுகாப்பானது என்பது உறுதியாக அவசியமில்லை.</string>
+
+    <string name="guide_situation_14_title">🍱 என் உணவு ஒன்றெனப்போதும் மாசுபட்டிருக்கலாம்</string>
+    <string name="guide_situation_14_subtitle">சந்தேகம் எனில் எறியுங்கள்.</string>
+    <string name="guide_situation_14_block_1_line_1">வெள்ள நீரைத் தொட்ட உணவை எறியுங்கள்; அதிகாரப்பூர்வமாக மீட்டெடுப்பதற்கு பாதுகாப்பான என்று உறுதிப்படுத்திய அரிப்பு உள்ளவைக்கு மட்டுமே வழங்கலாம்.</string>
+    <string name="guide_situation_14_block_1_line_2">சிதிலமடைந்த முக்கூடு, கசிவு, அசாதாரண வாசனை அல்லது மாசு அறிகுறிகள் கொண்ட உணவை எறியுங்கள்.</string>
+    <string name="guide_situation_14_block_1_line_3">உணவு பாதுகாப்பானதா என சுவைத்துப் பார்க்க வேண்டாம்.</string>
+    <string name="guide_situation_14_block_1_line_4">உணவு தயாரிப்பிற்கு பாதுகாப்பான குடிநீரையே பயன்படுத்துங்கள்.</string>
+    <string name="guide_situation_14_block_1_line_5">உணவு உண்ணும்முன் அல்லது கையாளும்முன், காற்றும் பாதுகாப்பான நீரும் கொண்டு கை கழுவுங்கள்.</string>
+
+    <string name="guide_situation_15_title">🏚️ வெள்ளத்திலிருந்து வீட்டிற்குத் திரும்பிவிட்டேன்</string>
+    <string name="guide_situation_15_subtitle">அதிகாரிகள் பாதுகாப்பானது என கூறும்போது மட்டுமே திரும்புங்கள்.</string>
+    <string name="guide_situation_15_block_1_line_1">அதிகாரிகள் பகுதி பாதுகாப்பானது என அறிவித்த பின்பே திரும்புங்கள்.</string>
+    <string name="guide_situation_15_block_1_line_2">கட்டமைப்பு சேதம், நிலையற்ற சுவர்கள் மற்றும் மாசுபட்ட நீரை கவனியுங்கள்.</string>
+    <string name="guide_situation_15_block_1_line_3">இடிந்த மின்கோடுகள் மற்றும் சேதமடைந்த மின் உபகரணங்களிலிருந்து தூரமாக இருங்கள்.</string>
+    <string name="guide_situation_15_block_1_line_4">சுத்தம் செய்யும்போது பாதுகாப்புள்ள காலணிகள் மற்றும் கருவிமுடிகளை அணியுங்கள்.</string>
+    <string name="guide_situation_15_block_1_line_5">பாதுகாப்புள்ள காலணி மற்றும் பாதுகாப்பான நீராக இருக்கும் வரை யாரும் தண்ணீரை தொடாதீர்கள்.</string>
+    <string name="guide_situation_15_block_1_line_6">வெள்ள நீரில் மாசுபட்ட உணவை எறியுங்கள்.</string>
+    <string name="guide_situation_15_block_1_line_7">காயங்கள், காய்ச்சல், அல்லது மாசுபடும்போது நீரில் தொடர்பு கொண்டு நல்ல அறிகுறிகள் தோன்றினால் மருத்துவ உதவி கேட்கவும்.</string>
+    <string name="guide_situation_15_block_1_line_8">பாதுகாப்பாக இருந்தால், காப்பீட்டுத் தேவைகளுக்கு சேத புகைப்படங்களை எடுங்கள்.</string>
+
+    <string name="guide_situation_16_title">🆘 அவசர தொடர்பு மற்றும் SOS சரிபார்ப்புப் பட்டியல்</string>
+    <string name="guide_situation_16_subtitle">உங்கள் அவசர செய்தியில் என்ன சேர்க்கவேண்டும்.</string>
+    <string name="guide_situation_16_block_1_header">இந்த விவரங்களில் கிடைப்பவற்றை அணுவுங்கள்</string>
+    <string name="guide_situation_16_block_1_line_1">• உங்கள் பெயர்.</string>
+    <string name="guide_situation_16_block_1_line_2">• உங்கள் GPS ஒருங்கிணைப்புகள் அல்லது அறியத்தக்க அடையாளச் சின்னம்.</string>
+    <string name="guide_situation_16_block_1_line_3">• உதவி தேவைப்படும் மக்களின் எண்ணிக்கை.</string>
+    <string name="guide_situation_16_block_1_line_4">• யாரேனும் காயமடைந்துள்ளார்களா அல்லது உடனடி மருத்துவ உதவி தேவைப்படுகிறார்களா.</string>
+    <string name="guide_situation_16_block_1_line_5">• நீர் உயருகிறதா அல்லது இடம் ஆபத்தானதா.</string>
+    <string name="guide_situation_16_block_1_line_6">• மீட்புவிடுதல்களை தொடர்பு கொள்ள பாதுகாப்பான வழி.</string>
+    <string name="guide_situation_16_block_2_header">எடுத்துக்காட்டு</string>
+    <string name="guide_situation_16_block_2_line_1">“அவசரம் — எங்களுக்கு மீட்பு உதவி தேவை. இருப்பிடம்: [ஒருங்கிணைப்புகள்/அடையாளம்]. மனிதர்கள்: [எண்ணிக்கை]. நீர்மட்டம்: [உயர்ந்துவருகிறது/நிலையான]. காயங்கள்: [விவரம்]. தொடர்பு: [தொலைபேசி எண்]”</string>
+    <string name="guide_situation_16_block_3_header">குறிப்பு</string>
+    <string name="guide_situation_16_block_3_line_1">GPS ஒருங்கிணைப்புகள் கிடைக்காதபோது, அருகிலுள்ள சாலை, கட்டிடம், அடையாளச் சின்னம் அல்லது அறிந்த இடத்தைப் பகிருங்கள்.</string>
+</resources>
