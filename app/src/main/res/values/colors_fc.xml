@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ============================================================
+         FLOODCUE AURORA BLUE — primary palette
+         ============================================================ -->
+
+    <!-- Primary blue (brand) -->
+    <color name="fc_primary">#1769E0</color>
+    <color name="fc_primary_pressed">#1254B8</color>
+    <color name="fc_primary_light">#78A9FF</color>
+    <color name="fc_primary_dark">#1254B8</color>
+
+    <!-- Background -->
+    <color name="fc_background">#F5F8FC</color>
+    <color name="fc_background_dark">#0C1422</color>
+
+    <!-- Surface -->
+    <color name="fc_surface">#FFFFFF</color>
+    <color name="fc_surface_elevated">#FFFFFF</color>
+    <color name="fc_surface_dark">#151F30</color>
+    <color name="fc_surface_elevated_dark">#1B2940</color>
+
+    <!-- Text -->
+    <color name="fc_text_primary">#152238</color>
+    <color name="fc_text_primary_dark">#F2F6FC</color>
+    <color name="fc_text_secondary">#5D6B82</color>
+    <color name="fc_text_secondary_dark">#B0BCD0</color>
+
+    <!-- Borders / dividers -->
+    <color name="fc_border">#DCE5F0</color>
+    <color name="fc_border_dark">#2C3B52</color>
+    <color name="fc_divider">#E5E5E5</color>
+    <color name="fc_divider_dark">#3D3D3D</color>
+
+    <!-- Inputs -->
+    <color name="fc_input_stroke">#C8C8C8</color>
+    <color name="fc_input_stroke_dark">#484848</color>
+    <color name="fc_input_focused">#2563EB</color>
+    <color name="fc_input_background">#FFFFFF</color>
+    <color name="fc_input_background_dark">#2B2B2B</color>
+
+    <!-- Buttons -->
+    <color name="fc_button_primary">#2563EB</color>
+    <color name="fc_button_primary_pressed">#1D4ED8</color>
+    <color name="fc_button_secondary">#F2F2F2</color>
+    <color name="fc_button_secondary_pressed">#E5E5E5</color>
+    <color name="fc_button_secondary_dark">#333333</color>
+    <color name="fc_button_secondary_dark_pressed">#444444</color>
+    <color name="fc_button_text">#FFFFFF</color>
+    <color name="fc_button_ripple">#22000000</color>
+
+    <!-- Semantic / emergency colors -->
+    <color name="fc_success">#16A34A</color>
+    <color name="fc_success_text">#FFFFFF</color>
+    <color name="fc_warning">#F59E0B</color>
+    <color name="fc_warning_text">#1F2937</color>
+    <color name="fc_error">#DC2626</color>
+    <color name="fc_error_text">#FFFFFF</color>
+    <color name="fc_info">#2563EB</color>
+    <color name="fc_info_text">#FFFFFF</color>
+
+    <!-- Status message colors -->
+    <color name="fc_status_success">#16A34A</color>
+    <color name="fc_status_warning">#F59E0B</color>
+    <color name="fc_status_error">#DC2626</color>
+
+    <!-- Home SOS (emergency, stays red for urgent recognition) -->
+    <color name="fc_home_sos">#C62828</color>
+    <color name="fc_home_sos_pressed">#9C1F1A</color>
+
+    <!-- Google sign-in button -->
+    <color name="fc_google_text">#202124</color>
+
+    <!-- Splash gradient start / end -->
+    <color name="fc_splash_top">#0E1B30</color>
+    <color name="fc_splash_bottom">#1769E0</color>
+
+    <!-- Map component colors -->
+    <color name="fc_map_background">#1E2A44</color>
+    <color name="fc_map_control_background">#151F30</color>
+    <color name="fc_map_control_background_pressed">#1B2940</color>
+    <color name="fc_map_control_text">#B0BCD0</color>
+
+</resources>

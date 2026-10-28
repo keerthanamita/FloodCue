@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ============================================================
+         FLOODCUE AURORA BLUE — custom view attributes
+         ============================================================ -->
+    <!-- windowActionModeOverlay is a pre-defined Android attr exposed by
+         Theme.MaterialComponents.DayNight.NoActionBar; declared here only
+         for explicit project-level exposure. -->
+
+</resources>

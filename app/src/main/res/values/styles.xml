@@ -1,6 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-        <style name="AboutSectionTitle">
+
+    <!-- ============================================================
+         FLOODCUE AURORA BLUE — design system styles
+         ============================================================ -->
+
+    <!-- Text input style -->
+    <style name="FloodCue.TextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:minHeight">56dp</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:textColor">@color/fc_text_primary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="boxBackgroundColor">@color/fc_input_background</item>
+        <item name="boxBackgroundMode">outline</item>
+        <item name="boxStrokeWidth">1.5dp</item>
+        <item name="boxStrokeWidthFocused">2.5dp</item>
+        <item name="hintTextColor">@color/fc_text_secondary</item>
+        <item name="hintTextAppearance">@style/FloodCue.TextHint</item>
+        <item name="android:textColorHint">@color/fc_text_secondary</item>
+        <item name="errorTextColor">@color/fc_error</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+    </style>
+
+    <style name="FloodCue.TextHint">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/fc_text_secondary</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- Disabled button style -->
+    <style name="FloodCue.Button.Disabled">
+        <item name="android:alpha">0.4</item>
+    </style>
+
+    <!-- Elevated card -->
+    <style name="FloodCue.Card">
+        <item name="android:background">@drawable/bg_card_elevated</item>
+    </style>
+
+    <!-- Screen card (the main card used on content screens) -->
+    <style name="FloodCue.Card.Screen">
+        <item name="android:background">@drawable/bg_screen_card</item>
+    </style>
+
+    <!-- Feature card (home screen feature buttons) -->
+    <style name="FloodCue.Card.Feature">
+        <item name="android:background">@drawable/bg_feature_card</item>
+    </style>
+
+    <!-- Status text style -->
+    <style name="FloodCue.Text.Status">
+        <item name="android:textSize">14sp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- Screen title style -->
+    <style name="FloodCue.Text.ScreenTitle">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textColor">@color/fc_text_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <!-- Screen heading (section headings) -->
+    <style name="FloodCue.Text.Heading">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/fc_text_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <!-- Subtitle / description -->
+    <style name="FloodCue.Text.Subtitle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/fc_text_secondary</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <!-- Body text -->
+    <style name="FloodCue.Text.Body">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/fc_text_primary</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <!-- Body text (secondary) -->
+    <style name="FloodCue.Text.Body.Secondary">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/fc_text_secondary</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <!-- Label / hint text -->
+    <style name="FloodCue.Text.Label">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/fc_text_secondary</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- Custom divider -->
+    <style name="FloodCue.Divider">
+        <item name="android:background">@drawable/bg_divider</item>
+    </style>
+
+    <!-- Bottom navigation item style -->
+    <style name="FloodCue.BottomNav" parent="">
+        <item name="android:textSize">13sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- About body text -->
+    <style name="FloodCue.About.Body">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/fc_text_primary</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <!-- About section header -->
+    <style name="FloodCue.About.Section">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/fc_text_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+
+    <!-- About sub-section header -->
+    <style name="FloodCue.About.SubSection">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/fc_text_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- Icon button (chevron, back, etc.) -->
+    <style name="FloodCue.Button.Icon" parent="">
+        <item name="android:minHeight">48dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+    </style>
+
+    <!-- Base style required by the theme -->
+    <style name="FloodCue" parent="">
+    </style>
+
+    <!-- Base styles required by the Material theme -->
+    <style name="FloodCue.About" parent="">
+    </style>
+    <style name="FloodCue.Button" parent="">
+    </style>
+    <style name="FloodCue.Text" parent="">
+    </style>
+
+    <!-- Collapsed hint text style (used in login/create account forms) -->
+    <style name="CollapsedHintTextStyle">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <!-- Alert chip style -->
+    <style name="FloodCue.AlertChip">
+        <item name="android:textSize">11sp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- ============================================================
+         FLOODCUE AURORA BLUE — legacy About styles (for activity_about_bridgefy.xml)
+         ============================================================ -->
+
+    <style name="AboutBodyText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="AboutSectionTitle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/text_primary</item>
@@ -17,13 +211,4 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="AboutBodyText">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">8dp</item>
-        <item name="android:lineSpacingExtra">3dp</item>
-        <item name="android:textColor">@color/text_secondary</item>
-        <item name="android:textSize">14sp</item>
-    </style>
-
-    </resources>
+</resources>

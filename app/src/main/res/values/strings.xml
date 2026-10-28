@@ -4,6 +4,10 @@
     <string name="app_name">FloodCue</string>
     <string name="default_web_client_id">263570444879-t0u106l5sj1ntmtq1fo328rcfuhhnlv0.apps.googleusercontent.com</string>
 
+    <!-- Brand header (shown on the home screen top bar) -->
+    <string name="home_header_title">Welcome to FloodCue</string>
+    <string name="home_header_subtitle">Everything you need before, during, and after a flood</string>
+
     <!-- Language feature -->
     <string name="offline_maps_title">Offline maps</string>
     <string name="offline_maps_download_prompt">Download the map to use it without internet</string>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ============================================================
+         FLOODCUE AURORA BLUE — spacing & layout dimensions
+         ============================================================ -->
+
+    <!-- Spacing scale (8dp grid) -->
+    <dimen name="fc_sp_2">4dp</dimen>
+    <dimen name="fc_sp_4">8dp</dimen>
+    <dimen name="fc_sp_6">12dp</dimen>
+    <dimen name="fc_sp_8">16dp</dimen>
+    <dimen name="fc_sp_12">24dp</dimen>
+    <dimen name="fc_sp_16">32dp</dimen>
+    <dimen name="fc_sp_20">40dp</dimen>
+    <dimen name="fc_sp_24">48dp</dimen>
+    <dimen name="fc_sp_28">56dp</dimen>
+    <dimen name="fc_sp_32">64dp</dimen>
+
+    <!-- Content padding -->
+    <dimen name="fc_content_padding_horizontal">24dp</dimen>
+    <dimen name="fc_content_padding_vertical">24dp</dimen>
+    <dimen name="fc_content_padding_bottom">32dp</dimen>
+
+    <!-- Card corner radius -->
+    <dimen name="fc_card_corner_radius">16dp</dimen>
+    <dimen name="fc_card_corner_radius_small">12dp</dimen>
+    <dimen name="fc_card_corner_radius_large">24dp</dimen>
+    <dimen name="fc_card_radius_sm">10dp</dimen>
+    <dimen name="fc_card_radius_md">14dp</dimen>
+
+    <!-- Elevation -->
+    <dimen name="fc_elevation_sm">2dp</dimen>
+    <dimen name="fc_elevation_md">4dp</dimen>
+    <dimen name="fc_elevation_lg">8dp</dimen>
+    <dimen name="fc_elevation_xl">12dp</dimen>
+    <dimen name="fc_elevation_navigation">8dp</dimen>
+
+    <!-- Touch targets -->
+    <dimen name="fc_touch_min">48dp</dimen>
+    <dimen name="fc_touch_signin">56dp</dimen>
+    <dimen name="fc_touch_button">56dp</dimen>
+    <dimen name="fc_touch_small">44dp</dimen>
+
+    <!-- Icon sizes -->
+    <dimen name="fc_icon_sm">20dp</dimen>
+    <dimen name="fc_icon_md">24dp</dimen>
+    <dimen name="fc_icon_lg">32dp</dimen>
+
+    <!-- Text sizes -->
+    <dimen name="fc_text_xsmall">11sp</dimen>
+    <dimen name="fc_text_small">12sp</dimen>
+    <dimen name="fc_text_small_max">13sp</dimen>
+    <dimen name="fc_text_default">15sp</dimen>
+    <dimen name="fc_text_default_max">16sp</dimen>
+    <dimen name="fc_text_title">20sp</dimen>
+    <dimen name="fc_text_title_lg">24sp</dimen>
+    <dimen name="fc_text_heading">28sp</dimen>
+    <dimen name="fc_text_display">48sp</dimen>
+    <dimen name="fc_text_brand">36sp</dimen>
+
+    <!-- Toolbar / status bar height -->
+    <dimen name="fc_toolbar_height">64dp</dimen>
+    <dimen name="fc_status_bar_height">32dp</dimen>
+
+    <!-- Split buttons (weather, flood alert, etc.) -->
+    <dimen name="fc_split_ratio">1.0</dimen>
+
+</resources>
