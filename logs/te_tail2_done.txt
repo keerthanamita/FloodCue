@@ -1,0 +1,7 @@
+total lines: 113
+last 4 lines:
+110 '    <string name="guide_situation_10_block_1_line_2">• ద్రవ్యం లేదా ఇతర వెలుగు వస్తువు ద్వారా సూర్యుని కాంతిని రక్షకుల వైపు పంపండి.</string>'
+111 '    <string name="guide_situation_10_block_1_line_3">• రక్షకులు దగ్గరకు రాగానే గట్టిగా సహాయం అడగండి.</string>'
+112 '    <string name="guide_situation_10_block_1_line_4">• దృష్టి ఆకర్షించడానికి సీటీని పునరావృతంగా గొట్టండి.</string>'
+113 '</resources>'
+ends with </resources>: True

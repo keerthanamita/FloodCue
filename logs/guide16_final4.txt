@@ -1,0 +1,2 @@
+LAST LINE: '</resources>'
+ENDS CLOSED: False

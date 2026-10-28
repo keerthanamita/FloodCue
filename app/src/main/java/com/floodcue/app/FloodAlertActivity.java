@@ -30,15 +30,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
 
@@ -57,12 +54,6 @@ import java.util.Locale;
 import java.util.TimeZone;
 import java.util.regex.Pattern;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.File;
-import java.io.IOException;
-import com.floodcue.app.OfflineMapCatalog;
-
 /**
  * Flood and heavy-rain warnings for one district.
  *
@@ -70,12 +61,12 @@ import com.floodcue.app.OfflineMapCatalog;
  * 1. NDMA SACHET public CAP feed (https://sachet.ndma.gov.in) - open, no key,
  *    fetched straight from the device, filtered to the chosen district.
  *    Severity comes from each alert's own CAP record, never from guesswork.
- * 2. IMD district rainfall warnings (api.imd.gov.in) - IMD issues an API key
- *    that is bound to a single server address, so FloodCue calls it through
- *    the user's own proxy (server/imd_proxy.php). Until a proxy address is
- *    configured the section says so instead of pretending to have data.
- * 3. CWC river/flood forecasts have no verified machine-readable endpoint,
+ * 2. CWC river/flood forecasts have no verified machine-readable endpoint,
  *    so the official portal is linked rather than scraped.
+ *
+ * (IMD district warnings need an API key bound to one server address, so they
+ * are only readable through a user-hosted proxy - server/imd_proxy.php - which
+ * this screen does not wire up yet.)
  *
  * Everything is cached in SharedPreferences with its retrieval time and is
  * clearly labelled when shown from cache. Notifications fire only for alerts
@@ -149,17 +140,6 @@ public class FloodAlertActivity extends FloodCueActivity {
         String expiry = "";
         long publishedAt;
         int severity = SEVERITY_UNKNOWN;
-    }
-
-
-
-    private static final class ImdResult {
-        boolean readable;
-        boolean matched;
-        final List<Integer> days = new ArrayList<>();
-        String districtName = "";
-        String issueDate = "";
-        String issueTime = "";
     }
 
     // ------------------------------------------------------------------ setup
@@ -479,89 +459,87 @@ public class FloodAlertActivity extends FloodCueActivity {
         final String wantedDistrict = district;
 
         new Thread(() -> {
-            boolean offline = false;
-            String rss = null;
-            List<Alert> allAlerts = new ArrayList<>();
-            List<Alert> matched = new ArrayList<>();
-            boolean offlineSaved = offline;
-            String rssSaved = rss;
-            List<Alert> allAlertsSaved = allAlerts;
-            List<Alert> matchedSaved = matched;
-
             try {
-                // Diagnose HTTP result
+                String rss = null;
+                boolean offline = false;
+                try {
+                    rss = httpGet(SACHET_RSS_URL, FETCH_TIMEOUT_MS);
+                } catch (IOException networkDown) {
+                    offline = true;
+                }
+                // A body that small is an error page, not the feed.
+                if (rss != null && rss.length() < 200) {
+                    rss = null;
+                }
+
+                List<Alert> matched = new ArrayList<>();
+                boolean parsed = false;
                 if (rss != null) {
-                    // Check response size to avoid memory issues
-                    int bodyLength = rss.length();
-                    if (bodyLength < 200) {
-                        // Likely an error page or empty response
-                        rssSaved = null;
-                        offlineSaved = true;
+                    List<Alert> all = parseRss(rss);
+                    parsed = !all.isEmpty();
+                    if (parsed) {
+                        // Known severity/area from an earlier read of these ids
+                        // helps matching and the chips without extra fetches.
+                        restoreSeverity(all);
+                        matched = filterByDistrict(all, wantedDistrict);
+                        enrich(matched);
+                        // The cache only changes after a feed really arrived and
+                        // parsed, so a failed refresh can never wipe saved alerts.
+                        preferences().edit()
+                                .putString(KEY_RSS_CACHE, rss)
+                                .putLong(KEY_RSS_CACHE_AT, System.currentTimeMillis())
+                                .apply();
                     }
                 }
-            } catch (Exception e) {
-                // Network error detected
-                offlineSaved = true;
-            }
 
-            if (rssSaved != null) {
-                try {
-                    allAlertsSaved = parseRss(rssSaved);
-                } catch (Exception parseFailed) {
-                    allAlertsSaved = new ArrayList<>();
-                    rssSaved = null;
-                }
-                if (rssSaved != null) {
-                    matchedSaved = filterByDistrict(allAlertsSaved, wantedDistrict);
-                    enrich(matchedSaved);
-                }
-            }
+                final String freshRss = parsed ? rss : null;
+                final List<Alert> freshMatched = matched;
+                final boolean wasOffline = offline;
 
-            // Only save cache after successful fetch and parse
-            final String freshRss = (allAlertsSaved.isEmpty() && rssSaved != null) ? null : rssSaved;
-            final List<Alert> freshMatched = matchedSaved;
-            final boolean wasOffline = offlineSaved || (rssSaved == null);
+                runOnUiThread(() -> {
+                    loading = false;
+                    refreshButton.setEnabled(true);
+                    locationButton.setEnabled(true);
 
-            // Build UI status based on what we have
-            runOnUiThread(() -> {
-                loading = false;
-                refreshButton.setEnabled(true);
-                locationButton.setEnabled(true);
+                    if (freshRss == null) {
+                        renderSachetFromCache();
+                        showStatus(wasOffline
+                                ? R.string.flood_alert_offline
+                                : R.string.flood_alert_error);
+                        return;
+                    }
 
-                if (wasOffline && freshRss == null) {
-                    // No internet and no cache
-                    showStatus(R.string.flood_alert_offline);
-                    renderSachetFromCache();
-                } else if (freshRss == null && !allAlerts.isEmpty()) {
-                    // Had data but parsing failed
-                    showStatus(R.string.flood_alert_error);
-                    renderSachetFromCache();
-                } else if (freshRss != null && freshMatched.isEmpty()) {
-                    // Feed updated but no matching alert for this district
-                    showStatus(getString(R.string.flood_alert_none, district));
-                    renderSachet(freshMatched, false, System.currentTimeMillis());
-                } else if (freshRss != null) {
-                    // Feed updated with alerts
                     renderSachet(freshMatched, false, System.currentTimeMillis());
                     if (freshMatched.isEmpty()) {
-                        showStatus(getString(R.string.flood_alert_none, district));
+                        showStatus(getString(R.string.flood_alert_no_matching, district));
+                    } else {
+                        showStatus(R.string.flood_alert_feed_updated);
                     }
-                } else if (freshMatched.isEmpty() && allAlerts.isEmpty()) {
-                    // No data at all
-                    showStatus(R.string.flood_alert_error);
-                    renderSachetFromCache();
-                } else {
-                    // Fallback: show cached
-                    renderSachetFromCache();
-                    showStatus(R.string.flood_alert_cache_fresh);
-                }
-
-                // Notify about new alerts if we have fresh results
-                if (freshRss != null) {
                     notifyNew(this, freshMatched, district);
-                }
-            });
+                    if (!freshMatched.isEmpty() && notificationsBlocked()) {
+                        // The warnings are on screen but cannot announce themselves.
+                        showStatus(R.string.flood_alert_notifications_blocked);
+                    }
+                });
+            } catch (RuntimeException feedBroken) {
+                // A parsing or prefs failure must not leave the buttons dead.
+                runOnUiThread(() -> {
+                    loading = false;
+                    refreshButton.setEnabled(true);
+                    locationButton.setEnabled(true);
+                    renderSachetFromCache();
+                    showStatus(R.string.flood_alert_error);
+                });
+            }
         }).start();
+    }
+
+    /** Android 13+ needs POST_NOTIFICATIONS for an alert to reach the shade. */
+    private boolean notificationsBlocked() {
+        return Build.VERSION.SDK_INT >= 33
+                && ContextCompat.checkSelfPermission(this,
+                        Manifest.permission.POST_NOTIFICATIONS)
+                != PackageManager.PERMISSION_GRANTED;
     }
 
     /** CAP uses a "cap:" prefix and RSS may use "atom:", so match on the local name. */
@@ -573,10 +551,6 @@ public class FloodAlertActivity extends FloodCueActivity {
         return colon >= 0 ? name.substring(colon + 1) : name;
     }
 
-    private static String withEndpoint(String proxy, String endpoint) {
-        String separator = proxy.contains("?") ? "&" : "?";
-        return proxy + separator + "endpoint=" + endpoint;
-    }
 
     private static String httpGet(String address, int timeoutMs) throws IOException {
         HttpURLConnection connection =
@@ -600,34 +574,6 @@ public class FloodAlertActivity extends FloodCueActivity {
             return body.toString();
         } finally {
             connection.disconnect();
-        }
-    }private void applyResults(String freshRss,
-                              List<Alert> freshMatched,
-                              boolean offline) {
-        // State 1: Loading already handled; now determine which static state to show
-        if (freshRss != null) {
-            // Feed was fetched successfully
-            if (freshMatched.isEmpty()) {
-                // State: Feed updated, no matching alert for this district
-                showStatus(getString(R.string.flood_alert_no_matching, district));
-            } else {
-                // State: Feed updated with matching alerts
-                renderSachet(freshMatched, false, System.currentTimeMillis());
-                showStatus(R.string.flood_alert_feed_updated);
-            }
-            // Notify about new alerts (de-duplicated)
-            if (freshMatched.size() > 0) {
-                notifyNew(this, freshMatched, district);
-            }
-        } else if (!offline) {
-            // State: Could not fetch feed (network error, not offline)
-            showStatus(R.string.flood_alert_error);
-            // Try cache as fallback
-            renderSachetFromCache();
-        } else {
-            // State: Offline - showing what's saved on device
-            renderSachetFromCache();
-            showStatus(R.string.flood_alert_offline);
         }
     }
 
@@ -849,8 +795,11 @@ public class FloodAlertActivity extends FloodCueActivity {
         if (cached == null || district.isEmpty()) {
             return;
         }
-        List<Alert> matched = filterByDistrict(parseRss(cached), district);
-        restoreSeverity(matched);
+        List<Alert> all = parseRss(cached);
+        // Severity and area come back from the cache before matching, so cached
+        // area names also count for "is this alert for my district".
+        restoreSeverity(all);
+        List<Alert> matched = filterByDistrict(all, district);
         renderSachet(matched, true, preferences().getLong(KEY_RSS_CACHE_AT, 0L));
     }
 
@@ -1014,9 +963,13 @@ public class FloodAlertActivity extends FloodCueActivity {
         NotificationManagerCompat manager = NotificationManagerCompat.from(context);
         SharedPreferences prefs = preferences(context);
         LinkedHashSet<String> notified = new LinkedHashSet<>();
-        for (String id : prefs.getString(KEY_NOTIFIED, "").split(",")) {
-            if (!id.trim().isEmpty()) {
-                notified.add(id.trim());
+        // Older versions joined ids with " . "; split both ways so alerts
+        // announced before that fix are still de-duplicated.
+        for (String chunk : prefs.getString(KEY_NOTIFIED, "").split(",")) {
+            for (String id : chunk.split("\u00b7")) {
+                if (!id.trim().isEmpty()) {
+                    notified.add(id.trim());
+                }
             }
         }
 
@@ -1049,66 +1002,14 @@ public class FloodAlertActivity extends FloodCueActivity {
             iterator.next();
             iterator.remove();
         }
-        prefs.edit().putString(KEY_NOTIFIED, join(new ArrayList<>(notified))).apply();
-    }
-
-    /** Show a brief Snackbar-like toast if notifications are blocked, so the user
-     * isn't left wondering why alerts aren't appearing.
-     */
-    private void showNotificationBlockedToast() {
-        if (Build.VERSION.SDK_INT >= 33) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
-                    != PackageManager.PERMISSION_GRANTED) {
-                showStatus(R.string.flood_alert_notifications_blocked);
+        StringBuilder stored = new StringBuilder();
+        for (String id : notified) {
+            if (stored.length() > 0) {
+                stored.append(',');
             }
+            stored.append(id);
         }
-    }
-
-    private static void notifyNewSafe(Context context,
-                                  List<Alert> alerts,
-                                  String districtName) {
-        // Caller should show showNotificationBlockedToast() if desired after calling.
-        if (alerts.isEmpty()) {
-            return;
-        }
-        NotificationManagerCompat manager = NotificationManagerCompat.from(context);
-        SharedPreferences prefs = preferences(context);
-        LinkedHashSet<String> notified = new LinkedHashSet<>();
-        for (String id : prefs.getString(KEY_NOTIFIED, "").split(",")) {
-            if (!id.trim().isEmpty()) {
-                notified.add(id.trim());
-            }
-        }
-
-        int sent = 0;
-        for (Alert alert : alerts) {
-            if (sent >= NOTIFY_PER_REFRESH) {
-                break;
-            }
-            if (alert.id.isEmpty() || notified.contains(alert.id)) {
-                continue;
-            }
-            notified.add(alert.id);
-            sent++;
-            try {
-                manager.notify(alert.id.hashCode(),
-                        buildNotification(context, alert, districtName));
-            } catch (SecurityException noPermission) {
-                return;
-            }
-        }
-        if (sent == 0) {
-            return;
-        }
-        while (notified.size() > MAX_NOTIFIED_IDS) {
-            Iterator<String> iterator = notified.iterator();
-            if (!iterator.hasNext()) {
-                break;
-            }
-            iterator.next();
-            iterator.remove();
-        }
-        prefs.edit().putString(KEY_NOTIFIED, join(new ArrayList<>(notified))).apply();
+        prefs.edit().putString(KEY_NOTIFIED, stored.toString()).apply();
     }
 
     private static Notification buildNotification(Context context,
@@ -1235,15 +1136,25 @@ public class FloodAlertActivity extends FloodCueActivity {
     private String severityName(int severity) {
         switch (severity) {
             case SEVERITY_RED:
-                return "Red";
+                // Fall back to an English literal: a locale may not define this.
+                return getStringOrDefault(R.string.flood_alert_severity_red, "Red");
             case SEVERITY_ORANGE:
-                return "Orange";
+                return getStringOrDefault(R.string.flood_alert_severity_orange, "Orange");
             case SEVERITY_YELLOW:
-                return "Yellow";
+                return getStringOrDefault(R.string.flood_alert_severity_yellow, "Yellow");
             case SEVERITY_GREEN:
-                return "Green";
+                return getStringOrDefault(R.string.flood_alert_severity_green, "Green");
             default:
-                return getString(R.string.flood_alert_severity_unknown);
+                return getStringOrDefault(R.string.flood_alert_severity_unknown, "Unknown");
+        }
+    }
+
+    /** Returns the string, or a literal fallback when the locale is missing it. */
+    private String getStringOrDefault(int resId, String fallback) {
+        try {
+            return getString(resId);
+        } catch (IllegalArgumentException e) {
+            return fallback;
         }
     }
 

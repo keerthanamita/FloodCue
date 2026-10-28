@@ -1,0 +1,360 @@
+===== te : 61 untranslated =====
+  checklist_section_progress
+     %1$d/%2$d
+  guide_situation_11_title
+     🐍 I See Snakes or Other Animals in Floodwater
+  guide_situation_11_subtitle
+     Keep your distance and never handle animals.
+  guide_situation_11_block_1_line_1
+     Keep a safe distance from snakes and unfamiliar animals.
+  guide_situation_11_block_1_line_2
+     Avoid putting your hands or feet into water where you cannot see the ground.
+  guide_situation_11_block_1_line_3
+     Do not attempt to catch, handle, or kill animals.
+  guide_situation_11_block_1_line_4
+     Move away calmly towards a safer location.
+  guide_situation_11_block_1_line_5
+     If bitten by a snake, seek emergency medical help immediately and keep the affected person as still as possible.
+  guide_situation_11_block_2_line_1
+     Cut the wound, suck out venom, or apply a tourniquet.
+  guide_situation_11_block_2_line_2
+     Try to catch the snake for identification.
+  guide_situation_11_block_2_line_3
+     Enter floodwater to avoid an animal if doing so creates a greater danger.
+  guide_situation_12_title
+     🌧️ I Hear a Flood Warning but Water Has Not Arrived
+  guide_situation_12_subtitle
+     Prepare before the water arrives.
+  guide_situation_12_block_1_line_1
+     Monitor official weather and disaster-management announcements.
+  guide_situation_12_block_1_line_2
+     Prepare your emergency bag and charge your phone.
+  guide_situation_12_block_1_line_3
+     Identify the nearest safe evacuation destination and route.
+  guide_situation_12_block_1_line_4
+     Move essential medicines, documents, and valuables to a safer location if time permits.
+  guide_situation_12_block_1_line_5
+     Inform family members about your evacuation plan.
+  guide_situation_12_block_1_line_6
+     Evacuate immediately when authorities direct you to do so or when conditions make staying unsafe.
+  guide_situation_12_block_2_line_1
+     Wait until water reaches your home before preparing to leave.
+  guide_situation_13_title
+     🚰 I Have No Safe Drinking Water
+  guide_situation_13_subtitle
+     Boil it, treat it, or find another source.
+  guide_situation_13_block_1_line_1
+     Use sealed bottled water from a reliable source when available.
+  guide_situation_13_block_1_line_2
+     Follow official local water-safety advisories.
+  guide_situation_13_block_1_line_3
+     If authorities advise boiling and the water is not suspected to contain chemical contamination, bring it to a rolling boil for at least one minute; at elevations above approximately 2,000 metres, boil for three minutes.
+  guide_situation_13_block_1_line_4
+     If chemical contamination is suspected, boiling will not make the water safe. Use an alternative safe source.
+  guide_situation_13_block_1_line_5
+     Keep drinking water in clean, covered containers.
+  guide_situation_13_block_1_line_6
+     Do not drink floodwater or water that may be contaminated by sewage, fuel, or chemicals.
+  guide_situation_13_block_2_header
+     Important
+  guide_situation_13_block_2_line_1
+     Water that looks clear is not necessarily safe to drink.
+  guide_situation_14_title
+     🍱 My Food May Be Contaminated
+  guide_situation_14_subtitle
+     When in doubt, throw it out.
+  guide_situation_14_block_1_line_1
+     Throw away food that touched floodwater unless it is in packaging officially confirmed safe for recovery.
+  guide_situation_14_block_1_line_2
+     Discard food with damaged seals, leaks, unusual smells, or signs of contamination.
+  guide_situation_14_block_1_line_3
+     Do not taste food to determine whether it is safe.
+  guide_situation_14_block_1_line_4
+     Use safe drinking water for food preparation.
+  guide_situation_14_block_1_line_5
+     Wash hands with soap and safe water before eating or handling food.
+  guide_situation_15_title
+     🏚️ I Have Returned Home After a Flood
+  guide_situation_15_subtitle
+     Return only when authorities say it is safe.
+  guide_situation_15_block_1_line_1
+     Return only after authorities declare the area safe.
+  guide_situation_15_block_1_line_2
+     Watch for structural damage, unstable walls, and contaminated water.
+  guide_situation_15_block_1_line_3
+     Stay away from fallen power lines and damaged electrical equipment.
+  guide_situation_15_block_1_line_4
+     Wear protective footwear and gloves during cleanup.
+  guide_situation_15_block_1_line_5
+     Do not use electrical appliances until the electrical system has been inspected and declared safe.
+  guide_situation_15_block_1_line_6
+     Discard food contaminated by floodwater.
+  guide_situation_15_block_1_line_7
+     Seek medical attention for injuries, fever, or symptoms following possible exposure to contaminated water.
+  guide_situation_15_block_1_line_8
+     Photograph damage for insurance purposes if it is safe to do so.
+  guide_situation_16_title
+     🆘 Emergency Contact and SOS Checklist
+  guide_situation_16_subtitle
+     What to include in your emergency message.
+  guide_situation_16_block_1_header
+     Include as many of these details as possible
+  guide_situation_16_block_1_line_1
+     • Your name.
+  guide_situation_16_block_1_line_2
+     • Your GPS coordinates or a recognisable nearby landmark.
+  guide_situation_16_block_1_line_3
+     • The number of people needing help.
+  guide_situation_16_block_1_line_4
+     • Whether anyone is injured or needs urgent medical assistance.
+  guide_situation_16_block_1_line_5
+     • Whether water is rising or the location is unsafe.
+  guide_situation_16_block_1_line_6
+     • A safe way for rescuers or family members to contact you.
+  guide_situation_16_block_2_header
+     Example
+  guide_situation_16_block_2_line_1
+     “EMERGENCY — We need rescue assistance. Location: [coordinates/landmark]. People: [number]. Injuries: [details]. Water level: [rising/stable]. Contact: [phone number].”
+  guide_situation_16_block_3_header
+     Note
+  guide_situation_16_block_3_line_1
+     If GPS coordinates are unavailable, share the nearest road, building, landmark, or known location.
+  sos_back_title
+     ← SOS
+===== hi : 6 untranslated =====
+  about_bridgefy_subsection_sdk
+     Bridgefy SDK (Software Development Kit)
+  checklist_section_progress
+     %1$d/%2$d
+  sos_back_title
+     ← SOS
+  weather_temp
+     %1$.1f°C
+  weather_value_feels_like
+     %1$.1f°C
+  weather_value_gusts
+     %1$.1f m/s
+===== ta : 4 untranslated =====
+  checklist_section_progress
+     %1$d/%2$d
+  sos_back_title
+     ← SOS
+  weather_temp
+     %1$.1f°C
+  weather_value_feels_like
+     %1$.1f°C
+===== kn : 7 untranslated =====
+  default_web_client_id
+     263570444879-t0u106l5sj1ntmtq1fo328rcfuhhnlv0.apps.googleusercontent.com
+  about_bridgefy_subsection_sdk
+     Bridgefy SDK (Software Development Kit)
+  checklist_section_progress
+     %1$d/%2$d
+  sos_back_title
+     ← SOS
+  weather_temp
+     %1$.1f°C
+  weather_value_feels_like
+     %1$.1f°C
+  weather_value_gusts
+     %1$.1f m/s
+===== ml : 7 untranslated =====
+  default_web_client_id
+     263570444879-t0u106l5sj1ntmtq1fo328rcfuhhnlv0.apps.googleusercontent.com
+  about_bridgefy_subsection_sdk
+     Bridgefy SDK (Software Development Kit)
+  checklist_section_progress
+     %1$d/%2$d
+  sos_back_title
+     ← SOS
+  weather_temp
+     %1$.1f°C
+  weather_value_feels_like
+     %1$.1f°C
+  weather_value_gusts
+     %1$.1f m/s
+
+===== te drift candidates: 61 =====
+  offline_maps_subtitle  LEN-RATIO=2.10
+     en: Download once, then use without internet
+     te: ఇంటర్నెట్ లేకుండా కూడా స్థానం చూడటానికి మీ ప్రాంతం యొక్క ఆఫ్‌లైన్ మ్యాప్‌ను తీసుకోండి.
+  sos_sms_unavailable  MUCH-SHORTER,LEN-RATIO=0.29
+     en: No compatible SMS app was found. Your numbers and message are still saved on this screen.
+     te: SMS యాప్ తెరవలేకపోయింది.
+  sos_sms_failed  MUCH-SHORTER,LEN-RATIO=0.37
+     en: Could not open the SMS app. Your numbers and message are still saved on this screen.
+     te: SMS తెరవడంలో పొరపాటు వచ్చింది.
+  sos_emergency_location_available  MUCH-SHORTER,LEN-RATIO=0.28
+     en: Current location obtained — coordinates and maps link included.
+     te: స్థానం లభించింది
+  sos_emergency_sms_sent  MUCH-SHORTER,LEN-RATIO=0.33
+     en: SOS message sent to your emergency contacts.
+     te: SMS పంపబడింది
+  sos_emergency_sms_failed  MUCH-SHORTER,LEN-RATIO=0.21
+     en: Could not send the SOS message. Check your network and that you have at least one emergency contact.
+     te: SMS పంపడంలో పొరపాటు
+  sos_emergency_siren  MUCH-SHORTER,LEN-RATIO=0.09
+     en: Siren activated — tap \u201cStop Siren\u201d or leave the app to stop it.
+     te: సైరన్
+  contacts_required_field  LEN-RATIO=0.44
+     en: Name and phone number are required
+     te: ఈ రంధ్రం ఖాతా.
+  contacts_delete_confirm  EN-te-JACCARD
+     en: Delete
+     te: తొలగించడానికి OK క్లిక్ చేయండి.
+  weather_temp  NO-TELUGU-SCRIPT
+     en: %1$.1f°C
+     te: %1$.1f °C
+  flood_alert_subtitle  EN-te-JACCARD,LEN-RATIO=2.48
+     en: Official warnings that mention your district
+     te: నీ ప్రాంతంలోని వర్షాభావాలు, కృత్రిమ సమాచారం మరియు అధికారిక నెట్‌వర్క్ సర్వీస్ (SACHET) లేదా IMD వార్తలను చూడండ
+  offline_comm_short  EN-te-JACCARD
+     en: When floods cut the internet, you can still exchange messages with nearby phones using Bridgefy — a separate, 
+     te: వరద ఇంటర్నెట్ నిలిపివేసినా, Bridgefy అనే ప్రత్యేక ఉచిత యాప్ ద్వారా సమీపంలోని ఫోన్లతో సందేశాలు పంపుకోవచ్చు — మొ
+  offline_comm_not_installed  MUCH-SHORTER,LEN-RATIO=0.24
+     en: Bridgefy is not installed on this phone. Get it from Google Play — internet is only needed to install it and f
+     te: మీ ఫోన్‌లో Bridgefy ఇంకా లేదు.
+  checklist_reset_message  MUCH-SHORTER,LEN-RATIO=0.37
+     en: This clears your progress on the current checklist layer. Your saved checklist state is not changed.
+     te: మీ టిక్‌లు తొలగించబడతాయి. కొనసాగాలా?
+  guide_subtitle  MUCH-SHORTER,LEN-RATIO=0.37
+     en: Pick your situation to read short, numbered steps. The most urgent situations are listed first.
+     te: వరద ప్రమాదంలో మీకు సహాయపడే సూచనలు.
+  about_floodcue_version_label  MUCH-SHORTER,LEN-RATIO=0.25
+     en: Version %1$s · offline flood survival app for Android
+     te: సంస్కరణ %1$s
+  about_floodcue_description  LEN-RATIO=2.49
+     en: Flood survival, ready before the water arrives.
+     te: FloodCue అనేది వరద హెచ్చరికలు, ఆఫ్‌లైన్ మ్యాప్‌లు, SOS సందేశాలు మరియు భద్రతా సలహాలను ఒకే చోట అందించే సూక్ష్మ ర
+  about_floodcue_sos_text  MUCH-SHORTER,LEN-RATIO=0.10
+     en: Tap the SOS button to start the siren and send your help message with your location to your emergency contacts
+     te: SMS ద్వారా సహాయం కోరండి.
+  about_floodcue_alerts_text  MUCH-SHORTER,LEN-RATIO=0.15
+     en: Official warnings from the NDMA SACHET public CAP feed, checked periodically in the background and announced w
+     te: వరద హెచ్చరికలను త్వరగా తెలుసుకోండి.
+  about_floodcue_tips_text  MUCH-SHORTER,LEN-RATIO=0.37
+     en: Short, scannable tips for before, during and after a flood, with life-threatening warnings shown clearly.
+     te: వరద ముందు, సమయంలో, తర్వాత చేయాల్సినవి.
+  about_floodcue_guide_text  MUCH-SHORTER,LEN-RATIO=0.13
+     en: 16 situation-based guides ordered by urgency, such as trapped inside a rising home, trapped in a vehicle, no p
+     te: ప్రమాద సమయంలో సరైన చర్యలు.
+  about_floodcue_about_bridgefy_text  MUCH-SHORTER,LEN-RATIO=0.39
+     en: Bridgefy is a separate offline messaging app. FloodCue can guide you to install and open it before an emergenc
+     te: Bridgefy అత్యవసర సమయంలో సమీప ఫోన్లతో సందేశాలు పంపడానికి సహాయపడుతుంది.
+  about_bridgefy_heading  NO-TELUGU-SCRIPT
+     en: About Bridgefy
+     te: Bridgefy
+  about_bridgefy_description  LEN-RATIO=2.37
+     en: Connecting people when the internet fails
+     te: Bridgefy అనేది బ్లూటూత్ ద్వారా సమీప ఫోన్లతో సందేశాలు పంపే యాప్; ఇంటర్నెట్ లేకుండా కూడా పనిచేస్తుంది.
+  about_bridgefy_install  EN-te-JACCARD
+     en: Install Bridgefy
+     te: Google Play లో Bridgefy ఇన్‌స్టాల్ చేయండి
+  about_language_text  MUCH-SHORTER,LEN-RATIO=0.17
+     en: FloodCue keeps the app interface and the survival content on two separate languages. The app language controls
+     te: యాప్ భాష మరియు భద్రతా సమాచార భాషను సెట్ చేయండి.
+  home_sos_started  EN-te-JACCARD
+     en: SOS started. Sending your emergency message to %1$d of your contacts.
+     te: SOS ప్రారంభించబడింది. మీ పరిచయాలలో %1$dకు మీ అత్యవసర సందేశం పంపబడుతోంది.
+  about_bridgefy_intro  LEN-RATIO=0.44
+     en: Bridgefy is a technology company that develops offline communication technology for mobile applications. Its t
+     te: బ్రిడ్జిఫీ అనేది మొబైల్ అప్లికేషన్‌ల కోసం ఆఫ్‌లైన్ కమ్యూనికేషన్ టెక్నాలజీని అభివృద్ధి చేసే టెక్నాలజీ కంపెనీ. ద
+  about_bridgefy_company_body  EN-te-JACCARD
+     en: • Company Name: Bridgefy, Inc.\n• Founded: 2014\n• Founder: Jorge Rios is identified as a founder in TechCrunc
+     te: • కంపెనీ పేరు: Bridgefy, Inc. • పుట్టినది: 2014 • ప్రారంభించినవారు: TechCrunch రిపోర్టులో జోర్జ్ రియస్‌ను ప్రా
+  about_bridgefy_bluetooth_body  EN-te-JACCARD
+     en: Bluetooth Low Energy (BLE) allows compatible nearby smartphones to exchange information directly. Bridgefy adv
+     te: బ్లూటూత్ లీఅర్ ఎనర్జీ (BLE) అనేది సమీప స్మార్ట్‌ఫోన్‌లు సరళంగా సమాచారాన్ని మార్పిడిచేయడానికి అనుమతిస్తుంది. బ్
+  about_bridgefy_ai_body  EN-te-JACCARD
+     en: Bridgefy describes its technology as using on-device AI and intelligent mesh networking to help mobile applica
+     te: బ్రిడ్జిఫీ తమ టెక్నాలజీని ఫోన్లో నుండి ఆఫ్‌లైన్ కమ్యూనికేషన్ వలె గణనీయమైన మెష్ నెట్‌వర్కింగ్‌లో ఉపయోగించడం ద్వ
+  about_bridgefy_sdk_body  EN-te-JACCARD
+     en: A collection of software tools and APIs that developers can use to add offline communication capabilities to t
+     te: ఇది సాఫ్ట్వేర్ డెవలపర్‌లు తమ స్వంత అప్లికేషన్‌లకు ఆఫ్‌లైన్ కమ్యూనికేషన్ సరళంగా నేర్చుకోవడానికి ఉపయోగించే సాఫ్ట
+  about_bridgefy_security_body  EN-te-JACCARD,MUCH-SHORTER,LEN-RATIO=0.39
+     en: Bridgefy has continued developing its offline communication technology for both individual users and applicati
+     te: బ్రిడ్జిఫీ తన సాఫ్ట్వేర్ మరియు SDKలో అభివృద్ధి చేసిన నవీకరణలు మరియు సురక్షిత కమ్యూనికేషన్‌ల కోసం ముందుగా తగ్గి
+  about_bridgefy_applications_body  MUCH-SHORTER,LEN-RATIO=0.10
+     en: • Natural Disasters: Supporting communication when internet services become unavailable.\n• Flood Emergencies:
+     te: • ప్రకృతి విపత్తులు: ఇంటర్నెట్ సేవలు అందజేయబడకపోతే సంప్రదించడానికి.
+  about_bridgefy_floodcue_body  MUCH-SHORTER,LEN-RATIO=0.33
+     en: FloodCue is designed to help people prepare for and respond to flood emergencies. Offline communication is imp
+     te: ఫ్లూడ్‌క్యూ ప్రకృతి విపత్తులకు సంబంధించిన సమాచారం మరియు లక్ష్యాలను ఫోన్లో ఉంచడం ద్వారా వినియోగితో నడుము పట్టే 
+  about_bridgefy_limitations_body  MUCH-SHORTER,LEN-RATIO=0.18
+     en: • Offline messaging requires participating users and compatible devices.\n• Bluetooth range is limited and var
+     te: • ఆఫ్‌లైన్ మెసేజింగ్ కోసం పాల్గొనే వినియోగితో పాటు అనుమతించబడిన పరికరాలు అవసరం.
+  about_floodcue_features_body  EN-te-JACCARD
+     en: • SOS Emergency Message — compose an emergency message with your GPS coordinates and a maps link, choose the c
+     te: • SOS అత్యవసర సందేశం — మీ GPS నిర్దేశాలు మరియు మ్యాప్స్ లింక్‌తో అత్యవసర సందేశం తయారు చేసి, దాన్ని స్వీకరించే 
+  about_floodcue_languages_body  EN-te-JACCARD
+     en: FloodCue runs with two independent languages: the app language for menus, buttons, settings and screens, and t
+     te: FloodCue రెండు స్వతంత్ర భాషలతో పని చేస్తుంది: మెనూలు, బట్టన్‌లు, సెట్టింగ్‌లు మరియు స్క్రీన్‌ల కోసం యాప్ భాష, 
+  about_floodcue_privacy_body  EN-te-JACCARD
+     en: Your phone numbers, medical details, checklist ticks and coordinates are stored on this phone. When you sign i
+     te: మీ ఫోన్ నంబర్లు, వైద్య వివరాలు, చెక్‌లిస్ట్ టిక్‌లు మరియు నిర్దేశాలు ఈ ఫోన్‌లోనే సేవ్ అవుతాయి. మీరు సైన్ ఇన్ చ
+  about_floodcue_sources_body  EN-te-JACCARD
+     en: • Official flood and heavy-rain warnings: NDMA SACHET public CAP feed (sachet.ndma.gov.in).\n• District rainfa
+     te: • అధికారిక వరద మరియు బలమైన వర్ష హెచ్చరికలు: NDMA SACHET పబ్లిక్ CAP ఫీడ్ (sachet.ndma.gov.in).\\n• జిల్లా వర్ష
+  about_floodcue_limits_body  EN-te-JACCARD
+     en: • Opening your SMS app does not mean the message was delivered. Normal SMS needs cellular service; mobile data
+     te: • మీ SMS అప్‌ను తెరవడం అంటే ఆ సందేశం డెలివర్ అయినట్లు కాదు. సాధారణ SMS‌కు సెల్యులార్ సేవ అవసరం; మొబైల్ డేటా అవ
+  flood_alert_district_label_note  EN-te-JACCARD
+     en: Choose the district closest to your location.
+     te: జిల్లా ఎంపిక విస్తరణ: %1$d
+  flood_alert_district_label_note_exit  MUCH-SHORTER,LEN-RATIO=0.35
+     en: District chosen for exit-related crop water shortage alerts.
+     te: మీ జిల్లా పేరు లేదు.
+  flood_alert_river_body  EN-te-JACCARD
+     en: River levels and flood forecasts come from the Central Water Commission. FloodCue does not receive them as liv
+     te: నది మరియు వర్షాభావ అనములు మధ్యమ స్థాయి నిర్ణయం నుండి వస్తాయి. FloodCue వాటిని జీవంతమైన డేటాగా అందించలేదు, కాబట
+  flood_alert_disclaimer  EN-te-JACCARD
+     en: These are official warnings as published by NDMA SACHET. They are not a live flood sensor: rainfall warnings a
+     te: ఇవి అధికారిక SACHET ద్వారా ప్రచురించబడిన అధికారిక హెచ్చరికలు. వాటిని జీవంతమైన ఫ్లూడ్ సెన్సర్గా పరిగణించవద్దు: 
+  guide_situation_9_block_1_line_5  EN-te-JACCARD
+     en: Switch off Bluetooth, Wi-Fi, and other features you do not need, but keep any communication method you are act
+     te: బ్లుటూత్, Wi-Fi మరియు అనవసరమైన ఫీచర్లను మూసి, కానీ మీరు ప్రస్తుతం వాడుకుంటున్న సంప్రదింపు సాధనం మాత్రమే ఆపకూడద
+  guide_situation_10_block_1_line_5  EN-te-JACCARD
+     en: • Display a clearly visible HELP sign if materials are available.
+     te: • సామానులు అందుబాటులో ఉంటే స్పష్టంగా HELLO లైంట్ వాడుకోవాలి.
+  language_picker_empty  EN-te-JACCARD
+     en: No languages found.\nTry another search.
+     te: భాషలేవీ కనబడలేదు.\nవేరే విధంగా వెతకండి.
+  sos_location_current  EN-te-JACCARD
+     en: Current location\nLatitude: %1$s\nLongitude: %2$s\nRecorded: %3$s
+     te: ప్రస్తుత స్థానం\nఅక్షాంశం: %1$s\nరేఖాంశం: %2$s\nనమోదైన సమయం: %3$s
+  sos_location_last_known  EN-te-JACCARD
+     en: Last known location (not a live GPS reading)\nLatitude: %1$s\nLongitude: %2$s\nRecorded: %3$s
+     te: చివరిగా తెలిసిన స్థానం (ప్రస్తుత GPS లెక్క కాదు)\nఅక్షాంశం: %1$s\nరేఖాంశం: %2$s\nనమోదైన సమయం: %3$s
+  sos_preview_location  EN-te-JACCARD
+     en: Location: %1$s, %2$s\nRecorded: %3$s
+     te: స్థానం: %1$s, %2$s\nనమోదైన సమయం: %3$s
+  sos_preview_location_last_known  EN-te-JACCARD
+     en: Last known location: %1$s, %2$s\nRecorded: %3$s
+     te: చివరిగా తెలిసిన స్థానం: %1$s, %2$s\nనమోదైన సమయం: %3$s
+  sos_confirm_message  EN-te-JACCARD
+     en: Each of these numbers will receive the SOS from this phone:\n\n%1$s\n\nMessage:\n\n%2$s\n\nThe message is stor
+     te: ఈ నంబర్లలో ఒక్కొక్కదానికీ ఈ ఫోన్ నుండి SOS వెళ్తుంది:\n\n%1$s\n\nసందేశం:\n\n%2$s\n\nసందేశం మొదట ఈ ఫోన్‌లో నిల్
+  sos_confirm_permission_note  EN-te-JACCARD
+     en: To send it automatically, FloodCue needs the SMS permission. If you do not grant it, FloodCue will open your S
+     te: స్వయంచాలకంగా పంపేందుకు FloodCue కి SMS అనుమతి కావాలి. మీరు ఇవ్వకపోతే, FloodCue మీ SMS యాప్‌ను తెరుస్తుంది; అక్
+  sos_queue_waiting  EN-te-JACCARD
+     en: SOS queued. It will be sent automatically as soon as this phone has mobile signal — SMS travels over the mobil
+     te: SOS వరుసలో ఉంది. ఈ ఫోన్‌కు మొబైల్ సిగ్నల్ వచ్చేసరికి స్వయంచాలకంగా పంపబడుతుంది — SMS మొబైల్ నెట్‌వర్క్ ద్వారా వ
+  sos_queue_error_no_service  EN-te-JACCARD
+     en: Last send attempt failed: no mobile network. SMS needs mobile signal (SIM + network), not an internet/Wi‑Fi co
+     te: చివరి ప్రయత్నం విఫలమైంది: మొబైల్ నెట్‌వర్క్ లేదు. SMS కు మొబైల్ సిగ్నల్ (SIM + నెట్‌వర్క్) కావాలి; ఇంటర్నెట్/W
+  sos_queue_no_sim  EN-te-JACCARD
+     en: No SIM card detected in this phone — SMS cannot be sent without one.
+     te: ఈ ఫోన్‌లో SIM కార్డు లేదు — దాని లేకుండా SMS పంపలేము.
+  sos_queue_partial  EN-te-JACCARD
+     en: Sent from this phone to %1$d of %2$d numbers. The rest will be sent when a network is available.
+     te: %2$d నంబర్లలో %1$d దీనికి ఈ ఫోన్ నుండి పంపబడింది. మిగిలినవి నెట్‌వర్క్ అందుబాటులోకి వచ్చేసరికి పంపబడతాయి.
+  sos_queue_complete  EN-te-JACCARD
+     en: The SOS left this phone for all %1$d numbers at %2$s. Delivery depends on your carrier.
+     te: %2$s కు మొత్తం %1$d నంబర్లకు SOS ఈ ఫోన్ నుండి వెళ్లింది. చేరడం మీ క్యారియర్‌పై ఆధారపడి ఉంటుంది.
+  sos_permission_denied_fallback  EN-te-JACCARD
+     en: SMS permission was not granted, so FloodCue will open your SMS app instead — tap Send there.
+     te: SMS అనుమతి ఇవ్వలేదు, కాబట్టి FloodCue మీ SMS యాప్‌ను తెరుస్తుంది — అక్కడ పంపడానికి Send నొక్కండి.
+  weather_value_feels_like  NO-TELUGU-SCRIPT
+     en: %1$.1f°C
+     te: %1$.1f °C

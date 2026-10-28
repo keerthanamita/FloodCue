@@ -1,0 +1,2 @@
+tmp: C:\Users\busan\AppData\Local\Temp\tmp3519_o9i.xml
+tail: '  <string name="guide_situation_16_block_3_line_1">GPS निर्देशांक उपलब्ध न हों तो सबसे पास की सड़क, इमारत, पहचान-स्तर या ज्ञात जगह बताएँ.</string>\n</resources>\n'

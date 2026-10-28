@@ -1,0 +1,6 @@
+fixed file written to: app\src\main\res\values-hi\strings_guide_content.xml
+new length bytes: 36916
+parsed OK: True
+strings count: 181
+ends with </resources>: True
+last line: '</resources>'

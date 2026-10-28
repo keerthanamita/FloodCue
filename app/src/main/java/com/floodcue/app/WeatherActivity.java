@@ -790,7 +790,7 @@ public class WeatherActivity extends FloodCueActivity {
 
     // --------------------------------------------------------------- models
 
-    public static final class WeatherData {
+    public static class WeatherData {
         double latitude;
         double longitude;
         double temperature;

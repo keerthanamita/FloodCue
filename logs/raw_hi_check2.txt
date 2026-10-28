@@ -1,0 +1,5 @@
+RAW last line: '</resources>'
+RAW ends </resources>: True
+RAW newline at end: '\n'
+RAW line count: 184
+PARSE OK: True

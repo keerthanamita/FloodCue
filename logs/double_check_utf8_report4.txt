@@ -1,0 +1,10 @@
+'guide' found at byte: 71
+ctx repr: 'tf-8"?>\r\n<resources>\r\n    <string name="guide_header_what_to_do">क्या करें</string>\r\n    <string name="guide_header_never">कभी नही�'
+file size bytes: 37100
+last line repr: "'</resources>'"
+ends with </resources>
+: False
+ends with </resources>: True
+text hits guide_situations_remaining: 0
+text hits guide_situation_14: 7
+text hits guide_situation_16: 13

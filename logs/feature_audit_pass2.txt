@@ -1,0 +1,21 @@
+FloodCue — feature audit, pass 2
+Generated: 2026-10-27T21:54:38.550670
+
+What this pass checks
+  • Every Activity class under main/java/com/floodcue/app that extends Activity / AppCompatActivity.
+  • Whether res/layout contains a conventionally named layout for it.
+  • Whether AndroidManifest.xml declares an <activity> with that class name.
+  • These are the structural prerequisites for the feature screens to be reachable from the app; a missing layout or manifest entry usually means the screen will crash on launch or is unreachable.
+
+Activity classes found in source (java/): 1
+Declared activities in manifest: 21
+Layout files matching activity_*.xml: 21
+
+### java/com/floodcue/app/FloodCueActivity.java
+# class: com.floodcue.app.java.com.floodcue.app.FloodCueActivity
+# expected layout: activity_flood_cue.xml
+# layout present: False
+# declared in manifest: False
+
+Problem summary
+  - java/com/floodcue/app/FloodCueActivity.java: missing layout and not declared (expected layout: activity_flood_cue.xml)

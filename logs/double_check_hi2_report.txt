@@ -1,0 +1,6 @@
+byte hits: []
+text hits (utf8-decode count): 0
+file size bytes: 37100
+last line repr: '</resources>'
+ends with </resources>\n: False
+ends with </resources>: True

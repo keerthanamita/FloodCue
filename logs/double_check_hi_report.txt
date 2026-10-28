@@ -1,0 +1,4 @@
+byte hits: []
+text hits: 0
+file size bytes: 37100
+last line repr: '</resources>'

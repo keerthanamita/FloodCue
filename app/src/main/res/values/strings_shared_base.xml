@@ -108,6 +108,12 @@
     <string name="flood_alert_alert_title">Alert title</string>
     <string name="flood_alert_alert_type">Alert type</string>
     <string name="flood_alert_severity_title">Severity</string>
+    <!-- Severity colour labels for the alert severity chips (FloodAlertActivity). -->
+    <string name="flood_alert_severity_red">Red</string>
+    <string name="flood_alert_severity_orange">Orange</string>
+    <string name="flood_alert_severity_yellow">Yellow</string>
+    <string name="flood_alert_severity_green">Green</string>
+
     <string name="flood_alert_validity">Valid until</string>
     <string name="flood_alert_message">Message</string>
     <string name="flood_alert_tap_for_details">Tap an alert for details</string>

@@ -1,0 +1,158 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+Reusing configuration cache.
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:processDebugGoogleServices UP-TO-DATE
+> Task :app:generateDebugResources
+
+> Task :app:packageDebugResources FAILED
+ERROR: [string-te/sos_back_title] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_back_title] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_heading] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_heading] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_subtitle] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_subtitle] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_default_message] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_default_message] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_location_idle] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_location_idle] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_location_loading] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_location_loading] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_number_removed] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_number_removed] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_confirm_title] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_confirm_title] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_queue_cancel] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_queue_cancel] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_queue_dismiss] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_queue_dismiss] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_queued_toast] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_queued_toast] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_sms_opened] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_sms_opened] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_sms_unavailable] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_sms_unavailable] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_sms_failed] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_sms_failed] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_send_queued_reason] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_send_queued_reason] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_send_disabled_reason] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_send_disabled_reason] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_emergency_back_title] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_emergency_back_title] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_emergency_heading] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_emergency_heading] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_emergency_short] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_emergency_short] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_emergency_contact] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_emergency_contact] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_emergency_location] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_emergency_location] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_emergency_location_available] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_emergency_location_available] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_emergency_location_unavailable] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_emergency_location_unavailable] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_emergency_sms_pending] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_emergency_sms_pending] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_emergency_sms_sent] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_emergency_sms_sent] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_emergency_sms_failed] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_emergency_sms_failed] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_emergency_siren] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_emergency_siren] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/sos_emergency_perm_denied] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/sos_emergency_perm_denied] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/weather_back_title] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/weather_back_title] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/weather_header] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/weather_header] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/weather_temp] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/weather_temp] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/weather_condition] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/weather_condition] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/weather_rain] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/weather_rain] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/weather_rain_24h] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/weather_rain_24h] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/weather_wind] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/weather_wind] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/weather_hourly] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/weather_hourly] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/weather_unavailable] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/weather_unavailable] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/weather_select_location] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/weather_select_location] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/weather_choose_location] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/weather_choose_location] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/weather_manual_title] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/weather_manual_title] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/weather_cache_note] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/weather_cache_note] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/flood_alert_back_title] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/flood_alert_back_title] E:\FloodCue\app\src\main\res\values-te\strings_flood_alert.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/flood_alert_header] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/flood_alert_header] E:\FloodCue\app\src\main\res\values-te\strings_flood_alert.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/flood_alert_subtitle] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/flood_alert_subtitle] E:\FloodCue\app\src\main\res\values-te\strings_flood_alert.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/flood_alert_refresh] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/flood_alert_refresh] E:\FloodCue\app\src\main\res\values-te\strings_flood_alert.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/flood_alert_open_failed] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/flood_alert_open_failed] E:\FloodCue\app\src\main\res\values-te\strings_flood_alert.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/offline_comm_back_title] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/offline_comm_back_title] E:\FloodCue\app\src\main\res\values-te\strings_offline_comm.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/offline_comm_heading] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/offline_comm_heading] E:\FloodCue\app\src\main\res\values-te\strings_offline_comm.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/offline_comm_short] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/offline_comm_short] E:\FloodCue\app\src\main\res\values-te\strings_offline_comm.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/offline_comm_not_installed] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/offline_comm_not_installed] E:\FloodCue\app\src\main\res\values-te\strings_offline_comm.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/offline_comm_turn_on] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/offline_comm_turn_on] E:\FloodCue\app\src\main\res\values-te\strings_offline_comm.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/offline_comm_open_failed] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/offline_comm_open_failed] E:\FloodCue\app\src\main\res\values-te\strings_offline_comm.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/tips_back_title] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/tips_back_title] E:\FloodCue\app\src\main\res\values-te\strings_tips.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/tips_heading] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/tips_heading] E:\FloodCue\app\src\main\res\values-te\strings_tips.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/tips_subtitle] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/tips_subtitle] E:\FloodCue\app\src\main\res\values-te\strings_tips.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/checklist_back_title] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/checklist_back_title] E:\FloodCue\app\src\main\res\values-te\strings_checklist.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/checklist_heading] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/checklist_heading] E:\FloodCue\app\src\main\res\values-te\strings_checklist.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/checklist_subtitle] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/checklist_subtitle] E:\FloodCue\app\src\main\res\values-te\strings_checklist.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/checklist_progress] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/checklist_progress] E:\FloodCue\app\src\main\res\values-te\strings_checklist.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/guide_back_title] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/guide_back_title] E:\FloodCue\app\src\main\res\values-te\strings_guide.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/guide_heading] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/guide_heading] E:\FloodCue\app\src\main\res\values-te\strings_guide.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/guide_subtitle] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/guide_subtitle] E:\FloodCue\app\src\main\res\values-te\strings_guide.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/guide_back_to_list] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/guide_back_to_list] E:\FloodCue\app\src\main\res\values-te\strings_guide.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/guide_sos_button] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/guide_sos_button] E:\FloodCue\app\src\main\res\values-te\strings_guide.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/about_floodcue_back_title] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/about_floodcue_back_title] E:\FloodCue\app\src\main\res\values-te\strings_about_floodcue.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/about_floodcue_heading] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/about_floodcue_heading] E:\FloodCue\app\src\main\res\values-te\strings_about_floodcue.xml: Resource and asset merger: Duplicate resources
+ERROR: [string-te/about_floodcue_tagline] E:\FloodCue\app\src\main\res\values-te\strings.xml [string-te/about_floodcue_tagline] E:\FloodCue\app\src\main\res\values-te\strings_about_floodcue.xml: Resource and asset merger: Duplicate resources
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:packageDebugResources' (registered by plugin 'com.android.internal.application').
+> [string-te/sos_back_title] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_back_title] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Error: Duplicate resources
+  [string-te/sos_heading] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_heading] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Error: Duplicate resources
+  [string-te/sos_subtitle] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_subtitle] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Error: Duplicate resources
+  [string-te/sos_default_message] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_default_message] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Error: Duplicate resources
+  [string-te/sos_location_idle] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_location_idle] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Error: Duplicate resources
+  [string-te/sos_location_loading] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_location_loading] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Error: Duplicate resources
+  [string-te/sos_number_removed] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_number_removed] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Error: Duplicate resources
+  [string-te/sos_confirm_title] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_confirm_title] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Error: Duplicate resources
+  [string-te/sos_queue_cancel] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_queue_cancel] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Error: Duplicate resources
+  [string-te/sos_queue_dismiss] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_queue_dismiss] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Error: Duplicate resources
+  [string-te/sos_queued_toast] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_queued_toast] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Error: Duplicate resources
+  [string-te/sos_sms_opened] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_sms_opened] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Error: Duplicate resources
+  [string-te/sos_sms_unavailable] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_sms_unavailable] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Error: Duplicate resources
+  [string-te/sos_sms_failed] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_sms_failed] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Error: Duplicate resources
+  [string-te/sos_send_queued_reason] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_send_queued_reason] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Error: Duplicate resources
+  [string-te/sos_send_disabled_reason] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_send_disabled_reason] E:\FloodCue\app\src\main\res\values-te\strings_sos.xml: Error: Duplicate resources
+  [string-te/sos_emergency_back_title] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_emergency_back_title] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Error: Duplicate resources
+  [string-te/sos_emergency_heading] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_emergency_heading] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Error: Duplicate resources
+  [string-te/sos_emergency_short] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_emergency_short] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Error: Duplicate resources
+  [string-te/sos_emergency_contact] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_emergency_contact] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Error: Duplicate resources
+  [string-te/sos_emergency_location] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_emergency_location] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Error: Duplicate resources
+  [string-te/sos_emergency_location_available] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_emergency_location_available] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Error: Duplicate resources
+  [string-te/sos_emergency_location_unavailable] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_emergency_location_unavailable] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Error: Duplicate resources
+  [string-te/sos_emergency_sms_pending] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_emergency_sms_pending] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Error: Duplicate resources
+  [string-te/sos_emergency_sms_sent] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_emergency_sms_sent] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Error: Duplicate resources
+  [string-te/sos_emergency_sms_failed] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_emergency_sms_failed] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Error: Duplicate resources
+  [string-te/sos_emergency_siren] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_emergency_siren] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Error: Duplicate resources
+  [string-te/sos_emergency_perm_denied] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/sos_emergency_perm_denied] E:\FloodCue\app\src\main\res\values-te\strings_sos_emergency.xml: Error: Duplicate resources
+  [string-te/weather_back_title] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/weather_back_title] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Error: Duplicate resources
+  [string-te/weather_header] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/weather_header] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Error: Duplicate resources
+  [string-te/weather_temp] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/weather_temp] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Error: Duplicate resources
+  [string-te/weather_condition] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/weather_condition] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Error: Duplicate resources
+  [string-te/weather_rain] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/weather_rain] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Error: Duplicate resources
+  [string-te/weather_rain_24h] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/weather_rain_24h] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Error: Duplicate resources
+  [string-te/weather_wind] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/weather_wind] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Error: Duplicate resources
+  [string-te/weather_hourly] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/weather_hourly] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Error: Duplicate resources
+  [string-te/weather_unavailable] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/weather_unavailable] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Error: Duplicate resources
+  [string-te/weather_select_location] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/weather_select_location] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Error: Duplicate resources
+  [string-te/weather_choose_location] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/weather_choose_location] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Error: Duplicate resources
+  [string-te/weather_manual_title] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/weather_manual_title] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Error: Duplicate resources
+  [string-te/weather_cache_note] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/weather_cache_note] E:\FloodCue\app\src\main\res\values-te\strings_weather.xml: Error: Duplicate resources
+  [string-te/flood_alert_back_title] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/flood_alert_back_title] E:\FloodCue\app\src\main\res\values-te\strings_flood_alert.xml: Error: Duplicate resources
+  [string-te/flood_alert_header] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/flood_alert_header] E:\FloodCue\app\src\main\res\values-te\strings_flood_alert.xml: Error: Duplicate resources
+  [string-te/flood_alert_subtitle] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/flood_alert_subtitle] E:\FloodCue\app\src\main\res\values-te\strings_flood_alert.xml: Error: Duplicate resources
+  [string-te/flood_alert_refresh] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/flood_alert_refresh] E:\FloodCue\app\src\main\res\values-te\strings_flood_alert.xml: Error: Duplicate resources
+  [string-te/flood_alert_open_failed] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/flood_alert_open_failed] E:\FloodCue\app\src\main\res\values-te\strings_flood_alert.xml: Error: Duplicate resources
+  [string-te/offline_comm_back_title] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/offline_comm_back_title] E:\FloodCue\app\src\main\res\values-te\strings_offline_comm.xml: Error: Duplicate resources
+  [string-te/offline_comm_heading] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/offline_comm_heading] E:\FloodCue\app\src\main\res\values-te\strings_offline_comm.xml: Error: Duplicate resources
+  [string-te/offline_comm_short] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/offline_comm_short] E:\FloodCue\app\src\main\res\values-te\strings_offline_comm.xml: Error: Duplicate resources
+  [string-te/offline_comm_not_installed] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/offline_comm_not_installed] E:\FloodCue\app\src\main\res\values-te\strings_offline_comm.xml: Error: Duplicate resources
+  [string-te/offline_comm_turn_on] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/offline_comm_turn_on] E:\FloodCue\app\src\main\res\values-te\strings_offline_comm.xml: Error: Duplicate resources
+  [string-te/offline_comm_open_failed] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/offline_comm_open_failed] E:\FloodCue\app\src\main\res\values-te\strings_offline_comm.xml: Error: Duplicate resources
+  [string-te/tips_back_title] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/tips_back_title] E:\FloodCue\app\src\main\res\values-te\strings_tips.xml: Error: Duplicate resources
+  [string-te/tips_heading] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/tips_heading] E:\FloodCue\app\src\main\res\values-te\strings_tips.xml: Error: Duplicate resources
+  [string-te/tips_subtitle] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/tips_subtitle] E:\FloodCue\app\src\main\res\values-te\strings_tips.xml: Error: Duplicate resources
+  [string-te/checklist_back_title] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/checklist_back_title] E:\FloodCue\app\src\main\res\values-te\strings_checklist.xml: Error: Duplicate resources
+  [string-te/checklist_heading] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/checklist_heading] E:\FloodCue\app\src\main\res\values-te\strings_checklist.xml: Error: Duplicate resources
+  [string-te/checklist_subtitle] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/checklist_subtitle] E:\FloodCue\app\src\main\res\values-te\strings_checklist.xml: Error: Duplicate resources
+  [string-te/checklist_progress] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/checklist_progress] E:\FloodCue\app\src\main\res\values-te\strings_checklist.xml: Error: Duplicate resources
+  [string-te/guide_back_title] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/guide_back_title] E:\FloodCue\app\src\main\res\values-te\strings_guide.xml: Error: Duplicate resources
+  [string-te/guide_heading] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/guide_heading] E:\FloodCue\app\src\main\res\values-te\strings_guide.xml: Error: Duplicate resources
+  [string-te/guide_subtitle] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/guide_subtitle] E:\FloodCue\app\src\main\res\values-te\strings_guide.xml: Error: Duplicate resources
+  [string-te/guide_back_to_list] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/guide_back_to_list] E:\FloodCue\app\src\main\res\values-te\strings_guide.xml: Error: Duplicate resources
+  [string-te/guide_sos_button] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/guide_sos_button] E:\FloodCue\app\src\main\res\values-te\strings_guide.xml: Error: Duplicate resources
+  [string-te/about_floodcue_back_title] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/about_floodcue_back_title] E:\FloodCue\app\src\main\res\values-te\strings_about_floodcue.xml: Error: Duplicate resources
+  [string-te/about_floodcue_heading] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/about_floodcue_heading] E:\FloodCue\app\src\main\res\values-te\strings_about_floodcue.xml: Error: Duplicate resources
+  [string-te/about_floodcue_tagline] E:\FloodCue\app\src\main\res\values-te\strings.xml	[string-te/about_floodcue_tagline] E:\FloodCue\app\src\main\res\values-te\strings_about_floodcue.xml: Error: Duplicate resources
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 27s
+3 actionable tasks: 2 executed, 1 up-to-date
+Configuration cache entry reused.
