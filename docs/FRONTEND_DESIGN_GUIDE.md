@@ -189,6 +189,8 @@ Localization phase 7: Setup medical heading, medication label/hint, and medical-
 
 Localization phase 8: Primary/second/third emergency-contact section headings and primary contact labels now reuse translated resources. Required and alternate phone labels are resource-backed with locale translations; remaining contact hints and assistance/region/review copy still require migration.
 
+Localization phase 9: Evacuation-assistance and region labels/options are now resource-backed in the base resource file. Locale translations for these new keys and the remaining contact hints must be added before this phase can be considered complete.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.

@@ -155,35 +155,35 @@
                         
                         <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:orientation="vertical" ns0:padding="18dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
         
-                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="04  Evacuation assistance" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/setup_assistance_heading" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
         
-                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:text="Select any support needed during evacuation." ns0:textColor="@color/fc_text_secondary" ns0:textSize="12sp" />
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:text="@string/setup_assistance_intro" ns0:textColor="@color/fc_text_secondary" ns0:textSize="12sp" />
         
-                            <CheckBox ns0:id="@+id/checkAssistanceNone" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns0:buttonTint="@color/fc_primary" ns0:text="No special assistance needed" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+<CheckBox ns0:id="@+id/checkAssistanceNone" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_assistance_none" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
         
-                            <CheckBox ns0:id="@+id/checkAssistanceElderly" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Elderly person" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+<CheckBox ns0:id="@+id/checkAssistanceElderly" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_assistance_elderly" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
         
-                            <CheckBox ns0:id="@+id/checkAssistanceChild" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Child" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+<CheckBox ns0:id="@+id/checkAssistanceChild" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_assistance_child" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
         
-                            <CheckBox ns0:id="@+id/checkAssistancePregnant" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Pregnant person" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+<CheckBox ns0:id="@+id/checkAssistancePregnant" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_assistance_pregnant" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
         
-                            <CheckBox ns0:id="@+id/checkAssistanceWheelchair" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Wheelchair user" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+<CheckBox ns0:id="@+id/checkAssistanceWheelchair" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_assistance_wheelchair" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
         
-                            <CheckBox ns0:id="@+id/checkAssistanceWalking" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Difficulty walking" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+<CheckBox ns0:id="@+id/checkAssistanceWalking" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_assistance_walking" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
         
-                            <CheckBox ns0:id="@+id/checkAssistanceHearing" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Hearing impairment" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+<CheckBox ns0:id="@+id/checkAssistanceHearing" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_assistance_hearing" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
         
-                            <CheckBox ns0:id="@+id/checkAssistanceVisual" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Visual impairment" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+<CheckBox ns0:id="@+id/checkAssistanceVisual" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_assistance_visual" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
         
-                            <CheckBox ns0:id="@+id/checkAssistanceOther" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Other assistance" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+<CheckBox ns0:id="@+id/checkAssistanceOther" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_assistance_other" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
                         </LinearLayout>
         
                         
                         <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:layout_marginBottom="12dp" ns0:orientation="vertical" ns0:padding="18dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
         
-                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="05  Your region" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/setup_region_heading" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
         
-                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:text="Used to prepare relevant local safety information." ns0:textColor="@color/fc_text_secondary" ns0:textSize="12sp" />
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:text="@string/setup_region_intro" ns0:textColor="@color/fc_text_secondary" ns0:textSize="12sp" />
         
                             <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:text="Country" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
         
