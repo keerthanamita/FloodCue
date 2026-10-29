@@ -86,6 +86,8 @@ The redesign uses existing resources such as `ic_floodcue_logo`, `ic_globe`, `bg
 
 The visual direction was then refined to a non-blue glassmorphism palette. Light mode uses warm ivory, muted terracotta, and soft sage-neutral surfaces. Dark mode uses charcoal, muted plum, and dusty rose accents. Cards and language selectors use translucent surfaces with quiet borders; avoid adding saturated gradients or high-contrast decoration.
 
+Latest correction: the splash screen no longer displays the unapproved `ic_floodcue_logo`; it uses typography and ambient color only. The language content is inside a fill-viewport scroll container with reduced vertical spacing so the Continue action remains reachable on short screens. Language picker rows now use opaque theme-aware surfaces and border tokens so English and native-language labels remain readable in both modes.
+
 ## Validation record
 
 - Repository and Git state: inspected on 2026-10-29.
