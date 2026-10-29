@@ -9,6 +9,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -47,6 +48,12 @@ public class FloodCueActivity extends AppCompatActivity {
     private static final int NAV_SETTINGS = 3;
 
     private static final String[] NAV_GLYPHS = {"🏠", "👥", "🆘", "⚙️"};
+    private static final int[] NAV_ICONS = {
+            R.drawable.ic_nav_home,
+            R.drawable.ic_nav_contacts,
+            R.drawable.ic_nav_sos,
+            R.drawable.ic_nav_settings
+    };
     private static final int[] NAV_LABELS = {
             R.string.nav_home, R.string.nav_contacts, R.string.nav_sos, R.string.nav_settings
     };
@@ -163,12 +170,12 @@ public class FloodCueActivity extends AppCompatActivity {
         markerView.setVisibility(selected ? View.VISIBLE : View.GONE);
         item.addView(markerView, new LinearLayout.LayoutParams(dp(26), dp(3)));
 
-        TextView glyph = new TextView(this);
-        glyph.setText(NAV_GLYPHS[index]);
-        glyph.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-        glyph.setGravity(Gravity.CENTER);
+        ImageView glyph = new ImageView(this);
+        glyph.setImageResource(NAV_ICONS[index]);
+        glyph.setColorFilter(color);
+        glyph.setContentDescription(getString(NAV_LABELS[index]));
         LinearLayout.LayoutParams glyphParams = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                dp(24), dp(24));
         glyphParams.topMargin = dp(3);
         item.addView(glyph, glyphParams);
 

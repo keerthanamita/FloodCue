@@ -106,6 +106,8 @@ Emergency Messages screen update: `activity_sos.xml` now uses dedicated rounded 
 
 Emergency action text uses a dedicated light token in both day and night resources so red SOS actions remain readable regardless of system theme.
 
+Latest Home/navigation redesign: Home now has a raised glass header and refined hero spacing. Shared bottom navigation now uses dedicated vector icons for Home, Contacts, SOS, and Settings instead of emoji glyphs, with theme-aware tinting, larger touch targets, and the existing navigation destinations unchanged.
+
 ## Validation record
 
 - Repository and Git state: inspected on 2026-10-29.
