@@ -318,4 +318,13 @@
     <string name="home_sos_location_permission">లొకేషన్ అనుమతి SOSకు మీ కోఆర్డినేట్లను సందేశంలో చేర్చడానికి అనుమతిస్తుంది.</string>
     <string name="home_sos_location_unavailable">ఇంకా GPS ఫిక్స్ రాలేదు, కాబట్టి సందేశంలో కోఆర్డినేట్లు అందుబాటులో లేవని చెబుతోంది.</string>
     <string name="home_sos_siren_stopped">సైరన్ ఆగింది. ఇప్పటికే పంపిన సందేశాలను తిరిగి పిలవలేము.</string>
+    <string name="home_header_title">ఫ్లూడ్‌క్యూ కు స్వాగతం</string>
+    <string name="home_header_subtitle">వరదకు ముందు, సమయంలో, తర్వాత మీకు అవసరమైన ప్రతిదీ</string>
+    <string name="home_readiness_checklist">సిద్ధత చెక్‌లిస్ట్</string>
+    <string name="home_safety_guide">భద్రతా గైడ్</string>
+    <string name="profile_details_heading">వినియోగదారు ప్రొఫైల్</string>
+    <string name="flood_alert_severity_green">సాధారణం</string>
+    <string name="flood_alert_severity_orange">మధ్యస్థం</string>
+    <string name="flood_alert_severity_red">తీవ్రం</string>
+    <string name="flood_alert_severity_yellow">జాగ్రత్త</string>
 </resources>

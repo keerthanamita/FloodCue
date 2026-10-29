@@ -89,4 +89,13 @@
     <string name="home_sos_location_permission">लोकेशन की अनुमति से SOS संदेश में आपके निर्देशांक जुड़ते हैं.</string>
     <string name="home_sos_location_unavailable">GPS फ़िक्स अभी नहीं मिला, इसलिए संदेश में निर्देशांक अनुपलब्ध लिखे गए हैं.</string>
     <string name="home_sos_siren_stopped">सायरन बंद हुआ. भेजे जा चुके संदेश वापस नहीं आते.</string>
+    <string name="home_header_title">FloodCue में आपका स्वागत है</string>
+    <string name="home_header_subtitle">बाढ़ से पहले, दौरान और बाद में आपकी ज़रूरत की हर चीज़</string>
+    <string name="home_readiness_checklist">तैयारी चेकलिस्ट</string>
+    <string name="home_safety_guide">सुरक्षा गाइड</string>
+    <string name="profile_details_heading">उपयोगकर्ता प्रोफ़ाइल</string>
+    <string name="flood_alert_severity_green">सामान्य</string>
+    <string name="flood_alert_severity_orange">मध्यम</string>
+    <string name="flood_alert_severity_red">गंभीर</string>
+    <string name="flood_alert_severity_yellow">सावधानी</string>
 </resources>

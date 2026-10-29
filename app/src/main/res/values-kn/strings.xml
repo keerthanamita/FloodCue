@@ -92,4 +92,13 @@
     <string name="home_sos_location_permission"><![CDATA[ಸ್ಥಳ ಅನುಮತಿ ಇದ್ದಲ್ಲಿ SOS ನಿಮ್ಮ ನಿರ್ದೇಶಾಂಕಗಳನ್ನು ಸಂದೇಶಕ್ಕೆ ಸೇರಿಸುತ್ತದೆ.]]></string>
     <string name="home_sos_location_unavailable"><![CDATA[ಇನ್ನೂ GPS ಸಿಗ್ನಲ್ ಸಿಗಲಿಲ್ಲ, ಆದ್ದರಿಂದ ಸಂದೇಶದಲ್ಲಿ ನಿರ್ದೇಶಾಂಕಗಳು ಲಭ್ಯವಿಲ್ಲ ಎಂದು ಬರೆಯಲಾಗುತ್ತಿದೆ.]]></string>
     <string name="home_sos_siren_stopped"><![CDATA[ಸೈರನ್ ನಿಂತಿದೆ. ಈಗಾಗಲೇ ಕಳುಹಿಸಿದ ಸಂದೇಶಗಳನ್ನು ಹಿಂದಕ್ಕೆ ಪಡೆಯಲಾಗುವುದಿಲ್ಲ.]]></string>
+    <string name="home_header_title">FloodCue ಗೆ ಸ್ವಾಗತ</string>
+    <string name="home_header_subtitle">ನೆರೆಗೂ ಮೊದಲು, ಸಮಯದಲ್ಲಿ ಮತ್ತು ನಂತರ ನಿಮಗೆ ಬೇಕಾದ ಎಲ್ಲವೂ</string>
+    <string name="home_readiness_checklist">ಸಿದ್ಧತಾ ಪರಿಶೀಲನಾ ಪಟ್ಟಿ</string>
+    <string name="home_safety_guide">ಸುರಕ್ಷತಾ ಮಾರ್ಗದರ್ಶಿ</string>
+    <string name="profile_details_heading">ಬಳಕೆದಾರರ ಪ್ರೊಫೈಲ್</string>
+    <string name="flood_alert_severity_green">ಸಾಮಾನ್ಯ</string>
+    <string name="flood_alert_severity_orange">ಮಧ್ಯಮ</string>
+    <string name="flood_alert_severity_red">ತೀವ್ರ</string>
+    <string name="flood_alert_severity_yellow">ಎಚ್ಚರಿಕೆ</string>
 </resources>

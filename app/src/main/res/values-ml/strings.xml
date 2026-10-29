@@ -91,4 +91,13 @@
     <string name="home_sos_location_permission">ലൊക്കേഷൻ അനുമതി ഉണ്ടെങ്കിൽ SOS നിങ്ങളുടെ കോർഡിനേറ്റുകൾ സന്ദേശത്തിൽ ചേർക്കും.</string>
     <string name="home_sos_location_unavailable">ഇതുവരെ GPS സിഗ്നൽ ലഭിച്ചിട്ടില്ല, അതിനാൽ സന്ദേശത്തിൽ കോർഡിനേറ്റുകൾ ലഭ്യമല്ലെന്ന് എഴുതുന്നു.</string>
     <string name="home_sos_siren_stopped">സൈറൺ നിന്നു. ഇതിനകം അയച്ച സന്ദേശങ്ങൾ പിൻവലിക്കാൻ കഴിയില്ല.</string>
+    <string name="home_header_title">FloodCue-ലേക്ക് സ്വാഗതം</string>
+    <string name="home_header_subtitle">വെള്ളപ്പൊക്കത്തിന് മുമ്പും സമയത്തും ശേഷവും ആവശ്യമായതെല്ലാം</string>
+    <string name="home_readiness_checklist">തയ്യാറെടുപ്പ് ചെക്ക്ലിസ്റ്റ്</string>
+    <string name="home_safety_guide">സുരക്ഷാ ഗൈഡ്</string>
+    <string name="profile_details_heading">ഉപയോക്തൃ പ്രൊഫൈൽ</string>
+    <string name="flood_alert_severity_green">സാധാരണം</string>
+    <string name="flood_alert_severity_orange">മിതമായത്</string>
+    <string name="flood_alert_severity_red">ഗുരുതരം</string>
+    <string name="flood_alert_severity_yellow">ജാഗ്രത</string>
 </resources>

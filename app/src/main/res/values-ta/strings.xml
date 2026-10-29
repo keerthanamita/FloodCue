@@ -92,4 +92,13 @@
     <string name="home_sos_location_permission">இருப்பிட அனுமதி, SOS செய்தியில் உங்கள் ஒருங்கிணைப்புகளைச் சேர்க்க உதவுகிறது.</string>
     <string name="home_sos_location_unavailable">GPS இன்னும் கிடைக்கவில்லை, எனவே செய்தியில் ஒருங்கிணைப்பு கிடைக்கவில்லை என்று கூறப்படுகிறது.</string>
     <string name="home_sos_siren_stopped">சைரன் நிறுத்தப்பட்டது. ஏற்கனவே அனுப்பிய செய்திகளை மீட்டெடுக்க முடியாது.</string>
+    <string name="home_header_title">FloodCue-க்கு வரவேற்கிறோம்</string>
+    <string name="home_header_subtitle">வெள்ளத்திற்கு முன், போது, பின் உங்களுக்குத் தேவையான அனைத்தும்</string>
+    <string name="home_readiness_checklist">தயார்நிலை சரிபார்ப்பு</string>
+    <string name="home_safety_guide">பாதுகாப்பு வழிகாட்டி</string>
+    <string name="profile_details_heading">பயனர் சுயவிவரம்</string>
+    <string name="flood_alert_severity_green">சாதாரணம்</string>
+    <string name="flood_alert_severity_orange">மிதமானது</string>
+    <string name="flood_alert_severity_red">கடுமையானது</string>
+    <string name="flood_alert_severity_yellow">எச்சரிக்கை</string>
 </resources>
