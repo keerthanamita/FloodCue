@@ -221,6 +221,8 @@ Localization phase 23: Create-account success/failure, verification-email, dupli
 
 Localization phase 24: Login service, reset-email, verification, credential, network, and Google-authentication result messages are now resource-backed and translated in all supported locales.
 
+Localization phase 25: Emergency Contacts official service titles/descriptions are now resource-backed; phone numbers and call behavior are unchanged. Locale translations for this catalog and the remaining district/service strings still require completion.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.

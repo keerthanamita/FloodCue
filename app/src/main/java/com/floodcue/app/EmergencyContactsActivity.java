@@ -28,44 +28,44 @@ public class EmergencyContactsActivity extends FloodCueActivity {
 
     private static final EmergencyService[] EMERGENCY_SERVICES = {
             new EmergencyService(
-                    "National Emergency",
+                    R.string.emergency_service_national,
                     "112",
-                    "Police, ambulance, fire and disaster help"
+                    R.string.emergency_service_national_desc
             ),
             new EmergencyService(
-                    "Police Emergency",
+                    R.string.emergency_service_police,
                     "100",
-                    "Get immediate police assistance"
+                    R.string.emergency_service_police_desc
             ),
             new EmergencyService(
-                    "Fire & Rescue",
+                    R.string.emergency_service_fire,
                     "101",
-                    "Report fires and request rescue"
+                    R.string.emergency_service_fire_desc
             ),
             new EmergencyService(
-                    "Ambulance Emergency",
+                    R.string.emergency_service_ambulance,
                     "108",
-                    "Get emergency medical ambulance assistance"
+                    R.string.emergency_service_ambulance_desc
             ),
             new EmergencyService(
-                    "NDRF Helpline",
+                    R.string.emergency_service_ndrf,
                     "9711077372",
-                    "Disaster rescue and emergency response"
+                    R.string.emergency_service_ndrf_desc
             ),
             new EmergencyService(
-                    "Natural Calamity Relief",
+                    R.string.emergency_service_calamity,
                     "1070",
-                    "Natural disaster relief and assistance"
+                    R.string.emergency_service_calamity_desc
             ),
             new EmergencyService(
-                    "National Highway Emergency",
+                    R.string.emergency_service_highway,
                     "1033",
-                    "Highway accidents and roadside emergency assistance"
+                    R.string.emergency_service_highway_desc
             ),
             new EmergencyService(
-                    "Child Helpline",
+                    R.string.emergency_service_child,
                     "1098",
-                    "Emergency help and protection for children"
+                    R.string.emergency_service_child_desc
             )
     };
 
@@ -171,8 +171,8 @@ public class EmergencyContactsActivity extends FloodCueActivity {
         servicesList.removeAllViews();
 
         for (EmergencyService service : EMERGENCY_SERVICES) {
-            String details = service.number + " • " + service.description;
-            addCallRow(servicesList, service.title, details, service.number);
+            String details = service.number + " • " + getString(service.descriptionRes);
+            addCallRow(servicesList, getString(service.titleRes), details, service.number);
         }
     }
 
@@ -309,14 +309,14 @@ public class EmergencyContactsActivity extends FloodCueActivity {
     }
 
     private static final class EmergencyService {
-        final String title;
+        final int titleRes;
         final String number;
-        final String description;
+        final int descriptionRes;
 
-        EmergencyService(String title, String number, String description) {
-            this.title = title;
+        EmergencyService(int titleRes, String number, int descriptionRes) {
+            this.titleRes = titleRes;
             this.number = number;
-            this.description = description;
+            this.descriptionRes = descriptionRes;
         }
     }
 }
