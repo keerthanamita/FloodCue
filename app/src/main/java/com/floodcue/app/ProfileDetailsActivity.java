@@ -83,6 +83,15 @@ public class ProfileDetailsActivity extends FloodCueActivity {
         profileDetailsEmpty.setVisibility(View.GONE);
         profileDetailsContent.setVisibility(View.VISIBLE);
 
+        TextView qrAction = new TextView(this);
+        qrAction.setText(R.string.emergency_qr_title);
+        qrAction.setTextColor(getColor(R.color.button_primary));
+        qrAction.setTextSize(16);
+        qrAction.setTypeface(Typeface.DEFAULT_BOLD);
+        qrAction.setPadding(20, 20, 20, 20);
+        qrAction.setOnClickListener(v -> startActivity(new Intent(this, EmergencyQrActivity.class)));
+        profileDetailsContent.addView(qrAction, 0);
+
         addSection(R.string.profile_section_personal);
         addField(R.string.profile_label_full_name, profile.full_name);
         addField(R.string.profile_label_blood_group, profile.blood_group);

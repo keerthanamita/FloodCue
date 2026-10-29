@@ -279,6 +279,8 @@ Tips TTS phase 51: Added a speaker button beside every safety tip in `TipsActivi
 
 TTS expansion phase 52: Added the shared `TtsSpeaker` wrapper and speaker actions to checklist items and emergency-guide detail lines, using the saved survival language. The language picker selected-value display now puts the separator dot on a second line so it does not crowd the dropdown arrow. Existing checklist state, guide navigation, and language persistence are unchanged. Build/runtime verification remains pending because the environment cannot create the Gradle wrapper lock directory and no Android device is attached.
 
+Secure emergency QR phase 53: Added server-backed opaque QR generation, 15-minute expiry, owner revoke, authenticated rescuer scanning, admin-only rescuer authorization/revocation, and Android screens for QR display, scanning, and authorization management. QR payloads contain only a random token; profile details are returned only after Firebase ID-token authentication and server authorization. Added ZXing dependencies and camera permission. Server deployment requires running `server/api/emergency_qr_schema.sql`, uploading the PHP endpoints beside `bootstrap.php`, and adding `qr_admin_uid` to private `config.php`. Android build and device scanning remain unverified because Gradle dependency/download access and an Android device are unavailable in this environment.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.

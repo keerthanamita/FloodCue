@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+<string name="emergency_qr_admin_title">Manage authorized rescuers</string><string name="emergency_qr_admin_uid_hint">Rescuer Firebase UID</string><string name="emergency_qr_admin_authorize">Authorize rescuer</string><string name="emergency_qr_admin_revoke">Revoke rescuer</string><string name="emergency_qr_admin_uid_required">Enter a Firebase UID.</string><string name="emergency_qr_admin_working">Updating authorization…</string><string name="emergency_qr_admin_authorized">Rescuer authorized.</string><string name="emergency_qr_admin_revoked">Rescuer revoked.</string><string name="emergency_qr_admin_failed">Authorization failed: %1$s</string>
+</resources>

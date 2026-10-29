@@ -44,3 +44,22 @@ Leave the field empty to hide the IMD section; SACHET alerts keep working.
 - IMD has no public flood/river-level API, and CWC does not publish a
   machine-readable flood forecast, so FloodCue links to the official portals
   for those instead of scraping them.
+## Secure emergency QR backend
+
+The files under `server/api/` are uploaded beside the existing `bootstrap.php`.
+Run `emergency_qr_schema.sql` once, then add this private value to the hosting
+`config.php` (never commit it):
+
+```php
+'qr_admin_uid' => 'HnUPvQ0g9hcXtCXovC3hprDrg8m1',
+```
+
+`create_emergency_qr.php` creates a random 15-minute token and stores only its
+SHA-256 hash. `scan_emergency_qr.php` requires a valid Firebase ID token and
+allows the configured admin UID or a row in `emergency_qr_authorized_users`.
+`revoke_emergency_qr.php` invalidates the owner's active tokens. The QR must
+contain the returned opaque token, never raw profile details.
+
+The administrator can approve or revoke rescuer Firebase UIDs through
+`authorize_emergency_scanner.php` and `revoke_emergency_scanner.php`. Both
+endpoints accept only the Firebase ID token belonging to `qr_admin_uid`.

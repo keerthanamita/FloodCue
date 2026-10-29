@@ -58,6 +58,8 @@ dependencies {
 
     // Offline maps
     implementation libs.maplibre
+    implementation libs.zxing.core
+    implementation libs.zxing.embedded
 
     // Testing
     testImplementation libs.junit
