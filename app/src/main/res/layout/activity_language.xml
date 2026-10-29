@@ -22,7 +22,7 @@
                 </FrameLayout>
         
                 
-                <TextView ns0:layout_width="wrap_content" ns0:layout_height="wrap_content" ns0:text="FLOODCUE LOCALIZATION" ns0:textColor="@color/button_primary" ns0:textSize="12sp" ns0:textStyle="bold" ns0:letterSpacing="0.14" />
+<TextView ns0:layout_width="wrap_content" ns0:layout_height="wrap_content" ns0:text="@string/language_brand" ns0:textColor="@color/button_primary" ns0:textSize="12sp" ns0:textStyle="bold" ns0:letterSpacing="0.14" />
         
                 
                 <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="4dp" ns0:text="@string/language_title" ns0:textColor="@color/text_primary" ns0:textSize="25sp" ns0:textStyle="bold" ns0:lineSpacingExtra="2dp" />
@@ -39,7 +39,7 @@
         
                         <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="4dp" ns0:text="@string/language_app_hint" ns0:textColor="@color/text_secondary" ns0:textSize="12sp" />
         
-                        <TextView ns0:id="@+id/selectedAppLanguage" ns0:layout_width="match_parent" ns0:layout_height="54dp" ns0:layout_marginTop="12dp" ns0:background="@drawable/bg_action_card" ns0:gravity="center_vertical" ns0:paddingStart="16dp" ns0:paddingEnd="16dp" ns0:text="English" ns0:textColor="@color/text_primary" ns0:textSize="16sp" ns0:textStyle="bold" ns0:drawableEnd="@android:drawable/arrow_down_float" ns0:drawablePadding="12dp" ns0:clickable="true" ns0:focusable="true" />
+<TextView ns0:id="@+id/selectedAppLanguage" ns0:layout_width="match_parent" ns0:layout_height="54dp" ns0:layout_marginTop="12dp" ns0:background="@drawable/bg_action_card" ns0:gravity="center_vertical" ns0:paddingStart="16dp" ns0:paddingEnd="16dp" ns0:text="@string/language_english" ns0:textColor="@color/text_primary" ns0:textSize="16sp" ns0:textStyle="bold" ns0:drawableEnd="@android:drawable/arrow_down_float" ns0:drawablePadding="12dp" ns0:clickable="true" ns0:focusable="true" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
         
@@ -52,7 +52,7 @@
         
                         <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="4dp" ns0:text="@string/language_survival_hint" ns0:textColor="@color/text_secondary" ns0:textSize="12sp" />
         
-                        <TextView ns0:id="@+id/selectedSurvivalLanguage" ns0:layout_width="match_parent" ns0:layout_height="54dp" ns0:layout_marginTop="12dp" ns0:background="@drawable/bg_action_card" ns0:gravity="center_vertical" ns0:paddingStart="16dp" ns0:paddingEnd="16dp" ns0:text="English" ns0:textColor="@color/text_primary" ns0:textSize="16sp" ns0:textStyle="bold" ns0:drawableEnd="@android:drawable/arrow_down_float" ns0:drawablePadding="12dp" ns0:clickable="true" ns0:focusable="true" />
+<TextView ns0:id="@+id/selectedSurvivalLanguage" ns0:layout_width="match_parent" ns0:layout_height="54dp" ns0:layout_marginTop="12dp" ns0:background="@drawable/bg_action_card" ns0:gravity="center_vertical" ns0:paddingStart="16dp" ns0:paddingEnd="16dp" ns0:text="@string/language_english" ns0:textColor="@color/text_primary" ns0:textSize="16sp" ns0:textStyle="bold" ns0:drawableEnd="@android:drawable/arrow_down_float" ns0:drawablePadding="12dp" ns0:clickable="true" ns0:focusable="true" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
         

@@ -203,6 +203,8 @@ Localization phase 14: Hindi, Tamil, Kannada, and Malayalam translations for the
 
 Localization phase 15: Remaining Setup third-contact hints, country/state/district labels, and Setup action buttons are resource-backed. Other-allergy and authentication field hints now use dedicated localized resource files for all supported locales. Full Java/runtime and language-screen audit remains.
 
+Localization phase 16: Language-screen branding and English default labels are now resource-backed and localized. Layout audit now has no remaining literal `text`/`hint` values except values intentionally supplied by runtime data; Java runtime strings still require audit.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.
