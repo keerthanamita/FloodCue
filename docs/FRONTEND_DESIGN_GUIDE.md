@@ -267,6 +267,8 @@ Validation phase 46: Gradle wrapper distribution downloaded successfully after u
 
 Theme fix phase 47: `FloodCueActivity` now reasserts `MODE_NIGHT_FOLLOW_SYSTEM` during Activity creation and calls `applyDayNight()` on resume. This covers returning from system Settings and Activity recreation after a system light/dark change, without adding a manual toggle or changing the existing locale routing. Verification: the follow-up `assembleDebug --offline --no-daemon --console=plain` completed successfully (36 actionable tasks: 9 executed, 27 up-to-date). Runtime device smoke testing remains unavailable because ADB cannot initialize in this environment.
 
+Dark-surface readability phase 48: Replaced translucent dark-mode `surface_color` and `surface_elevated_color` values with opaque theme surfaces, and added an opaque dark-mode badge drawable. Cards, inputs, bottom navigation, and badges now retain clear separation from the screen background instead of allowing content behind them to show through. `assembleDebug --offline --no-daemon --console=plain` completed successfully (36 actionable tasks: 8 executed, 28 up-to-date).
+
 Validation note: all Android resource XML files currently parse successfully (`bad_xml=0`). No Gradle/Android build has been run in this phase, so compilation and device rendering remain to be verified locally.
 
 ## Instructions for the next AI

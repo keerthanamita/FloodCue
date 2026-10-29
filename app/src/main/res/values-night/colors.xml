@@ -13,8 +13,9 @@
 
     <!-- Inputs -->
     <color name="input_stroke">#62575F</color>
-    <color name="surface_color">#2BFFFFFF</color>
-    <color name="surface_elevated_color">#321E1B24</color>
+    <!-- Opaque dark surfaces keep cards and controls readable over every screen. -->
+    <color name="surface_color">#2D2730</color>
+    <color name="surface_elevated_color">#37313A</color>
     <color name="border_color">#5B4F58</color>
     <color name="border_focused">#C497A4</color>
 
