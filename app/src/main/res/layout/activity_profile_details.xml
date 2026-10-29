@@ -27,7 +27,7 @@
         
                     <TextView ns0:id="@+id/profileDetailsEmpty" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:background="@drawable/bg_screen_card" ns0:padding="20dp" ns0:text="@string/profile_details_empty" ns0:textColor="@color/text_secondary" ns0:textSize="15sp" ns0:visibility="gone" />
         
-                    <LinearLayout ns0:id="@+id/profileDetailsContent" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:background="@drawable/bg_screen_card" ns0:orientation="vertical" ns0:padding="18dp" ns0:visibility="gone" />
+                    <LinearLayout ns0:id="@+id/profileDetailsContent" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:visibility="gone" />
         
                 </LinearLayout>
         
