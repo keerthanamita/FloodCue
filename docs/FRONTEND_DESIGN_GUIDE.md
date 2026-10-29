@@ -132,6 +132,8 @@ Setup header spacing correction: `Build your safety profile` and its supporting 
 
 About FloodCue update: The information card now uses normalized inner spacing, a smaller hierarchy-safe heading, a theme-aware version badge, and a shared toolbar title. Content, version lookup, and back navigation remain unchanged.
 
+Offline Communication update: The content now uses normalized inner spacing so the Bridgefy action and explanatory cards get more usable width. The primary action has comfortable horizontal padding and stronger hierarchy, and the shared toolbar displays the screen title. Bridgefy launch/status behavior and dynamic steps remain unchanged.
+
 Shared back-ribbon correction: `layout_base_screen.xml` is now the single common orange ribbon with one working back arrow. `FloodCueActivity` wires that arrow to the normal back dispatcher and hides duplicate in-content back rows across Contacts, Maps, Weather, SOS, Settings, Guides, Alerts, Profile, and related screens. This prevents the ribbon/text vertical mismatch and duplicate arrow symbols.
 
 Bottom navigation surface correction: the shared navigation bar no longer uses translucent glass colors. It now uses opaque, theme-specific `bottom_nav_surface` values so it has the same clear, grounded separation as the Home screen in both light and dark modes.

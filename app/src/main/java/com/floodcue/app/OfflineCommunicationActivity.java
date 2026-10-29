@@ -41,6 +41,11 @@ public class OfflineCommunicationActivity extends FloodCueActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offline_communication);
 
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            toolbar.setTitle(R.string.offline_comm_heading);
+        }
+
         findViewById(R.id.buttonBackFromOfflineComm).setOnClickListener(v -> finish());
         statusView = findViewById(R.id.offlineCommStatus);
 
