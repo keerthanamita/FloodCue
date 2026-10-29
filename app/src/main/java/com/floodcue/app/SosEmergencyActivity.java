@@ -114,6 +114,11 @@ public class SosEmergencyActivity extends FloodCueActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sos_emergency);
 
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            toolbar.setTitle(R.string.sos_emergency_heading);
+        }
+
         statusView = findViewById(R.id.sosEmergencyStatus);
         contactsLayout = findViewById(R.id.sosEmergencyContacts);
         locationLayout = findViewById(R.id.sosEmergencyLocation);

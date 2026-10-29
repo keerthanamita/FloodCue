@@ -16,6 +16,11 @@ public class AboutBridgefyActivity extends FloodCueActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_bridgefy);
 
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            toolbar.setTitle(R.string.about_bridgefy_heading);
+        }
+
         TextView buttonBackToSettings = findViewById(R.id.buttonBackToSettings);
         Button openWebsiteButton = findViewById(R.id.buttonOpenBridgefyWebsite);
         Button getAppButton = findViewById(R.id.buttonGetBridgefyApp);
