@@ -12,7 +12,7 @@
     <string name="sos_emergency_location_available">Current location obtained — coordinates and maps link included.</string>
     <string name="sos_emergency_location_unavailable">Location could not be obtained.</string>
     <string name="sos_emergency_location_last_known">Last known location only — %1$s (age: %2$s).</string>
-    <string name="sos_emergency_siren">Siren activated — tap \u201cStop Siren\u201d or leave the app to stop it.</string>
+    <string name="sos_emergency_siren">Siren activated — tap &quot;Stop Siren&quot; or leave the app to stop it.</string>
     <string name="sos_emergency_feeding_sms">Sending SMS now…</string>
     <string name="sos_emergency_contact">Emergency contact</string>
     <string name="sos_emergency_perm_denied">Location permission is required for coordinates. Turn it on in system settings.</string>

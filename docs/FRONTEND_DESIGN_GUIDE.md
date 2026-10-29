@@ -263,7 +263,7 @@ Localization phase 44: Weather condition descriptions and Flood Alert severity n
 
 Localization phase 45: Setup country option `India` now uses a localized resource for all six supported locales. Canonical state/district values remain stable internal data so profile matching and backend persistence are not altered.
 
-Validation phase 46: Gradle wrapper distribution downloaded successfully after using the approved workspace cache. An offline `assembleDebug --no-daemon` attempt reached Gradle task processing but failed because `com.google.android.gms:play-services-ads-identifier:18.0.0` was not cached; no build pass is claimed. Resource XML validation remains clean.
+Validation phase 46: Gradle wrapper distribution downloaded successfully after using the approved workspace cache. The first offline build exposed duplicate localized Setup resources; after removing those duplicates and normalizing an invalid Unicode escape in the SOS resource, `assembleDebug --offline --no-daemon --console=plain` completed successfully (36 actionable tasks: 11 executed, 25 up-to-date). Resource XML validation remains clean.
 
 Validation note: all Android resource XML files currently parse successfully (`bad_xml=0`). No Gradle/Android build has been run in this phase, so compilation and device rendering remain to be verified locally.
 
