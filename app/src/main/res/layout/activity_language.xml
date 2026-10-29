@@ -1,135 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="?attr/colorSurface"
-    android:clipToPadding="false">
-
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+    <include layout="@layout/layout_base_screen" />
     <LinearLayout
-        android:id="@+id/languageRoot"
+        android:id="@+id/content_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="24dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="FLOODCUE"
-            android:textColor="@color/button_primary"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.12" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:text="@string/language_title"
-            android:textColor="@color/text_primary"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:lineSpacingExtra="3dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/language_subtitle"
-            android:textColor="@color/text_secondary"
-            android:textSize="15sp"
-            android:lineSpacingExtra="4dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="@string/language_app_heading"
-            android:textColor="@color/text_primary"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.08" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="@string/language_app_hint"
-            android:textColor="@color/text_secondary"
-            android:textSize="13sp" />
-
-        <TextView
-            android:id="@+id/selectedAppLanguage"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/bg_input"
-            android:gravity="center_vertical"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:text="English"
-            android:textColor="@color/text_primary"
-            android:textSize="16sp"
-            android:drawableEnd="@android:drawable/arrow_down_float"
-            android:drawablePadding="12dp"
-            android:clickable="true"
-            android:focusable="true" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
-            android:text="@string/language_survival_heading"
-            android:textColor="@color/text_primary"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.04" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="@string/language_survival_hint"
-            android:textColor="@color/text_secondary"
-            android:textSize="13sp" />
-
-        <TextView
-            android:id="@+id/selectedSurvivalLanguage"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/bg_input"
-            android:gravity="center_vertical"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:text="English"
-            android:textColor="@color/text_primary"
-            android:textSize="16sp"
-            android:drawableEnd="@android:drawable/arrow_down_float"
-            android:drawablePadding="12dp"
-            android:clickable="true"
-            android:focusable="true" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:text="@string/language_change_later"
-            android:textColor="@color/text_secondary"
-            android:textSize="12sp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonLanguageNext"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/language_continue"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:cornerRadius="16dp"
-            xmlns:app="http://schemas.android.com/apk/res-auto" />
-
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="32dp">
+        <LinearLayout xmlns:ns0="http://schemas.android.com/apk/res/android" xmlns:ns1="http://schemas.android.com/apk/res-auto" ns0:id="@+id/languageRoot" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:paddingStart="24dp" ns0:paddingEnd="24dp" ns0:paddingTop="20dp" ns0:paddingBottom="36dp">
+        
+                
+                <FrameLayout ns0:layout_width="72dp" ns0:layout_height="72dp" ns0:background="@drawable/bg_circle_icon" ns0:layout_marginBottom="18dp">
+        
+                    <ImageView ns0:layout_width="38dp" ns0:layout_height="38dp" ns0:layout_gravity="center" ns0:src="@drawable/ic_globe" ns0:contentDescription="Language" />
+                </FrameLayout>
+        
+                
+                <TextView ns0:layout_width="wrap_content" ns0:layout_height="wrap_content" ns0:text="FLOODCUE LOCALIZATION" ns0:textColor="@color/button_primary" ns0:textSize="12sp" ns0:textStyle="bold" ns0:letterSpacing="0.14" />
+        
+                
+                <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns0:text="@string/language_title" ns0:textColor="@color/text_primary" ns0:textSize="28sp" ns0:textStyle="bold" ns0:lineSpacingExtra="3dp" />
+        
+                
+                <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="6dp" ns0:text="@string/language_subtitle" ns0:textColor="@color/text_secondary" ns0:textSize="14sp" ns0:lineSpacingExtra="3dp" />
+        
+                
+                <com.google.android.material.card.MaterialCardView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="26dp" ns1:cardBackgroundColor="@color/surface_color" ns1:cardCornerRadius="22dp" ns1:cardElevation="3dp" ns1:strokeColor="@color/border_color" ns1:strokeWidth="1dp">
+        
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:padding="16dp">
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/language_app_heading" ns0:textColor="@color/button_primary" ns0:textSize="12sp" ns0:textStyle="bold" ns0:letterSpacing="0.08" />
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="4dp" ns0:text="@string/language_app_hint" ns0:textColor="@color/text_secondary" ns0:textSize="12sp" />
+        
+                        <TextView ns0:id="@+id/selectedAppLanguage" ns0:layout_width="match_parent" ns0:layout_height="54dp" ns0:layout_marginTop="12dp" ns0:background="@drawable/bg_action_card" ns0:gravity="center_vertical" ns0:paddingStart="16dp" ns0:paddingEnd="16dp" ns0:text="English" ns0:textColor="@color/text_primary" ns0:textSize="16sp" ns0:textStyle="bold" ns0:drawableEnd="@android:drawable/arrow_down_float" ns0:drawablePadding="12dp" ns0:clickable="true" ns0:focusable="true" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+        
+                
+                <com.google.android.material.card.MaterialCardView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns1:cardBackgroundColor="@color/surface_color" ns1:cardCornerRadius="22dp" ns1:cardElevation="3dp" ns1:strokeColor="@color/border_color" ns1:strokeWidth="1dp">
+        
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:padding="16dp">
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/language_survival_heading" ns0:textColor="@color/button_primary" ns0:textSize="12sp" ns0:textStyle="bold" ns0:letterSpacing="0.08" />
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="4dp" ns0:text="@string/language_survival_hint" ns0:textColor="@color/text_secondary" ns0:textSize="12sp" />
+        
+                        <TextView ns0:id="@+id/selectedSurvivalLanguage" ns0:layout_width="match_parent" ns0:layout_height="54dp" ns0:layout_marginTop="12dp" ns0:background="@drawable/bg_action_card" ns0:gravity="center_vertical" ns0:paddingStart="16dp" ns0:paddingEnd="16dp" ns0:text="English" ns0:textColor="@color/text_primary" ns0:textSize="16sp" ns0:textStyle="bold" ns0:drawableEnd="@android:drawable/arrow_down_float" ns0:drawablePadding="12dp" ns0:clickable="true" ns0:focusable="true" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+        
+                <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:text="@string/language_change_later" ns0:textColor="@color/text_secondary" ns0:textSize="12sp" ns0:gravity="center" />
+        
+                
+                <com.google.android.material.button.MaterialButton ns0:id="@+id/buttonLanguageNext" ns0:layout_width="match_parent" ns0:layout_height="54dp" ns0:layout_marginTop="24dp" ns0:background="@drawable/bg_button_primary" ns1:backgroundTint="@null" ns0:text="@string/language_continue" ns0:textAllCaps="false" ns0:textSize="16sp" ns0:textStyle="bold" ns1:cornerRadius="14dp" ns1:elevation="0dp" />
+        
+            </LinearLayout>
+        
     </LinearLayout>
-</ScrollView>
+</merge>
