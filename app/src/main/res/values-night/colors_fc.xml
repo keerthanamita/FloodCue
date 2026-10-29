@@ -1,79 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!-- ============================================================
-         FLOODCUE AURORA BLUE — Dark theme palette
-         ============================================================ -->
-
-    <!-- Background -->
-    <color name="fc_background">#0C1422</color>
-    <color name="fc_background_dark">#0A101C</color>
-
-    <!-- Surface -->
-    <color name="fc_surface">#151F30</color>
-    <color name="fc_surface_elevated">#1B2940</color>
-    <color name="fc_surface_dark">#151F30</color>
-    <color name="fc_surface_elevated_dark">#1B2940</color>
-
-    <!-- Text -->
-    <color name="fc_text_primary">#F2F6FC</color>
-    <color name="fc_text_primary_dark">#F2F6FC</color>
-    <color name="fc_text_secondary">#B0BCD0</color>
-    <color name="fc_text_secondary_dark">#94A3B8</color>
-
-    <!-- Borders / dividers -->
-    <color name="fc_border">#2C3B52</color>
-    <color name="fc_border_dark">#2C3B52</color>
-    <color name="fc_divider">#3D3D3D</color>
-    <color name="fc_divider_dark">#4A5568</color>
-
-    <!-- Inputs -->
-    <color name="fc_input_stroke">#484848</color>
-    <color name="fc_input_stroke_dark">#484848</color>
-    <color name="fc_input_focused">#78A9FF</color>
-    <color name="fc_input_background">#2B2B2B</color>
-    <color name="fc_input_background_dark">#2B2B2B</color>
-
-    <!-- Buttons -->
-    <color name="fc_button_primary">#78A9FF</color>
-    <color name="fc_button_primary_pressed">#5BA0E0</color>
-    <color name="fc_button_secondary">#333333</color>
-    <color name="fc_button_secondary_pressed">#444444</color>
-    <color name="fc_button_secondary_dark">#444444</color>
-    <color name="fc_button_secondary_dark_pressed">#555555</color>
-    <color name="fc_button_text">#FFFFFF</color>
-    <color name="fc_button_ripple">#33000000</color>
-
-    <!-- Semantic / emergency colors -->
-    <color name="fc_success">#4ADE80</color>
-    <color name="fc_success_text">#14532D</color>
-    <color name="fc_warning">#FBBF24</color>
-    <color name="fc_warning_text">#713F12</color>
-    <color name="fc_error">#F87171</color>
-    <color name="fc_error_text">#450A0A</color>
-    <color name="fc_info">#7AB8FF</color>
-    <color name="fc_info_text">#0C2A45</color>
-
-    <!-- Status message colors -->
-    <color name="fc_status_success">#4ADE80</color>
-    <color name="fc_status_warning">#FBBF24</color>
-    <color name="fc_status_error">#F87171</color>
-
-    <!-- Home SOS (emergency, stays red) -->
-    <color name="fc_home_sos">#EF4444</color>
-    <color name="fc_home_sos_pressed">#B91C1C</color>
-
-    <!-- Google sign-in button -->
-    <color name="fc_google_text">#FFFFFF</color>
-
-    <!-- Splash gradient -->
-    <color name="fc_splash_top">#0A101C</color>
-    <color name="fc_splash_bottom">#78A9FF</color>
-
-    <!-- Map component colors -->
-    <color name="fc_map_background">#0A101C</color>
-    <color name="fc_map_control_background">#151F30</color>
-    <color name="fc_map_control_background_pressed">#1B2940</color>
-    <color name="fc_map_control_text">#94A3B8</color>
-
+    <color name="fc_primary">#B58D9C</color>
+    <color name="fc_primary_pressed">#956F80</color>
+    <color name="fc_primary_light">#C9A9B1</color>
+    <color name="fc_primary_dark">#795669</color>
+    <color name="fc_background">#201E23</color>
+    <color name="fc_background_dark">#201E23</color>
+    <color name="fc_surface">#2D2730</color>
+    <color name="fc_surface_elevated">#37313A</color>
+    <color name="fc_surface_dark">#2D2730</color>
+    <color name="fc_surface_elevated_dark">#37313A</color>
+    <color name="fc_text_primary">#F0E9E5</color>
+    <color name="fc_text_primary_dark">#F0E9E5</color>
+    <color name="fc_text_secondary">#B9AAA7</color>
+    <color name="fc_text_secondary_dark">#B9AAA7</color>
+    <color name="fc_border">#5B4F58</color>
+    <color name="fc_border_dark">#5B4F58</color>
+    <color name="fc_divider">#403941</color>
+    <color name="fc_divider_dark">#403941</color>
+    <color name="fc_input_stroke">#62575F</color>
+    <color name="fc_input_stroke_dark">#62575F</color>
+    <color name="fc_input_focused">#B58D9C</color>
+    <color name="fc_input_background">#2D2730</color>
+    <color name="fc_input_background_dark">#2D2730</color>
+    <color name="fc_button_primary">#B58D9C</color>
+    <color name="fc_button_primary_pressed">#956F80</color>
+    <color name="fc_button_secondary">#38313A</color>
+    <color name="fc_button_secondary_pressed">#463B47</color>
+    <color name="fc_button_secondary_dark">#38313A</color>
+    <color name="fc_button_secondary_dark_pressed">#463B47</color>
+    <color name="fc_button_text">#241F24</color>
+    <color name="fc_button_ripple">#33FFFFFF</color>
+    <color name="fc_success">#74B88A</color>
+    <color name="fc_warning">#D2A06A</color>
+    <color name="fc_error">#D9665F</color>
+    <color name="fc_info">#B58D9C</color>
+    <color name="fc_map_background">#28252B</color>
+    <color name="fc_map_control_background">#2D2730</color>
+    <color name="fc_map_control_background_pressed">#37313A</color>
+    <color name="fc_map_control_text">#C5B4AA</color>
 </resources>
