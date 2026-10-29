@@ -132,6 +132,8 @@ Setup header spacing correction: `Build your safety profile` and its supporting 
 
 Setup layout refinement: Each setup step now uses the same 8dp inner side spacing as other screens, while preserving the existing section order and IDs. This gives the form groups more usable width and keeps the three-step arrangement visually consistent without changing navigation or persistence behavior.
 
+Setup back behavior: On the first setup page, the shared back arrow now explicitly returns to `LoginActivity` for the normal setup flow. When Setup was opened from Profile Details with `EXTRA_EDIT_PROFILE`, the same back action still finishes Setup and returns to the profile screen. Later setup pages continue to move back one step.
+
 About FloodCue update: The information card now uses normalized inner spacing, a smaller hierarchy-safe heading, a theme-aware version badge, and a shared toolbar title. Content, version lookup, and back navigation remain unchanged.
 
 Offline Communication update: The content now uses normalized inner spacing so the Bridgefy action and explanatory cards get more usable width. The primary action has comfortable horizontal padding and stronger hierarchy, and the shared toolbar displays the screen title. Bridgefy launch/status behavior and dynamic steps remain unchanged.

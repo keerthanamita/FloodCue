@@ -180,7 +180,7 @@ public class SetupActivity extends FloodCueActivity {
                         } else if (currentPage > 1) {
                             showPage(currentPage - 1);
                         } else {
-                            finish();
+                            returnToLogin();
                         }
                     }
                 }
@@ -930,6 +930,18 @@ public class SetupActivity extends FloodCueActivity {
 
     private boolean isEditingProfile() {
         return getIntent().getBooleanExtra(EXTRA_EDIT_PROFILE, false);
+    }
+
+    private void returnToLogin() {
+        if (isEditingProfile()) {
+            finish();
+            return;
+        }
+
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+        finish();
     }
 
     private void openHome() {
