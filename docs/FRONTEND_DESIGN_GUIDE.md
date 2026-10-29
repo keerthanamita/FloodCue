@@ -94,6 +94,8 @@ Theme correction: day and night theme files now use the corresponding background
 
 Login header icon correction: the security mark now uses an explicit Android vector `src` and theme-aware tint instead of relying on `app:srcCompat`, which was not rendering reliably in the login header.
 
+The login header mark also has an additional top margin so it sits lower within the scrollable content and remains visually clear below the screen edge.
+
 ## Validation record
 
 - Repository and Git state: inspected on 2026-10-29.
