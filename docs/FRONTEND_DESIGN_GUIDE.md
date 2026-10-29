@@ -138,6 +138,8 @@ Setup header final spacing: The `Build your safety profile` header block has an 
 
 Setup header box correction: The complete setup header container is now moved down with 28dp outer top spacing; this shifts the title, subtitle, progress indicator, and step label together instead of moving only the title text.
 
+Setup toolbar overlap correction: The Setup content container now starts below the shared toolbar using `?attr/actionBarSize`, preventing the header card from covering the shared back arrow. Its own top padding is kept at 16dp so the title box does not become excessively low after the structural fix.
+
 Pending screen refresh: Offline Map View now has slightly tighter map/status framing; SOS Emergency uses normalized content width, padded action buttons, and a shared toolbar title; About Bridgefy uses normalized content width, a smaller heading, padded actions, theme-aware secondary text, and a shared toolbar title. Existing map lifecycle, SOS delivery/siren/location logic, Bridgefy links, and back actions remain unchanged.
 
 About FloodCue update: The information card now uses normalized inner spacing, a smaller hierarchy-safe heading, a theme-aware version badge, and a shared toolbar title. Content, version lookup, and back navigation remain unchanged.
