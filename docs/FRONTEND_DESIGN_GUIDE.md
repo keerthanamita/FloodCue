@@ -102,6 +102,10 @@ Latest navigation/theme polish: the language screen now shows bottom navigation 
 
 Home and shared navigation polish: SOS and siren surfaces now use muted but readable warm emergency colors with light text, the hero heading uses a high-contrast splash token, and the shared bottom navigation now uses the app's theme-aware glass surfaces, border token, wider insets, taller touch area, and calmer label sizing across all screens.
 
+Emergency Messages screen update: `activity_sos.xml` now uses dedicated rounded emergency panels, tighter vertical rhythm, a warm accent heading, and a clearly visible red Send SOS action. All `SosActivity` view IDs, message composition, recipient chips, location actions, queue controls, and send behavior remain unchanged.
+
+Emergency action text uses a dedicated light token in both day and night resources so red SOS actions remain readable regardless of system theme.
+
 ## Validation record
 
 - Repository and Git state: inspected on 2026-10-29.

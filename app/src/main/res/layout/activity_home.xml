@@ -119,7 +119,7 @@
                 android:minHeight="0dp"
                 android:text="SOS Alarm  ·  One-tap alert"
                 android:textAllCaps="false"
-                android:textColor="@color/button_primary_text"
+                android:textColor="@color/sos_action_text"
                 android:textSize="17sp"
                 android:textStyle="bold" />
 
@@ -142,7 +142,7 @@
                     android:minHeight="0dp"
                     android:text="Siren"
                     android:textAllCaps="false"
-                    android:textColor="@color/button_primary_text"
+                    android:textColor="@color/sos_action_text"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 

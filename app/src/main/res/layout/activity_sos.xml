@@ -1,396 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_color"
-    android:orientation="vertical">
-
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+    <include layout="@layout/layout_base_screen" />
     <LinearLayout
+        android:id="@+id/content_container"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:gravity="center_vertical"
-        android:paddingStart="8dp"
-        android:paddingEnd="20dp">
-
-        <TextView
-            android:id="@+id/buttonBackToHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_link_ripple"
-            android:clickable="true"
-            android:focusable="true"
-            android:padding="12dp"
-            android:text="@string/sos_back_title"
-            android:textColor="@color/text_primary"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:fillViewport="true"
-        android:overScrollMode="never">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingStart="24dp"
-            android:paddingTop="8dp"
-            android:paddingEnd="24dp"
-            android:paddingBottom="32dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/sos_heading"
-                android:textColor="@color/text_primary"
-                android:textSize="26sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:text="@string/sos_subtitle"
-                android:textColor="@color/text_secondary"
-                android:textSize="15sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:background="@drawable/bg_screen_card"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/sos_recipients_title"
-                    android:textColor="@color/text_primary"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/sos_recipients_help"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="14sp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <EditText
-                        android:id="@+id/inputSosNumber"
-                        android:layout_width="0dp"
-                        android:layout_height="52dp"
-                        android:layout_weight="1"
-                        android:autofillHints="phone"
-                        android:background="@drawable/bg_input"
-                        android:hint="@string/sos_recipients_hint"
-                        android:imeOptions="actionDone"
-                        android:importantForAutofill="yes"
-                        android:inputType="phone"
-                        android:paddingStart="14dp"
-                        android:paddingEnd="14dp"
-                        android:textColor="@color/text_primary"
-                        android:textColorHint="@color/text_secondary"
-                        android:textSize="16sp" />
-
-                    <Button
-                        android:id="@+id/buttonAddSosNumber"
-                        android:layout_width="wrap_content"
-                        android:layout_height="52dp"
-                        android:layout_marginStart="8dp"
-                        android:background="@drawable/bg_button_primary"
-                        android:backgroundTint="@null"
-                        android:elevation="0dp"
-                        android:minWidth="72dp"
-                        android:minHeight="0dp"
-                        android:text="@string/sos_add_number"
-                        android:textAllCaps="false"
-                        android:textColor="@color/button_primary_text"
-                        android:textSize="16sp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="32dp">
+        <LinearLayout xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:layout_width="match_parent" ns0:layout_height="64dp" ns0:gravity="center_vertical" ns0:paddingStart="8dp" ns0:paddingEnd="20dp">
+        
+                <TextView ns0:id="@+id/buttonBackToHome" ns0:layout_width="wrap_content" ns0:layout_height="wrap_content" ns0:background="@drawable/bg_link_ripple" ns0:clickable="true" ns0:focusable="true" ns0:padding="12dp" ns0:text="@string/sos_back_title" ns0:textColor="@color/text_primary" ns0:textSize="20sp" ns0:textStyle="bold" />
+        
+            </LinearLayout>
+        
+            
+        <ScrollView xmlns:ns0="http://schemas.android.com/apk/res/android" xmlns:ns1="http://schemas.android.com/apk/res-auto" ns0:layout_width="match_parent" ns0:layout_height="0dp" ns0:layout_weight="1" ns0:fillViewport="true" ns0:overScrollMode="never">
+        
+                <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:paddingStart="24dp" ns0:paddingTop="8dp" ns0:paddingEnd="24dp" ns0:paddingBottom="32dp">
+        
+                    <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:gravity="center" ns0:text="@string/sos_heading" ns0:textColor="@color/button_primary" ns0:textSize="26sp" ns0:textStyle="bold" />
+        
+                    <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns0:gravity="center" ns0:text="@string/sos_subtitle" ns0:textColor="@color/text_secondary" ns0:textSize="15sp" />
+        
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="20dp" ns0:background="@drawable/bg_emergency_panel" ns0:orientation="vertical" ns0:padding="20dp">
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/sos_recipients_title" ns0:textColor="@color/text_primary" ns0:textSize="17sp" ns0:textStyle="bold" />
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns0:text="@string/sos_recipients_help" ns0:textColor="@color/text_secondary" ns0:textSize="14sp" />
+        
+                        <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:gravity="center_vertical" ns0:orientation="horizontal">
+        
+                            <EditText ns0:id="@+id/inputSosNumber" ns0:layout_width="0dp" ns0:layout_height="52dp" ns0:layout_weight="1" ns0:autofillHints="phone" ns0:background="@drawable/bg_input" ns0:hint="@string/sos_recipients_hint" ns0:imeOptions="actionDone" ns0:importantForAutofill="yes" ns0:inputType="phone" ns0:paddingStart="14dp" ns0:paddingEnd="14dp" ns0:textColor="@color/text_primary" ns0:textColorHint="@color/text_secondary" ns0:textSize="16sp" />
+        
+                            <Button ns0:id="@+id/buttonAddSosNumber" ns0:layout_width="wrap_content" ns0:layout_height="52dp" ns0:layout_marginStart="8dp" ns0:background="@drawable/bg_button_primary" ns0:backgroundTint="@null" ns0:elevation="0dp" ns0:minWidth="72dp" ns0:minHeight="0dp" ns0:text="@string/sos_add_number" ns0:textAllCaps="false" ns0:textColor="@color/button_primary_text" ns0:textSize="16sp" />
+                        </LinearLayout>
+        
+                        <TextView ns0:id="@+id/textSosNumberError" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns0:textColor="@color/error_color" ns0:textSize="14sp" ns0:visibility="gone" />
+        
+                        <com.google.android.material.chip.ChipGroup ns0:id="@+id/chipGroupSosRecipients" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns1:chipSpacing="8dp" />
+        
+                        <TextView ns0:id="@+id/textSosRecipientsEmpty" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns0:text="@string/sos_recipients_empty" ns0:textColor="@color/text_secondary" ns0:textSize="14sp" />
+        
+                        <TextView ns0:id="@+id/textSosSavedContactsTitle" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:text="@string/sos_saved_contacts_title" ns0:textColor="@color/text_primary" ns0:textSize="15sp" ns0:textStyle="bold" ns0:visibility="gone" />
+        
+                        <TextView ns0:id="@+id/textSosSavedContactsHelp" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="4dp" ns0:text="@string/sos_saved_contacts_help" ns0:textColor="@color/text_secondary" ns0:textSize="13sp" ns0:visibility="gone" />
+        
+                        <com.google.android.material.chip.ChipGroup ns0:id="@+id/chipGroupSavedContacts" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns0:visibility="gone" ns1:chipSpacing="8dp" />
+                    </LinearLayout>
+        
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:background="@drawable/bg_emergency_panel" ns0:orientation="vertical" ns0:padding="20dp">
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/sos_message_title" ns0:textColor="@color/text_primary" ns0:textSize="17sp" ns0:textStyle="bold" />
+        
+                        <EditText ns0:id="@+id/inputSosMessage" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:background="@drawable/bg_input" ns0:gravity="top|start" ns0:importantForAutofill="no" ns0:inputType="textMultiLine|textCapSentences" ns0:minHeight="120dp" ns0:minLines="4" ns0:padding="14dp" ns0:textColor="@color/text_primary" ns0:textColorHint="@color/text_secondary" ns0:textSize="16sp" />
+                    </LinearLayout>
+        
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:background="@drawable/bg_emergency_panel" ns0:orientation="vertical" ns0:padding="20dp">
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/sos_location_title" ns0:textColor="@color/text_primary" ns0:textSize="17sp" ns0:textStyle="bold" />
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns0:text="@string/sos_location_help" ns0:textColor="@color/text_secondary" ns0:textSize="14sp" />
+        
+                        <TextView ns0:id="@+id/textSosLocationStatus" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:text="@string/sos_location_idle" ns0:textColor="@color/text_primary" ns0:textSize="15sp" />
+        
+                        <TextView ns0:id="@+id/textSosLocationError" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns0:textColor="@color/error_color" ns0:textSize="14sp" ns0:visibility="gone" />
+        
+                        <Button ns0:id="@+id/buttonGetSosLocation" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="12dp" ns0:background="@drawable/bg_button_primary" ns0:backgroundTint="@null" ns0:elevation="0dp" ns0:minHeight="0dp" ns0:text="@string/sos_get_current_location" ns0:textAllCaps="false" ns0:textColor="@color/button_primary_text" ns0:textSize="16sp" />
+        
+                        <Button ns0:id="@+id/buttonUseLastKnownLocation" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="12dp" ns0:background="@drawable/bg_button_secondary" ns0:backgroundTint="@null" ns0:elevation="0dp" ns0:minHeight="0dp" ns0:text="@string/sos_use_last_known" ns0:textAllCaps="false" ns0:textColor="@color/text_primary" ns0:textSize="16sp" ns0:visibility="gone" />
+        
+                        <Button ns0:id="@+id/buttonClearSosLocation" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="12dp" ns0:background="@drawable/bg_button_secondary" ns0:backgroundTint="@null" ns0:elevation="0dp" ns0:minHeight="0dp" ns0:text="@string/sos_clear_location" ns0:textAllCaps="false" ns0:textColor="@color/text_primary" ns0:textSize="16sp" ns0:visibility="gone" />
+                    </LinearLayout>
+        
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:background="@drawable/bg_emergency_panel" ns0:orientation="vertical" ns0:padding="20dp">
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/sos_preview_title" ns0:textColor="@color/text_primary" ns0:textSize="17sp" ns0:textStyle="bold" />
+        
+                        <TextView ns0:id="@+id/textSosPreview" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="10dp" ns0:textColor="@color/text_primary" ns0:textIsSelectable="true" ns0:textSize="15sp" />
+                    </LinearLayout>
+        
+                    <TextView ns0:id="@+id/textSosSendHint" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:text="@string/sos_send_disabled_reason" ns0:textColor="@color/text_secondary" ns0:textSize="14sp" />
+        
+                    <Button ns0:id="@+id/buttonSendSos" ns0:layout_width="match_parent" ns0:layout_height="56dp" ns0:layout_marginTop="12dp" ns0:background="@drawable/bg_sos_action" ns0:backgroundTint="@null" ns0:elevation="0dp" ns0:minHeight="0dp" ns0:text="@string/sos_send_button" ns0:textAllCaps="false" ns0:textColor="@color/sos_action_text" ns0:textSize="16sp" ns0:textStyle="bold" />
+        
+                    <TextView ns0:id="@+id/textSosQueueStatus" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:background="@drawable/bg_screen_card" ns0:padding="16dp" ns0:textColor="@color/text_primary" ns0:textSize="14sp" ns0:visibility="gone" />
+        
+                    <Button ns0:id="@+id/buttonCancelQueuedSos" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="8dp" ns0:background="@drawable/bg_button_secondary" ns0:backgroundTint="@null" ns0:elevation="0dp" ns0:minHeight="0dp" ns0:text="@string/sos_queue_cancel" ns0:textAllCaps="false" ns0:textColor="@color/text_primary" ns0:textSize="16sp" ns0:visibility="gone" />
+        
+                    <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:text="@string/sos_offline_note" ns0:textColor="@color/text_secondary" ns0:textSize="13sp" />
+        
+                    <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns0:text="@string/sos_battery_note" ns0:textColor="@color/text_secondary" ns0:textSize="13sp" />
                 </LinearLayout>
-
-                <TextView
-                    android:id="@+id/textSosNumberError"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:textColor="@color/error_color"
-                    android:textSize="14sp"
-                    android:visibility="gone" />
-
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/chipGroupSosRecipients"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    app:chipSpacing="8dp" />
-
-                <TextView
-                    android:id="@+id/textSosRecipientsEmpty"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/sos_recipients_empty"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/textSosSavedContactsTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:text="@string/sos_saved_contacts_title"
-                    android:textColor="@color/text_primary"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:visibility="gone" />
-
-                <TextView
-                    android:id="@+id/textSosSavedContactsHelp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="@string/sos_saved_contacts_help"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="13sp"
-                    android:visibility="gone" />
-
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/chipGroupSavedContacts"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:visibility="gone"
-                    app:chipSpacing="8dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/bg_screen_card"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/sos_message_title"
-                    android:textColor="@color/text_primary"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/inputSosMessage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_input"
-                    android:gravity="top|start"
-                    android:importantForAutofill="no"
-                    android:inputType="textMultiLine|textCapSentences"
-                    android:minHeight="120dp"
-                    android:minLines="4"
-                    android:padding="14dp"
-                    android:textColor="@color/text_primary"
-                    android:textColorHint="@color/text_secondary"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/bg_screen_card"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/sos_location_title"
-                    android:textColor="@color/text_primary"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/sos_location_help"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/textSosLocationStatus"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/sos_location_idle"
-                    android:textColor="@color/text_primary"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/textSosLocationError"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:textColor="@color/error_color"
-                    android:textSize="14sp"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/buttonGetSosLocation"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_button_primary"
-                    android:backgroundTint="@null"
-                    android:elevation="0dp"
-                    android:minHeight="0dp"
-                    android:text="@string/sos_get_current_location"
-                    android:textAllCaps="false"
-                    android:textColor="@color/button_primary_text"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:id="@+id/buttonUseLastKnownLocation"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_button_secondary"
-                    android:backgroundTint="@null"
-                    android:elevation="0dp"
-                    android:minHeight="0dp"
-                    android:text="@string/sos_use_last_known"
-                    android:textAllCaps="false"
-                    android:textColor="@color/text_primary"
-                    android:textSize="16sp"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/buttonClearSosLocation"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_button_secondary"
-                    android:backgroundTint="@null"
-                    android:elevation="0dp"
-                    android:minHeight="0dp"
-                    android:text="@string/sos_clear_location"
-                    android:textAllCaps="false"
-                    android:textColor="@color/text_primary"
-                    android:textSize="16sp"
-                    android:visibility="gone" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/bg_screen_card"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/sos_preview_title"
-                    android:textColor="@color/text_primary"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/textSosPreview"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:textColor="@color/text_primary"
-                    android:textIsSelectable="true"
-                    android:textSize="15sp" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/textSosSendHint"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/sos_send_disabled_reason"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp" />
-
-            <Button
-                android:id="@+id/buttonSendSos"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/bg_button_primary"
-                android:backgroundTint="@null"
-                android:elevation="0dp"
-                android:minHeight="0dp"
-                android:text="@string/sos_send_button"
-                android:textAllCaps="false"
-                android:textColor="@color/button_primary_text"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/textSosQueueStatus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/bg_screen_card"
-                android:padding="16dp"
-                android:textColor="@color/text_primary"
-                android:textSize="14sp"
-                android:visibility="gone" />
-
-            <Button
-                android:id="@+id/buttonCancelQueuedSos"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/bg_button_secondary"
-                android:backgroundTint="@null"
-                android:elevation="0dp"
-                android:minHeight="0dp"
-                android:text="@string/sos_queue_cancel"
-                android:textAllCaps="false"
-                android:textColor="@color/text_primary"
-                android:textSize="16sp"
-                android:visibility="gone" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/sos_offline_note"
-                android:textColor="@color/text_secondary"
-                android:textSize="13sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/sos_battery_note"
-                android:textColor="@color/text_secondary"
-                android:textSize="13sp" />
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+            </ScrollView>
+        
+    </LinearLayout>
+</merge>
