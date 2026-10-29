@@ -28,7 +28,7 @@
     <string name="offline_map_missing">That offline map is not downloaded on this device.</string>
     <string name="offline_map_location_denied">Location permission was not granted.</string>
     <string name="home_offline_maps">Offline Maps</string>
-    <string name="home_emergency_contacts">Emergency Contacts</string>
+    <string name="home_emergency_contacts">Contacts</string>
     <string name="home_readiness_checklist">Readiness Checklist</string>
     <string name="home_safety_guide">Safety Guide</string>
     <string name="home_sos_emergency_message">Emergency Message</string>

@@ -124,7 +124,7 @@ Weather final polish: the heading and temperature scale are reduced for better h
 
 Checklist, Tips, and Emergency Guide update: each screen now uses a role-specific layered surface, smaller hierarchy-safe headings, and extra bottom space above navigation. Checklist emphasizes progress/tabs, Tips uses a contained warning legend, and Emergency Guide reserves the red action treatment for its SOS button; dynamic content containers and existing actions remain unchanged.
 
-Naming and theme coverage update: Home now labels the actions `Emergency Contacts`, `Readiness Checklist`, and `Safety Guide`. A complete `values-night/colors_fc.xml` token set was added so screens still using the older `fc_*` resources also switch to the dark palette when Android system theme changes.
+Naming and theme coverage update: Home now labels the actions `Contacts`, `Readiness Checklist`, and `Safety Guide`. Home action buttons use tighter horizontal padding and slightly smaller text for longer labels so text remains inside compact two-column cards across screen widths. A complete `values-night/colors_fc.xml` token set was added so screens still using the older `fc_*` resources also switch to the dark palette when Android system theme changes.
 
 Shared back-ribbon correction: `layout_base_screen.xml` is now the single common orange ribbon with one working back arrow. `FloodCueActivity` wires that arrow to the normal back dispatcher and hides duplicate in-content back rows across Contacts, Maps, Weather, SOS, Settings, Guides, Alerts, Profile, and related screens. This prevents the ribbon/text vertical mismatch and duplicate arrow symbols.
 

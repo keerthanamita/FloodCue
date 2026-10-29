@@ -122,6 +122,8 @@
                 android:textAllCaps="false"
                 android:textColor="@color/sos_action_text"
                 android:textSize="17sp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
                 android:textStyle="bold" />
 
             <!-- Row: Siren & SOS Emergency Message -->
@@ -145,6 +147,8 @@
                     android:textAllCaps="false"
                     android:textColor="@color/sos_action_text"
                     android:textSize="15sp"
+                    android:paddingStart="6dp"
+                    android:paddingEnd="6dp"
                     android:textStyle="bold" />
 
                 <Button
@@ -160,7 +164,9 @@
                     android:text="SOS Message"
                     android:textAllCaps="false"
                     android:textColor="@color/home_card_text"
-                    android:textSize="15sp"
+                    android:textSize="14sp"
+                    android:paddingStart="6dp"
+                    android:paddingEnd="6dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -178,6 +184,8 @@
                 android:textAllCaps="false"
                 android:textColor="@color/home_card_text"
                 android:textSize="14sp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
                 android:textStyle="bold" />
 
             <!-- SECTION 2: MAPS & ALERTS -->
@@ -212,6 +220,8 @@
                     android:textAllCaps="false"
                     android:textColor="@color/home_card_text"
                     android:textSize="14sp"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
                     android:textStyle="bold" />
 
                 <Button
@@ -228,6 +238,8 @@
                     android:textAllCaps="false"
                     android:textColor="@color/home_card_text"
                     android:textSize="14sp"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -251,7 +263,9 @@
                     android:text="Weather Forecast"
                     android:textAllCaps="false"
                     android:textColor="@color/home_card_text"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
                     android:textStyle="bold" />
 
                 <Button
@@ -268,6 +282,8 @@
                     android:textAllCaps="false"
                     android:textColor="@color/home_card_text"
                     android:textSize="14sp"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -303,6 +319,8 @@
                     android:textAllCaps="false"
                     android:textColor="@color/home_card_text"
                     android:textSize="14sp"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
                     android:textStyle="bold" />
 
                 <Button
@@ -318,7 +336,9 @@
                     android:text="Safety Tips"
                     android:textAllCaps="false"
                     android:textColor="@color/home_card_text"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -343,6 +363,8 @@
                     android:textAllCaps="false"
                     android:textColor="@color/home_card_text"
                     android:textSize="14sp"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
                     android:textStyle="bold" />
 
                 <Button
@@ -359,6 +381,8 @@
                     android:textAllCaps="false"
                     android:textColor="@color/text_primary"
                     android:textSize="14sp"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
