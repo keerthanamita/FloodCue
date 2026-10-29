@@ -116,6 +116,8 @@ Contacts reliability and theme correction: `item_call_row.xml` is now a normal s
 
 Offline Maps and Weather update: Offline Maps now uses the layered Home palette for its selection card and district actions. Weather uses a stronger dashboard heading and temperature emphasis while preserving refresh, location selection, cache, warning, hourly, and detail view IDs and behavior.
 
+Weather/Flood Alert reliability and UI update: `item_weather_detail.xml` is now a self-contained RecyclerView row instead of an invalid `<merge>` layout, fixing the Weather screen launch crash. Flood Alert now uses a raised lilac panel, stronger heading hierarchy, and a distinct sage refresh action while preserving location, refresh, sachet, river, and external-link behavior.
+
 Shared back-ribbon correction: `layout_base_screen.xml` is now the single common orange ribbon with one working back arrow. `FloodCueActivity` wires that arrow to the normal back dispatcher and hides duplicate in-content back rows across Contacts, Maps, Weather, SOS, Settings, Guides, Alerts, Profile, and related screens. This prevents the ribbon/text vertical mismatch and duplicate arrow symbols.
 
 Bottom navigation surface correction: the shared navigation bar no longer uses translucent glass colors. It now uses opaque, theme-specific `bottom_nav_surface` values so it has the same clear, grounded separation as the Home screen in both light and dark modes.
