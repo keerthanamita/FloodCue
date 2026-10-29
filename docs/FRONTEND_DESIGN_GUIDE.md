@@ -96,6 +96,8 @@ Login header icon correction: the security mark now uses an explicit Android vec
 
 The login header mark now uses a larger top margin so it sits lower within the scrollable content and remains visually clear below the screen edge.
 
+Home screen update: the header, offline status chip, hero card, emergency actions, situation tools, survival tools, and settings/profile actions now follow the same warm glassmorphism spacing and copy style. All `HomeActivity` view IDs and click targets remain unchanged; SOS and siren colors retain their emergency meaning.
+
 ## Validation record
 
 - Repository and Git state: inspected on 2026-10-29.

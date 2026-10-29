@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/background_color">
 
+    <!-- Top App Bar -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="76dp"
         android:gravity="center_vertical"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp">
+        android:paddingStart="22dp"
+        android:paddingEnd="22dp">
+
+
 
         <TextView
             android:layout_width="0dp"
@@ -19,16 +22,36 @@
             android:layout_weight="1"
             android:text="@string/app_name"
             android:textColor="@color/text_primary"
-            android:textSize="20sp"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-medium"
             android:textStyle="bold" />
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Home"
-            android:textColor="@color/text_secondary"
-            android:textSize="14sp" />
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_action_card"
+            android:paddingStart="10dp"
+            android:minHeight="40dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="8dp">
 
+            <ImageView
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:src="@drawable/ic_dot_green"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="Offline Ready"
+                android:textColor="@color/button_primary"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
 
     <ScrollView
@@ -40,233 +63,349 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center"
-            android:padding="24dp">
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:paddingBottom="40dp">
 
+            <!-- Hero Banner Card -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_screen_card"
+                android:background="@drawable/bg_home_hero_gradient"
                 android:orientation="vertical"
-                android:gravity="center"
-                android:padding="24dp">
+                android:padding="22dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Welcome to FloodCue"
+                    android:text="@string/home_header_title"
                     android:textColor="@color/text_primary"
-                    android:textSize="26sp"
+                    android:textSize="25sp"
+                    android:fontFamily="sans-serif-medium"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:text="Everything you need before, during and after a flood"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="15sp" />
+                    android:layout_marginTop="6dp"
+                    android:text="@string/home_header_subtitle"
+                    android:textColor="@color/splash_text_secondary"
+                    android:lineSpacingExtra="2dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
 
-                <Button
-                    android:id="@+id/buttonOfflineMaps"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="28dp"
-                    android:background="@drawable/bg_button_primary"
-                    android:backgroundTint="@null"
-                    android:elevation="0dp"
-                    android:minHeight="0dp"
-                    android:text="@string/home_offline_maps"
-                    android:textAllCaps="false"
-                    android:textColor="@color/button_primary_text"
-                    android:textSize="16sp" />
+            <!-- SECTION 1: EMERGENCY RESPONSE (Vibrant & Prioritized) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="10dp"
+                android:text="EMERGENCY RESPONSE"
+                android:textColor="@color/fc_error"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.06" />
 
-                <Button
-                    android:id="@+id/buttonEmergencyContacts"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_button_primary"
-                    android:backgroundTint="@null"
-                    android:elevation="0dp"
-                    android:minHeight="0dp"
-                    android:text="@string/home_emergency_contacts"
-                    android:textAllCaps="false"
-                    android:textColor="@color/button_primary_text"
-                    android:textSize="16sp" />
+            <!-- Quick SOS Primary Button -->
+            <Button
+                android:id="@+id/buttonSos"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_sos_action"
+                android:backgroundTint="@null"
+                android:elevation="2dp"
+                android:minHeight="0dp"
+                android:text="SOS Alarm  ·  One-tap alert"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
-                <Button
-                    android:id="@+id/buttonSosEmergencyMessage"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_button_primary"
-                    android:backgroundTint="@null"
-                    android:elevation="0dp"
-                    android:minHeight="0dp"
-                    android:text="@string/home_sos_emergency_message"
-                    android:textAllCaps="false"
-                    android:textColor="@color/button_primary_text"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:id="@+id/buttonSosEmergency"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_button_primary"
-                    android:backgroundTint="@null"
-                    android:elevation="0dp"
-                    android:minHeight="0dp"
-                    android:text="@string/home_sos_emergency"
-                    android:textAllCaps="false"
-                    android:textColor="@color/button_primary_text"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:id="@+id/buttonSos"
-                    android:layout_width="match_parent"
-                    android:layout_height="56dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_button_sos"
-                    android:backgroundTint="@null"
-                    android:elevation="0dp"
-                    android:minHeight="0dp"
-                    android:text="@string/home_sos"
-                    android:textAllCaps="false"
-                    android:textColor="@color/button_primary_text"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/buttonEmergencyGuide"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_button_primary"
-                    android:backgroundTint="@null"
-                    android:elevation="0dp"
-                    android:minHeight="0dp"
-                    android:text="@string/home_emergency_guide"
-                    android:textAllCaps="false"
-                    android:textColor="@color/button_primary_text"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:id="@+id/buttonOfflineCommunication"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_button_primary"
-                    android:backgroundTint="@null"
-                    android:elevation="0dp"
-                    android:minHeight="0dp"
-                    android:text="@string/home_offline_communication"
-                    android:textAllCaps="false"
-                    android:textColor="@color/button_primary_text"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:id="@+id/buttonChecklist"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_button_primary"
-                    android:backgroundTint="@null"
-                    android:elevation="0dp"
-                    android:minHeight="0dp"
-                    android:text="@string/home_flood_checklist"
-                    android:textAllCaps="false"
-                    android:textColor="@color/button_primary_text"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:id="@+id/buttonTips"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_button_primary"
-                    android:backgroundTint="@null"
-                    android:elevation="0dp"
-                    android:minHeight="0dp"
-                    android:text="@string/home_safety_tips"
-                    android:textAllCaps="false"
-                    android:textColor="@color/button_primary_text"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:id="@+id/buttonWeather"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_button_primary"
-                    android:backgroundTint="@null"
-                    android:elevation="0dp"
-                    android:minHeight="0dp"
-                    android:text="@string/home_weather"
-                    android:textAllCaps="false"
-                    android:textColor="@color/button_primary_text"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:id="@+id/buttonFloodAlert"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_button_primary"
-                    android:backgroundTint="@null"
-                    android:elevation="0dp"
-                    android:minHeight="0dp"
-                    android:text="@string/home_flood_alerts"
-                    android:textAllCaps="false"
-                    android:textColor="@color/button_primary_text"
-                    android:textSize="16sp" />
+            <!-- Row: Siren & SOS Emergency Message -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/buttonSiren"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="52dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_siren_action"
+                    android:backgroundTint="@null"
+                    android:elevation="1dp"
+                    android:minHeight="0dp"
+                    android:text="Siren"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_primary_text"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/buttonSosEmergencyMessage"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1.3"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/bg_button_primary"
+                    android:backgroundTint="@null"
+                    android:elevation="1dp"
+                    android:minHeight="0dp"
+                    android:text="SOS Message"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_primary_text"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- All-in-one SOS Emergency Button -->
+            <Button
+                android:id="@+id/buttonSosEmergency"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_action_card"
+                android:backgroundTint="@null"
+                android:elevation="0dp"
+                android:minHeight="0dp"
+                android:text="Full SOS  ·  Message + Siren + GPS"
+                android:textAllCaps="false"
+                android:textColor="@color/fc_error"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <!-- SECTION 2: MAPS & ALERTS -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="10dp"
+                android:text="SITUATION &amp; LIVE ALERTS"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.06" />
+
+            <!-- 2-Column Grid Row 1 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/buttonOfflineMaps"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
                     android:background="@drawable/bg_button_primary"
                     android:backgroundTint="@null"
                     android:elevation="0dp"
                     android:minHeight="0dp"
-                    android:text="@string/home_siren"
+                    android:text="Offline Maps"
                     android:textAllCaps="false"
                     android:textColor="@color/button_primary_text"
-                    android:textSize="16sp" />
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/buttonFloodAlert"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/bg_button_primary"
+                    android:backgroundTint="@null"
+                    android:elevation="0dp"
+                    android:minHeight="0dp"
+                    android:text="Flood Alerts"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_primary_text"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- 2-Column Grid Row 2: Weather & Contacts -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/buttonWeather"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_action_card"
+                    android:backgroundTint="@null"
+                    android:elevation="0dp"
+                    android:minHeight="0dp"
+                    android:text="Weather Forecast"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/buttonEmergencyContacts"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/bg_action_card"
+                    android:backgroundTint="@null"
+                    android:elevation="0dp"
+                    android:minHeight="0dp"
+                    android:text="Emergency Contacts"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- SECTION 3: SURVIVAL & PREPARATION -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="10dp"
+                android:text="SURVIVAL &amp; READINESS"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.06" />
+
+            <!-- Row: Checklist & Tips -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/buttonChecklist"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_action_card"
+                    android:backgroundTint="@null"
+                    android:elevation="0dp"
+                    android:minHeight="0dp"
+                    android:text="Flood Checklist"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/buttonTips"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/bg_action_card"
+                    android:backgroundTint="@null"
+                    android:elevation="0dp"
+                    android:minHeight="0dp"
+                    android:text="Safety Tips"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Row: Emergency Guide & Offline Mesh Comm -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/buttonEmergencyGuide"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_action_card"
+                    android:backgroundTint="@null"
+                    android:elevation="0dp"
+                    android:minHeight="0dp"
+                    android:text="Emergency Guide"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/buttonOfflineCommunication"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/bg_action_card"
+                    android:backgroundTint="@null"
+                    android:elevation="0dp"
+                    android:minHeight="0dp"
+                    android:text="Offline Mesh"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- SECTION 4: SETTINGS & TOOLS -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/buttonSettings"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_button_primary"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_action_card"
                     android:backgroundTint="@null"
                     android:elevation="0dp"
                     android:minHeight="0dp"
-                    android:text="@string/home_settings"
+                    android:text="Settings"
                     android:textAllCaps="false"
-                    android:textColor="@color/button_primary_text"
-                    android:textSize="16sp" />
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
 
+                <Button
+                    android:id="@+id/btnViewSavedDetails"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/bg_action_card"
+                    android:backgroundTint="@null"
+                    android:elevation="0dp"
+                    android:minHeight="0dp"
+                    android:text="Saved Profile"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
             </LinearLayout>
-            <!-- Temporary local profile check -->
-            <Button
-                android:id="@+id/btnViewSavedDetails"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:text="View saved details" />
 
+            <!-- Local Profile Check Result View -->
             <ScrollView
                 android:id="@+id/savedDetailsScroll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_screen_card"
                 android:visibility="gone">
 
                 <TextView
@@ -274,14 +413,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:textSize="15sp"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="3dp"
                     android:textIsSelectable="true" />
-
             </ScrollView>
 
         </LinearLayout>
-
     </ScrollView>
-
 
 </LinearLayout>
