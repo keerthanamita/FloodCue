@@ -269,6 +269,8 @@ Theme fix phase 47: `FloodCueActivity` now reasserts `MODE_NIGHT_FOLLOW_SYSTEM` 
 
 Dark-surface readability phase 48: Replaced translucent dark-mode `surface_color` and `surface_elevated_color` values with opaque theme surfaces, and added an opaque dark-mode badge drawable. Cards, inputs, bottom navigation, and badges now retain clear separation from the screen background instead of allowing content behind them to show through. `assembleDebug --offline --no-daemon --console=plain` completed successfully (36 actionable tasks: 8 executed, 28 up-to-date).
 
+Theme synchronization phase 49: `FloodCueActivity` now reads the current system `uiMode` directly on Activity creation and resume, maps it to AppCompat `MODE_NIGHT_YES`/`MODE_NIGHT_NO`, and reapplies the delegate. This removes stale FOLLOW_SYSTEM state when the device theme changes while FloodCue is backgrounded. Build verification: `assembleDebug --offline --no-daemon --console=plain` succeeded (36 actionable tasks: 9 executed, 27 up-to-date). Device runtime verification remains unavailable because ADB cannot initialize here.
+
 Validation note: all Android resource XML files currently parse successfully (`bad_xml=0`). No Gradle/Android build has been run in this phase, so compilation and device rendering remain to be verified locally.
 
 ## Instructions for the next AI

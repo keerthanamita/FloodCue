@@ -47,20 +47,31 @@ public class FloodCueActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // Re-assert this at Activity creation as well as Application creation.
-        // This matters when Android recreates an already-running task after a
-        // system light/dark-mode change.
-        AppCompatDelegate.setDefaultNightMode(
-                AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+        syncNightModeWithSystem();
         super.onCreate(savedInstanceState);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        // Apply the current system uiMode when returning from Settings or
-        // another app, without adding a manual theme toggle to FloodCue.
+        syncNightModeWithSystem();
         getDelegate().applyDayNight();
+    }
+
+    /**
+     * Uses Android's current configuration as the only theme source. Reading
+     * the system uiMode directly avoids leaving AppCompat in a stale mode when
+     * the user changes the device theme while FloodCue is backgrounded.
+     */
+    private void syncNightModeWithSystem() {
+        int uiMode = getApplicationContext().getResources().getConfiguration().uiMode
+                & Configuration.UI_MODE_NIGHT_MASK;
+        int mode = uiMode == Configuration.UI_MODE_NIGHT_YES
+                ? AppCompatDelegate.MODE_NIGHT_YES
+                : AppCompatDelegate.MODE_NIGHT_NO;
+        if (AppCompatDelegate.getDefaultNightMode() != mode) {
+            AppCompatDelegate.setDefaultNightMode(mode);
+        }
     }
 
     @Override
