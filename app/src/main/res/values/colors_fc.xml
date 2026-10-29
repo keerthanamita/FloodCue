@@ -6,10 +6,10 @@
          ============================================================ -->
 
     <!-- Primary blue (brand) -->
-    <color name="fc_primary">#1769E0</color>
-    <color name="fc_primary_pressed">#1254B8</color>
-    <color name="fc_primary_light">#78A9FF</color>
-    <color name="fc_primary_dark">#1254B8</color>
+    <color name="fc_primary">#FF9800</color>
+    <color name="fc_primary_pressed">#F57C00</color>
+    <color name="fc_primary_light">#FFB74D</color>
+    <color name="fc_primary_dark">#E65100</color>
 
     <!-- Background -->
     <color name="fc_background">#F5F8FC</color>
@@ -36,13 +36,13 @@
     <!-- Inputs -->
     <color name="fc_input_stroke">#C8C8C8</color>
     <color name="fc_input_stroke_dark">#484848</color>
-    <color name="fc_input_focused">#2563EB</color>
+    <color name="fc_input_focused">@color/button_primary</color>
     <color name="fc_input_background">#FFFFFF</color>
     <color name="fc_input_background_dark">#2B2B2B</color>
 
     <!-- Buttons -->
-    <color name="fc_button_primary">#2563EB</color>
-    <color name="fc_button_primary_pressed">#1D4ED8</color>
+    <color name="fc_button_primary">@color/button_primary</color>
+    <color name="fc_button_primary_pressed">@color/button_primary_pressed</color>
     <color name="fc_button_secondary">#F2F2F2</color>
     <color name="fc_button_secondary_pressed">#E5E5E5</color>
     <color name="fc_button_secondary_dark">#333333</color>
@@ -57,7 +57,7 @@
     <color name="fc_warning_text">#1F2937</color>
     <color name="fc_error">#DC2626</color>
     <color name="fc_error_text">#FFFFFF</color>
-    <color name="fc_info">#2563EB</color>
+    <color name="fc_info">@color/button_primary</color>
     <color name="fc_info_text">#FFFFFF</color>
 
     <!-- Status message colors -->

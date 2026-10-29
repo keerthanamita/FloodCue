@@ -16,7 +16,10 @@
     <!-- Pressed -->
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
-            <solid android:color="@color/button_primary_pressed" />
+            <gradient
+                android:angle="0"
+                android:startColor="@color/button_primary_pressed"
+                android:endColor="@color/button_primary" />
             <corners android:radius="14dp" />
         </shape>
     </item>
@@ -24,7 +27,10 @@
     <!-- Normal -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@color/button_primary" />
+            <gradient
+                android:angle="0"
+                android:startColor="@color/button_primary_light"
+                android:endColor="@color/button_primary" />
             <corners android:radius="14dp" />
         </shape>
     </item>
