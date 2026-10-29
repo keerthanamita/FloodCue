@@ -213,6 +213,8 @@ Localization phase 19: Setup state options now load from localized string arrays
 
 Localization phase 20: Shared bottom-navigation labels and accessibility descriptions now resolve through the app-language context even on survival-language screens. This preserves the requested split: navigation/options follow app language while safety content can follow survival language.
 
+Localization phase 21: Login email/password and password-reset validation messages are now resource-backed and translated in all supported locales. Create-account validation and remaining service/error messages still require migration.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.

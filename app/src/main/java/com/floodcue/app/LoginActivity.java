@@ -328,7 +328,7 @@ public class LoginActivity extends FloodCueActivity {
         if (TextUtils.isEmpty(email)) {
 
             emailInputLayout.setError(
-                    "Enter your email"
+getString(R.string.login_email_required)
             );
 
             valid = false;
@@ -336,7 +336,7 @@ public class LoginActivity extends FloodCueActivity {
         } else if (!isValidEmail(email)) {
 
             emailInputLayout.setError(
-                    "Enter a valid email"
+getString(R.string.login_email_invalid)
             );
 
             valid = false;
@@ -345,7 +345,7 @@ public class LoginActivity extends FloodCueActivity {
         if (TextUtils.isEmpty(password)) {
 
             passwordInputLayout.setError(
-                    "Enter your password"
+getString(R.string.login_password_required)
             );
 
             valid = false;
@@ -475,7 +475,7 @@ public class LoginActivity extends FloodCueActivity {
         if (TextUtils.isEmpty(email)) {
 
             emailInputLayout.setError(
-                    "Enter your email first"
+getString(R.string.login_reset_email_required)
             );
 
             return;
@@ -484,7 +484,7 @@ public class LoginActivity extends FloodCueActivity {
         if (!isValidEmail(email)) {
 
             emailInputLayout.setError(
-                    "Enter a valid email"
+getString(R.string.login_email_invalid)
             );
 
             return;
