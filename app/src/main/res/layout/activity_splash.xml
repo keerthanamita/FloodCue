@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="EMERGENCY READINESS"
-            android:textColor="@color/button_primary_light"
+            android:textColor="@color/splash_text_secondary"
             android:textSize="12sp"
             android:textStyle="bold"
             android:letterSpacing="0.18"
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:text="@string/app_name"
-            android:textColor="@color/button_primary_text"
+            android:textColor="@color/splash_text_primary"
             android:textSize="42sp"
             android:textStyle="bold"
             android:letterSpacing="0.04"
@@ -48,14 +48,14 @@
             android:layout_height="2dp"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"
-            android:background="@color/button_primary_light" />
+            android:background="@color/splash_text_secondary" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Stay ready. Stay connected. Stay safe."
-            android:textColor="@color/button_primary_light"
+            android:textColor="@color/splash_text_secondary"
             android:textSize="14sp"
             android:letterSpacing="0.02"
             android:fontFamily="sans-serif" />
@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="OFFLINE READY  ·  24/7 SAFETY"
-                android:textColor="@color/button_primary_light"
+                android:textColor="@color/splash_text_secondary"
                 android:textSize="11sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.04" />
@@ -111,7 +111,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:text="Preparing FloodCue…"
-            android:textColor="@color/button_primary_light"
+            android:textColor="@color/splash_text_secondary"
             android:textSize="12sp"
             android:fontFamily="sans-serif-medium"
             android:letterSpacing="0.04"

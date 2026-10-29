@@ -90,6 +90,8 @@ Latest correction: the splash screen no longer displays the unapproved `ic_flood
 
 Login polish: the security mark now has a larger, centered viewport; Change language is a dedicated bordered action with a globe icon; guest mode is a clear rounded action surface; and the Google button disables the default state animator/elevation so no unwanted outer shade appears.
 
+Theme correction: day and night theme files now use the corresponding background, navigation-bar, primary-color, and system-bar icon resources instead of hardcoded white window colors. Splash text uses dedicated contrast tokens in both configurations so the light-mode copy remains readable over the warm gradient. System theme switching should be retested after a fresh install or activity recreation.
+
 ## Validation record
 
 - Repository and Git state: inspected on 2026-10-29.
