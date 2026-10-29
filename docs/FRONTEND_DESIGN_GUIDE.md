@@ -136,6 +136,8 @@ Setup back behavior: On the first setup page, the shared back arrow now explicit
 
 Setup header final spacing: The `Build your safety profile` header block has an additional 8dp top offset and slightly more reserved height, keeping it comfortably below the shared toolbar/back arrow.
 
+Setup header box correction: The complete setup header container is now moved down with 28dp outer top spacing; this shifts the title, subtitle, progress indicator, and step label together instead of moving only the title text.
+
 About FloodCue update: The information card now uses normalized inner spacing, a smaller hierarchy-safe heading, a theme-aware version badge, and a shared toolbar title. Content, version lookup, and back navigation remain unchanged.
 
 Offline Communication update: The content now uses normalized inner spacing so the Bridgefy action and explanatory cards get more usable width. The primary action has comfortable horizontal padding and stronger hierarchy, and the shared toolbar displays the screen title. Bridgefy launch/status behavior and dynamic steps remain unchanged.
