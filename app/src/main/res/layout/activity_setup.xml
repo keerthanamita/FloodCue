@@ -109,7 +109,7 @@
         
 <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="13dp" ns0:text="@string/profile_label_name" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
         
-                            <EditText ns0:id="@+id/editPrimaryContactName" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="4dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="Full name" ns0:inputType="textCapWords|textPersonName" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+<EditText ns0:id="@+id/editPrimaryContactName" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="4dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="@string/setup_hint_contact_name" ns0:inputType="textCapWords|textPersonName" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
         
 <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:text="@string/profile_label_relationship" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
         
@@ -117,11 +117,11 @@
         
 <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:text="@string/setup_phone_required" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
         
-                            <EditText ns0:id="@+id/editPrimaryPhone" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="4dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="Enter phone number" ns0:inputType="phone" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+<EditText ns0:id="@+id/editPrimaryPhone" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="4dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="@string/setup_hint_enter_phone" ns0:inputType="phone" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
         
 <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:text="@string/setup_alternate_phone_optional" ns0:textColor="@color/fc_text_secondary" ns0:textStyle="bold" ns0:textSize="13sp" />
         
-                            <EditText ns0:id="@+id/editPrimaryAlternatePhone" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="4dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="Backup phone number" ns0:inputType="phone" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+<EditText ns0:id="@+id/editPrimaryAlternatePhone" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="4dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="@string/setup_hint_backup_phone" ns0:inputType="phone" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
                         </LinearLayout>
         
                         
@@ -129,13 +129,13 @@
         
 <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/profile_section_second_contact" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
         
-                            <EditText ns0:id="@+id/editSecondContactName" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="12dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="Contact name (optional)" ns0:inputType="textCapWords|textPersonName" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+<EditText ns0:id="@+id/editSecondContactName" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="12dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="@string/setup_hint_optional_contact_name" ns0:inputType="textCapWords|textPersonName" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
         
                             <Spinner ns0:id="@+id/spinnerSecondRelationship" ns0:layout_width="match_parent" ns0:layout_height="48dp" ns0:layout_marginTop="6dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:paddingStart="6dp" />
         
-                            <EditText ns0:id="@+id/editSecondPhone" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="6dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="Phone number (optional)" ns0:inputType="phone" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+<EditText ns0:id="@+id/editSecondPhone" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="6dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="@string/setup_hint_optional_phone" ns0:inputType="phone" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
         
-                            <EditText ns0:id="@+id/editSecondAlternatePhone" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="6dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="Alternate number (optional)" ns0:inputType="phone" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+<EditText ns0:id="@+id/editSecondAlternatePhone" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="6dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="@string/setup_hint_optional_alternate" ns0:inputType="phone" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
                         </LinearLayout>
         
                         

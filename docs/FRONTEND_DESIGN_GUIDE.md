@@ -193,6 +193,8 @@ Localization phase 9: Evacuation-assistance and region labels/options are now re
 
 Localization phase 10: Evacuation-assistance and region resources now have Telugu, Hindi, Tamil, Kannada, and Malayalam translations. All six resource files parse successfully; remaining Setup contact hints/review copy and broader application hardcoded strings still need audit.
 
+Localization phase 11: Emergency-contact input hints are resource-backed and translated in all five supported non-English locales. Remaining Setup review/Bridgefy copy and third-party screens still require the hardcoded-string audit.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.
