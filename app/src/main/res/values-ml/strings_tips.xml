@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tips_back_title">← സുരക്ഷാ നിർദ്ദേശങ്ങൾ</string>
+    <string name="tips_heading">പ്രളയ സുരക്ഷാ നിർദ്ദേശങ്ങൾ</string>
+    <string name="tips_subtitle">പ്രളയത്തിന് മുമ്പും അതിനിടെയിലും ശേഷവുമുള്ള ഹ്രസ്വ, പ്രവർത്തനയോഗ്യമായ ഉപദേശം. ഇന്റർനെറ്റ് ഇല്ലാതെ പ്രവർത്തിക്കുന്നു.</string>
+    <string name="tips_warning_legend">⚠️ ചുവപ്പിൽ കാണിക്കുന്ന നിർദ്ദേശങ്ങൾ ജീവൻ അപകടപ്പെടുത്തുന്ന മുന്നറിയിപ്പുകളാണ്.</string>
+
+    <string name="tips_category_before">🛡️ പ്രളയത്തിന് മുമ്പ്</string>
+    <string name="tips_category_during">🌊 പ്രളയസമയത്ത്</string>
+    <string name="tips_category_after">🏥 പ്രളയത്തിന് ശേഷം</string>
+
+    <string name="home_safety_tips">സുരക്ഷാ നിർദ്ദേശങ്ങൾ</string>
+</resources>

@@ -1,7 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- Lets a flood alert wake the screen with the alert sound while FloodCue is
+         closed. Android 14+ grants this only to alarm-style apps; if it is off the
+         alert still appears in the shade with its sound and vibration. -->
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
 
+    <!-- Calling and SMS are optional: the app must install on devices without them. -->
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false" />
+
+    <queries>
+        <package android:name="me.bridgefy.main" />
+        <intent>
+            <action android:name="android.intent.action.SENDTO" />
+            <data android:scheme="smsto" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.SENDTO" />
+            <data android:scheme="sms" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="sms" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="smsto" />
+        </intent>
+    </queries>
     <application
+        android:name=".FloodCueApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -24,16 +64,98 @@
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
+            android:name=".OfflineMapsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmergencyContactsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SosActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AboutBridgefyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AboutFloodCueActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OfflineMapViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".CreateAccountActivity"
             android:exported="false" />
-
         <activity
             android:name=".SetupActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".LanguageActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <receiver
+            android:name=".SosSendReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.floodcue.app.SOS_SENT_RESULT" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".SosRetryReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.floodcue.app.SOS_RETRY" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".SosBootReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <activity
+            android:name=".ChecklistActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TipsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".OfflineCommunicationActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".EmergencyGuideActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SosEmergencyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WeatherActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FloodAlertActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <service
+            android:name=".FloodAlertJobService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
     </application>
 
 </manifest>

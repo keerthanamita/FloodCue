@@ -1,0 +1,20 @@
+total lines: 319
+count: 1
+line 319:
+    <string name="guide_situations_remaining">सुरक्षा मार्गदर्शक
+tail 15 lines:
+line 305:     <string name="guide_situation_13_block_3_header">संकेत देने के लिए इस्तेमाल की गई चीज़ें</string>
+line 306: 
+line 307:     <string name="guide_situation_13_block_3_line_1">सीटी और टॉर्च को पानी में भिगोकर न छोड़ें.</string>
+line 308: 
+line 309:     <string name="guide_situation_13_block_3_line_2">सूखी चमड़े की वस्तुओं के ज़बरदस्ती इस्तेमाल को न छोड़ें; इलेक्ट्रिक पावर के साथ भी सावधान रहें जब बिजली आपूर्ति प्रभावित हो.</string>
+line 310: 
+line 311:     <string name="guide_situation_14_title">₹₹ ₹₹ 💰 कैसे सहायता आप कर सकते हैं</string>
+line 312: 
+line 313:     <string name="guide_situation_14_subtitle">शरण के बावजूद भी सहायता उपलब्ध करें - निर्भर न रहें।</string>
+line 314: 
+line 315:     <string name="guide_situation_14_block_1_line_1">परिवार, कुटुंब या पूरे ग्रस्तों के लिए आपको अपने लोगों के बिना फेंकने में नहीं खाना चाहिए.</string>
+line 316: 
+line 317:     <string name="guide_situation_14_block_2_header">tmlshume vaamashu sapooweeku vaamashu sapooweeku sapaasura paravaana vaakalu.న</string>
+line 318: 
+line 319:     <string name="guide_situations_remaining">सुरक्षा मार्गदर्शक

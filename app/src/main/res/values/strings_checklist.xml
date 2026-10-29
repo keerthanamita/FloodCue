@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="checklist_back_title">← Flood Checklist</string>
+    <string name="checklist_heading">🌧️ Before a Flood Checklist</string>
+    <string name="checklist_subtitle">Prepare before the water rises. Your ticks are saved on this phone and work without internet.</string>
+
+    <string name="checklist_tab_essential">Essential</string>
+    <string name="checklist_tab_complete">Complete</string>
+    <string name="checklist_progress">Overall: %1$d of %2$d tasks done</string>
+    <string name="checklist_section_progress">%1$d/%2$d</string>
+
+    <string name="checklist_section_informed">📢 Stay Informed &amp; Prepare</string>
+    <string name="checklist_section_gobag">🎒 Prepare an Emergency Go-Bag</string>
+    <string name="checklist_section_phone">📱 Prepare Your Phone &amp; FloodCue App</string>
+    <string name="checklist_section_home">🏠 Protect Your Home</string>
+    <string name="checklist_section_family">👨‍👩‍👧 Prepare Your Family</string>
+    <string name="checklist_section_evac">🚨 If an Evacuation Warning Is Issued</string>
+
+    <string name="checklist_note_informed">Know your flood risk before it happens.</string>
+    <string name="checklist_note_gobag">Go-Bag Readiness: %1$d of %2$d items</string>
+    <string name="checklist_note_phone">Note: offline maps work without internet only if the map data is already stored on this device, and a normal SMS still needs mobile network coverage and an available SMS service.</string>
+    <string name="checklist_note_home_safety">Safety note: never approach electrical equipment surrounded by floodwater, and never touch wet electrical equipment.</string>
+    <string name="checklist_note_family">Everyone at home should know this plan.</string>
+    <string name="checklist_note_evac_critical">Critical rule: finishing the checklist is never as important as evacuating on time — official evacuation instructions always come first.</string>
+
+    <string name="home_flood_checklist">Flood Checklist</string>
+</resources>

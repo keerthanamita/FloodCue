@@ -2,46 +2,67 @@
 <resources>
 
   <!-- Background -->
-  <color name="background_color">#FFFFFF</color>
+  <color name="background_color">#F4F0EA</color>
 
   <!-- Text -->
-  <color name="text_primary">#1F1F1F</color>
-  <color name="text_secondary">#6B6B6B</color>
+  <color name="text_primary">#2C2926</color>
+  <color name="text_secondary">#766F68</color>
 
   <!-- Links -->
   <color name="link_color">#2F2F2F</color>
 
   <!-- Inputs -->
-  <color name="input_stroke">#C8C8C8</color>
-  <color name="surface_color">#FFFFFF</color>
-  <color name="surface_elevated_color">#F7F8FA</color>
-  <color name="border_color">#D5D8DE</color>
-  <color name="border_focused">#2563EB</color>
+  <color name="input_stroke">#C8BFB5</color>
+  <color name="surface_color">#D9FFFCF8</color>
+  <color name="surface_elevated_color">#E8FDFBF7</color>
+  <color name="border_color">#BDAFA3</color>
+  <color name="border_focused">#A76D5D</color>
 
   <!-- Divider -->
-  <color name="divider_color">#E5E5E5</color>
+  <color name="divider_color">#DED5CC</color>
 
-  <!-- Primary button -->
-  <color name="button_primary">#2563EB</color>
-  <color name="button_primary_text">#FFFFFF</color>
-  <color name="button_primary_pressed">#1D4ED8</color>
+  <!-- Primary button (Brighter, vibrant and modern) -->
+  <color name="button_primary">#A76D5D</color>
+  <color name="button_primary_light">#C28D78</color>
+  <color name="button_primary_text">#FFF9F4</color>
+  <color name="button_primary_pressed">#895747</color>
 
   <!-- Secondary button -->
-  <color name="button_secondary">#F2F2F2</color>
-  <color name="button_secondary_pressed">#E5E5E5</color>
+  <color name="button_secondary">#E5DED6</color>
+  <color name="button_secondary_pressed">#D8CEC4</color>
 
   <!-- Button interaction -->
   <color name="button_ripple">#22000000</color>
   <color name="ripple_color">#22000000</color>
 
   <!-- Google button -->
-  <color name="google_button_background">#FFFFFF</color>
-  <color name="google_button_border">#747474</color>
-  <color name="google_button_text">#202124</color>
+  <color name="google_button_text">#38332F</color>
   <!-- Error -->
   <color name="error_color">#B3261E</color>
 
-  <!-- Existing splash colors retained -->
-  <color name="primary_color">#3F51B5</color>
+  <!-- Home SOS button -->
+  <color name="home_sos_red">#C62828</color>
+  <color name="home_sos_red_pressed">#9C1F1A</color>
 
+  <!-- Existing splash colors retained -->
+
+<color name="colorPrimary">#A76D5D</color>
+<color name="colorPrimaryVariant">#895747</color>
+<color name="colorOnPrimary">#FFF9F4</color>
+<color name="glass_highlight">#BFFFFFFF</color>
+<color name="glass_shadow">#18000000</color>
+<color name="splash_top">#3E302C</color>
+<color name="splash_center">#8B6258</color>
+<color name="splash_bottom">#D59A78</color>
+<color name="splash_glow">#66F0B38F</color>
+<color name="splash_text_primary">#FFF8F1</color>
+<color name="splash_text_secondary">#FFE1CE</color>
+<color name="sos_action_text">#FFF8F1</color>
+<color name="home_sage_surface">#DCE7DE</color>
+<color name="home_lilac_surface">#E6DFE8</color>
+<color name="home_sand_surface">#EEE2D2</color>
+<color name="home_card_text">#3B332D</color>
+<color name="home_card_muted">#806F62</color>
+<color name="home_section_text">#8C6655</color>
+<color name="bottom_nav_surface">#F7F0E8</color>
 </resources>

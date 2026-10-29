@@ -1,42 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_splash_gradient">
 
-    <!-- FloodCue splash image -->
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/floodcue_splash"
-        android:scaleType="centerCrop"
-        android:contentDescription="@null" />
+    <View
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="-72dp"
+        android:background="@drawable/bg_splash_brand_glow" />
 
-    <!-- Loading section -->
+    <!-- Center Typography & Editorial Branding -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/splash_eyebrow"
+            android:textColor="@color/splash_text_secondary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.18"
+            android:fontFamily="sans-serif-medium" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/app_name"
+            android:textColor="@color/splash_text_primary"
+            android:textSize="42sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.04"
+            android:fontFamily="sans-serif-medium" />
+
+        <View
+            android:layout_width="48dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@color/splash_text_secondary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/splash_tagline"
+            android:textColor="@color/splash_text_secondary"
+            android:textSize="14sp"
+            android:letterSpacing="0.02"
+            android:fontFamily="sans-serif" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_badge_pill"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="6dp">
+
+            <ImageView
+                android:layout_width="7dp"
+                android:layout_height="7dp"
+                android:src="@drawable/ic_dot_green"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/splash_badge"
+                android:textColor="@color/splash_text_secondary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.04" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Bottom Loading Section -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="90dp"
+        android:layout_marginBottom="64dp"
         android:gravity="center"
         android:orientation="vertical">
 
         <!-- Custom FloodCue ring spinner -->
         <com.floodcue.app.FloodCueSpinner
             android:id="@+id/loadingSpinner"
-            android:layout_width="42dp"
-            android:layout_height="42dp" />
+            android:layout_width="38dp"
+            android:layout_height="38dp" />
 
         <TextView
             android:id="@+id/loadingStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
-            android:text="Preparing FloodCue..."
-            android:textColor="#A9C4CA"
-            android:textSize="11sp"
-            android:fontFamily="sans-serif-light"
-            android:letterSpacing="0.03"
+            android:layout_marginTop="14dp"
+                android:text="@string/splash_preparing"
+            android:textColor="@color/splash_text_secondary"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.04"
             android:gravity="center" />
     </LinearLayout>
 

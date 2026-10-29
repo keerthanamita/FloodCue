@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="guide_back_title">← അടിയന്തര മാർഗ്ഗദർശി</string>
+    <string name="guide_back_to_list">← സാഹചര്യങ്ങൾ</string>
+    <string name="guide_heading">അടിയന്തര അതിജീവന മാർഗ്ഗദർശി</string>
+    <string name="guide_subtitle">നിങ്ങളുടെ സാഹചര്യം തിരഞ്ഞെടുത്ത് ഹ്രസ്വമായ, നമ്പർ ചെയ്ത ഘട്ടങ്ങൾ വായിക്കുക. ഏറ്റവും അടിയന്തരമായ സാഹചര്യങ്ങളാണ് ആദ്യം പട്ടികയിൽ.</string>
+    <string name="guide_disclaimer">ആദ്യം അടിയന്തര സേവനങ്ങളുടെ ഔദ്യോഗിക നിർദ്ദേശങ്ങൾ പാലിക്കുക. FloodCue പൊതുജന സുരക്ഷാ മാർഗ്ഗനിർദ്ദേശം മാത്രം ആവർത്തിക്കുന്നു — സ്ഥലത്തെ സ്ഥിതിവിവരം അതിന് പരിശോധിക്കാൻ കഴിയില്ല; SMS, കോളുകൾ, GPS അല്ലെങ്കിൽ മെഷ് സന്ദേശപ്രവണത നിങ്ങളുടെ ഉപകരണവും അനുമതികളും നെറ്റ്‌വർക്കും അനുവദിക്കുമ്പോൾ മാത്രം പ്രവർത്തിക്കുന്നു.</string>
+    <string name="guide_sos_button">SOS അടിയന്തര സന്ദേശം അയയ്ക്കുക</string>
+    <string name="home_emergency_guide">അടിയന്തര മാർഗ്ഗദർശി</string>
+</resources>

@@ -1,0 +1,7 @@
+TOTAL LINES: 184
+LAST LINE: '</resources>'
+ENDS_CLOSED: True
+LAST 3 LINES:
+  line 182:     <string name="guide_situation_16_block_3_header">नोट</string>
+  line 183:     <string name="guide_situation_16_block_3_line_1">GPS निर्देशांक उपलब्ध न हों तो सबसे पास की सड़क, इमारत, पहचान-स्तर या ज्ञात जगह बताएँ.</string>
+  line 184: </resources>

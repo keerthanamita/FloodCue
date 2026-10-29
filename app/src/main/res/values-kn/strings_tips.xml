@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tips_back_title">← ಸುರಕ್ಷತಾ ಸಲಹೆಗಳು</string>
+    <string name="tips_heading">ಪ್ರವಾಹ ಸುರಕ್ಷತಾ ಸಲಹೆಗಳು</string>
+    <string name="tips_subtitle">ಪ್ರವಾಹದ ಮುನ್ನ, ಅವಧಿಯಲ್ಲಿ ಮತ್ತು ನಂತರ ಮಾಡಬಹುದಾದ ಸಣ್ಣ ಸಲಹೆಗಳು. ಇಂಟರ್ನೆಟ್‌ ಇಲ್ಲದೆಯೂ ಕೆಲಸ ಮಾಡುತ್ತದೆ.</string>
+    <string name="tips_warning_legend"><![CDATA[⚠️ ಕೆಂಪು ಬಣ್ಣದಲ್ಲಿ ತೋರಿಸಿದ ಸಲಹೆಗಳು ಜೀವಕ್ಕೆ ಅಪಾಯದ ಎಚ್ಚರಿಕೆಗಳು.]]></string>
+
+    <string name="tips_category_before">🛡️ ಪ್ರವಾಹದ ಮೊದಲು</string>
+    <string name="tips_category_during">🌊 ಪ್ರವಾಹದ ಅವಧಿಯಲ್ಲಿ</string>
+    <string name="tips_category_after">🏥 ಪ್ರವಾಹದ ನಂತರ</string>
+
+    <string name="home_safety_tips">ಸುರಕ್ಷತಾ ಸಲಹೆಗಳು</string>
+</resources>

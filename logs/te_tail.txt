@@ -1,0 +1,7 @@
+total lines: 114
+last 4 lines:
+111 '    <string name="guide_situation_10_block_1_line_3">• రక్షకులు దగ్గరకు రాగానే గట్టిగా సహాయం అడగండి.</string>'
+112 '    <string name="guide_situation_10_block_1_line_4">• దృష్టి ఆకర్షించడానికి సీటీని పునరావృతంగా గొట్టండి.</string>'
+113 '    <string name="guide_situation_10_block_1_line_5">• సామానులు అందుబాటులో ఉంటే స్పష్టంగా HEL'
+114 '</resources>'
+rewrote file with final </resources> close

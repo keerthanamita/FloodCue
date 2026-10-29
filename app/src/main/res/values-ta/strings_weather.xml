@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="weather_back_title">← வானிலை</string>
+    <string name="weather_header">வானிலை</string>
+
+    <string name="weather_temp">%1$.1f°C</string>
+    <string name="weather_condition">%1$s</string>
+    <string name="weather_rain">மழை: %1$.1f மிமீ</string>
+    <string name="weather_rain_prob">மழை நிகழ்வு: %1$d%%</string>
+    <string name="weather_rain_24h">அடுத்த 24 மணி மழை: %1$.1f மிமீ</string>
+    <string name="weather_wind">காற்று: %1$.1f மீ/வி · %2$s</string>
+    <string name="weather_hourly">மணிவாரி மழை (அடுத்த 24 மணி)</string>
+
+    <string name="weather_details_title">கூடுதல் விவரங்கள்</string>
+    <string name="weather_label_humidity">ஈரப்பதம்</string>
+    <string name="weather_value_humidity">%1$d%%</string>
+    <string name="weather_label_feels_like">உணரும் வெப்பம்</string>
+    <string name="weather_value_feels_like">%1$.1f°C</string>
+    <string name="weather_label_pressure">காற்றழுத்தம்</string>
+    <string name="weather_value_pressure">%1$.1f hPa</string>
+    <string name="weather_label_cloud">மேக அடர்த்தி</string>
+    <string name="weather_value_cloud">%1$d%%</string>
+    <string name="weather_label_gusts">காற்று துடிப்புகள்</string>
+    <string name="weather_value_gusts">%1$.1f மீ/வி</string>
+    <string name="weather_label_visibility">சுழ காட்சி</string>
+    <string name="weather_value_visibility">%1$.1f கி.மீ.</string>
+    <string name="weather_label_rain_6h">அடுத்த 6 மணி மழை</string>
+    <string name="weather_value_rain_6h">%1$.1f மிமீ</string>
+    <string name="weather_selected_location">தேர்ந்தெடுப்பு: %1$.3f, %2$.3f</string>
+    <string name="weather_cache_note">%1$s · கடைசி புதுப்பிப்பு %2$s</string>
+
+    <string name="weather_unavailable">கிடைக்கவில்லை</string>
+    <string name="weather_ok">சரி</string>
+    <string name="weather_cancel">ரத்து</string>
+    <string name="weather_use_location">இருப்பிடத்தைப் பயன்படுத்து</string>
+    <string name="weather_refresh">புதுப்பிக்கவும்</string>
+
+    <string name="weather_loading">வானிலை ஏற்றப்படுகிறது…</string>
+    <string name="weather_getting_location">உங்கள் இருப்பிடம் பெறப்படுகிறது…</string>
+    <string name="weather_no_data">வானிலை தரவு இன்னும் இல்லை. இருப்பிடத்தைத் தேர்ந்தெடுத்து, புதுப்பிக்கவும் தட்டுங்கள்.</string>
+    <string name="weather_network_error">வானிலை பெற முடியவில்லை. இணைய இணைப்பை சரிபார்த்து, புதுப்பிக்கவும் தட்டுங்கள்.</string>
+    <string name="weather_no_location">இருப்பிடத்தைத் தேர்ந்தெடுக்கவில்லை. இருப்பிடம் தேர்வு தட்டுங்கள்.</string>
+
+    <string name="weather_location_request">இருப்பிட அணுகல் அணைக்கப்பட்டுள்ளது. அனுமதிக்க அல்லது ஒருங்கிணைப்பு உள்ளிட, இருப்பிடம் தேர்வு தட்டுங்கள்.</string>
+    <string name="weather_location_denied">இருப்பிட அனுமதி மறுக்கப்பட்டது. ஒருங்கிணைப்புகளை கைமுறையாக உள்ளிடலாம்.</string>
+    <string name="weather_location_fix_failed">இருப்பிட பதிவு பெற முடியவில்லை. GPS இயக்கவும், அல்லது ஒருங்கிணைப்புகளை கைமுறையாக உள்ளிடவும்.</string>
+    <string name="weather_invalid_coordinates">சரியான அட்சரேகை மற்றும் தீர்க்கரேகையை உள்ளிடுங்கள்.</string>
+
+    <string name="weather_select_location">இருப்பிடம் தேர்வு</string>
+    <string name="weather_choose_location">ஒரு இருப்பிடத்தைத் தேர்வு செய்</string>
+    <string name="weather_use_current_location">என் தற்போதைய இருப்பிடத்தைப் பயன்படுத்து</string>
+    <string name="weather_enter_coordinates">ஒருங்கிணைப்புகளை கைமுறையாக உள்ளிடு</string>
+    <string name="weather_manual_title">ஒருங்கிணைப்புகளை உள்ளிடு</string>
+    <string name="weather_lat_hint">அட்சரேகை (-90 to 90)</string>
+    <string name="weather_lon_hint">தீர்க்கரேகை (-180 to 180)</string>
+
+    <string name="weather_cache_fresh">சேமித்த தரவு காட்டப்படுகிறது</string>
+    <string name="weather_using_cache">சேமித்த தரவு காட்டப்படுகிறது, காலாவதியாகியிருக்கலாம்</string>
+
+    <string name="weather_warning_help">எச்சரிக்கைகள் ஏன் தோன்றும்</string>
+    <string name="weather_warning_help_text">வானிலை முன்னறிவிப்புகள் வாயுமண்டலம் செய்யப்போவதையே காட்டுகின்றன. வெள்ளம் ஏற்படுகிறது அல்லது ஏற்படும் என்பதை அவை உறுதிப்படுத்த முடியாது, மற்றும் இந்தச் செயலி ஒருபோதும் போலி அதிகாரப்பூர்வ அறவீடுகளை உருவாக்காது. அதிகாரப்பூர்வ வெளியேற்ற உத்தரவைக் காத்திருந்து செய்ய வேண்டாம். உள்ளூர் பேரழிவு-நிர்வாக அறிவுறுத்தல்களை உடனடியாகப் பின்பற்றுங்கள்.</string>
+</resources>

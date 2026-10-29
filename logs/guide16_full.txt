@@ -1,0 +1,17 @@
+line 171:     <string name="guide_situation_16_title">🆘 आपातकालीन संपर्क और SOS की जाँच-सूची</string>
+line 172:     <string name="guide_situation_16_subtitle">आपातकालीन संदेश में क्या शामिल करें.</string>
+line 173:     <string name="guide_situation_16_block_1_header">इन विवरणों में से जितने बन सकें शामिल करें</string>
+line 174:     <string name="guide_situation_16_block_1_line_1">• आपका नाम.</string>
+line 175:     <string name="guide_situation_16_block_1_line_2">• आपके GPS निर्देशांक या नज़दीकी पहचान-स्तर.</string>
+line 176:     <string name="guide_situation_16_block_1_line_3">• मदद चाहने वालों की गिनती.</string>
+line 177:     <string name="guide_situation_16_block_1_line_4">• क्या कोई घायल है या तुरंत चिकित्सा सहायता चाहिए.</string>
+line 178:     <string name="guide_situation_16_block_1_line_5">• पानी बढ़ रहा है या जगह सुरक्षित नहीं है.</string>
+line 179:     <string name="guide_situation_16_block_1_line_6">• बचावकर्ताओं या कुटुंबिक सदस्यों के लिए आपसे संपर्क का सुरक्षित तरीक़ा.</string>
+line 180:     <string name="guide_situation_16_block_2_header">नमूना</string>
+line 181:     <string name="guide_situation_16_block_2_line_1">“EMERGENCY — हमें बचाव की सहायता चाहिए. जगह: [निर्देशांक/पहचान-स्तर]. लोग: [संख्या]. चोटें: [विवरण]. पानी स्तर: [बढ़ता/स्थिर]. संपर्क: [फ़ोन नंबर].”</string>
+line 182:     <string name="guide_situation_16_block_3_header">नोट</string>
+line 183:     <string name="guide_situation_16_block_3_line_1">GPS निर्देशांक उपलब्ध न हों तो सबसे पास की सड़क, इमारत, पहचान-स्तर या ज्ञात जगह बताएँ.</string>
+---
+TOTAL LINES: 184
+LAST LINE: '</resources>'
+ENDS CLOSED: False

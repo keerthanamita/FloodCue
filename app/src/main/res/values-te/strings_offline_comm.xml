@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Offline communication screen: app-language labels resolved through the app locale. -->
+
+    <string name="offline_comm_open_button">Bridgefy తెరవండి</string>
+    <string name="offline_comm_howto_title">వరద సమయంలో Bridgefyని ఎలా ఉపయోగించాలి</string>
+    <string name="offline_comm_more_title">తెలుసుకోవడం మంచిది</string>
+    <string name="offline_comm_limitations">రెండు ఫోన్లలోనూ యాప్ ఇన్‌స్టాల్ చేయబడి, బ్లూటూత్ ఆన్‌లో ఉండి, ఫోన్లు తగినంత దగ్గరగా ఉన్నప్పుడు మాత్రమే Bridgefy పనిచేస్తుంది. సందేశం చేరడం ఎప్పుడూ హామీ ఇవ్వబడదు, మరియు Bridgefy SMS, అత్యవసర కాల్‌లు లేదా అధికారిక రక్షణ ఛానెల్‌లను భర్తీ చేయలేదు — మీ బ్యాకప్‌గా FloodCue యొక్క SOSని ఉంచుకోండి.</string>
+    <string name="home_offline_communication">ఆఫ్‌లైన్ కమ్యూనికేషన్</string>
+</resources>

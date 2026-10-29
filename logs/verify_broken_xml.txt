@@ -1,0 +1,13 @@
+parse: OK
+root tag:
+resources
+strings count:
+181
+last byte is newline:
+'\n'
+last line:
+'</resources>'
+ends with </resources>:
+True
+closure after last string:
+False

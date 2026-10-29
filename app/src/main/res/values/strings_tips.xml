@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tips_back_title">← Safety Tips</string>
+    <string name="tips_heading">Flood Safety Tips</string>
+    <string name="tips_subtitle">Short, actionable advice for before, during and after a flood. Works without internet.</string>
+    <string name="tips_warning_legend">⚠️ Tips shown in red are life-threatening warnings.</string>
+
+    <string name="tips_category_before">🛡️ Before a Flood</string>
+    <string name="tips_category_during">🌊 During a Flood</string>
+    <string name="tips_category_after">🏥 After a Flood</string>
+
+    <string name="home_safety_tips">Safety Tips</string>
+</resources>

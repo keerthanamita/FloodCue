@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sos_back_title">← SOS</string>
+    <string name="sos_heading">SOS அவசர செய்தி</string>
+    <string name="sos_subtitle">ஒரு செய்தியைத் தயார் செய்து, உங்கள் SMS செயலியிலிருந்து அனுப்புங்கள். FloodCue தானாக SMS அனுப்பாது.</string>
+
+    <string name="sos_recipients_title">அவசர தொடர்பு எண்கள்</string>
+    <string name="sos_recipients_hint">தொலைபேசி எண்</string>
+    <string name="sos_recipients_help">ஒரு எண்ணை ஒரேசமயத்தில், அல்லது கமா கொண்டு பிரித்து பல எண்களை உள்ளிடுங்கள். இங்கே சேர்த்த எண்கள் மட்டுமே பயன்படுத்தப்படும்.</string>
+    <string name="sos_add_number">சேர்</string>
+    <string name="sos_recipients_empty">இன்னும் எண்கள் சேர்க்கப்படவில்லை.</string>
+    <string name="sos_number_invalid">அந்த பதிவு சரியான தொலைபேசி எண் அல்ல: %1$s</string>
+    <string name="sos_number_duplicate">அந்த எண் ஏற்கனவே பட்டியலில் உள்ளது.</string>
+    <string name="sos_number_removed">எண் நீக்கப்பட்டது.</string>
+    <string name="sos_remove_number">%1$s நீக்கு</string>
+    <string name="sos_saved_contacts_title">சேமித்த அவசர தொடர்புகள்</string>
+    <string name="sos_saved_contacts_help">சேர்க்க ஒரு எண்ணைத் தட்டுங்கள். நீங்கள் சேர்த்து உறுதிப்படுத்தும் வரை எதுவும் அனுப்பப்படாது.</string>
+
+    <string name="sos_message_title">அவசர செய்தி</string>
+    <string name="sos_default_message">அவசரம்! எனக்கு உதவி தேவை. விரைவில் என்னைத் தொடர்பு கொள்ளுங்கள்.</string>
+
+    <string name="sos_location_title">தற்போதைய இருப்பிடம்</string>
+    <string name="sos_location_help">இருப்பிடம் விருப்பத்தேர்வு. GPS இணையம் இல்லாமல் வேலை செய்யலாம். நீங்கள் சரியான இருப்பிடத்தைப் பெற அல்லது தேர்ந்தெடுக்காவிட்டால், FloodCue ஒருங்கிணைப்புகளைச் சேர்க்காது.</string>
+    <string name="sos_get_current_location">தற்போதைய இருப்பிடத்தைப் பெறு</string>
+    <string name="sos_use_last_known">அறிந்த கடைசி இருப்பிடத்தைப் பயன்படுத்து</string>
+    <string name="sos_clear_location">இருப்பிடத்தைச் சேர்க்க வேண்டாம்</string>
+    <string name="sos_location_time_unknown">நேரம் இந்தச் சாதனத்தில் பதிவு செய்யப்படவில்லை</string>
+    <string name="sos_location_idle">இன்னும் இருப்பிடம் சேர்க்கப்படவில்லை.</string>
+    <string name="sos_location_loading">உங்கள் தற்போதைய இருப்பிடம் பெறப்படுகிறது…</string>
+    <string name="sos_location_current">தற்போதைய இருப்பிடம்\nஅட்சரேகை: %1$s\nதீர்க்கரேகை: %2$s\nபதிவு: %3$s</string>
+    <string name="sos_location_last_known">அறிந்த கடைசி இருப்பிடம் (நேரலை GPS அல்ல)\nஅட்சரேகை: %1$s\nதீர்க்கரேகை: %2$s\nபதிவு: %3$s</string>
+    <string name="sos_location_last_known_available">இந்தச் சாதனத்தில் அறிந்த கடைசி இருப்பிடம் கிடைக்கிறது. நீங்கள் பயன்படுத்தத் தேர்ந்தெடுத்தால் மட்டுமே அது உங்கள் தற்போதைய இருப்பிடம்.</string>
+    <string name="sos_location_permission_denied">இருப்பிட அனுமதி மறுக்கப்பட்டது. ஒருங்கிணைப்பு இல்லாமல் தொடரலாம், அல்லது கணினி அமைப்புகளில் இருப்பிட அனுமதியை இயக்கலாம்.</string>
+    <string name="sos_location_gps_off">GPS அணைக்கப்பட்டுள்ளது. ஒருங்கிணைப்புகளைப் பெற இருப்பிடச் சேவைகளை இயக்குங்கள், அல்லது இல்லாமல் தொடரவும்.</string>
+    <string name="sos_location_unavailable">தற்போதைய இருப்பிடம் பெற முடியவில்லை. GPS இயக்கப்பட்டுள்ளதா என்று சரிபார்த்து மீண்டும் முயற்சிக்கவும், அல்லது இல்லாமல் தொடரவும்.</string>
+    <string name="sos_location_timeout">நேரத்திற்குள் புதிய GPS அளவீடு கிடைக்கவில்லை. மீண்டும் முயற்சிக்கவும், தெரிந்தால் கடைசி இருப்பிடத்தைப் பயன்படுத்தவும், அல்லது இல்லாமல் தொடரவும்.</string>
+
+    <string name="sos_preview_title">செய்தி முன்னோட்டம்</string>
+    <string name="sos_preview_recipients">பெறுபவர்கள்: %1$s</string>
+    <string name="sos_preview_no_recipients">பெறுபவர்கள்: இல்லை</string>
+    <string name="sos_preview_no_location">இருப்பிடம்: சேர்க்கப்படவில்லை</string>
+    <string name="sos_preview_location">இருப்பிடம்: %1$s, %2$s\nபதிவு: %3$s</string>
+    <string name="sos_preview_location_last_known">அறிந்த கடைசி இருப்பிடம்: %1$s, %2$s\nபதிவு: %3$s</string>
+    <string name="sos_preview_sms_note">செய்தி இந்தப் போனில் சேமிக்கப்பட்டு, வலையமைப்பு கிடைக்கும்போது தானாக அனுப்பப்படும். வந்தடைந்ததை உறுதிப்படுத்த முடியாது.</string>
+
+    <string name="sos_send_button">SOS செய்தியை அனுப்பு</string>
+    <string name="sos_send_disabled_reason">அனுப்பும் முன் குறைந்தது ஒரு சரியான எண்ணையும் செய்தியையும் சேர்க்கவும்.</string>
+    <string name="sos_confirm_title">SMS திறப்பதற்கு முன் சரிபார்</string>
+    <string name="sos_confirm_message">இந்த எண்கள் ஒவ்வொன்றும் இந்தப் போனிலிருந்து SOS பெறும்:\n\n%1$s\n\nசெய்தி:\n\n%2$s\n\nசெய்தி முதலில் இந்தப் போனில் சேமிக்கப்பட்டு, வலையமைப்பு கிடைக்கும்போது தானாக அனுப்பப்படும். வரிசையில் இருக்கும்போது ரத்து செய்யலாம். FloodCue செய்தி இந்தச் சாதனத்தை விட்டதை மட்டுமே கூறும் — வந்தடைவது உங்கள் ஊழியரைச் சார்ந்தது.</string>
+    <string name="sos_confirm_permission_note">தானாக அனுப்ப, FloodCue-க்கு SMS அனுமதி தேவை. வழங்கவில்லை என்றால், FloodCue உங்கள் SMS செயலியைத் திறக்கும் — அங்கே நீங்களே அனுப்புவதைத் தட்டுங்கள்.</string>
+    <string name="sos_sms_also_notify">இந்த எண்களுக்கு அறிவிக்கவும்: %1$s</string>
+    <string name="sos_confirm_continue">அனுப்பு</string>
+    <string name="sos_confirm_cancel">ரத்து</string>
+    <string name="sos_sms_opened">SMS செயலி திறக்கப்பட்டது. நீங்கள் அனுப்பி பெறுபவர் பெறும் வரை வந்தடைவு உறுதிப்படுத்தப்படவில்லை.</string>
+    <string name="sos_sms_unavailable">பொருந்தக்கூடிய SMS செயலி இல்லை. உங்கள் எண்களும் செய்தியும் இந்தத் திரையில் சேமிந்துள்ளன.</string>
+    <string name="sos_sms_failed">SMS செயலியைத் திறக்க முடியவில்லை. உங்கள் எண்களும் செய்தியும் இந்தத் திரையில் சேமிந்துள்ளன.</string>
+    <string name="sos_offline_note">இணையம் இல்லாமல் இந்த SOS-ஐத் தயார் செய்யலாம். SMS அனுப்ப செல்லுலார் SMS சேவை தேவை.</string>
+    <string name="sos_battery_note">குறிப்பு: வேகமான அவசர அனுப்பத்திற்கு, FloodCue பேட்டரி பயன்பாட்டை கட்டுப்பாடற்றதாக மாற்றுங்கள் — அமைப்புகள் → செயலிகள் → FloodCue → பேட்டரி.</string>
+
+    <string name="sos_queued_toast">SOS இந்தப் போனில் சேமிக்கப்பட்டது. வலையமைப்பு கிடைக்கும்போது தானாக அனுப்பப்படும்.</string>
+    <string name="sos_queue_waiting">SOS வரிசையில் உள்ளது. இந்தப் போனுக்கு மொபைல் சிக்னல் கிடைக்கும்போது தானாக அனுப்பப்படும் — SMS மொபைல் வலையமைப்பில் பயணிக்கும், Wi-Fi இல் அல்ல.</string>
+    <string name="sos_queue_error_no_service">கடைசி அனுப்பும் முயற்சி தோல்வி: மொபைல் வலையமைப்பு இல்லை. SMS-க்கு மொபைல் சிக்னல் (SIM + வலையமைப்பு) தேவை, இணையம்/Wi-Fi இல்லை. சிக்னல் வந்தவுடன் SOS தானாக மீண்டும் முயற்சிக்கும்.</string>
+    <string name="sos_queue_error_radio_off">கடைசி அனுப்பும் முயற்சி தோல்வி: மொபைல் ரேடியோ அணைக்கப்பட்டுள்ளது — விமான பயனைச் சரிபார்க்கவும். மீண்டும் இயங்கியவுடன் SOS முயற்சிக்கும்.</string>
+    <string name="sos_queue_error_generic">கடைசி அனுப்பும் முயற்சி தோல்வி. செய்தி வரிசையில் இருந்து தானாக மீண்டும் முயற்சிக்கும்.</string>
+    <string name="sos_queue_no_sim">இந்தப் போனில் SIM கார்டு கண்டறியவில்லை — SMS அனுப்ப முடியாது.</string>
+    <string name="sos_queue_sending">இந்தப் போனிலிருந்து SOS அனுப்பப்படுகிறது…</string>
+    <string name="sos_queue_partial">இந்தப் போனிலிருந்து %2$d எண்களில் %1$d எண்களுக்கு அனுப்பப்பட்டது. வலையமைப்பு கிடைக்கும்போது மீதி அனுப்பப்படும்.</string>
+    <string name="sos_queue_complete">%2$s அளவிற்கு அனைத்து %1$d எண்களுக்கும் இந்தப் போனிலிருந்து செய்தி அனுப்பப்பட்டது. வந்தடைவு உங்கள் ஊழியரைச் சார்ந்தது.</string>
+    <string name="sos_queue_cancel">வரிசை SOS-ஐ ரத்து செய்</string>
+    <string name="sos_queue_dismiss">மூடு</string>
+    <string name="sos_queue_cancel_confirm">இந்த வரிசை SOS-ஐ ரத்து செய்யவா? மேலும் எதுவும் அனுப்பப்படாது.</string>
+    <string name="sos_queue_cancelled">வரிசை SOS ரத்து செய்யப்பட்டது. மேலும் எதுவும் அனுப்பப்படாது.</string>
+    <string name="sos_send_queued_reason">ஒரு SOS ஏற்கனவே வரிசையில் உள்ளது. புதிதைத் தயார் செய்ய அதை முதலில் ரத்து செய்யவும்.</string>
+    <string name="sos_permission_denied_fallback">SMS அனுமதி வழங்கப்படவில்லை, எனவே FloodCue உங்கள் SMS செயலியைத் திறக்கும் — அங்கே அனுப்பவும்.</string>
+</resources>

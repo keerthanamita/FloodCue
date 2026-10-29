@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="offline_comm_back_title">← ഓഫ്‌ലൈൻ ആശയവിനിമയം</string>
+    <string name="offline_comm_heading">ഓഫ്‌ലൈൻ ആശയവിനിമയം</string>
+    <string name="offline_comm_short">പ്രളയങ്ങൾ ഇന്റർനെറ്റ് മുറിച്ചാൽ, മൊബൈൽ ഡാറ്റയോ Wi‑Fi-യോ ഇല്ലാതെ ബ്ലൂടൂത്തിലൂടെ നേരിട്ട് സംസാരിക്കുന്ന, അടുത്തുള്ള ഫോണുകളുമായി Bridgefy ഉപയോഗിച്ച് സന്ദേശങ്ങൾ ഇപ്പോഴും കൈമാറാം — അത് ഒരു പ്രത്യേക, സൗജന്യ ആപ്പാണ്.</string>
+    <string name="offline_comm_open_button">Bridgefy തുറക്കുക</string>
+    <string name="offline_comm_not_installed">Bridgefy ഈ ഫോണിൽ ഇൻസ്റ്റാൾ ചെയ്തിട്ടില്ല. Google Play-ൽ നിന്ന് നേടുക — ഇൻസ്റ്റാളിനും ആദ്യത്തെ സജീവമാക്കലിനും മാത്രമേ ഇന്റർനെറ്റ് ആവശ്യമുള്ളൂ.</string>
+    <string name="offline_comm_open_failed">ഈ ഉപകരണത്തിൽ Bridgefy തുറക്കാൻ സാധിച്ചില്ല.</string>
+    <string name="offline_comm_howto_title">പ്രളയസമയത്ത് Bridgefy എങ്ങനെ ഉപയോഗിക്കാം</string>
+    <string name="offline_comm_more_title">അറിഞ്ഞിരിക്കേണ്ട കാര്യം</string>
+    <string name="offline_comm_limitations">രണ്ട് ഫോണുകളിലും ആപ്പ് ഇൻസ്റ്റാൾ ചെയ്തിരിക്കണം, ബ്ലൂടൂത്ത് ഓണായിരിക്കണം, ഫോണുകൾ തമ്മിൽ മതിയായ അടുപ്പത്തിലായിരിക്കണം — അപ്പോൾ മാത്രമേ Bridgefy പ്രവർത്തിക്കൂ. സന്ദേശ എത്തിച്ചേരൽ ഒരിക്കലും ഉറപ്പാക്കാനാവില്ല, കൂടാതെ Bridgefy SMS, അടിയന്തര കോളുകൾ, ഔദ്യോഗിക രക്ഷാ ചാനലുകൾ എന്നിവയ്ക്ക് പകരമാകില്ല — FloodCue SOS നിങ്ങളുടെ ബാക്കപ്പ് ആയി സൂക്ഷിക്കുക.</string>
+    <string name="home_offline_communication">ഓഫ്‌ലൈൻ ആശയവിനിമയം</string>
+</resources>

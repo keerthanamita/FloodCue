@@ -1,0 +1,13 @@
+wrote logs/recall_hi_todo2.txt
+current tail report:
+RAW ENDS </resources>: True
+RAW last line: '</resources>'
+RAW last-6 lines:
+'    <string name="guide_situation_16_block_1_line_6">• बचावकर्ताओं या कुटुंबिक सदस्यों के लिए आपसे संपर्क का सुरक्षित तरीक़ा.</string>'
+'    <string name="guide_situation_16_block_2_header">नमूना</string>'
+'    <string name="guide_situation_16_block_2_line_1">“EMERGENCY — हमें बचाव की सहायता चाहिए. जगह: [निर्देशांक/पहचान-स्तर]. लोग: [संख्या]. चोटें: [विवरण]. पानी स्तर: [बढ़ता/स्थिर]. संपर्क: [फ़ोन नंबर].”</string>'
+'    <string name="guide_situation_16_block_3_header">नोट</string>'
+'    <string name="guide_situation_16_block_3_line_1">GPS निर्देशांक उपलब्ध न हों तो सबसे पास की सड़क, इमारत, पहचान-स्तर या ज्ञात जगह बताएँ.</string>'
+'</resources>'
+RAW line count: 184
+---- diagnostic ----

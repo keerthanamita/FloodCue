@@ -1,0 +1,22 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <!-- Outer shield or rounded container -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M48,8 C64,24 76,44 76,60 C76,75.46 63.46,88 48,88 C32.54,88 20,75.46 20,60 C20,44 32,24 48,8 Z" />
+    <!-- Inner ripple highlight -->
+    <path
+        android:fillColor="#0284C7"
+        android:pathData="M48,16 C60,30 70,47 70,61 C70,73.15 60.15,83 48,83 C35.85,83 26,73.15 26,61 C26,47 36,30 48,16 Z" />
+    <!-- White core droplet with rescue pulse -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M48,28 C56,38 62,50 62,60 C62,67.73 55.73,74 48,74 C40.27,74 34,67.73 34,60 C34,50 40,38 48,28 Z" />
+    <!-- Modern beacon cross / rescue signal inside droplet -->
+    <path
+        android:fillColor="#0284C7"
+        android:pathData="M45,48 h6 v7 h7 v6 h-7 v7 h-6 v-7 h-7 v-6 h7 z" />
+</vector>

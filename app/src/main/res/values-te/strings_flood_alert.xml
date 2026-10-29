@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Back navigation -->
+    <!-- Screen headings -->
+    <!-- Buttons -->
+    <string name="flood_alert_select_district">మీ జిల్లా ఎంచుకోండి</string>
+    <string name="flood_alert_report_issue">సమస్యను నివేదించండి</string>
+    <string name="flood_alert_alert_title">హెచ్చరిక శీర్షిక</string>
+    <string name="flood_alert_no_alert">ఇప్పటికీ మీ జిల్లాకు అధికారిక వర్షాభావం లేదు. 😊</string>
+            <string name="flood_alert_retry">మళ్లీ ప్రయత్నించండి</string>
+    <!-- Alerts -->
+    <string name="flood_alert_alert_downloaded">హెచ్చరిక డౌన్‌లోడ్ అయింది</string>
+    <string name="flood_alert_last_updated">చివరిసారి నవీకరించబడింది</string>
+    <string name="flood_alert_tap_for_details">వివరాల కోసం నొక్కండి</string>
+    <string name="flood_alert_severity_title">తీవ్రత</string>
+    <string name="flood_alert_region">ప్రాంతం: %1$s</string>
+    <string name="flood_alert_region_tip">ఈ హెచ్చరిక పైన చూపించిన జిల్లాకు సంబంధించినది.</string>
+    <string name="flood_alert_issue">సమస్యను నివేదించండి</string>
+    <string name="flood_alert_validity">చెల్లుబాడు గడువు</string>
+    <string name="flood_alert_alert_type">హెచ్చరిక రకం</string>
+    <string name="flood_alert_provider">మూలం: %1$s</string>
+    <string name="flood_alert_message">సందేశం</string>
+    <string name="flood_alert_learn_more">మరింత తెలుసుకోండి</string>
+    <!-- District selection -->
+    <string name="flood_alert_district_select_title">మీ జిల్లా ఎంచుకోండి</string>
+    <string name="flood_alert_district_select_subtitle">మీరు ఎంచుకున్న జిల్లాకు హెచ్చరికలు చూపబడతాయి.</string>
+    <string name="flood_alert_district_placeholder">మీ జిల్లా ఎంచుకోండి</string>
+    <string name="flood_alert_district_label_other">మిగిలిన జిల్లాలు</string>
+    <string name="flood_alert_district_label_exit">పంట నిష్క్రమణానికి నీటి లేమి</string>
+    <string name="flood_alert_district_label_none">జిల్లా పేరు లేదు</string>
+    <string name="flood_alert_district_label_none_note">మీరు జిల్లా ఎంచుకునేవరకు హెచ్చరికలు చూపబడవు.</string>
+    <string name="flood_alert_district_label_note">మీ స్థానానికి దగ్గరగా ఉన్న జిల్లాను ఎంచుకోండి.</string>
+    <string name="flood_alert_district_label_note_exit">నిష్క్రమణ-సంబంధిత పంట నీటి కొరత హెచ్చరికల కోసం ఎంచుకున్న జిల్లా.</string>
+    <string name="flood_alert_district_hint">జిల్లా పేరు</string>
+    <string name="flood_alert_district_set">సెట్</string>
+    <string name="flood_alert_use_location">నా స్థానాన్ని ఉపయోగించండి</string>
+    <string name="flood_alert_district_empty">జిల్లా పేరు నమోదు చేయండి లేదా హెచ్చరికలు చూడటానికి మీ స్థానాన్ని ఉపయోగించండి.</string>
+    <string name="flood_alert_location_reading">GPS నుండి మీ జిల్లా చదువుతుంది…</string>
+    <string name="flood_alert_district_location_failed">GPS నుండి మీ జిల్లా చదువుకోలేకపోయింది. దయచేసి జిల్లా పేరు నమోదు చేయండి.</string>
+    <string name="flood_alert_district_location_permission">మీ జిల్లాను గుర్తించడానికి స్థాన అనుమతి అవసరం. మీరు దాన్ని టైప్ చేయడం ద్వారా కూడా నమోదు చేయవచ్చు.</string>
+    <string name="flood_alert_loading">అధికారిక హెచ్చరిక ఫీడ్‌లను తనిఖీ చేస్తోంది…</string>
+        <string name="flood_alert_error">హెచ్చరిక ఫీడ్‌లను ఇప్పుడు చదవలేకపోయాము. మళ్లీ రిఫ్రెష్ చేయండి.</string>
+    <string name="flood_alert_none">ప్రస్తుత ఫీడ్‌లో %1$s ను పేర్కొనే అధికారిక హెచ్చరిక లేదు.</string>
+    <string name="flood_alert_feed_updated">ఫీడ్ అప్‌డేట్ అయింది</string>
+    <string name="flood_alert_no_matching">ప్రస్తుత ఫీడ్‌లో %1$s కు సంబంధించిన హెచ్చరిక లేదు</string>
+    <string name="flood_alert_cached_note">%1$s · చివరిగా నవీకరించబడింది %2$s</string>
+    <string name="flood_alert_cache_fresh">సేవ్ చేసిన హెచ్చరికలు చూపిస్తోంది</string>
+    <string name="flood_alert_cache_old">సేవ్ చేసిన హెచ్చరికలు చూపిస్తోంది, అవి పాతవి అయి ఉండవచ్చు</string>
+    <string name="flood_alert_sachet_title">NDMA SACHET హెచ్చరికలు</string>
+    <string name="flood_alert_severity_unknown">తీవ్రత పేర్కొనబడలేదు</string>
+    <string name="flood_alert_issued">%1$sన జారీ చేయబడింది</string>
+    <string name="flood_alert_valid_until">%1$s వరకు చెల్లుబాడు</string>
+    <string name="flood_alert_source">మూలం: %1$s</string>
+        <string name="flood_alert_river_title">నది మరియు వరద అంచనాలు</string>
+    <string name="flood_alert_river_body">నది మట్టాలు మరియు వరద అంచనాలు కేంద్రీయ జల సంఘం (CWC) నుండి వస్తాయి. FloodCue వాటిని ప్రత్యక్ష డేటాగా అందుకోదు, కాబట్టి వాటిని తనిఖీ చేయడానికి అధికారిక CWC పోర్టల్ తెరవండి.</string>
+    <string name="flood_alert_open_cwc">CWC వరద అంచనాలను తెరవండి</string>
+    <string name="flood_alert_open_sachet">NDMA SACHET పోర్టల్‌ని తెరవండి</string>
+    <string name="flood_alert_disclaimer">ఇవి NDMA SACHET ప్రచురించిన అధికారిక హెచ్చరికలు. ఇవి ప్రత్యక్ష వరద సెన్సర్ కాదు: వర్షపాత హెచ్చరికలు మాత్రమే వరద జరిగిందని నిర్ధారించవు. స్థానిక అధికారులు మరియు విపత్తు నిర్వహణ బృందాల సూచనలను పాటించండి.</string>
+    <string name="flood_alert_channel_name">వరద హెచ్చరికలు (సైరన్)</string>
+    <string name="flood_alert_channel_desc">బిగ్గరగా అధికారిక వరద మరియు భారీ వర్ష హెచ్చరికలు: FloodCue సైరన్ వాయిస్తుంది, కంపిస్తుంది, మరియు FloodCue మూసినా కూడా ఇతర యాప్‌ల పైన కనిపిస్తుంది</string>
+    <string name="flood_alert_notification_title">%1$s కోసం వరద హెచ్చరిక</string>
+    <string name="flood_alert_offline">ఇంటర్నెట్ కనెక్షన్ లేదు. ఈ పరికరంలో సేవ్ చేసిన అలర్ట్‌లు చూపిస్తున్నాము.</string>
+    <string name="flood_alert_cached_data">క్యాష్ అలర్ట్‌లు చూపిస్తున్నాము, %1$s నాటివి</string>
+    <string name="flood_alert_notifications_blocked">నోటిఫికేషన్లు సెట్టింగ్స్‌లో బ్లాక్ అయ్యాయి</string>
+</resources>

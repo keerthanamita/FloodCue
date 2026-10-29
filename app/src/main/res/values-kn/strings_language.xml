@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Language picker screen and dialogs (shown in the app language). -->
+    <string name="language_title">ಭಾಷಾ ಆಯ್ಕೆ</string>
+    <string name="language_subtitle">ನಿಮಗೆ ಅನುಕೂಲವಾದ ಭಾಷೆಗಳನ್ನು ಆರಿಸಿ.</string>
+    <string name="language_app_heading">ಆಪ್ ಭಾಷೆ</string>
+    <string name="language_app_hint">ಮೆನು ಮತ್ತು ಆಪ್ ನಿರ್ದೇಶನಗಳಿಗಾಗಿ</string>
+    <string name="language_survival_heading">ತುರ್ತು / ಸುರಕ್ಷತಾ ಭಾಷೆ</string>
+    <string name="language_survival_hint">ತುರ್ತು ಮತ್ತು ಸುರಕ್ಷತಾ ಮಾಹಿತಿಗಾಗಿ</string>
+    <string name="language_change_later">ನಂತರವೂ ನೀವು ಈ ಆದ್ಯತೆಗಳನ್ನು ಬದಲಿಸಬಹುದು.</string>
+    <string name="language_continue">ಮುಂದುವರಿಸಿ</string>
+
+    <string name="language_picker_app_title">ಆಪ್ ಭಾಷೆ ಆರಿಸಿ</string>
+    <string name="language_picker_survival_title">ಸುರಕ್ಷತಾ ಭಾಷೆ ಆರಿಸಿ</string>
+    <string name="language_picker_subtitle">ಹುಡುಕಿ ಮತ್ತು ಭಾಷೆ ಆರಿಸಿ</string>
+    <string name="language_picker_search_hint">ಭಾಷೆ ಹುಡುಕಿ…</string>
+    <string name="language_picker_empty">ಭಾಷೆಗಳು ಸಿಗಲಿಲ್ಲ.\nಮತ್ತೊಮ್ಮೆ ಹುಡುಕಿರಿ.</string>
+
+    <string name="language_updated">ಭಾಷೆ ನವೀಕರಿಸಲಾಗಿದೆ</string>
+    <string name="settings_change_language">ಭಾಷೆ ನವೀಕರಿಸಲಾಗಿದೆ</string>
+</resources>

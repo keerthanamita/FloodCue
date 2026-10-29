@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="guide_back_title">← आपातकालीन गाइड</string>
+    <string name="guide_back_to_list">← स्थितियाँ</string>
+    <string name="guide_heading">आपातकालीन जीवनरक्षा गाइड</string>
+    <string name="guide_subtitle">अपनी स्थिति चुनें और छोटे, क्रमांकित कदम पढ़ें. सबसे तात्कालिक स्थितियाँ सबसे ऊपर होती हैं.</string>
+    <string name="guide_disclaimer">पहले आपातकालीन सेवाओं के आधिकारिक निर्देश मानें. FloodCue केवल सामान्य जन-सुरक्षा मार्गदर्शन दोहराता है — यह ज़मीनी हालात नहीं देख सकता, और SMS, कॉल, GPS या मेश संदेश केवल तभी चलते हैं जब आपका डिवाइस, अनुमतियाँ और नेटवर्क उनकी अनुमति दें.</string>
+    <string name="guide_sos_button">SOS आपातकालीन संदेश भेजें</string>
+    <string name="home_emergency_guide">आपातकालीन गाइड</string>
+</resources>

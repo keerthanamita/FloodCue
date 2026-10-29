@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+    <include layout="@layout/layout_base_screen" />
+    <LinearLayout
+        android:id="@+id/content_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="32dp">
+        <LinearLayout xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:layout_width="match_parent" ns0:layout_height="64dp" ns0:gravity="center_vertical" ns0:paddingStart="8dp" ns0:paddingEnd="20dp">
+        
+                <TextView ns0:id="@+id/buttonBackToHome" ns0:layout_width="wrap_content" ns0:layout_height="wrap_content" ns0:background="@drawable/bg_link_ripple" ns0:clickable="true" ns0:focusable="true" ns0:padding="12dp" ns0:text="@string/offline_maps_back_title" ns0:textColor="@color/text_primary" ns0:textSize="20sp" ns0:textStyle="bold" />
+        
+            </LinearLayout>
+        
+            
+        <ScrollView xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:layout_width="match_parent" ns0:layout_height="0dp" ns0:layout_weight="1" ns0:fillViewport="true" ns0:overScrollMode="never">
+        
+                <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="match_parent" ns0:gravity="center" ns0:orientation="vertical" ns0:padding="24dp">
+        
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:background="@drawable/bg_home_sand_card" ns0:gravity="center" ns0:orientation="vertical" ns0:padding="24dp">
+        
+                        <TextView ns0:layout_width="wrap_content" ns0:layout_height="wrap_content" ns0:text="@string/offline_maps_choose_title" ns0:textColor="@color/home_card_text" ns0:textSize="26sp" ns0:textStyle="bold" />
+        
+                        <TextView ns0:layout_width="wrap_content" ns0:layout_height="wrap_content" ns0:layout_marginTop="10dp" ns0:gravity="center" ns0:text="@string/offline_maps_choose_subtitle" ns0:textColor="@color/text_secondary" ns0:textSize="15sp" />
+        
+                        <Button ns0:id="@+id/btnTirupati" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="28dp" ns0:background="@drawable/bg_home_sage_card" ns0:backgroundTint="@null" ns0:elevation="0dp" ns0:minHeight="0dp" ns0:text="@string/offline_map_tirupati_district" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" ns0:textSize="16sp" ns0:textStyle="bold" />
+        
+                        <Button ns0:id="@+id/btnNellore" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="12dp" ns0:background="@drawable/bg_home_lilac_card" ns0:backgroundTint="@null" ns0:elevation="0dp" ns0:minHeight="0dp" ns0:text="@string/offline_map_nellore_district" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" ns0:textSize="16sp" ns0:textStyle="bold" />
+        
+                        <ProgressBar ns0:id="@+id/downloadProgress" style="?android:attr/progressBarStyleHorizontal" ns0:layout_width="match_parent" ns0:layout_height="10dp" ns0:layout_marginTop="24dp" ns0:max="100" ns0:progress="0" ns0:progressTint="@color/button_primary" ns0:progressBackgroundTint="@color/border_color" ns0:visibility="gone" />
+        
+                        <TextView ns0:id="@+id/downloadPercent" ns0:layout_width="wrap_content" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns0:textColor="@color/home_card_text" ns0:textSize="14sp" ns0:textStyle="bold" ns0:visibility="gone" />
+        
+                    </LinearLayout>
+        
+                </LinearLayout>
+        
+            </ScrollView>
+        
+        
+    </LinearLayout>
+</merge>

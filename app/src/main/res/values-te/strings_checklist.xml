@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="checklist_tab_essential">కీలకమైన</string>
+    <string name="checklist_tab_complete">పూర్తి</string>
+    <string name="checklist_section_progress">%1$d/%2$d</string>
+    <string name="checklist_section_informed">📢 సమాచారం పొందండి &amp; సిద్ధం చేయండి</string>
+    <string name="checklist_section_gobag">🎒 ఎమర్జెన్సీ గో బ్యాగ్ సిద్ధం చేయండి</string>
+    <string name="checklist_section_phone">📱 మీ ఫోన్ &amp; FloodCue అప్‌ను సిద్ధం చేయండి</string>
+    <string name="checklist_section_home">🏠 మీ ఇంటి పరిరక్షణ</string>
+    <string name="checklist_section_family">👨‍👩‍👧 మీ కుటుంబాన్ని సిద్ధం చేయండి</string>
+    <string name="checklist_section_evac">🚨 ఎగరవడి హద్దులు విడుదలైంది</string>
+    <string name="checklist_note_informed">మీ ప్రమాదాన్ని ముందుగా తెలుసుకోండి.</string>
+    <string name="checklist_note_gobag">గో బ్యాగ్ తయారీ: %1$d కు %2$d అంశాలు</string>
+    <string name="checklist_note_phone">గమనిక: ఆఫ్‌లైన్ మ్యాప్‌లు మ్యాప్ డేటా ఈ పరికరంలో ఇప్పటికే నిల్వ ఉంటేనే ఇంటర్నెట్ లేకుండా పనిచేస్తాయి, మరియు సాధారణ SMS‌కు ఇప్పటికీ మొబైల్ నెట్‌వర్క్ కవరేజ్ మరియు అందుబాటులో ఉన్న SMS సేవ అవసరం.</string>
+    <string name="checklist_note_home_safety">భద్రతా గమనిక: వరద నీటితో చుట్టుముట్టబడిన విద్యుత్ పరికరాలను ఎప్పుడూ సమీపించకండి, తేమగా ఉన్న విద్యుత్ పరికరాలను ఎప్పుడూ ముట్టకండి.</string>
+    <string name="checklist_note_family">కుటుంబంలోని అన్ని వారు ఈ ప్లాన్ గురించి తెలిసి ఉండాలి.</string>
+    <string name="checklist_note_evac_critical">కీలక నియమం: చెక్‌లిస్ట్ పూర్తి చేయడం ఎప్పుడూ సమయానికి తరలిపోవడం అంత ముఖ్యం కాదు — అధికారిక తరలింపు సూచనలు ఎల్లప్పుడూ మొదట.</string>
+    <string name="home_flood_checklist">ఫ్లూడ్ చెక్‌లిస్ట్</string>
+</resources>

@@ -1,72 +1,257 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="@color/background_color"
-    android:padding="24dp">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Set up FloodCue"
-        android:textColor="@color/text_primary"
-        android:textSize="28sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:gravity="center"
-        android:text="Your FloodCue setup will appear here. Complete setup to continue to the home screen."
-        android:textColor="@color/text_secondary"
-        android:textSize="15sp"
-        android:lineSpacingExtra="3dp" />
-
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+    <include layout="@layout/layout_base_screen" />
     <LinearLayout
+        android:id="@+id/content_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_screen_card"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
         android:orientation="vertical"
-        android:padding="20dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Setup"
-            android:textColor="@color/text_primary"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:text="Ready to continue?"
-            android:textColor="@color/text_secondary"
-            android:textSize="14sp" />
-
-        <Button
-            android:id="@+id/buttonCompleteSetup"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/bg_button_primary"
-            android:backgroundTint="@null"
-            android:elevation="0dp"
-            android:minHeight="0dp"
-            android:text="Complete setup"
-            android:textAllCaps="false"
-            android:textColor="@color/background_color"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="32dp">
+        <LinearLayout xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:minHeight="112dp" ns0:orientation="vertical" ns0:gravity="center_vertical" ns0:paddingStart="22dp" ns0:paddingEnd="22dp" ns0:paddingTop="34dp" ns0:paddingBottom="14dp" ns0:background="@color/home_lilac_surface">
+        
+                <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/setup_brand" ns0:textColor="@color/button_primary" ns0:textSize="11sp" ns0:letterSpacing="0.12" ns0:textStyle="bold" />
+        
+                <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:text="@string/setup_heading" ns0:textColor="@color/text_primary" ns0:textSize="23sp" ns0:textStyle="bold" />
+        
+<TextView ns0:id="@+id/textSetupSubtitle" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="3dp" ns0:text="@string/setup_subtitle_personal" ns0:textColor="@color/text_secondary" ns0:textSize="13sp" />
+        
+                <ProgressBar ns0:id="@+id/progressSetup" style="?android:attr/progressBarStyleHorizontal" ns0:layout_width="match_parent" ns0:layout_height="5dp" ns0:layout_marginTop="14dp" ns0:max="100" ns0:progress="33" ns0:progressTint="@color/button_primary" ns0:progressBackgroundTint="@color/border_color" />
+        
+<TextView ns0:id="@+id/textSetupStep" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="7dp" ns0:text="@string/setup_step" ns0:textColor="@color/text_secondary" ns0:textSize="11sp" ns0:textStyle="bold" />
+            </LinearLayout>
+        
+            
+            
+        <FrameLayout xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:layout_width="match_parent" ns0:layout_height="0dp" ns0:layout_weight="1">
+        
+                
+                <ScrollView ns0:id="@+id/pageSetupOne" ns0:layout_width="match_parent" ns0:layout_height="match_parent" ns0:clipToPadding="false" ns0:fillViewport="true" ns0:scrollbars="vertical">
+        
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:paddingTop="16dp" ns0:paddingBottom="32dp">
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/setup_page_one_heading" ns0:textColor="@color/fc_text_primary" ns0:textSize="20sp" ns0:textStyle="bold" />
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:layout_marginBottom="14dp" ns0:text="@string/setup_page_one_intro" ns0:textColor="@color/fc_text_secondary" ns0:textSize="13sp" />
+        
+                        
+                        <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:padding="18dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/profile_section_personal" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:text="@string/profile_label_full_name" ns0:textColor="@color/fc_text_secondary" ns0:textStyle="bold" ns0:textSize="13sp" />
+        
+<EditText ns0:id="@+id/editFullName" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="6dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="@string/setup_hint_full_name" ns0:inputType="textCapWords|textPersonName" ns0:paddingStart="12dp" ns0:paddingEnd="12dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="15sp" />
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="15dp" ns0:text="@string/profile_label_blood_group" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
+        
+                            <Spinner ns0:id="@+id/spinnerBloodGroup" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="4dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" />
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="7dp" ns0:text="@string/setup_blood_group_hint" ns0:textColor="@color/fc_text_secondary" ns0:textSize="12sp" />
+                        </LinearLayout>
+        
+                        
+                        <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:orientation="vertical" ns0:padding="18dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/profile_label_allergies" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:text="@string/setup_select_all_that_apply" ns0:textColor="@color/fc_text_secondary" ns0:textSize="12sp" />
+        
+<CheckBox ns0:id="@+id/checkAllergyMedicines" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="9dp" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_allergy_medicines" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+<CheckBox ns0:id="@+id/checkAllergyFood" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_allergy_food" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+<CheckBox ns0:id="@+id/checkAllergyInsects" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_allergy_insects" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+<CheckBox ns0:id="@+id/checkAllergyLatex" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_allergy_latex" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+<CheckBox ns0:id="@+id/checkAllergyOther" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_allergy_other" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+<CheckBox ns0:id="@+id/checkAllergyNone" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_allergy_none" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+<EditText ns0:id="@+id/editOtherAllergies" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:minHeight="52dp" ns0:layout_marginTop="7dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:gravity="top" ns0:hint="@string/setup_hint_other_allergy" ns0:inputType="textCapSentences|textMultiLine" ns0:padding="12dp" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" ns0:visibility="gone" />
+                        </LinearLayout>
+        
+                        
+                        <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:orientation="vertical" ns0:padding="18dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/setup_medical_heading" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="15dp" ns0:text="@string/setup_medications_label" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
+        
+<EditText ns0:id="@+id/editMedications" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:minHeight="52dp" ns0:layout_marginTop="5dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="@string/setup_medications_hint" ns0:inputType="textCapSentences|textMultiLine" ns0:padding="12dp" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="15dp" ns0:text="@string/setup_medical_notes_label" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
+        
+<EditText ns0:id="@+id/editMedicalNotes" ns0:layout_width="match_parent" ns0:layout_height="100dp" ns0:layout_marginTop="5dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:gravity="top" ns0:hint="@string/setup_medical_notes_hint" ns0:inputType="textCapSentences|textMultiLine" ns0:padding="12dp" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </ScrollView>
+        
+                
+                <ScrollView ns0:id="@+id/pageSetupTwo" ns0:layout_width="match_parent" ns0:layout_height="match_parent" ns0:fillViewport="true" ns0:clipToPadding="false" ns0:visibility="gone">
+        
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:paddingTop="16dp" ns0:paddingBottom="32dp">
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/setup_page_two_heading" ns0:textColor="@color/fc_text_primary" ns0:textSize="20sp" ns0:textStyle="bold" />
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:layout_marginBottom="14dp" ns0:text="@string/setup_page_two_intro" ns0:textColor="@color/fc_text_secondary" ns0:textSize="13sp" />
+        
+                        
+                        <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:padding="18dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/profile_section_primary_contact" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="13dp" ns0:text="@string/profile_label_name" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
+        
+<EditText ns0:id="@+id/editPrimaryContactName" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="4dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="@string/setup_hint_contact_name" ns0:inputType="textCapWords|textPersonName" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:text="@string/profile_label_relationship" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
+        
+                            <Spinner ns0:id="@+id/spinnerPrimaryRelationship" ns0:layout_width="match_parent" ns0:layout_height="48dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:paddingStart="6dp" />
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:text="@string/setup_phone_required" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
+        
+<EditText ns0:id="@+id/editPrimaryPhone" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="4dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="@string/setup_hint_enter_phone" ns0:inputType="phone" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:text="@string/setup_alternate_phone_optional" ns0:textColor="@color/fc_text_secondary" ns0:textStyle="bold" ns0:textSize="13sp" />
+        
+<EditText ns0:id="@+id/editPrimaryAlternatePhone" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="4dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="@string/setup_hint_backup_phone" ns0:inputType="phone" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+                        </LinearLayout>
+        
+                        
+                        <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:orientation="vertical" ns0:padding="18dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/profile_section_second_contact" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
+        
+<EditText ns0:id="@+id/editSecondContactName" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="12dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="@string/setup_hint_optional_contact_name" ns0:inputType="textCapWords|textPersonName" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+        
+                            <Spinner ns0:id="@+id/spinnerSecondRelationship" ns0:layout_width="match_parent" ns0:layout_height="48dp" ns0:layout_marginTop="6dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:paddingStart="6dp" />
+        
+<EditText ns0:id="@+id/editSecondPhone" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="6dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="@string/setup_hint_optional_phone" ns0:inputType="phone" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+        
+<EditText ns0:id="@+id/editSecondAlternatePhone" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="6dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="@string/setup_hint_optional_alternate" ns0:inputType="phone" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+                        </LinearLayout>
+        
+                        
+                        <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:orientation="vertical" ns0:padding="18dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/profile_section_third_contact" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
+        
+<EditText ns0:id="@+id/editThirdContactName" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="12dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="@string/setup_hint_optional_contact_name" ns0:inputType="textCapWords|textPersonName" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+        
+                            <Spinner ns0:id="@+id/spinnerThirdRelationship" ns0:layout_width="match_parent" ns0:layout_height="48dp" ns0:layout_marginTop="6dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:paddingStart="6dp" />
+        
+<EditText ns0:id="@+id/editThirdPhone" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="6dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="@string/setup_hint_optional_phone" ns0:inputType="phone" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+        
+<EditText ns0:id="@+id/editThirdAlternatePhone" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="6dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="@string/setup_hint_optional_alternate" ns0:inputType="phone" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+                        </LinearLayout>
+        
+                        
+                        <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:orientation="vertical" ns0:padding="18dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/setup_assistance_heading" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:text="@string/setup_assistance_intro" ns0:textColor="@color/fc_text_secondary" ns0:textSize="12sp" />
+        
+<CheckBox ns0:id="@+id/checkAssistanceNone" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_assistance_none" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+<CheckBox ns0:id="@+id/checkAssistanceElderly" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_assistance_elderly" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+<CheckBox ns0:id="@+id/checkAssistanceChild" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_assistance_child" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+<CheckBox ns0:id="@+id/checkAssistancePregnant" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_assistance_pregnant" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+<CheckBox ns0:id="@+id/checkAssistanceWheelchair" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_assistance_wheelchair" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+<CheckBox ns0:id="@+id/checkAssistanceWalking" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_assistance_walking" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+<CheckBox ns0:id="@+id/checkAssistanceHearing" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_assistance_hearing" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+<CheckBox ns0:id="@+id/checkAssistanceVisual" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_assistance_visual" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+<CheckBox ns0:id="@+id/checkAssistanceOther" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_assistance_other" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+                        </LinearLayout>
+        
+                        
+                        <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:layout_marginBottom="12dp" ns0:orientation="vertical" ns0:padding="18dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/setup_region_heading" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:text="@string/setup_region_intro" ns0:textColor="@color/fc_text_secondary" ns0:textSize="12sp" />
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:text="@string/profile_label_country" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
+        
+                            <Spinner ns0:id="@+id/spinnerCountry" ns0:layout_width="match_parent" ns0:layout_height="48dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:paddingStart="6dp" />
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="10dp" ns0:text="@string/profile_label_state" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
+        
+                            <Spinner ns0:id="@+id/spinnerState" ns0:layout_width="match_parent" ns0:layout_height="48dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:paddingStart="6dp" />
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="10dp" ns0:text="@string/profile_label_district" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
+        
+                            <Spinner ns0:id="@+id/spinnerDistrict" ns0:layout_width="match_parent" ns0:layout_height="48dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:paddingStart="6dp" />
+                        </LinearLayout>
+        
+                    </LinearLayout>
+                </ScrollView>
+        
+                
+                <ScrollView ns0:id="@+id/pageSetupThree" ns0:layout_width="match_parent" ns0:layout_height="match_parent" ns0:fillViewport="true" ns0:clipToPadding="false" ns0:visibility="gone">
+        
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:paddingTop="18dp" ns0:paddingBottom="32dp">
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/setup_page_three_heading" ns0:textColor="@color/fc_text_primary" ns0:textSize="25sp" ns0:textStyle="bold" />
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="7dp" ns0:text="@string/setup_page_three_intro" ns0:textColor="@color/fc_text_secondary" ns0:textSize="14sp" />
+        
+                        <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="20dp" ns0:orientation="vertical" ns0:padding="20dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/setup_checklist_heading" ns0:textColor="@color/fc_primary_dark" ns0:textSize="18sp" ns0:textStyle="bold" />
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="15dp" ns0:text="@string/setup_check_personal" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:text="@string/setup_check_contacts" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:text="@string/setup_check_ready" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:text="@string/setup_profile_saved_info" ns0:textColor="@color/fc_text_secondary" ns0:textSize="13sp" />
+                        </LinearLayout>
+        
+                        
+                        <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:orientation="vertical" ns0:padding="20dp" ns0:background="@color/fc_background" ns0:elevation="1dp">
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/setup_bridgefy_heading" ns0:textColor="@color/fc_primary_dark" ns0:textSize="18sp" ns0:textStyle="bold" />
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="7dp" ns0:text="@string/setup_bridgefy_info" ns0:textColor="@color/fc_text_primary_dark" ns0:textSize="13sp" />
+        
+<Button ns0:id="@+id/buttonInstallBridgefy" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="15dp" ns0:backgroundTint="@color/fc_primary_dark" ns0:text="@string/setup_bridgefy_button" ns0:textAllCaps="false" ns0:textColor="@color/fc_surface" ns0:textStyle="bold" />
+                        </LinearLayout>
+        
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:layout_marginBottom="20dp" ns0:gravity="center" ns0:text="@string/setup_settings_note" ns0:textColor="@color/fc_text_secondary" ns0:textSize="12sp" />
+        
+<Button ns0:id="@+id/buttonCompleteSetup" ns0:layout_width="match_parent" ns0:layout_height="56dp" ns0:backgroundTint="@color/fc_primary" ns0:text="@string/setup_save_continue" ns0:textAllCaps="false" ns0:textColor="@color/fc_surface" ns0:textSize="15sp" ns0:textStyle="bold" />
+                    </LinearLayout>
+                </ScrollView>
+        
+            </FrameLayout>
+        
+            
+            
+        <LinearLayout xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:id="@+id/layoutSetupNav" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:minHeight="78dp" ns0:orientation="horizontal" ns0:gravity="center_vertical" ns0:paddingStart="14dp" ns0:paddingEnd="14dp" ns0:paddingTop="10dp" ns0:paddingBottom="10dp" ns0:background="@drawable/bg_screen_card" ns0:elevation="8dp">
+        
+                <Button ns0:id="@+id/buttonSetupBack" ns0:layout_width="0dp" ns0:layout_height="50dp" ns0:layout_weight="0.8" ns0:background="@drawable/bg_button_secondary" ns0:backgroundTint="@null" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:text="@string/setup_back" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" ns0:visibility="gone" />
+        
+                <Button ns0:id="@+id/buttonSetupSkip" ns0:layout_width="0dp" ns0:layout_height="50dp" ns0:layout_marginStart="8dp" ns0:layout_weight="0.9" ns0:background="@drawable/bg_button_secondary" ns0:backgroundTint="@null" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:text="@string/setup_skip" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" />
+        
+<Button ns0:id="@+id/buttonSetupNext" ns0:layout_width="0dp" ns0:layout_height="50dp" ns0:layout_marginStart="8dp" ns0:layout_weight="1.5" ns0:background="@drawable/bg_button_primary" ns0:backgroundTint="@null" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:text="@string/setup_continue_button" ns0:textAllCaps="false" ns0:textColor="@color/button_primary_text" ns0:textStyle="bold" />
+            </LinearLayout>
+        
+        
     </LinearLayout>
-
-</LinearLayout>
+</merge>

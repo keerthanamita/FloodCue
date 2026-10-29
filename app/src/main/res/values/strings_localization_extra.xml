@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="setup_hint_other_allergy">Describe the other allergy</string>
+    <string name="language_brand">FLOODCUE LOCALIZATION</string>
+    <string name="language_english">English</string>
+    <string name="language_telugu">Telugu</string>
+    <string name="language_hindi">Hindi</string>
+    <string name="language_tamil">Tamil</string>
+    <string name="language_kannada">Kannada</string>
+    <string name="language_malayalam">Malayalam</string>
+    <string-array name="setup_blood_groups"><item>Choose blood group</item><item>A+</item><item>A-</item><item>B+</item><item>B-</item><item>AB+</item><item>AB-</item><item>O+</item><item>O-</item></string-array>
+    <string-array name="setup_relationships"><item>Choose relationship</item><item>Parent</item><item>Spouse</item><item>Sibling</item><item>Child</item><item>Friend</item><item>Neighbour</item><item>Relative</item><item>Other</item></string-array>
+</resources>

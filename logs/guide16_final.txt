@@ -1,0 +1,3 @@
+LAST LINE: '</resources>'
+TOTAL LINES: 184
+ENDS CLOSED: False

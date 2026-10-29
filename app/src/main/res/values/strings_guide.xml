@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="guide_back_title">← Emergency Guide</string>
+    <string name="guide_back_to_list">← Situations</string>
+    <string name="guide_heading">Emergency Survival Guide</string>
+    <string name="guide_subtitle">Pick your situation to read short, numbered steps. The most urgent situations are listed first.</string>
+    <string name="guide_disclaimer">Follow official instructions from emergency services first. FloodCue repeats general public-safety guidance only — it cannot verify conditions on the ground, and SMS, calls, GPS or mesh messaging work only when your device, permissions and network allow it.</string>
+    <string name="guide_sos_button">Send SOS Emergency Message</string>
+    <string name="home_emergency_guide">Emergency Guide</string>
+</resources>

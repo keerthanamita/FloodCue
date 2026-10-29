@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources><string name="setup_sign_in_required">Please sign in to continue.</string><string name="setup_wait_saving">Please wait while your profile is being saved.</string><string name="setup_play_store_failed">Unable to open Google Play Store.</string><string name="setup_local_cache_failed">Profile saved online, but local caching failed.</string><string name="offline_map_location_required">Location permission is required to show your location.</string></resources>

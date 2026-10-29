@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tips_warning_legend">⚠️ ఎరుపు రంగులో ఉన్న చిట్కాలు ప్రాణాంతక హెచ్చరికలు.</string>
+
+    <string name="tips_category_before">🛡️ వరదకు ముందు</string>
+    <string name="tips_category_during">🌊 వరద సమయంలో</string>
+    <string name="tips_category_after">🏥 వరద తర్వాత</string>
+
+    <string name="home_safety_tips">భద్రతా చిట్కాలు</string>
+</resources>

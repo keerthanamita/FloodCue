@@ -1,0 +1,991 @@
+FloodCue — feature audit, pass 1
+Generated: 2026-10-27T21:20:40.073615
+
+What this pass checks
+  • Every Activity/Fragment/java source file under main/java/that references Android resources with the R.<type>.<name> pattern (including getString(R.string.x), setText(R.string.x) and bare R.string.x).
+  • It does not run a full build or install, so it cannot prove the app launches. It is a static cross-reference of string usage vs. string files.
+
+Source files scanned
+  Java sources with R. references: 20
+  String resource files found: 85
+
+Strings resource files (quick sanity heads)
+Localized files per locale (strings_*.xml under values-*)
+  values: 15 files
+    - res/values/strings_about_bridgefy.xml
+    - res/values/strings_about_floodcue.xml
+    - res/values/strings_checklist.xml
+    - res/values/strings_checklist_items.xml
+    - res/values/strings_flood_alert.xml
+    - res/values/strings_guide.xml
+    - res/values/strings_guide_content.xml
+    - res/values/strings_language.xml
+    - res/values/strings_offline_comm.xml
+    - res/values/strings_shared_base.xml
+    - res/values/strings_sos.xml
+    - res/values/strings_sos_emergency.xml
+    - res/values/strings_tips.xml
+    - res/values/strings_tips_items.xml
+    - res/values/strings_weather.xml
+  values-hi: 14 files
+    - res/values-hi/strings_about_bridgefy.xml
+    - res/values-hi/strings_about_floodcue.xml
+    - res/values-hi/strings_checklist.xml
+    - res/values-hi/strings_checklist_items.xml
+    - res/values-hi/strings_flood_alert.xml
+    - res/values-hi/strings_guide.xml
+    - res/values-hi/strings_guide_content.xml
+    - res/values-hi/strings_language.xml
+    - res/values-hi/strings_offline_comm.xml
+    - res/values-hi/strings_sos.xml
+    - res/values-hi/strings_sos_emergency.xml
+    - res/values-hi/strings_tips.xml
+    - res/values-hi/strings_tips_items.xml
+    - res/values-hi/strings_weather.xml
+  values-kn: 14 files
+    - res/values-kn/strings_about_bridgefy.xml
+    - res/values-kn/strings_about_floodcue.xml
+    - res/values-kn/strings_checklist.xml
+    - res/values-kn/strings_checklist_items.xml
+    - res/values-kn/strings_flood_alert.xml
+    - res/values-kn/strings_guide.xml
+    - res/values-kn/strings_guide_content.xml
+    - res/values-kn/strings_language.xml
+    - res/values-kn/strings_offline_comm.xml
+    - res/values-kn/strings_sos.xml
+    - res/values-kn/strings_sos_emergency.xml
+    - res/values-kn/strings_tips.xml
+    - res/values-kn/strings_tips_items.xml
+    - res/values-kn/strings_weather.xml
+  values-ml: 14 files
+    - res/values-ml/strings_about_bridgefy.xml
+    - res/values-ml/strings_about_floodcue.xml
+    - res/values-ml/strings_checklist.xml
+    - res/values-ml/strings_checklist_items.xml
+    - res/values-ml/strings_flood_alert.xml
+    - res/values-ml/strings_guide.xml
+    - res/values-ml/strings_guide_content.xml
+    - res/values-ml/strings_language.xml
+    - res/values-ml/strings_offline_comm.xml
+    - res/values-ml/strings_sos.xml
+    - res/values-ml/strings_sos_emergency.xml
+    - res/values-ml/strings_tips.xml
+    - res/values-ml/strings_tips_items.xml
+    - res/values-ml/strings_weather.xml
+  values-ta: 14 files
+    - res/values-ta/strings_about_bridgefy.xml
+    - res/values-ta/strings_about_floodcue.xml
+    - res/values-ta/strings_checklist.xml
+    - res/values-ta/strings_checklist_items.xml
+    - res/values-ta/strings_flood_alert.xml
+    - res/values-ta/strings_guide.xml
+    - res/values-ta/strings_guide_content.xml
+    - res/values-ta/strings_language.xml
+    - res/values-ta/strings_offline_comm.xml
+    - res/values-ta/strings_sos.xml
+    - res/values-ta/strings_sos_emergency.xml
+    - res/values-ta/strings_tips.xml
+    - res/values-ta/strings_tips_items.xml
+    - res/values-ta/strings_weather.xml
+  values-te: 14 files
+    - res/values-te/strings_about_bridgefy.xml
+    - res/values-te/strings_about_floodcue.xml
+    - res/values-te/strings_checklist.xml
+    - res/values-te/strings_checklist_items.xml
+    - res/values-te/strings_flood_alert.xml
+    - res/values-te/strings_guide.xml
+    - res/values-te/strings_guide_content.xml
+    - res/values-te/strings_language.xml
+    - res/values-te/strings_offline_comm.xml
+    - res/values-te/strings_sos.xml
+    - res/values-te/strings_sos_emergency.xml
+    - res/values-te/strings_tips.xml
+    - res/values-te/strings_tips_items.xml
+    - res/values-te/strings_weather.xml
+
+Locales present in res/values-* but with no strings_*.xml entries
+  - values-night
+
+Localized files per locale (strings_*.xml under values-*)
+  values: 15 files
+    - res/values/strings_about_bridgefy.xml
+    - res/values/strings_about_floodcue.xml
+    - res/values/strings_checklist.xml
+    - res/values/strings_checklist_items.xml
+    - res/values/strings_flood_alert.xml
+    - res/values/strings_guide.xml
+    - res/values/strings_guide_content.xml
+    - res/values/strings_language.xml
+    - res/values/strings_offline_comm.xml
+    - res/values/strings_shared_base.xml
+    - res/values/strings_sos.xml
+    - res/values/strings_sos_emergency.xml
+    - res/values/strings_tips.xml
+    - res/values/strings_tips_items.xml
+    - res/values/strings_weather.xml
+  values-hi: 14 files
+    - res/values-hi/strings_about_bridgefy.xml
+    - res/values-hi/strings_about_floodcue.xml
+    - res/values-hi/strings_checklist.xml
+    - res/values-hi/strings_checklist_items.xml
+    - res/values-hi/strings_flood_alert.xml
+    - res/values-hi/strings_guide.xml
+    - res/values-hi/strings_guide_content.xml
+    - res/values-hi/strings_language.xml
+    - res/values-hi/strings_offline_comm.xml
+    - res/values-hi/strings_sos.xml
+    - res/values-hi/strings_sos_emergency.xml
+    - res/values-hi/strings_tips.xml
+    - res/values-hi/strings_tips_items.xml
+    - res/values-hi/strings_weather.xml
+  values-kn: 14 files
+    - res/values-kn/strings_about_bridgefy.xml
+    - res/values-kn/strings_about_floodcue.xml
+    - res/values-kn/strings_checklist.xml
+    - res/values-kn/strings_checklist_items.xml
+    - res/values-kn/strings_flood_alert.xml
+    - res/values-kn/strings_guide.xml
+    - res/values-kn/strings_guide_content.xml
+    - res/values-kn/strings_language.xml
+    - res/values-kn/strings_offline_comm.xml
+    - res/values-kn/strings_sos.xml
+    - res/values-kn/strings_sos_emergency.xml
+    - res/values-kn/strings_tips.xml
+    - res/values-kn/strings_tips_items.xml
+    - res/values-kn/strings_weather.xml
+  values-ml: 14 files
+    - res/values-ml/strings_about_bridgefy.xml
+    - res/values-ml/strings_about_floodcue.xml
+    - res/values-ml/strings_checklist.xml
+    - res/values-ml/strings_checklist_items.xml
+    - res/values-ml/strings_flood_alert.xml
+    - res/values-ml/strings_guide.xml
+    - res/values-ml/strings_guide_content.xml
+    - res/values-ml/strings_language.xml
+    - res/values-ml/strings_offline_comm.xml
+    - res/values-ml/strings_sos.xml
+    - res/values-ml/strings_sos_emergency.xml
+    - res/values-ml/strings_tips.xml
+    - res/values-ml/strings_tips_items.xml
+    - res/values-ml/strings_weather.xml
+  values-ta: 14 files
+    - res/values-ta/strings_about_bridgefy.xml
+    - res/values-ta/strings_about_floodcue.xml
+    - res/values-ta/strings_checklist.xml
+    - res/values-ta/strings_checklist_items.xml
+    - res/values-ta/strings_flood_alert.xml
+    - res/values-ta/strings_guide.xml
+    - res/values-ta/strings_guide_content.xml
+    - res/values-ta/strings_language.xml
+    - res/values-ta/strings_offline_comm.xml
+    - res/values-ta/strings_sos.xml
+    - res/values-ta/strings_sos_emergency.xml
+    - res/values-ta/strings_tips.xml
+    - res/values-ta/strings_tips_items.xml
+    - res/values-ta/strings_weather.xml
+  values-te: 14 files
+    - res/values-te/strings_about_bridgefy.xml
+    - res/values-te/strings_about_floodcue.xml
+    - res/values-te/strings_checklist.xml
+    - res/values-te/strings_checklist_items.xml
+    - res/values-te/strings_flood_alert.xml
+    - res/values-te/strings_guide.xml
+    - res/values-te/strings_guide_content.xml
+    - res/values-te/strings_language.xml
+    - res/values-te/strings_offline_comm.xml
+    - res/values-te/strings_sos.xml
+    - res/values-te/strings_sos_emergency.xml
+    - res/values-te/strings_tips.xml
+    - res/values-te/strings_tips_items.xml
+    - res/values-te/strings_weather.xml
+
+Locales present in res/values-* but with no strings_*.xml entries
+  - values-night
+
+  res/values/strings_about_bridgefy.xml  ok
+  res/values/strings_about_floodcue.xml  ok
+  res/values/strings_checklist.xml  ok
+  res/values/strings_checklist_items.xml  ok
+  res/values/strings_flood_alert.xml  ok
+  res/values/strings_guide.xml  ok
+  res/values/strings_guide_content.xml  ok
+  res/values/strings_language.xml  ok
+  res/values/strings_offline_comm.xml  ok
+  res/values/strings_shared_base.xml  ok
+  res/values/strings_sos.xml  ok
+  res/values/strings_sos_emergency.xml  ok
+  res/values/strings_tips.xml  ok
+  res/values/strings_tips_items.xml  ok
+  res/values/strings_weather.xml  ok
+  res/values-hi/strings_about_bridgefy.xml  ok
+  res/values-hi/strings_about_floodcue.xml  ok
+  res/values-hi/strings_checklist.xml  ok
+  res/values-hi/strings_checklist_items.xml  ok
+  res/values-hi/strings_flood_alert.xml  ok
+  res/values-hi/strings_guide.xml  ok
+  res/values-hi/strings_guide_content.xml  ok
+  res/values-hi/strings_language.xml  ok
+  res/values-hi/strings_offline_comm.xml  ok
+  res/values-hi/strings_sos.xml  ok
+  res/values-hi/strings_sos_emergency.xml  ok
+  res/values-hi/strings_tips.xml  ok
+  res/values-hi/strings_tips_items.xml  ok
+  res/values-hi/strings_weather.xml  ok
+  res/values-kn/strings_about_bridgefy.xml  ok
+  res/values-kn/strings_about_floodcue.xml  ok
+  res/values-kn/strings_checklist.xml  ok
+  res/values-kn/strings_checklist_items.xml  ok
+  res/values-kn/strings_flood_alert.xml  ok
+  res/values-kn/strings_guide.xml  ok
+  res/values-kn/strings_guide_content.xml  ok
+  res/values-kn/strings_language.xml  ok
+  res/values-kn/strings_offline_comm.xml  ok
+  res/values-kn/strings_sos.xml  ok
+  res/values-kn/strings_sos_emergency.xml  ok
+  res/values-kn/strings_tips.xml  ok
+  res/values-kn/strings_tips_items.xml  ok
+  res/values-kn/strings_weather.xml  ok
+  res/values-ml/strings_about_bridgefy.xml  ok
+  res/values-ml/strings_about_floodcue.xml  ok
+  res/values-ml/strings_checklist.xml  ok
+  res/values-ml/strings_checklist_items.xml  ok
+  res/values-ml/strings_flood_alert.xml  ok
+  res/values-ml/strings_guide.xml  ok
+  res/values-ml/strings_guide_content.xml  ok
+  res/values-ml/strings_language.xml  ok
+  res/values-ml/strings_offline_comm.xml  ok
+  res/values-ml/strings_sos.xml  ok
+  res/values-ml/strings_sos_emergency.xml  ok
+  res/values-ml/strings_tips.xml  ok
+  res/values-ml/strings_tips_items.xml  ok
+  res/values-ml/strings_weather.xml  ok
+  res/values-ta/strings_about_bridgefy.xml  ok
+  res/values-ta/strings_about_floodcue.xml  ok
+  res/values-ta/strings_checklist.xml  ok
+  res/values-ta/strings_checklist_items.xml  ok
+  res/values-ta/strings_flood_alert.xml  ok
+  res/values-ta/strings_guide.xml  ok
+  res/values-ta/strings_guide_content.xml  ok
+  res/values-ta/strings_language.xml  ok
+  res/values-ta/strings_offline_comm.xml  ok
+  res/values-ta/strings_sos.xml  ok
+  res/values-ta/strings_sos_emergency.xml  ok
+  res/values-ta/strings_tips.xml  ok
+  res/values-ta/strings_tips_items.xml  ok
+  res/values-ta/strings_weather.xml  ok
+  res/values-te/strings_about_bridgefy.xml  ok
+  res/values-te/strings_about_floodcue.xml  ok
+  res/values-te/strings_checklist.xml  ok
+  res/values-te/strings_checklist_items.xml  ok
+  res/values-te/strings_flood_alert.xml  ok
+  res/values-te/strings_guide.xml  ok
+  res/values-te/strings_guide_content.xml  ok
+  res/values-te/strings_language.xml  ok
+  res/values-te/strings_offline_comm.xml  ok
+  res/values-te/strings_sos.xml  ok
+  res/values-te/strings_sos_emergency.xml  ok
+  res/values-te/strings_tips.xml  ok
+  res/values-te/strings_tips_items.xml  ok
+  res/values-te/strings_weather.xml  ok
+
+Localized files per locale (strings_*.xml under values-*)
+  values: 15 files
+    - res/values/strings_about_bridgefy.xml
+    - res/values/strings_about_floodcue.xml
+    - res/values/strings_checklist.xml
+    - res/values/strings_checklist_items.xml
+    - res/values/strings_flood_alert.xml
+    - res/values/strings_guide.xml
+    - res/values/strings_guide_content.xml
+    - res/values/strings_language.xml
+    - res/values/strings_offline_comm.xml
+    - res/values/strings_shared_base.xml
+    - res/values/strings_sos.xml
+    - res/values/strings_sos_emergency.xml
+    - res/values/strings_tips.xml
+    - res/values/strings_tips_items.xml
+    - res/values/strings_weather.xml
+  values-hi: 14 files
+    - res/values-hi/strings_about_bridgefy.xml
+    - res/values-hi/strings_about_floodcue.xml
+    - res/values-hi/strings_checklist.xml
+    - res/values-hi/strings_checklist_items.xml
+    - res/values-hi/strings_flood_alert.xml
+    - res/values-hi/strings_guide.xml
+    - res/values-hi/strings_guide_content.xml
+    - res/values-hi/strings_language.xml
+    - res/values-hi/strings_offline_comm.xml
+    - res/values-hi/strings_sos.xml
+    - res/values-hi/strings_sos_emergency.xml
+    - res/values-hi/strings_tips.xml
+    - res/values-hi/strings_tips_items.xml
+    - res/values-hi/strings_weather.xml
+  values-kn: 14 files
+    - res/values-kn/strings_about_bridgefy.xml
+    - res/values-kn/strings_about_floodcue.xml
+    - res/values-kn/strings_checklist.xml
+    - res/values-kn/strings_checklist_items.xml
+    - res/values-kn/strings_flood_alert.xml
+    - res/values-kn/strings_guide.xml
+    - res/values-kn/strings_guide_content.xml
+    - res/values-kn/strings_language.xml
+    - res/values-kn/strings_offline_comm.xml
+    - res/values-kn/strings_sos.xml
+    - res/values-kn/strings_sos_emergency.xml
+    - res/values-kn/strings_tips.xml
+    - res/values-kn/strings_tips_items.xml
+    - res/values-kn/strings_weather.xml
+  values-ml: 14 files
+    - res/values-ml/strings_about_bridgefy.xml
+    - res/values-ml/strings_about_floodcue.xml
+    - res/values-ml/strings_checklist.xml
+    - res/values-ml/strings_checklist_items.xml
+    - res/values-ml/strings_flood_alert.xml
+    - res/values-ml/strings_guide.xml
+    - res/values-ml/strings_guide_content.xml
+    - res/values-ml/strings_language.xml
+    - res/values-ml/strings_offline_comm.xml
+    - res/values-ml/strings_sos.xml
+    - res/values-ml/strings_sos_emergency.xml
+    - res/values-ml/strings_tips.xml
+    - res/values-ml/strings_tips_items.xml
+    - res/values-ml/strings_weather.xml
+  values-ta: 14 files
+    - res/values-ta/strings_about_bridgefy.xml
+    - res/values-ta/strings_about_floodcue.xml
+    - res/values-ta/strings_checklist.xml
+    - res/values-ta/strings_checklist_items.xml
+    - res/values-ta/strings_flood_alert.xml
+    - res/values-ta/strings_guide.xml
+    - res/values-ta/strings_guide_content.xml
+    - res/values-ta/strings_language.xml
+    - res/values-ta/strings_offline_comm.xml
+    - res/values-ta/strings_sos.xml
+    - res/values-ta/strings_sos_emergency.xml
+    - res/values-ta/strings_tips.xml
+    - res/values-ta/strings_tips_items.xml
+    - res/values-ta/strings_weather.xml
+  values-te: 14 files
+    - res/values-te/strings_about_bridgefy.xml
+    - res/values-te/strings_about_floodcue.xml
+    - res/values-te/strings_checklist.xml
+    - res/values-te/strings_checklist_items.xml
+    - res/values-te/strings_flood_alert.xml
+    - res/values-te/strings_guide.xml
+    - res/values-te/strings_guide_content.xml
+    - res/values-te/strings_language.xml
+    - res/values-te/strings_offline_comm.xml
+    - res/values-te/strings_sos.xml
+    - res/values-te/strings_sos_emergency.xml
+    - res/values-te/strings_tips.xml
+    - res/values-te/strings_tips_items.xml
+    - res/values-te/strings_weather.xml
+
+Locales present in res/values-* but with no strings_*.xml entries
+  - values-night
+
+### java\com\floodcue\app\AboutBridgefyActivity.java
+# used string/us-related names (2):
+  - about_bridgefy_open_failed
+  - about_bridgefy_website_url
+
+### java\com\floodcue\app\AboutFloodCueActivity.java
+# used string/us-related names (1):
+  - about_floodcue_version_label
+
+### java\com\floodcue\app\ChecklistActivity.java
+# used string/us-related names (76):
+  - bg_button_primary
+  - bg_button_secondary
+  - bg_screen_card
+  - button_primary_text
+  - checklist_item_s1i1
+  - checklist_item_s1i2
+  - checklist_item_s1i3
+  - checklist_item_s1i4
+  - checklist_item_s1i5
+  - checklist_item_s1i6
+  - checklist_item_s1i7
+  - checklist_item_s2i1
+  - checklist_item_s2i10
+  - checklist_item_s2i11
+  - checklist_item_s2i12
+  - checklist_item_s2i13
+  - checklist_item_s2i2
+  - checklist_item_s2i3
+  - checklist_item_s2i4
+  - checklist_item_s2i5
+  - checklist_item_s2i6
+  - checklist_item_s2i7
+  - checklist_item_s2i8
+  - checklist_item_s2i9
+  - checklist_item_s3i1
+  - checklist_item_s3i10
+  - checklist_item_s3i2
+  - checklist_item_s3i3
+  - checklist_item_s3i4
+  - checklist_item_s3i5
+  - checklist_item_s3i6
+  - checklist_item_s3i7
+  - checklist_item_s3i8
+  - checklist_item_s3i9
+  - checklist_item_s4i1
+  - checklist_item_s4i2
+  - checklist_item_s4i3
+  - checklist_item_s4i4
+  - checklist_item_s4i5
+  - checklist_item_s4i6
+  - checklist_item_s4i7
+  - checklist_item_s4i8
+  - checklist_item_s5i1
+  - checklist_item_s5i2
+  - checklist_item_s5i3
+  - checklist_item_s5i4
+  - checklist_item_s5i5
+  - checklist_item_s5i6
+  - checklist_item_s5i7
+  - checklist_item_s5i8
+  - checklist_item_s6i1
+  - checklist_item_s6i2
+  - checklist_item_s6i3
+  - checklist_item_s6i4
+  - checklist_item_s6i5
+  - checklist_item_s6i6
+  - checklist_item_s6i7
+  - checklist_item_s6i8
+  - checklist_item_s6i9
+  - checklist_note_evac_critical
+  - checklist_note_family
+  - checklist_note_gobag
+  - checklist_note_home_safety
+  - checklist_note_informed
+  - checklist_note_phone
+  - checklist_progress
+  - checklist_section_evac
+  - checklist_section_family
+  - checklist_section_gobag
+  - checklist_section_home
+  - checklist_section_informed
+  - checklist_section_phone
+  - checklist_section_progress
+  - error_color
+  - text_primary
+  - text_secondary
+
+### java\com\floodcue\app\CreateAccountActivity.java
+# used string/us-related names (2):
+  - button_primary
+  - darker_gray
+
+### java\com\floodcue\app\EmergencyContactsActivity.java
+# used string/us-related names (7):
+  - divider_color
+  - emergency_contacts_alternate
+  - emergency_contacts_invalid_number
+  - emergency_contacts_login_required
+  - emergency_contacts_permission_required
+  - emergency_contacts_personal_empty
+  - emergency_contacts_unable_to_call
+
+### java\com\floodcue\app\EmergencyGuideActivity.java
+# used string/us-related names (190):
+  - bg_button_primary
+  - bg_screen_card
+  - button_primary_text
+  - error_color
+  - guide_back_title
+  - guide_back_to_list
+  - guide_header_important_warnings
+  - guide_header_never
+  - guide_header_what_to_do
+  - guide_situation_10_block_1_header
+  - guide_situation_10_block_1_line_1
+  - guide_situation_10_block_1_line_2
+  - guide_situation_10_block_1_line_3
+  - guide_situation_10_block_1_line_4
+  - guide_situation_10_block_1_line_5
+  - guide_situation_10_block_2_header
+  - guide_situation_10_block_2_line_1
+  - guide_situation_10_block_2_line_2
+  - guide_situation_10_block_2_line_3
+  - guide_situation_10_block_2_line_4
+  - guide_situation_10_block_3_header
+  - guide_situation_10_block_3_line_1
+  - guide_situation_10_block_3_line_2
+  - guide_situation_10_block_3_line_3
+  - guide_situation_10_block_4_line_1
+  - guide_situation_10_block_4_line_2
+  - guide_situation_10_subtitle
+  - guide_situation_10_title
+  - guide_situation_11_block_1_line_1
+  - guide_situation_11_block_1_line_2
+  - guide_situation_11_block_1_line_3
+  - guide_situation_11_block_1_line_4
+  - guide_situation_11_block_1_line_5
+  - guide_situation_11_block_2_line_1
+  - guide_situation_11_block_2_line_2
+  - guide_situation_11_block_2_line_3
+  - guide_situation_11_subtitle
+  - guide_situation_11_title
+  - guide_situation_12_block_1_line_1
+  - guide_situation_12_block_1_line_2
+  - guide_situation_12_block_1_line_3
+  - guide_situation_12_block_1_line_4
+  - guide_situation_12_block_1_line_5
+  - guide_situation_12_block_1_line_6
+  - guide_situation_12_block_2_line_1
+  - guide_situation_12_subtitle
+  - guide_situation_12_title
+  - guide_situation_13_block_1_line_1
+  - guide_situation_13_block_1_line_2
+  - guide_situation_13_block_1_line_3
+  - guide_situation_13_block_1_line_4
+  - guide_situation_13_block_1_line_5
+  - guide_situation_13_block_1_line_6
+  - guide_situation_13_block_2_header
+  - guide_situation_13_block_2_line_1
+  - guide_situation_13_subtitle
+  - guide_situation_13_title
+  - guide_situation_14_block_1_line_1
+  - guide_situation_14_block_1_line_2
+  - guide_situation_14_block_1_line_3
+  - guide_situation_14_block_1_line_4
+  - guide_situation_14_block_1_line_5
+  - guide_situation_14_subtitle
+  - guide_situation_14_title
+  - guide_situation_15_block_1_line_1
+  - guide_situation_15_block_1_line_2
+  - guide_situation_15_block_1_line_3
+  - guide_situation_15_block_1_line_4
+  - guide_situation_15_block_1_line_5
+  - guide_situation_15_block_1_line_6
+  - guide_situation_15_block_1_line_7
+  - guide_situation_15_block_1_line_8
+  - guide_situation_15_subtitle
+  - guide_situation_15_title
+  - guide_situation_16_block_1_header
+  - guide_situation_16_block_1_line_1
+  - guide_situation_16_block_1_line_2
+  - guide_situation_16_block_1_line_3
+  - guide_situation_16_block_1_line_4
+  - guide_situation_16_block_1_line_5
+  - guide_situation_16_block_1_line_6
+  - guide_situation_16_block_2_header
+  - guide_situation_16_block_2_line_1
+  - guide_situation_16_block_3_header
+  - guide_situation_16_block_3_line_1
+  - guide_situation_16_subtitle
+  - guide_situation_16_title
+  - guide_situation_1_block_1_line_1
+  - guide_situation_1_block_1_line_2
+  - guide_situation_1_block_1_line_3
+  - guide_situation_1_block_1_line_4
+  - guide_situation_1_block_1_line_5
+  - guide_situation_1_block_1_line_6
+  - guide_situation_1_block_2_line_1
+  - guide_situation_1_block_2_line_2
+  - guide_situation_1_block_2_line_3
+  - guide_situation_1_subtitle
+  - guide_situation_1_title
+  - guide_situation_2_block_1_line_1
+  - guide_situation_2_block_1_line_2
+  - guide_situation_2_block_1_line_3
+  - guide_situation_2_block_1_line_4
+  - guide_situation_2_block_1_line_5
+  - guide_situation_2_block_1_line_6
+  - guide_situation_2_block_1_line_7
+  - guide_situation_2_block_2_line_1
+  - guide_situation_2_block_2_line_2
+  - guide_situation_2_block_2_line_3
+  - guide_situation_2_subtitle
+  - guide_situation_2_title
+  - guide_situation_3_block_1_line_1
+  - guide_situation_3_block_1_line_2
+  - guide_situation_3_block_1_line_3
+  - guide_situation_3_block_1_line_4
+  - guide_situation_3_block_1_line_5
+  - guide_situation_3_block_2_line_1
+  - guide_situation_3_block_2_line_2
+  - guide_situation_3_block_2_line_3
+  - guide_situation_3_block_3_header
+  - guide_situation_3_block_3_line_1
+  - guide_situation_3_subtitle
+  - guide_situation_3_title
+  - guide_situation_4_block_1_line_1
+  - guide_situation_4_block_1_line_2
+  - guide_situation_4_block_1_line_3
+  - guide_situation_4_block_1_line_4
+  - guide_situation_4_block_1_line_5
+  - guide_situation_4_block_1_line_6
+  - guide_situation_4_block_2_line_1
+  - guide_situation_4_block_2_line_2
+  - guide_situation_4_subtitle
+  - guide_situation_4_title
+  - guide_situation_5_block_1_line_1
+  - guide_situation_5_block_1_line_2
+  - guide_situation_5_block_1_line_3
+  - guide_situation_5_block_1_line_4
+  - guide_situation_5_block_1_line_5
+  - guide_situation_5_block_1_line_6
+  - guide_situation_5_block_1_line_7
+  - guide_situation_5_block_1_line_8
+  - guide_situation_5_block_2_header
+  - guide_situation_5_block_2_line_1
+  - guide_situation_5_subtitle
+  - guide_situation_5_title
+  - guide_situation_6_block_1_line_1
+  - guide_situation_6_block_1_line_2
+  - guide_situation_6_block_1_line_3
+  - guide_situation_6_block_1_line_4
+  - guide_situation_6_block_1_line_5
+  - guide_situation_6_block_1_line_6
+  - guide_situation_6_block_2_header
+  - guide_situation_6_block_2_line_1
+  - guide_situation_6_subtitle
+  - guide_situation_6_title
+  - guide_situation_7_block_1_line_1
+  - guide_situation_7_block_1_line_2
+  - guide_situation_7_block_1_line_3
+  - guide_situation_7_block_1_line_4
+  - guide_situation_7_block_1_line_5
+  - guide_situation_7_block_1_line_6
+  - guide_situation_7_block_1_line_7
+  - guide_situation_7_block_2_header
+  - guide_situation_7_block_2_line_1
+  - guide_situation_7_subtitle
+  - guide_situation_7_title
+  - guide_situation_8_block_1_line_1
+  - guide_situation_8_block_1_line_2
+  - guide_situation_8_block_1_line_3
+  - guide_situation_8_block_1_line_4
+  - guide_situation_8_block_1_line_5
+  - guide_situation_8_block_1_line_6
+  - guide_situation_8_block_1_line_7
+  - guide_situation_8_block_2_header
+  - guide_situation_8_block_2_line_1
+  - guide_situation_8_subtitle
+  - guide_situation_8_title
+  - guide_situation_9_block_1_line_1
+  - guide_situation_9_block_1_line_2
+  - guide_situation_9_block_1_line_3
+  - guide_situation_9_block_1_line_4
+  - guide_situation_9_block_1_line_5
+  - guide_situation_9_block_1_line_6
+  - guide_situation_9_block_1_line_7
+  - guide_situation_9_block_2_header
+  - guide_situation_9_block_2_line_1
+  - guide_situation_9_subtitle
+  - guide_situation_9_title
+  - guide_sos_button
+  - text_primary
+  - text_secondary
+
+### java\com\floodcue\app\FloodAlertActivity.java
+# used string/us-related names (38):
+  - alert_green
+  - alert_green_text
+  - alert_orange
+  - alert_orange_text
+  - alert_red
+  - alert_red_text
+  - alert_unknown
+  - alert_unknown_text
+  - alert_yellow
+  - alert_yellow_text
+  - border_color
+  - flood_alert_cache_fresh
+  - flood_alert_cache_old
+  - flood_alert_cached_note
+  - flood_alert_channel_desc
+  - flood_alert_channel_name
+  - flood_alert_district_empty
+  - flood_alert_district_location_failed
+  - flood_alert_district_location_permission
+  - flood_alert_error
+  - flood_alert_feed_updated
+  - flood_alert_issued
+  - flood_alert_loading
+  - flood_alert_location_reading
+  - flood_alert_no_matching
+  - flood_alert_none
+  - flood_alert_notification_title
+  - flood_alert_notifications_blocked
+  - flood_alert_offline
+  - flood_alert_open_failed
+  - flood_alert_severity_unknown
+  - flood_alert_source
+  - flood_alert_valid_until
+  - ic_launcher
+  - siren
+  - surface_elevated_color
+  - text_primary
+  - text_secondary
+
+### java\com\floodcue\app\FloodCueActivity.java
+# used string/us-related names (8):
+  - bg_bottom_nav
+  - button_primary
+  - error_color
+  - nav_contacts
+  - nav_home
+  - nav_settings
+  - nav_sos
+  - text_secondary
+
+### java\com\floodcue\app\HomeActivity.java
+# used string/us-related names (16):
+  - home_siren
+  - home_siren_stop
+  - home_sos
+  - home_sos_location_permission
+  - home_sos_location_unavailable
+  - home_sos_no_contacts
+  - home_sos_siren_stopped
+  - home_sos_sms_permission
+  - home_sos_started
+  - home_sos_stop
+  - offline_maps_cancel
+  - offline_maps_download_prompt
+  - offline_maps_go
+  - offline_maps_title
+  - siren
+  - siren_unavailable
+
+### java\com\floodcue\app\LanguageActivity.java
+# used string/us-related names (10):
+  - bg_input
+  - button_primary
+  - language_picker_app_title
+  - language_picker_empty
+  - language_picker_search_hint
+  - language_picker_subtitle
+  - language_picker_survival_title
+  - text_primary
+  - text_secondary
+  - transparent
+
+### java\com\floodcue\app\LanguageSync.java
+# used string/us-related names (1):
+  - language_updated
+
+### java\com\floodcue\app\LoginActivity.java
+# used string/us-related names (2):
+  - button_primary
+  - default_web_client_id
+
+### java\com\floodcue\app\OfflineCommunicationActivity.java
+# used string/us-related names (3):
+  - offline_comm_not_installed
+  - offline_comm_open_failed
+  - text_primary
+
+### java\com\floodcue\app\OfflineMapsActivity.java
+# used string/us-related names (2):
+  - offline_map_connecting
+  - offline_map_download_failed
+
+### java\com\floodcue\app\OfflineMapViewActivity.java
+# used string/us-related names (5):
+  - offline_map_back_title
+  - offline_map_loaded
+  - offline_map_location_denied
+  - offline_map_missing
+  - offline_map_opening
+
+### java\com\floodcue\app\ProfileDetailsActivity.java
+# used string/us-related names (26):
+  - bg_screen_card
+  - profile_details_empty
+  - profile_details_login_required
+  - profile_label_allergies
+  - profile_label_alternate_phone
+  - profile_label_app_language
+  - profile_label_assistance
+  - profile_label_blood_group
+  - profile_label_country
+  - profile_label_district
+  - profile_label_full_name
+  - profile_label_medical_notes
+  - profile_label_medications
+  - profile_label_name
+  - profile_label_other_allergies
+  - profile_label_phone
+  - profile_label_relationship
+  - profile_label_state
+  - profile_label_survival_language
+  - profile_section_location
+  - profile_section_personal
+  - profile_section_primary_contact
+  - profile_section_second_contact
+  - profile_section_third_contact
+  - profile_value_empty
+  - text_primary
+
+### java\com\floodcue\app\SosActivity.java
+# used string/us-related names (46):
+  - sos_confirm_cancel
+  - sos_confirm_continue
+  - sos_confirm_message
+  - sos_confirm_permission_note
+  - sos_confirm_title
+  - sos_default_message
+  - sos_location_current
+  - sos_location_gps_off
+  - sos_location_idle
+  - sos_location_last_known
+  - sos_location_last_known_available
+  - sos_location_loading
+  - sos_location_permission_denied
+  - sos_location_time_unknown
+  - sos_location_timeout
+  - sos_location_unavailable
+  - sos_number_duplicate
+  - sos_number_invalid
+  - sos_number_removed
+  - sos_permission_denied_fallback
+  - sos_preview_location
+  - sos_preview_location_last_known
+  - sos_preview_no_location
+  - sos_preview_no_recipients
+  - sos_preview_recipients
+  - sos_preview_sms_note
+  - sos_queue_cancel
+  - sos_queue_cancel_confirm
+  - sos_queue_cancelled
+  - sos_queue_complete
+  - sos_queue_dismiss
+  - sos_queue_error_generic
+  - sos_queue_error_no_service
+  - sos_queue_error_radio_off
+  - sos_queue_no_sim
+  - sos_queue_partial
+  - sos_queue_sending
+  - sos_queue_waiting
+  - sos_queued_toast
+  - sos_remove_number
+  - sos_send_disabled_reason
+  - sos_send_queued_reason
+  - sos_sms_also_notify
+  - sos_sms_failed
+  - sos_sms_opened
+  - sos_sms_unavailable
+
+### java\com\floodcue\app\SosEmergencyActivity.java
+# used string/us-related names (17):
+  - link_color
+  - siren
+  - siren_unavailable
+  - sos_emergency_contact
+  - sos_emergency_location
+  - sos_emergency_location_available
+  - sos_emergency_location_last_known
+  - sos_emergency_location_unavailable
+  - sos_emergency_no_contacts
+  - sos_emergency_no_sim
+  - sos_emergency_perm_denied
+  - sos_emergency_siren
+  - sos_emergency_sms_failed
+  - sos_emergency_sms_pending
+  - sos_emergency_sms_sent
+  - text_primary
+  - text_secondary
+
+### java\com\floodcue\app\TipsActivity.java
+# used string/us-related names (43):
+  - bg_screen_card
+  - error_color
+  - text_primary
+  - tip_after_1
+  - tip_after_10
+  - tip_after_2
+  - tip_after_3
+  - tip_after_4
+  - tip_after_5
+  - tip_after_6
+  - tip_after_7
+  - tip_after_8
+  - tip_after_9
+  - tip_before_1
+  - tip_before_10
+  - tip_before_11
+  - tip_before_2
+  - tip_before_3
+  - tip_before_4
+  - tip_before_5
+  - tip_before_6
+  - tip_before_7
+  - tip_before_8
+  - tip_before_9
+  - tip_during_1
+  - tip_during_10
+  - tip_during_11
+  - tip_during_12
+  - tip_during_13
+  - tip_during_14
+  - tip_during_15
+  - tip_during_16
+  - tip_during_2
+  - tip_during_3
+  - tip_during_4
+  - tip_during_5
+  - tip_during_6
+  - tip_during_7
+  - tip_during_8
+  - tip_during_9
+  - tips_category_after
+  - tips_category_before
+  - tips_category_during
+
+### java\com\floodcue\app\WeatherActivity.java
+# used string/us-related names (48):
+  - weather_cache_fresh
+  - weather_cache_note
+  - weather_cancel
+  - weather_choose_location
+  - weather_condition
+  - weather_enter_coordinates
+  - weather_getting_location
+  - weather_header
+  - weather_hourly
+  - weather_invalid_coordinates
+  - weather_label_cloud
+  - weather_label_feels_like
+  - weather_label_gusts
+  - weather_label_humidity
+  - weather_label_pressure
+  - weather_label_rain_6h
+  - weather_label_visibility
+  - weather_lat_hint
+  - weather_loading
+  - weather_location_denied
+  - weather_location_fix_failed
+  - weather_location_request
+  - weather_lon_hint
+  - weather_manual_title
+  - weather_network_error
+  - weather_no_data
+  - weather_no_location
+  - weather_ok
+  - weather_rain
+  - weather_rain_24h
+  - weather_rain_prob
+  - weather_select_location
+  - weather_selected_location
+  - weather_temp
+  - weather_unavailable
+  - weather_use_current_location
+  - weather_use_location
+  - weather_using_cache
+  - weather_value_cloud
+  - weather_value_feels_like
+  - weather_value_gusts
+  - weather_value_humidity
+  - weather_value_pressure
+  - weather_value_rain_6h
+  - weather_value_visibility
+  - weather_warning_help
+  - weather_warning_help_text
+  - weather_wind
+
+Cross-check: referenced names not found in any scanned strings_*.xml
+  (none found in this pass)

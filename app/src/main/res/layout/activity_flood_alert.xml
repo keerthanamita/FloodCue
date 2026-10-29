@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+    <include layout="@layout/layout_base_screen" />
+    <LinearLayout
+        android:id="@+id/content_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="32dp">
+        <LinearLayout xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:layout_width="match_parent" ns0:layout_height="64dp" ns0:gravity="center_vertical" ns0:paddingStart="8dp" ns0:paddingEnd="20dp">
+        
+                <TextView ns0:id="@+id/buttonBackFromFloodAlert" ns0:layout_width="wrap_content" ns0:layout_height="wrap_content" ns0:background="@drawable/bg_link_ripple" ns0:clickable="true" ns0:focusable="true" ns0:padding="12dp" ns0:text="@string/flood_alert_back_title" ns0:textColor="@color/text_primary" ns0:textSize="20sp" ns0:textStyle="bold" />
+        
+            </LinearLayout>
+        
+            
+        <ScrollView xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:id="@+id/floodAlertScrollView" ns0:layout_width="match_parent" ns0:layout_height="0dp" ns0:layout_weight="1" ns0:fillViewport="true" ns0:overScrollMode="never">
+        
+                <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:background="@drawable/bg_home_lilac_card" ns0:orientation="vertical" ns0:paddingStart="20dp" ns0:paddingTop="20dp" ns0:paddingEnd="20dp" ns0:paddingBottom="104dp">
+        
+                    <TextView ns0:id="@+id/floodAlertHeader" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/flood_alert_header" ns0:textColor="@color/button_primary" ns0:textSize="26sp" ns0:textStyle="bold" />
+        
+                    <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="4dp" ns0:text="@string/flood_alert_subtitle" ns0:textColor="@color/text_secondary" ns0:textSize="14sp" />
+        
+                    <TextView ns0:id="@+id/floodAlertStatus" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:minLines="2" ns0:maxLines="2" ns0:textColor="@color/text_secondary" ns0:textSize="14sp" />
+        
+                    <TextView ns0:id="@+id/floodAlertCached" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="4dp" ns0:minLines="1" ns0:maxLines="1" ns0:ellipsize="end" ns0:textColor="@color/text_secondary" ns0:textSize="13sp" />
+        
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:orientation="horizontal">
+        
+                        <EditText ns0:id="@+id/floodDistrictInput" ns0:layout_width="0dp" ns0:layout_height="wrap_content" ns0:layout_weight="1" ns0:hint="@string/flood_alert_district_hint" ns0:importantForAutofill="no" ns0:inputType="text" ns0:maxLines="1" ns0:singleLine="true" ns0:textColor="@color/text_primary" ns0:textSize="16sp" />
+        
+                        <Button ns0:id="@+id/buttonFloodDistrictSet" ns0:layout_width="wrap_content" ns0:layout_height="wrap_content" ns0:layout_marginStart="8dp" ns0:background="@drawable/bg_button_secondary" ns0:minHeight="0dp" ns0:text="@string/flood_alert_district_set" ns0:textAllCaps="false" ns0:textColor="@color/text_primary" ns0:textSize="15sp" />
+        
+                    </LinearLayout>
+        
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:orientation="horizontal">
+        
+                        <Button ns0:id="@+id/buttonFloodUseLocation" ns0:layout_width="0dp" ns0:layout_height="wrap_content" ns0:layout_marginEnd="8dp" ns0:layout_weight="1" ns0:background="@drawable/bg_button_secondary" ns0:minHeight="0dp" ns0:text="@string/flood_alert_use_location" ns0:textAllCaps="false" ns0:textColor="@color/text_primary" ns0:textSize="15sp" />
+        
+                        <Button ns0:id="@+id/buttonFloodRefresh" ns0:layout_width="0dp" ns0:layout_height="wrap_content" ns0:layout_weight="1" ns0:background="@drawable/bg_home_sage_card" ns0:backgroundTint="@null" ns0:minHeight="0dp" ns0:text="@string/flood_alert_refresh" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" ns0:textSize="15sp" ns0:textStyle="bold" />
+        
+                    </LinearLayout>
+        
+                    <TextView ns0:id="@+id/floodSachetTitle" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="24dp" ns0:text="@string/flood_alert_sachet_title" ns0:textColor="@color/text_primary" ns0:textSize="17sp" ns0:textStyle="bold" />
+        
+                    <LinearLayout ns0:id="@+id/floodSachetList" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns0:orientation="vertical" />
+        
+                    <TextView ns0:id="@+id/floodRiverTitle" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="24dp" ns0:text="@string/flood_alert_river_title" ns0:textColor="@color/text_primary" ns0:textSize="17sp" ns0:textStyle="bold" />
+        
+                    <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="6dp" ns0:text="@string/flood_alert_river_body" ns0:textColor="@color/text_secondary" ns0:textSize="14sp" />
+        
+                    <Button ns0:id="@+id/buttonFloodCwc" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="10dp" ns0:background="@drawable/bg_button_secondary" ns0:minHeight="0dp" ns0:text="@string/flood_alert_open_cwc" ns0:textAllCaps="false" ns0:textColor="@color/text_primary" ns0:textSize="15sp" />
+        
+                    <Button ns0:id="@+id/buttonFloodSachet" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:background="@drawable/bg_button_secondary" ns0:minHeight="0dp" ns0:text="@string/flood_alert_open_sachet" ns0:textAllCaps="false" ns0:textColor="@color/text_primary" ns0:textSize="15sp" />
+        
+                    <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="20dp" ns0:lineSpacingExtra="3dp" ns0:text="@string/flood_alert_disclaimer" ns0:textColor="@color/text_secondary" ns0:textSize="13sp" />
+        
+                </LinearLayout>
+        
+            </ScrollView>
+        
+        
+    </LinearLayout>
+</merge>

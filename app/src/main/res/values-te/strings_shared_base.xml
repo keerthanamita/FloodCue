@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_floodcue_features_text">వరద సమయంలో మీకు అవసరమయ్యే సమాచారం, హెచ్చరికలు మరియు సందేశాలను FloodCue మీ ఫోన్‌లో ఉంచుతుంది. ఇది వీలైనంత ఇంటర్నెట్ లేకుండా పనిచేస్తుంది, కాబట్టి నెట్‌వర్క్ పోయినా మీరు ముందుగా సిద్ధమవ్వచ్చు, త్వరగా చర్య తీసుకోవచ్చు మరియు సహాయం అడగవచ్చు.</string>
+    <string name="flood_alert_no_alert_title">హెచ్చరిక లేదు</string>
+</resources>

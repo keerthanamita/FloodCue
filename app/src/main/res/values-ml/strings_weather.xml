@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="weather_back_title">← കാലാവസ്ഥ</string>
+    <string name="weather_header">കാലാവസ്ഥ</string>
+
+    <string name="weather_temp">%1$.1f°C</string>
+    <string name="weather_condition">%1$s</string>
+    <string name="weather_rain">മഴ: %1$.1f mm</string>
+    <string name="weather_rain_prob">മഴസാധ്യത: %1$d%%</string>
+    <string name="weather_rain_24h">അടുത്ത 24 മണിക്കൂറിൽ മഴ: %1$.1f mm</string>
+    <string name="weather_wind">കാറ്റ്: %1$.1f m/s · %2$s</string>
+    <string name="weather_hourly">മണിക്കൂറിലെ മഴ (അടുത്ത 24 മണിക്കൂർ)</string>
+
+    <string name="weather_details_title">കൂടുതൽ വിശദാംശങ്ങൾ</string>
+    <string name="weather_label_humidity">ആർദ്രത</string>
+    <string name="weather_value_humidity">%1$d%%</string>
+    <string name="weather_label_feels_like">അനുഭവപ്പെടുന്നത്</string>
+    <string name="weather_value_feels_like">%1$.1f°C</string>
+    <string name="weather_label_pressure">വായു മർദ്ദം</string>
+    <string name="weather_value_pressure">%1$.1f hPa</string>
+    <string name="weather_label_cloud">മേഘാവരണം</string>
+    <string name="weather_value_cloud">%1$d%%</string>
+    <string name="weather_label_gusts">കാറ്റടി</string>
+    <string name="weather_value_gusts">%1$.1f m/s</string>
+    <string name="weather_label_visibility">ദൃശ്യത</string>
+    <string name="weather_value_visibility">%1$.1f km</string>
+    <string name="weather_label_rain_6h">അടുത്ത 6 മണിക്കൂറിൽ മഴ</string>
+    <string name="weather_value_rain_6h">%1$.1f mm</string>
+    <string name="weather_selected_location">തിരഞ്ഞെടുത്തത്: %1$.3f, %2$.3f</string>
+    <string name="weather_cache_note">%1$s · അവസാനം പുതുക്കിയത് %2$s</string>
+
+    <string name="weather_unavailable">ലഭ്യമല്ല</string>
+    <string name="weather_ok">ശരി</string>
+    <string name="weather_cancel">റദ്ദാക്കുക</string>
+    <string name="weather_use_location">ലൊക്കേഷൻ ഉപയോഗിക്കുക</string>
+    <string name="weather_refresh">പുതുക്കുക</string>
+
+    <string name="weather_loading">കാലാവസ്ഥ ലോഡ് ആകുന്നു…</string>
+    <string name="weather_getting_location">നിങ്ങളുടെ ലൊക്കേഷൻ നേടുന്നു…</string>
+    <string name="weather_no_data">ഇതുവരെ കാലാവസ്ഥാ ഡാറ്റയില്ല. ഒരു ലൊക്കേഷൻ തിരഞ്ഞെടുത്ത് പിന്നെ പുതുക്കൽ അമർത്തുക.</string>
+    <string name="weather_network_error">കാലാവസ്ഥ ലഭിച്ചില്ല. ഇന്റർനെറ്റ് കണക്ഷൻ പരിശോധിച്ച് പിന്നെ പുതുക്കൽ അമർത്തുക.</string>
+    <string name="weather_no_location">ലൊക്കേഷൻ തിരഞ്ഞെടുത്തിട്ടില്ല. ലൊക്കേഷൻ തിരഞ്ഞെടുക്കുക അമർത്തുക.</string>
+
+    <string name="weather_location_request">ലൊക്കേഷൻ പ്രവേശനം ഓഫ് ആണ്. അനുവദിക്കാൻ അല്ലെങ്കിൽ കോർഡിനേറ്റുകൾ നൽകാൻ ലൊക്കേഷൻ തിരഞ്ഞെടുക്കുക അമർത്തുക.</string>
+    <string name="weather_location_denied">ലൊക്കേഷൻ അനുമതി നിഷേധിച്ചു. നിങ്ങൾക്ക് ഇപ്പോഴും കോർഡിനേറ്റുകൾ സ്വയം നൽകാം.</string>
+    <string name="weather_location_fix_failed">ലൊക്കേഷൻ ഫിക്സ് ലഭിച്ചില്ല. GPS ഓൺ ചെയ്യുക, അല്ലെങ്കിൽ കോർഡിനേറ്റുകൾ സ്വയം നൽകുക.</string>
+    <string name="weather_invalid_coordinates">സാധുവായ അക്ഷാംശവും രേഖാംശവും നൽകുക.</string>
+
+    <string name="weather_select_location">ലൊക്കേഷൻ തിരഞ്ഞെടുക്കുക</string>
+    <string name="weather_choose_location">ഒരു ലൊക്കേഷൻ തിരഞ്ഞെടുക്കുക</string>
+    <string name="weather_use_current_location">എന്റെ നിലവിലെ ലൊക്കേഷൻ ഉപയോഗിക്കുക</string>
+    <string name="weather_enter_coordinates">കോർഡിനേറ്റുകൾ സ്വയം നൽകുക</string>
+    <string name="weather_manual_title">കോർഡിനേറ്റുകൾ നൽകുക</string>
+    <string name="weather_lat_hint">അക്ഷാംശം (-90 മുതൽ 90)</string>
+    <string name="weather_lon_hint">രേഖാംശം (-180 മുതൽ 180)</string>
+
+    <string name="weather_cache_fresh">സൂക്ഷിച്ച ഡാറ്റ കാണിക്കുന്നു</string>
+    <string name="weather_using_cache">സൂക്ഷിച്ച ഡാറ്റ കാണിക്കുന്നു, അത് പഴയതാകാം</string>
+
+    <string name="weather_warning_help">മുന്നറിയിപ്പുകൾ എന്തുകൊണ്ട് വരുന്നു</string>
+    <string name="weather_warning_help_text">കാലാവസ്ഥാ പ്രവചനങ്ങൾ അന്തരീക്ഷം എങ്ങനെ പ്രവർത്തിക്കാൻ സാധ്യതയുണ്ടെന്ന് കാണിക്കുന്നു. പ്രളയം നടക്കുകയാണോ അല്ലെങ്കിൽ നടക്കുമോ എന്ന് അവയ്ക്ക് ഉറപ്പാക്കാൻ കഴിയില്ല, ഈ ആപ്പ് ഔദ്യോഗിക മുന്നറിയിപ്പുകൾ ഒരിക്കലും നിർമ്മിക്കുന്നില്ല. ഔദ്യോഗിക ഒഴിപ്പിക്കൽ ഉത്തരവിനായി പ്രവചനം കാത്തിരിക്കരുത്. പ്രാദേശിക ദുരന്തനിവാരണ നിർദ്ദേശങ്ങൾ ഉടനെ പാലിക്കുക.</string>
+</resources>

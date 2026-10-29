@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="guide_back_title">← ತುರ್ತು ಮಾರ್ಗದರ್ಶಿ</string>
+    <string name="guide_back_to_list">← ಪರಿಸ್ಥಿತಿಗಳು</string>
+    <string name="guide_heading">ತುರ್ತು ಬದುಕುಳಿಕೆ ಮಾರ್ಗದರ್ಶಿ</string>
+    <string name="guide_subtitle">ನಿಮ್ಮ ಪರಿಸ್ಥಿತಿ ಆರಿಸಿ, ಸಣ್ಣ ಸಂಖ್ಯಾ ಹಂತಗಳನ್ನು ಓದಿ. ಅತಿ ತುರ್ತು ಪರಿಸ್ಥಿತಿಗಳು ಮೊದಲು ಪಟ್ಟಿಯಲ್ಲಿವೆ.</string>
+    <string name="guide_disclaimer">ಮೊದಲು ತುರ್ತು ಸೇವೆಗಳ ಅಧಿಕೃತ ಸೂಚನೆಗಳನ್ನು ಪಾಲಿಸಿ. FloodCue ಸಾಮಾನ್ಯ ಸಾರ್ವಜನಿಕ ಸುರಕ್ಷತಾ ಮಾರ್ಗದರ್ಶನವನ್ನು ಮಾತ್ರ ಪುನರಾವರ್ತಿಸುತ್ತದೆ — ಭೂಮಿಯ ಸ್ಥಿತಿಯನ್ನು ಅದು ಪರಿಶೀಲಿಸಲಾಗದು; SMS, ಕರೆ, GPS ಅಥವಾ ಮೆಷ್ ಸಂದೇಶಗಳು ನಿಮ್ಮ ಸಾಧನ, ಅನುಮತಿ ಮತ್ತು ಜಾಲ ಅನುಮತಿಸಿದಾಗ ಮಾತ್ರ ಕೆಲಸ ಮಾಡುತ್ತವೆ.</string>
+    <string name="guide_sos_button">SOS ತುರ್ತು ಸಂದೇಶ ಕಳುಹಿಸಿ</string>
+    <string name="home_emergency_guide">ತುರ್ತು ಮಾರ್ಗದರ್ಶಿ</string>
+</resources>

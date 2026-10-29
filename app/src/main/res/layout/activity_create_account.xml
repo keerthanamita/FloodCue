@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/createAccountScrollView"
@@ -18,31 +17,46 @@
         android:gravity="center"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
-        android:paddingTop="20dp"
-        android:paddingBottom="14dp">
+            android:paddingTop="32dp"
+            android:paddingBottom="32dp">
 
-        <!-- App name -->
+        <!-- Shield Icon Badge (Logo-free, clean and reliable) -->
+        <FrameLayout
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_circle_icon"
+            android:layout_marginBottom="14dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_security_shield"
+                android:contentDescription="Security" />
+        </FrameLayout>
+
+        <!-- Brand Name -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name"
             android:textColor="@color/text_primary"
-            android:textSize="17sp"
+            android:textSize="30sp"
             android:textStyle="bold"
-            android:fontFamily="sans"
-            android:letterSpacing="0.01"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.02"
             android:includeFontPadding="false" />
 
         <!-- Heading -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="Create your account"
-            android:textColor="@color/text_primary"
-            android:textSize="25sp"
+            android:layout_marginTop="4dp"
+            android:text="@string/create_account_heading"
+            android:textColor="@color/button_primary"
+            android:textSize="22sp"
             android:textStyle="bold"
-            android:fontFamily="sans"
+            android:fontFamily="sans-serif"
             android:gravity="center"
             android:includeFontPadding="false" />
 
@@ -50,22 +64,22 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Create an account to get started with FloodCue"
+            android:text="@string/create_account_subtitle"
             android:textColor="@color/text_secondary"
-            android:textSize="14sp"
-            android:fontFamily="sans"
+            android:textSize="13sp"
+            android:fontFamily="sans-serif"
             android:gravity="center"
             android:layout_marginTop="4dp"
-            android:layout_marginBottom="15dp" />
-        <!-- Login/Create Account Card -->
+            android:layout_marginBottom="16dp" />
+
+        <!-- Card Container -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/createAccountCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
             app:cardBackgroundColor="@color/surface_color"
-            app:cardCornerRadius="18dp"
-            app:cardElevation="3dp"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="4dp"
             app:strokeColor="@color/border_color"
             app:strokeWidth="1dp">
 
@@ -73,7 +87,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="22dp"
+                android:paddingBottom="20dp">
 
                 <!-- Email -->
                 <com.google.android.material.textfield.TextInputLayout
@@ -81,7 +98,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Email"
+android:hint="@string/auth_email_hint"
                     app:boxBackgroundMode="outline"
                     app:boxCornerRadiusTopStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
@@ -114,8 +131,8 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Password"
-                    android:layout_marginTop="10dp"
+android:hint="@string/auth_password_hint"
+                    android:layout_marginTop="12dp"
                     app:boxBackgroundMode="outline"
                     app:boxCornerRadiusTopStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
@@ -149,8 +166,8 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Confirm password"
-                    android:layout_marginTop="10dp"
+android:hint="@string/auth_confirm_password_hint"
+                    android:layout_marginTop="12dp"
                     app:boxBackgroundMode="outline"
                     app:boxCornerRadiusTopStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
@@ -178,37 +195,37 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Create account -->
+                <!-- Create account Button -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/buttonCreateAccount"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
+                    android:layout_height="54dp"
                     android:layout_marginTop="16dp"
-                    android:text="Create account"
+                    android:background="@drawable/bg_button_primary"
+                    app:backgroundTint="@null"
+                    android:text="@string/create_account_button"
                     android:textColor="@color/button_primary_text"
-                    android:textSize="15sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     android:fontFamily="sans"
                     android:textAllCaps="false"
-                    app:backgroundTint="@color/button_primary"
-                    app:cornerRadius="13dp"
-                    app:rippleColor="@color/button_ripple"
+                    app:cornerRadius="14dp"
                     app:elevation="0dp" />
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
-        <!-- Verification information -->
+
+        <!-- Verification note -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="You'll receive a verification email after creating your account."
+            android:text="@string/create_account_verification_note"
             android:textColor="@color/text_secondary"
             android:textSize="12sp"
             android:fontFamily="sans"
             android:gravity="center"
-            android:lineSpacingExtra="1dp"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="14dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp" />
 
@@ -217,16 +234,16 @@
             android:id="@+id/textBackToLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/bg_link_ripple"
             android:clickable="true"
             android:focusable="true"
-            android:paddingStart="4dp"
-            android:paddingTop="2dp"
-            android:paddingEnd="4dp"
-            android:paddingBottom="2dp"
-            android:text="Already have an account? Login"
-            android:textColor="@color/link_color"
+            android:paddingStart="8dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="4dp"
+            android:text="@string/create_account_sign_in_prompt"
+            android:textColor="@color/button_primary"
             android:textSize="13sp"
             android:textStyle="bold" />
 

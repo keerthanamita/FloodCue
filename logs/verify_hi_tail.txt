@@ -1,0 +1,3 @@
+TAIL: ' कुटुंब या पूरे ग्रस्तों के लिए आपको अपने लोगों के बिना फेंकने में नहीं खाना चाहिए.</string>\n\n    <string name="guide_situation_14_block_2_header">tmlshume vaamashu sapooweeku vaamashu sapooweeku sapaasura paravaana vaakalu.న</string>\n\n    <string name="guide_situations_remaining">सुरक्षा मार्गदर्श\n'
+LASTLINE: '    <string name="guide_situations_remaining">सुरक्षा मार्गदर्श'
+ENDS_CLOSED: False

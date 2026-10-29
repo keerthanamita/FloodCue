@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+    <include layout="@layout/layout_base_screen" />
+    <LinearLayout
+        android:id="@+id/content_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="32dp">
+        <LinearLayout xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:layout_width="match_parent" ns0:layout_height="64dp" ns0:gravity="center_vertical" ns0:paddingStart="8dp" ns0:paddingEnd="20dp">
+        
+                <TextView ns0:id="@+id/buttonBackFromEmergencySOS" ns0:layout_width="wrap_content" ns0:layout_height="wrap_content" ns0:background="@drawable/bg_link_ripple" ns0:clickable="true" ns0:focusable="true" ns0:padding="12dp" ns0:text="@string/sos_emergency_back_title" ns0:textColor="@color/text_primary" ns0:textSize="20sp" ns0:textStyle="bold" />
+        
+            </LinearLayout>
+        
+            
+        <ScrollView xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:layout_width="match_parent" ns0:layout_height="0dp" ns0:layout_weight="1" ns0:fillViewport="true" ns0:overScrollMode="never">
+        
+                <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:paddingStart="8dp" ns0:paddingTop="8dp" ns0:paddingEnd="8dp" ns0:paddingBottom="32dp">
+        
+                    <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/sos_emergency_heading" ns0:textColor="@color/text_primary" ns0:textSize="24sp" ns0:textStyle="bold" />
+        
+                    <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns0:text="@string/sos_emergency_short" ns0:textColor="@color/text_secondary" ns0:textSize="14sp" />
+        
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:orientation="horizontal">
+        
+                        <Button ns0:id="@+id/buttonSendEmergencySOS" ns0:layout_width="0dp" ns0:layout_height="52dp" ns0:layout_weight="1" ns0:layout_marginEnd="8dp" ns0:background="@drawable/bg_button_primary" ns0:backgroundTint="@null" ns0:elevation="0dp" ns0:minHeight="0dp" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:text="@string/sos_emergency_send" ns0:textAllCaps="false" ns0:textColor="@color/button_primary_text" ns0:textSize="15sp" ns0:textStyle="bold" />
+        
+                        <Button ns0:id="@+id/buttonStopSiren" ns0:layout_width="0dp" ns0:layout_height="52dp" ns0:layout_weight="1" ns0:layout_marginStart="8dp" ns0:background="@drawable/bg_button_secondary" ns0:backgroundTint="@null" ns0:elevation="0dp" ns0:minHeight="0dp" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:text="@string/home_siren_stop" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" ns0:textSize="15sp" />
+        
+                    </LinearLayout>
+        
+                    <TextView ns0:id="@+id/sosEmergencyStatus" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:textColor="@color/text_secondary" ns0:textSize="14sp" />
+        
+                    <LinearLayout ns0:id="@+id/sosEmergencyContacts" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:orientation="vertical" ns0:visibility="gone" />
+        
+                    <LinearLayout ns0:id="@+id/sosEmergencyLocation" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:orientation="vertical" ns0:visibility="gone" />
+        
+                </LinearLayout>
+        
+            </ScrollView>
+        
+        
+    </LinearLayout>
+</merge>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sos_emergency_send">అత్యవసర SOS పంపించు</string>
+    <string name="sos_emergency_no_contacts">అత్యవసర పరిచయస్తులు లేరు. SOS పంపే ముందు Emergency Contacts స్క్రీన్‌లో వారిని జోడించండి.</string>
+    <string name="sos_emergency_location_last_known">చివరిగా తెలిసిన స్థానం మాత్రమే — %1$s (నాటిది: %2$s).</string>
+    <string name="sos_emergency_feeding_sms">SMS పంపుతోంది…</string>
+    <string name="sos_emergency_no_sim">SIM గుర్తించబడలేదు — SMS పంపలేము.</string>
+</resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Weather screen: app-language labels resolved through the app locale.
+         (Survival-language weather content is kept outside this file when a
+         screen opts into survival content; this file here covers the standard
+         interface labels referenced by getString / R.string.) -->
+
+    <string name="weather_rain_prob">వర్ష అవకాశం: %1$d%%</string>
+
+    <string name="weather_details_title">వివరాలు</string>
+    <string name="weather_label_humidity">తేమ</string>
+    <string name="weather_value_humidity">%1$d%%</string>
+    <string name="weather_label_feels_like">అనుభవమయ్యే ఉష్ణోగ్రత</string>
+    <string name="weather_value_feels_like">%1$.1f °C</string>
+    <string name="weather_label_pressure">గాలి పీడనం</string>
+    <string name="weather_value_pressure">%1$.1f hPa</string>
+    <string name="weather_label_cloud">మేఘాల కప్పివుండడం</string>
+    <string name="weather_value_cloud">%1$d%%</string>
+    <string name="weather_label_gusts">గాలి తోపులు</string>
+    <string name="weather_value_gusts">%1$.1f మీ/సె</string>
+    <string name="weather_label_visibility">కనిపించే దూరం</string>
+    <string name="weather_value_visibility">%1$.1f కి.మీ</string>
+    <string name="weather_label_rain_6h">తర్వాత 6 గంటల వర్షం</string>
+    <string name="weather_value_rain_6h">%1$.1f మి.మీ</string>
+    <string name="weather_selected_location">ఎంచుకున్నది: %1$.3f, %2$.3f</string>
+
+    <string name="weather_ok">సరే</string>
+    <string name="weather_cancel">వద్దు</string>
+    <string name="weather_use_location">స్థానం ఉపయోగించు</string>
+    <string name="weather_refresh">రిఫ్రెష్</string>
+
+    <string name="weather_loading">వాతావరణం లోడ్ అవుతోంది…</string>
+    <string name="weather_getting_location">మీ స్థానం తీసుకోబడుతోంది…</string>
+    <string name="weather_no_data">ఇంకా వాతావరణ డేటా లేదు. స్థానాన్ని ఎంచుకుని, రిఫ్రెష్ నొక్కండి.</string>
+    <string name="weather_network_error">వాతావరణం తీసుకోలేకపోయాము. ఇంటర్నెట్ కనెక్షన్ తనిఖీ చేసి, రిఫ్రెష్ నొక్కండి.</string>
+    <string name="weather_no_location">స్థానం ఎంచుకోలేదు. స్థానాన్ని ఎంచుకోండి నొక్కండి.</string>
+
+    <string name="weather_location_request">స్థాన అనుమతి లేదు. స్థానాన్ని ఎంచుకోండి నొక్కి అనుమతించండి లేదా నిర్దేశాంకాలు టైప్ చేయండి.</string>
+    <string name="weather_location_denied">స్థాన అనుమతి నిరాకరించబడింది. నిర్దేశాంకాలు టైప్ చేయవచ్చు.</string>
+    <string name="weather_location_fix_failed">స్థానం పొందలేకపోయాము. GPS ఆన్ చేయండి, లేదా నిర్దేశాంకాలు టైప్ చేయండి.</string>
+    <string name="weather_invalid_coordinates">సరైన అక్షాంశం, రేఖాంశం నమోదు చేయండి.</string>
+
+    <string name="weather_use_current_location">నా ప్రస్తుత స్థానం ఉపయోగించు</string>
+    <string name="weather_enter_coordinates">నిర్దేశాంకాలు టైప్ చేయండి</string>
+    <string name="weather_lat_hint">అక్షాంశం (-90 నుండి 90)</string>
+    <string name="weather_lon_hint">రేఖాంశం (-180 నుండి 180)</string>
+
+    <string name="weather_cache_fresh">సేవ్ చేసిన డేటా చూపిస్తోంది</string>
+    <string name="weather_using_cache">సేవ్ చేసిన డేటా చూపిస్తోంది, పాతది కావచ్చు</string>
+
+    <string name="weather_warning_help">హెచ్చరికలు ఎందుకు వస్తాయి?</string>
+    <string name="weather_warning_help_text">వాతావరణ సూచనలు గాలి ఏమి చేస్తుందో చూపిస్తాయి. వరద నిజంగా జరుగుతుందో లేదో అవి చెప్పలేవు, ఈ యాప్ కూడా అధికారిక హెచ్చరికలను కల్పించదు. అధికారిక ఆదేశం వచ్చినప్పుడు సూచన కోసం ఆగకండి — స్థానిక విపత్తు నిర్వహణ సూచనలు వెంటనే పాటించండి.</string>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sos_emergency_back_title">← SOS आपातकालीन</string>
+    <string name="sos_emergency_heading">अत्यंत तत्काल SOS</string>
+    <string name="sos_emergency_short">एक साथ 3 काम: तत्काल पहलुओं को SOS संदेश, सायरन, और मैप लिंक के साथ अपना GPS स्थान.</string>
+    <string name="sos_emergency_send">तत्काल SOS भेजें</string>
+    <string name="sos_emergency_sms_sent">तत्काल पहलुओं को SOS संदेश भेज दिया गया.</string>
+    <string name="sos_emergency_sms_failed">SOS संदेश नहीं भेज सके. जांचें कि नेटवर्क मौजूद है और कम से कम एक तत्काल पहलू है.</string>
+    <string name="sos_emergency_sms_pending">SOS कतार में है</string>
+    <string name="sos_emergency_no_contacts">कोई तत्काल पहलू नहीं. SOS भेजने से पहले Emergency Contacts स्क्रीन पर व्यक्तियों को जोड़ें.</string>
+    <string name="sos_emergency_location">स्थान</string>
+    <string name="sos_emergency_location_available">वर्तमान स्थान मिल गया — निर्देशांक, मैप लिंक जोड़े गए.</string>
+    <string name="sos_emergency_location_unavailable">स्थान नहीं मिल सका.</string>
+    <string name="sos_emergency_location_last_known">केवल अंतिम ज्ञात स्थान — %1$s (समय: %2$s).</string>
+    <string name="sos_emergency_siren">सायरन बज रही है — रोकने के लिए \"सायरन बंद\" दबाएं.}</string>
+    <string name="sos_emergency_feeding_sms">SMS भेजा जा रहा है…</string>
+    <string name="sos_emergency_contact">तत्काल पहलू</string>
+    <string name="sos_emergency_perm_denied">निर्देशांक के लिए लोकेशन अनुमति चाहिए. सेटिंग्स में चालू करें.</string>
+    <string name="sos_emergency_no_sim">SIM पहचाना नहीं गया — SMS नहीं भेज सकते.</string>
+</resources>

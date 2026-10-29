@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="weather_back_title">← Weather</string>
+    <string name="weather_header">Weather</string>
+
+    <!-- Formatted values: argument types must match the Java getString calls. -->
+    <string name="weather_temp">%1$.1f°C</string>
+    <string name="weather_condition">%1$s</string>
+    <string name="weather_rain">Rain: %1$.1f mm</string>
+    <string name="weather_rain_prob">Rain chance: %1$d%%</string>
+    <string name="weather_rain_24h">Rain next 24h: %1$.1f mm</string>
+    <string name="weather_wind">Wind: %1$.1f m/s · %2$s</string>
+    <string name="weather_hourly">Hourly rain (next 24h)</string>
+
+    <!-- Extra readings shown as a card grid. Argument types must match the
+         getString calls in WeatherActivity. -->
+    <string name="weather_details_title">More details</string>
+    <string name="weather_label_humidity">Humidity</string>
+    <string name="weather_value_humidity">%1$d%%</string>
+    <string name="weather_label_feels_like">Feels like</string>
+    <string name="weather_value_feels_like">%1$.1f°C</string>
+    <string name="weather_label_pressure">Air pressure</string>
+    <string name="weather_value_pressure">%1$.1f hPa</string>
+    <string name="weather_label_cloud">Cloud cover</string>
+    <string name="weather_value_cloud">%1$d%%</string>
+    <string name="weather_label_gusts">Wind gusts</string>
+    <string name="weather_value_gusts">%1$.1f m/s</string>
+    <string name="weather_label_visibility">Visibility</string>
+    <string name="weather_value_visibility">%1$.1f km</string>
+    <string name="weather_label_rain_6h">Rain next 6 hours</string>
+    <string name="weather_value_rain_6h">%1$.1f mm</string>
+    <string name="weather_selected_location">Selected: %1$.3f, %2$.3f</string>
+    <string name="weather_cache_note">%1$s · Last updated %2$s</string>
+
+    <string name="weather_unavailable">Unavailable</string>
+    <string name="weather_ok">OK</string>
+    <string name="weather_cancel">Cancel</string>
+    <string name="weather_use_location">Use location</string>
+    <string name="weather_refresh">Refresh</string>
+
+    <string name="weather_loading">Loading weather…</string>
+    <string name="weather_getting_location">Getting your location…</string>
+    <string name="weather_no_data">No weather data yet. Choose a location, then tap Refresh.</string>
+    <string name="weather_network_error">Could not fetch weather. Check your internet connection, then tap Refresh.</string>
+    <string name="weather_no_location">No location selected. Tap Select location.</string>
+
+    <string name="weather_location_request">Location access is off. Tap Select location to allow it or to enter coordinates.</string>
+    <string name="weather_location_denied">Location permission was denied. You can still enter coordinates manually.</string>
+    <string name="weather_location_fix_failed">Could not get a location fix. Turn on GPS, or enter coordinates manually.</string>
+    <string name="weather_invalid_coordinates">Enter a valid latitude and longitude.</string>
+
+    <string name="weather_select_location">Select location</string>
+    <string name="weather_choose_location">Choose a location</string>
+    <string name="weather_use_current_location">Use my current location</string>
+    <string name="weather_enter_coordinates">Enter coordinates manually</string>
+    <string name="weather_manual_title">Enter coordinates</string>
+    <string name="weather_lat_hint">Latitude (-90 to 90)</string>
+    <string name="weather_lon_hint">Longitude (-180 to 180)</string>
+
+    <string name="weather_cache_fresh">Showing saved data</string>
+    <string name="weather_using_cache">Showing saved data, it may be outdated</string>
+
+    <string name="weather_warning_help">Why warnings appear</string>
+    <string name="weather_warning_help_text">Weather forecasts show what the atmosphere is likely to do. They cannot confirm that flooding is happening or will happen, and this app never invents official alerts. Never wait for a forecast to act on an official evacuation order. Follow local disaster-management instructions immediately.</string>
+</resources>

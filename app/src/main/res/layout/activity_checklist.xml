@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+    <include layout="@layout/layout_base_screen" />
+    <LinearLayout
+        android:id="@+id/content_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="32dp">
+        <LinearLayout xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:layout_width="match_parent" ns0:layout_height="64dp" ns0:gravity="center_vertical" ns0:paddingStart="8dp" ns0:paddingEnd="20dp">
+        
+                <TextView ns0:id="@+id/buttonBackToHome" ns0:layout_width="wrap_content" ns0:layout_height="wrap_content" ns0:background="@drawable/bg_link_ripple" ns0:clickable="true" ns0:focusable="true" ns0:padding="12dp" ns0:text="@string/checklist_back_title" ns0:textColor="@color/text_primary" ns0:textSize="20sp" ns0:textStyle="bold" />
+        
+            </LinearLayout>
+        
+            
+        <LinearLayout xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:background="@drawable/bg_home_sage_card" ns0:orientation="vertical" ns0:paddingStart="20dp" ns0:paddingTop="20dp" ns0:paddingEnd="20dp" ns0:paddingBottom="16dp">
+        
+                <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/checklist_heading" ns0:textColor="@color/button_primary" ns0:textSize="23sp" ns0:textStyle="bold" />
+        
+                <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns0:text="@string/checklist_subtitle" ns0:textColor="@color/text_secondary" ns0:textSize="14sp" />
+        
+                <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:orientation="horizontal">
+        
+                    <Button ns0:id="@+id/buttonChecklistEssential" ns0:layout_width="0dp" ns0:layout_height="50dp" ns0:layout_weight="1" ns0:background="@drawable/bg_home_lilac_card" ns0:backgroundTint="@null" ns0:elevation="0dp" ns0:minHeight="0dp" ns0:paddingStart="12dp" ns0:paddingEnd="12dp" ns0:text="@string/checklist_tab_essential" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" ns0:textSize="14sp" ns0:textStyle="bold" />
+        
+                    <Button ns0:id="@+id/buttonChecklistComplete" ns0:layout_width="0dp" ns0:layout_height="50dp" ns0:layout_marginStart="12dp" ns0:layout_weight="1" ns0:background="@drawable/bg_home_sand_card" ns0:backgroundTint="@null" ns0:elevation="0dp" ns0:minHeight="0dp" ns0:paddingStart="12dp" ns0:paddingEnd="12dp" ns0:text="@string/checklist_tab_complete" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" ns0:textSize="14sp" />
+        
+                </LinearLayout>
+        
+                <TextView ns0:id="@+id/checklistOverallProgress" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:layout_marginBottom="4dp" ns0:textColor="@color/text_secondary" ns0:textSize="14sp" ns0:textStyle="bold" />
+        
+            </LinearLayout>
+        
+            
+        <ScrollView xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:layout_width="match_parent" ns0:layout_height="0dp" ns0:layout_weight="1" ns0:fillViewport="true" ns0:overScrollMode="never">
+        
+                <LinearLayout ns0:id="@+id/checklistContainer" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:paddingStart="20dp" ns0:paddingTop="12dp" ns0:paddingEnd="20dp" ns0:paddingBottom="104dp" />
+        
+            </ScrollView>
+        
+        
+    </LinearLayout>
+</merge>

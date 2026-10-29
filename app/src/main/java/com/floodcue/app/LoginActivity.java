@@ -14,6 +14,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 import android.widget.TextView;
+import java.io.File;
+import java.io.IOException;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.credentials.Credential;
@@ -36,7 +38,13 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends FloodCueActivity {
+
+    @Override
+    protected boolean showsBottomNavigation() {
+        return false;
+    }
+
 
     private TextInputLayout emailInputLayout;
     private TextInputLayout passwordInputLayout;
@@ -81,19 +89,21 @@ public class LoginActivity extends AppCompatActivity {
 
         forgotPasswordText = findViewById(R.id.textForgotPassword);
         createAccountText = findViewById(R.id.textCreateAccount);
-
+        TextView changeLanguageText =
+                findViewById(R.id.textChangeLanguage);
         // =========================================================
         // CREATE ACCOUNT TEXT
         // =========================================================
 
         String createAccountLabel =
-                "Don't have an account? Create Account";
+                getString(R.string.login_create_account_prompt);
 
         SpannableString spannable =
                 new SpannableString(createAccountLabel);
 
-        int start = createAccountLabel.indexOf("Create Account");
-        int end = start + "Create Account".length();
+        String createAccountAction = getString(R.string.create_account_button);
+        int start = createAccountLabel.indexOf(createAccountAction);
+        int end = start + createAccountAction.length();
 
         spannable.setSpan(
                 new ForegroundColorSpan(
@@ -197,6 +207,32 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         // =========================================================
+        // GUEST MODE
+        // =========================================================
+
+        findViewById(R.id.textGuestMode).setOnClickListener(v -> {
+            addClickEffect((TextView) v);
+            openGuestHome();
+        });
+
+        findViewById(R.id.textGuestSubtitle).setOnClickListener(v -> {
+            addClickEffect((TextView) v);
+            openGuestHome();
+        });
+        changeLanguageText.setOnClickListener(v -> {
+            Intent intent = new Intent(
+                    LoginActivity.this,
+                    LanguageActivity.class
+            );
+
+            intent.putExtra("LANGUAGE_EDIT_MODE", true);
+            // Lets the picker rebuild this screen (in the new language) after
+            // the user saves a change, instead of leaving a stale instance.
+            intent.putExtra("LANGUAGE_RETURN_TO", "login");
+            startActivity(intent);
+        });
+
+        // =========================================================
         // GOOGLE SIGN-IN
         // =========================================================
 
@@ -293,7 +329,7 @@ public class LoginActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(email)) {
 
             emailInputLayout.setError(
-                    "Enter your email"
+getString(R.string.login_email_required)
             );
 
             valid = false;
@@ -301,7 +337,7 @@ public class LoginActivity extends AppCompatActivity {
         } else if (!isValidEmail(email)) {
 
             emailInputLayout.setError(
-                    "Enter a valid email"
+getString(R.string.login_email_invalid)
             );
 
             valid = false;
@@ -310,7 +346,7 @@ public class LoginActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(password)) {
 
             passwordInputLayout.setError(
-                    "Enter your password"
+getString(R.string.login_password_required)
             );
 
             valid = false;
@@ -333,7 +369,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         setLoginLoading(false);
 
-                        String message = "Login failed";
+                        String message = getString(R.string.login_failed);
 
                         if (task.getException() != null) {
 
@@ -353,14 +389,14 @@ public class LoginActivity extends AppCompatActivity {
                                 )) {
 
                                     message =
-                                            "Incorrect email or password";
+                                            getString(R.string.login_incorrect_credentials);
 
                                 } else if (error.contains(
                                         "network"
                                 )) {
 
                                     message =
-                                            "Check your internet connection";
+                                            getString(R.string.login_network_error);
 
                                 } else {
 
@@ -381,7 +417,7 @@ public class LoginActivity extends AppCompatActivity {
                         setLoginLoading(false);
 
                         showError(
-                                "Unable to get account information"
+                                getString(R.string.login_account_info_failed)
                         );
 
                         return;
@@ -398,7 +434,7 @@ public class LoginActivity extends AppCompatActivity {
                                 if (refreshedUser == null) {
 
                                     showError(
-                                            "Unable to get account information"
+                                            getString(R.string.login_account_info_failed)
                                     );
 
                                     return;
@@ -407,7 +443,7 @@ public class LoginActivity extends AppCompatActivity {
                                 if (!refreshedUser.isEmailVerified()) {
 
                                     showMessage(
-                                            "Please verify your email before logging in."
+                                            getString(R.string.login_verify_email)
                                     );
 
                                     return;
@@ -440,7 +476,7 @@ public class LoginActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(email)) {
 
             emailInputLayout.setError(
-                    "Enter your email first"
+getString(R.string.login_reset_email_required)
             );
 
             return;
@@ -449,7 +485,7 @@ public class LoginActivity extends AppCompatActivity {
         if (!isValidEmail(email)) {
 
             emailInputLayout.setError(
-                    "Enter a valid email"
+getString(R.string.login_email_invalid)
             );
 
             return;
@@ -468,13 +504,13 @@ public class LoginActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
 
                         showMessage(
-                                "Password reset email sent. Check your inbox."
+                                getString(R.string.login_reset_sent)
                         );
 
                     } else {
 
                         String message =
-                                "Unable to send reset email";
+                                getString(R.string.login_reset_failed);
 
                         if (task.getException() != null
                                 && task.getException().getMessage() != null) {
@@ -555,7 +591,7 @@ public class LoginActivity extends AppCompatActivity {
                                     || message.trim().isEmpty()) {
 
                                 message =
-                                        "Google sign-in was cancelled";
+                                        getString(R.string.login_google_cancelled);
                             }
 
                             showMessage(message);
@@ -596,21 +632,21 @@ public class LoginActivity extends AppCompatActivity {
                 } catch (Exception e) {
 
                     showError(
-                            "Unable to process Google sign-in"
+                            getString(R.string.login_google_process_failed)
                     );
                 }
 
             } else {
 
                 showError(
-                        "Unexpected Google credential"
+                        getString(R.string.login_google_credential_unexpected)
                 );
             }
 
         } else {
 
             showError(
-                    "Unexpected credential type"
+                    getString(R.string.login_credential_type_unexpected)
             );
         }
     }
@@ -643,7 +679,7 @@ public class LoginActivity extends AppCompatActivity {
                     } else {
 
                         String message =
-                                "Google authentication failed";
+                                getString(R.string.login_google_failed);
 
                         if (task.getException() != null
                                 && task.getException().getMessage() != null) {
@@ -840,25 +876,96 @@ public class LoginActivity extends AppCompatActivity {
     // NEXT SCREEN
     // =========================================================
 
+    private void openGuestHome() {
+        startActivity(new Intent(this, HomeActivity.class));
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        finish();
+    }
+
+    /**
+     * Clears all user-specific data and returns to the login screen.
+     * Should be called after Firebase sign-out completes.
+     */
+
+    /** Delete the contents of a directory (but keep the directory itself). */
+    private void deleteDirectoryContents(File dir) {
+        if (dir != null && dir.isDirectory()) {
+            for (File child : dir.listFiles()) {
+                if (child.isDirectory()) {
+                    deleteDirectoryContents(child);
+                }
+                child.delete();
+            }
+        }
+    }
+
+    /** Clean up app-private directories after logout. */
+    private void clearAllUserData() {
+        // Clear Firebase current user
+        FirebaseAuth.getInstance().signOut();
+
+        // Clear all app preferences
+        getSharedPreferences(
+                "FloodCuePrefs",
+                MODE_PRIVATE
+        ).edit().clear().apply();
+
+        // Delete all local databases
+        for (String databaseName : databaseList()) {
+            deleteDatabase(databaseName);
+        }
+
+        // Clean up app-private directories
+        deleteDirectoryContents(getFilesDir());
+        deleteDirectoryContents(getCacheDir());
+        deleteDirectoryContents(getNoBackupFilesDir());
+        deleteDirectoryContents(getCodeCacheDir());
+
+        // Clean external files directory too
+        java.io.File[] externalDirs = getExternalFilesDirs(null);
+        if (externalDirs != null) {
+            for (java.io.File dir : externalDirs) {
+                if (dir != null) {
+                    deleteDirectoryContents(dir);
+                }
+            }
+        }
+    }
+
     private void openNextScreen() {
 
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+
+        if (user == null) {
+            showError(getString(R.string.login_account_info_failed));
+            return;
+        }
+
+        String setupKey = "setup_completed_" + user.getUid();
+
         boolean setupCompleted =
-                prefs.getBoolean(
-                        "setup_completed",
-                        false
-                );
+                prefs.getBoolean(setupKey, false);
+
+        // Preserve completed setup from the old preference key
+        if (!setupCompleted) {
+            setupCompleted =
+                    prefs.getBoolean("setup_completed", false);
+
+            if (setupCompleted) {
+                prefs.edit()
+                        .putBoolean(setupKey, true)
+                        .apply();
+            }
+        }
 
         Intent intent;
 
         if (setupCompleted) {
-
             intent = new Intent(
                     LoginActivity.this,
                     HomeActivity.class
             );
-
         } else {
-
             intent = new Intent(
                     LoginActivity.this,
                     SetupActivity.class
@@ -866,15 +973,12 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         startActivity(intent);
-
         overridePendingTransition(
                 android.R.anim.fade_in,
                 android.R.anim.fade_out
         );
-
         finish();
     }
-
     // =========================================================
     // CLEANUP
     // =========================================================

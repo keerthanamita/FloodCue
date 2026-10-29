@@ -1,0 +1,194 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+Reusing configuration cache.
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:processDebugGoogleServices UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:generateDebugGlobalSynthetics UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :app:mergeLibDexDebug UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths
+> Task :app:processDebugNavigationResources
+> Task :app:compileDebugNavigationResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :app:mergeDebugNativeLibs UP-TO-DATE
+> Task :app:stripDebugDebugSymbols UP-TO-DATE
+> Task :app:parseDebugLocalResources
+> Task :app:generateDebugRFile UP-TO-DATE
+> Task :app:compileDebugKotlin NO-SOURCE
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+> Task :app:compileDebugJavaWithJavac UP-TO-DATE
+> Task :app:mergeDebugResources
+warn: removing resource com.floodcue.app:string/about_app_description without required default value.
+warn: removing resource com.floodcue.app:string/about_app_name without required default value.
+warn: removing resource com.floodcue.app:string/about_bridgefy_description without required default value.
+warn: removing resource com.floodcue.app:string/about_bridgefy_downloading without required default value.
+warn: removing resource com.floodcue.app:string/about_bridgefy_install without required default value.
+warn: removing resource com.floodcue.app:string/about_bridgefy_install_note without required default value.
+warn: removing resource com.floodcue.app:string/about_bridgefy_note without required default value.
+warn: removing resource com.floodcue.app:string/about_floodcue_about_bridgefy without required default value.
+warn: removing resource com.floodcue.app:string/about_floodcue_about_bridgefy_text without required default value.
+warn: removing resource com.floodcue.app:string/about_floodcue_alerts without required default value.
+warn: removing resource com.floodcue.app:string/about_floodcue_alerts_text without required default value.
+warn: removing resource com.floodcue.app:string/about_floodcue_description without required default value.
+warn: removing resource com.floodcue.app:string/about_floodcue_features without required default value.
+warn: removing resource com.floodcue.app:string/about_floodcue_guide without required default value.
+warn: removing resource com.floodcue.app:string/about_floodcue_guide_text without required default value.
+warn: removing resource com.floodcue.app:string/about_floodcue_offline_maps without required default value.
+warn: removing resource com.floodcue.app:string/about_floodcue_offline_maps_text without required default value.
+warn: removing resource com.floodcue.app:string/about_floodcue_sos without required default value.
+warn: removing resource com.floodcue.app:string/about_floodcue_sos_text without required default value.
+warn: removing resource com.floodcue.app:string/about_floodcue_tips without required default value.
+warn: removing resource com.floodcue.app:string/about_floodcue_tips_text without required default value.
+warn: removing resource com.floodcue.app:string/about_language without required default value.
+warn: removing resource com.floodcue.app:string/about_language_text without required default value.
+warn: removing resource com.floodcue.app:string/about_title without required default value.
+warn: removing resource com.floodcue.app:string/bottom_nav_alerts without required default value.
+warn: removing resource com.floodcue.app:string/bottom_nav_contacts without required default value.
+warn: removing resource com.floodcue.app:string/bottom_nav_home without required default value.
+warn: removing resource com.floodcue.app:string/bottom_nav_more without required default value.
+warn: removing resource com.floodcue.app:string/bottom_nav_sos without required default value.
+warn: removing resource com.floodcue.app:string/bottom_nav_weather without required default value.
+warn: removing resource com.floodcue.app:string/btn_add without required default value.
+warn: removing resource com.floodcue.app:string/btn_back without required default value.
+warn: removing resource com.floodcue.app:string/btn_cancel without required default value.
+warn: removing resource com.floodcue.app:string/btn_close without required default value.
+warn: removing resource com.floodcue.app:string/btn_continue without required default value.
+warn: removing resource com.floodcue.app:string/btn_delete without required default value.
+warn: removing resource com.floodcue.app:string/btn_edit without required default value.
+warn: removing resource com.floodcue.app:string/btn_ok without required default value.
+warn: removing resource com.floodcue.app:string/btn_remove without required default value.
+warn: removing resource com.floodcue.app:string/btn_retry without required default value.
+warn: removing resource com.floodcue.app:string/btn_save without required default value.
+warn: removing resource com.floodcue.app:string/checklist_all_done without required default value.
+warn: removing resource com.floodcue.app:string/checklist_reset without required default value.
+warn: removing resource com.floodcue.app:string/checklist_reset_cancel without required default value.
+warn: removing resource com.floodcue.app:string/checklist_reset_confirm without required default value.
+warn: removing resource com.floodcue.app:string/checklist_reset_message without required default value.
+warn: removing resource com.floodcue.app:string/contacts_add without required default value.
+warn: removing resource com.floodcue.app:string/contacts_add_title without required default value.
+warn: removing resource com.floodcue.app:string/contacts_delete_confirm without required default value.
+warn: removing resource com.floodcue.app:string/contacts_delete_message without required default value.
+warn: removing resource com.floodcue.app:string/contacts_delete_title without required default value.
+warn: removing resource com.floodcue.app:string/contacts_edit_title without required default value.
+warn: removing resource com.floodcue.app:string/contacts_empty without required default value.
+warn: removing resource com.floodcue.app:string/contacts_heading without required default value.
+warn: removing resource com.floodcue.app:string/contacts_help_add without required default value.
+warn: removing resource com.floodcue.app:string/contacts_help_intro without required default value.
+warn: removing resource com.floodcue.app:string/contacts_help_number without required default value.
+warn: removing resource com.floodcue.app:string/contacts_invalid_number without required default value.
+warn: removing resource com.floodcue.app:string/contacts_removed without required default value.
+warn: removing resource com.floodcue.app:string/contacts_required_field without required default value.
+warn: removing resource com.floodcue.app:string/contacts_saved without required default value.
+warn: removing resource com.floodcue.app:string/contacts_subtitle without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_alert_downloaded without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_alert_title without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_alert_type without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_attach_map without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_district_label_exit without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_district_label_none without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_district_label_none_note without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_district_label_note without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_district_label_note_exit without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_district_label_other without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_district_placeholder without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_district_select_subtitle without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_district_select_title without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_fetch_failed without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_issue without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_last_updated without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_learn_more without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_message without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_meta_last_fetched without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_meta_last_updated without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_meta_loading without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_meta_offline without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_no_alert without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_no_alerts without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_no_district without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_provider without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_region without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_region_tip without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_report_issue without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_retry without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_see_more without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_select_district without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_severity_title without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_sms_failed without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_sms_help without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_sms_missing_number without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_sms_opened without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_sms_unavailable without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_tap_for_details without required default value.
+warn: removing resource com.floodcue.app:string/flood_alert_validity without required default value.
+warn: removing resource com.floodcue.app:string/guide_back_to_card without required default value.
+warn: removing resource com.floodcue.app:string/guide_back_to_title without required default value.
+warn: removing resource com.floodcue.app:string/guide_read_more without required default value.
+warn: removing resource com.floodcue.app:string/hint_add_message without required default value.
+warn: removing resource com.floodcue.app:string/hint_add_name without required default value.
+warn: removing resource com.floodcue.app:string/hint_add_number without required default value.
+warn: removing resource com.floodcue.app:string/nav_alerts without required default value.
+warn: removing resource com.floodcue.app:string/nav_more without required default value.
+warn: removing resource com.floodcue.app:string/nav_weather without required default value.
+warn: removing resource com.floodcue.app:string/offline_comm_turn_on without required default value.
+warn: removing resource com.floodcue.app:string/offline_maps_download without required default value.
+warn: removing resource com.floodcue.app:string/offline_maps_download_cancel without required default value.
+warn: removing resource com.floodcue.app:string/offline_maps_download_retry without required default value.
+warn: removing resource com.floodcue.app:string/offline_maps_remove without required default value.
+warn: removing resource com.floodcue.app:string/offline_maps_remove_confirm without required default value.
+warn: removing resource com.floodcue.app:string/offline_maps_removed without required default value.
+warn: removing resource com.floodcue.app:string/offline_maps_status_available without required default value.
+warn: removing resource com.floodcue.app:string/offline_maps_status_downloading without required default value.
+warn: removing resource com.floodcue.app:string/offline_maps_status_not_downloaded without required default value.
+warn: removing resource com.floodcue.app:string/offline_maps_subtitle without required default value.
+warn: removing resource com.floodcue.app:string/offline_maps_title_detail without required default value.
+warn: removing resource com.floodcue.app:string/settings_about without required default value.
+warn: removing resource com.floodcue.app:string/settings_language without required default value.
+warn: removing resource com.floodcue.app:string/settings_title without required default value.
+warn: removing resource com.floodcue.app:string/sos_attachments_heading without required default value.
+warn: removing resource com.floodcue.app:string/sos_emergency_sms_fail_title without required default value.
+warn: removing resource com.floodcue.app:string/sos_emergency_sms_quick_note without required default value.
+warn: removing resource com.floodcue.app:string/sos_emergency_sms_try_again without required default value.
+warn: removing resource com.floodcue.app:string/sos_hint_add_number without required default value.
+warn: removing resource com.floodcue.app:string/sos_hint_message without required default value.
+warn: removing resource com.floodcue.app:string/text_error_network without required default value.
+warn: removing resource com.floodcue.app:string/text_error_retry without required default value.
+warn: removing resource com.floodcue.app:string/text_loading without required default value.
+warn: removing resource com.floodcue.app:string/text_no_items without required default value.
+warn: removing resource com.floodcue.app:string/text_unavailable without required default value.
+warn: removing resource com.floodcue.app:string/weather_heading without required default value.
+warn: removing resource com.floodcue.app:string/weather_load without required default value.
+warn: removing resource com.floodcue.app:string/weather_load_failed without required default value.
+warn: removing resource com.floodcue.app:string/weather_loader without required default value.
+warn: removing resource com.floodcue.app:string/weather_subtitle without required default value.
+warn: removing resource com.floodcue.app:string/weather_ziphelp without required default value.
+
+> Task :app:processDebugResources
+> Task :app:dexBuilderDebug
+> Task :app:mergeProjectDexDebug
+> Task :app:packageDebug
+> Task :app:assembleDebug
+> Task :app:createDebugApkListingFileRedirect UP-TO-DATE
+
+BUILD SUCCESSFUL in 1m 26s
+36 actionable tasks: 8 executed, 28 up-to-date
+Configuration cache entry reused.

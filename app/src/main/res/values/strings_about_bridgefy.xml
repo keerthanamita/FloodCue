@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_about_bridgefy">About Bridgefy</string>
+    <string name="about_bridgefy_back_title">← About Bridgefy</string>
+    <string name="about_bridgefy_heading">About Bridgefy</string>
+    <string name="about_bridgefy_tagline">Connecting People When the Internet Fails</string>
+    <string name="about_bridgefy_website_url">https://bridgefy.me/</string>
+    <string name="about_bridgefy_open_website">Open Bridgefy website</string>
+    <string name="about_bridgefy_get_app">Get Bridgefy on Google Play</string>
+    <string name="about_bridgefy_open_failed">Unable to open that link.</string>
+
+    <string name="about_bridgefy_intro">Bridgefy is a technology company that develops offline communication technology for mobile applications. Its technology is designed to help people exchange information even when internet connectivity and traditional communication services are unavailable.\n\nFounded in 2014, Bridgefy was created with the goal of helping people stay connected during large events and natural disasters. The company later expanded its focus to provide a Software Development Kit (SDK) that allows other developers to add offline communication capabilities to their own mobile applications.</string>
+
+    <string name="about_bridgefy_section_company">1. Company Background</string>
+    <string name="about_bridgefy_company_body">• Company Name: Bridgefy, Inc.\n• Founded: 2014\n• Founder: Jorge Rios is identified as a founder in TechCrunch\'s company profile.\n• Industry: Mobile software, messaging, and communication technology.\n• Official Website: https://bridgefy.me/\n\nBridgefy develops both an offline messaging application for everyday users and communication technology for software developers. Its technology has attracted attention for its potential use during natural disasters, large public gatherings, and situations where internet access is disrupted.</string>
+
+    <string name="about_bridgefy_section_technology">2. The Technology Behind Bridgefy</string>
+    <string name="about_bridgefy_technology_intro">Bridgefy uses wireless communication technologies to enable devices to exchange messages without depending on an internet connection.</string>
+    <string name="about_bridgefy_subsection_bluetooth">Bluetooth Communication</string>
+    <string name="about_bridgefy_bluetooth_body">Bluetooth Low Energy (BLE) allows compatible nearby smartphones to exchange information directly. Bridgefy advertises an approximate direct communication range of 100 metres (330 feet), although actual range varies depending on the devices, obstacles, and surrounding environment.</string>
+    <string name="about_bridgefy_subsection_mesh">Mesh Networking</string>
+    <string name="about_bridgefy_mesh_body">A mesh network allows participating devices to help relay messages between users. When supported connections are available, a message can travel through intermediate devices instead of relying only on a direct connection between the sender and receiver.</string>
+    <string name="about_bridgefy_subsection_ai">On-Device Intelligence</string>
+    <string name="about_bridgefy_ai_body">Bridgefy describes its technology as using on-device AI and intelligent mesh networking to help mobile applications communicate offline. Its SDK documentation describes ways to incorporate offline communication into applications.</string>
+    <string name="about_bridgefy_subsection_offline">No Central Internet Connection Required</string>
+    <string name="about_bridgefy_offline_body">A properly configured offline mesh network can operate without an internet connection. However, users must have compatible devices, the appropriate application or integration, and the necessary wireless connections enabled.</string>
+
+    <string name="about_bridgefy_section_products">3. Bridgefy App and Bridgefy SDK</string>
+    <string name="about_bridgefy_products_intro">Bridgefy offers two related products:</string>
+    <string name="about_bridgefy_subsection_app">Bridgefy Messaging App</string>
+    <string name="about_bridgefy_app_body">A standalone mobile application that users can install to exchange messages with other Bridgefy users. It requires internet access for its initial activation, according to Bridgefy\'s official instructions. After activation, it is designed to support offline messaging.</string>
+    <string name="about_bridgefy_subsection_sdk">Bridgefy SDK (Software Development Kit)</string>
+    <string name="about_bridgefy_sdk_body">A collection of software tools and APIs that developers can use to add offline communication capabilities to their own applications. Bridgefy provides SDK documentation for supported development platforms.\n\nFor example, an emergency application could potentially use the SDK to enable users to exchange emergency alerts or other information without relying on internet connectivity, subject to the SDK\'s capabilities and integration requirements.</string>
+
+    <string name="about_bridgefy_section_security">4. Development and Security</string>
+    <string name="about_bridgefy_security_body">Bridgefy has continued developing its offline communication technology for both individual users and application developers.\n\nIn October 2020, Bridgefy announced security improvements to its application and SDK, including changes involving message encryption and user privacy. Security is particularly important for emergency communication because users may exchange sensitive information.\n\nHowever, security depends on the current software version, implementation, and configuration. Users should avoid sharing highly sensitive information through any communication system unless they understand its security limitations.</string>
+
+    <string name="about_bridgefy_section_applications">5. Real-World Applications</string>
+    <string name="about_bridgefy_applications_intro">Bridgefy\'s technology can be useful in situations such as:</string>
+    <string name="about_bridgefy_applications_body">• Natural Disasters: Supporting communication when internet services become unavailable.\n• Flood Emergencies: Helping nearby participating users exchange messages when conventional networks are disrupted.\n• Large Events: Enabling local communication in crowded locations.\n• Remote Areas: Providing an additional communication option where internet access is limited.\n• Emergency Coordination: Potentially supporting offline alerts and information exchange in compatible applications.\n\nIts usefulness in any particular emergency depends on the availability of participating users, compatible devices, battery power, and functioning wireless connections.</string>
+
+    <string name="about_bridgefy_section_floodcue">6. Why Bridgefy Matters to FloodCue</string>
+    <string name="about_bridgefy_floodcue_body">FloodCue is designed to help people prepare for and respond to flood emergencies. Offline communication is important because floods can disrupt electricity, mobile networks, and internet services.\n\nBridgefy provides one possible approach to maintaining communication between nearby users when internet access is unavailable.\n\nFloodCue can guide users to install and activate Bridgefy before an emergency, explain how to use it, and provide access to the separate Bridgefy application.\n\nIf FloodCue later integrates the official Bridgefy SDK, it may be possible to provide supported offline communication features directly within FloodCue. This requires a verified SDK integration; simply opening the Bridgefy app does not integrate its messaging functionality into FloodCue.</string>
+
+    <string name="about_bridgefy_section_limitations">7. Important Limitations</string>
+    <string name="about_bridgefy_limitations_intro">Bridgefy should be treated as an additional communication option rather than a guaranteed emergency communication service.</string>
+    <string name="about_bridgefy_limitations_body">• Offline messaging requires participating users and compatible devices.\n• Bluetooth range is limited and varies with environmental conditions.\n• Mesh communication depends on available participating devices and supported network behaviour.\n• Message delivery is not guaranteed.\n• Initial activation and certain setup tasks may require internet access.\n• Bridgefy cannot replace emergency services, evacuation instructions, or official rescue channels.</string>
+    <string name="about_bridgefy_safety_reminder">FloodCue Safety Reminder: Install and activate offline communication tools before a disaster occurs, keep your phone charged, and always follow official emergency instructions.</string>
+</resources>

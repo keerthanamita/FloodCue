@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="checklist_back_title">← ಪ್ರವಾಹ ಪಟ್ಟಿ</string>
+    <string name="checklist_heading">🌧️ ಪ್ರವಾಹದ ಮೊದಲು ಪರಿಶೀಲನಾ ಪಟ್ಟಿ</string>
+    <string name="checklist_subtitle">ನೀರು ಏರುವ ಮೊದಲೇ ಸಿದ್ಧತೆ. ನಿಮ್ಮ ಗುರುತುಗಳು ಈ ಫೋನ್‌ನಲ್ಲಿ ಉಳಿದು ಇಂಟರ್ನೆಟ್‌ ಇಲ್ಲದೆಯೂ ಕೆಲಸ ಮಾಡುತ್ತವೆ.</string>
+
+    <string name="checklist_tab_essential">ಅಗತ್ಯ</string>
+    <string name="checklist_tab_complete">ಸಂಪೂರ್ಣ</string>
+    <string name="checklist_progress">ಒಟ್ಟು: %2$d ಕಾರ್ಯಗಳಲ್ಲಿ %1$d ಮುಗಿದಿದೆ</string>
+    <string name="checklist_section_progress">%1$d/%2$d</string>
+
+    <string name="checklist_section_informed">📢 ಮಾಹಿತಿ ಇಟ್ಟುಕೊಳ್ಳಿ ಮತ್ತು ಸಿದ್ಧತೆ</string>
+    <string name="checklist_section_gobag">🎒 ತುರ್ತು ಬ್ಯಾಗ್ ಸಿದ್ಧಪಡಿಸಿ</string>
+    <string name="checklist_section_phone">📱 ನಿಮ್ಮ ಫೋನ್ ಮತ್ತು FloodCue ಸಿದ್ಧಪಡಿಸಿ</string>
+    <string name="checklist_section_home">🏠 ನಿಮ್ಮ ಮನೆ ರಕ್ಷಿಸಿ</string>
+    <string name="checklist_section_family">👨‍👩‍👧 ನಿಮ್ಮ ಕುಟುಂಬ ಸಿದ್ಧಪಡಿಸಿ</string>
+    <string name="checklist_section_evac">🚨 ಸ್ಥಳಾಂತರ ಎಚ್ಚರಿಕೆ ಬಂದರೆ</string>
+
+    <string name="checklist_note_informed">ಪ್ರವಾಹ ಬರುವ ಮೊದಲೇ ನಿಮ್ಮ ಅಪಾಯ ತಿಳಿದುಕೊಳ್ಳಿ.</string>
+    <string name="checklist_note_gobag">ತುರ್ತು ಬ್ಯಾಗ್ ಸಿದ್ಧತೆ: %2$d ವಸ್ತುಗಳಲ್ಲಿ %1$d</string>
+    <string name="checklist_note_phone">ಸೂಚನೆ: ನಕಶೆಯ ಮಾಹಿತಿ ಈಗಾಗಲೇ ಈ ಸಾಧನದಲ್ಲಿ ಉಳಿಸಿದ್ದರೆ ಮಾತ್ರ ಆಫ್‌ಲೈನ್ ನಕಶೆ ಇಂಟರ್ನೆಟ್‌ ಇಲ್ಲದೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ; ಸಾಮಾನ್ಯ SMS ಮಾತ್ರ ಚಲನ-ಜಾಲದ ಒಳಗಿನ ಸಿಗ್ನಲ್ ಮತ್ತು SMS ಸೇವೆ ಬೇಕು.</string>
+    <string name="checklist_note_home_safety">ಸುರಕ್ಷತಾ ಸೂಚನೆ: ಪ್ರವಾಹದ ನೀರಿನಿಂದ ಸುತ್ತುವರಿದ ವಿದ್ಯುತ್ ಸಾಧನಗಳ ಹತ್ತಿರ ಹೋಗಬೇಡಿ; ನೆಂದ ವಿದ್ಯುತ್ ಸಾಧನ ಮುಟ್ಟಬೇಡಿ.</string>
+    <string name="checklist_note_family">ಮನೆಯಲ್ಲಿರುವವರೆಲ್ಲರೂ ಈ ಯೋಜನೆ ತಿಳಿದಿರಬೇಕು.</string>
+    <string name="checklist_note_evac_critical">ಮಹತ್ವದ ನಿಯಮ: ಸಮಯದಲ್ಲಿ ಸ್ಥಳಾಂತರ ಮಹತ್ವದ ವಸ್ತು — ಪಟ್ಟಿ ಮುಗಿಸುವುದಕ್ಕಿಂತ ಸ್ಥಳಾಂತರ ಮೊದಲು; ಅಧಿಕೃತ ಸ್ಥಳಾಂತರ ಸೂಚನೆ ಯಾವಾಗಲೂ ಮೊದಲು ಬರುತ್ತದೆ.</string>
+
+    <string name="home_flood_checklist">ಪ್ರವಾಹ ಪಟ್ಟಿ</string>
+</resources>

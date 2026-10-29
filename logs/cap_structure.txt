@@ -1,0 +1,10 @@
+bytes: 2488
+severity = []
+event = []
+sender = []
+senderName = []
+effective = []
+expiry = []
+areaDesc = []
+headline = []
+language = []

@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Telugu app-interface translations for FloodCue. -->
+    <!-- Kept as app-language sources only; survival content is in the separate
+         strings_*.xml files and is resolved through the survival-language
+         context when a screen opts into it. -->
+
+    <string name="app_name">ఫ్లూడ్‌క్యూ</string>
+
+    <!-- Home / bottom navigation -->
+    <string name="nav_home">ఇకపై</string>
+    <string name="nav_sos">SOS</string>
+    <string name="nav_alerts">హెచ్చరికలు</string>
+    <string name="nav_weather">వాతావరణం</string>
+    <string name="nav_contacts">సంప్రదింపులు</string>
+    <string name="nav_more">మరిన్ని</string>
+
+    <!-- Offline maps -->
+    <string name="offline_maps_title">ఆఫ్‌లైన్ మ్యాప్‌లు</string>
+    <string name="offline_maps_subtitle">ఒకసారి డౌన్‌లోడ్ చేసి, ఇంటర్నెట్ లేకుండా ఉపయోగించండి</string>
+    <string name="offline_maps_download_prompt">ఇంటర్నెట్ లేకుండా ఉపయోగించాలంటే మ్యాప్ డౌన్‌లోడ్ చేయండి</string>
+    <string name="offline_maps_status_available">అందుబాటులో ఉంది</string>
+    <string name="offline_maps_status_downloading">డౌన్‌లోడ్ అవుతోంది…</string>
+    <string name="offline_maps_status_not_downloaded">డౌన్‌లోడ్ చేయని</string>
+    <string name="offline_maps_download">డౌన్‌లోడ్ చేయండి</string>
+    <string name="offline_maps_download_cancel">రద్దు చేయండి</string>
+    <string name="offline_maps_download_retry">పునఃప్రయత్నించండి</string>
+    <string name="offline_maps_remove">తొలగించు</string>
+    <string name="offline_maps_remove_confirm">ఈ ఆఫ్‌లైన్ మ్యాప్‌ను తొలగించగా?</string>
+    <string name="offline_maps_removed">ఆఫ్‌లైన్ మ్యాప్ తొలగించబడింది.</string>
+    <string name="offline_maps_title_detail">మ్యాప్ వివరాలు</string>
+
+    <!-- Bottom navigation labels -->
+    <string name="bottom_nav_home">ఇకపై</string>
+    <string name="bottom_nav_sos">SOS</string>
+    <string name="bottom_nav_alerts">హెచ్చరికలు</string>
+    <string name="bottom_nav_weather">వాతావరణం</string>
+    <string name="bottom_nav_contacts">సంప్రదింపులు</string>
+    <string name="bottom_nav_more">మరిన్ని</string>
+
+    <!-- Backup siren / alert unavailable -->
+    <string name="siren_unavailable">మొబైల్ సైరన్ ఈ ఫోన్‌లో అందుబాటులో లేదు.</string>
+
+    <!-- SOS screen -->
+    <string name="sos_back_title">← SOS</string>
+    <string name="sos_heading">SOS అత్యవసర సందేశం</string>
+    <string name="sos_subtitle">ఒక సందేశాన్ని సిద్ధం చేసి, మీ SMS యాప్ ద్వారా పంపండి. FloodCue స్వయంగా SMS పంపదు.</string>
+    <string name="sos_default_message">నేను ప్రమాదంలో ఉన్నాను. దయచేసి సహాయం చేయండి. దయచేసి మా స్థానాన్ని తెలియజేయండి.</string>
+    <string name="sos_location_idle">ఇంకా స్థానం చేర్చబడలేదు.</string>
+    <string name="sos_location_loading">స్థానం సేకరిస్తోంది…</string>
+    <string name="sos_number_removed">సంఖ్య తొలగించబడింది.</string>
+    <string name="sos_confirm_title">SMS తెరిచే ముందు సమీక్షించండి</string>
+    <string name="sos_queue_cancel">నిర్వహించండి</string>
+    <string name="sos_queue_dismiss">వెనుకకు</string>
+    <string name="sos_queued_toast">SOS ఈ ఫోన్‌లో సేవ్ చేయబడింది. నెట్‌వర్క్ అందుబాటులోకి వచ్చినప్పుడు స్వయంచాలకంగా పంపబడుతుంది.</string>
+    <string name="sos_sms_opened">SMS యాప్ తెరిచింది. సందేశాన్ని పంపడానికి పంపును క్లిక్ చేయండి.</string>
+    <string name="sos_sms_unavailable">అనుకూలమైన SMS యాప్ కనబడలేదు. మీ నంబర్లు మరియు సందేశం ఈ స్క్రీన్‌లో ఇప్పటికీ సేవ్ అయ్యి ఉన్నాయి.</string>
+    <string name="sos_sms_failed">SMS యాప్‌ను తెరవలేకపోయాము. మీ నంబర్లు మరియు సందేశం ఈ స్క్రీన్‌లో ఇప్పటికీ సేవ్ అయ్యి ఉన్నాయి.</string>
+    <string name="sos_send_queued_reason">ఒక SOS ఇప్పటికే వరుసలో ఉంది. కొత్తది తయారు చేయడానికి ముందు దాన్ని రద్దు చేయండి.</string>
+    <string name="sos_send_disabled_reason">అత్యవసర సందేశం పంపడానికి సంఖ్య ఎంచుకోండి.</string>
+    <string name="sos_hint_add_number">సంఖ్య కొరకు</string>
+    <string name="sos_hint_message">సందేశం సాధారణంగా 160 అక్షరాల ఉంటుంది.</string>
+    <string name="sos_attachments_heading">అత్యవసర పరికరాలు</string>
+
+    <!-- SOS emergency screen -->
+    <string name="sos_emergency_back_title">← SOS అత్యవసరం</string>
+    <string name="sos_emergency_heading">అత్యవసర SOS</string>
+    <string name="sos_emergency_short">మూడు పనులు ఒకేసారి: అత్యవసర సంప్రదింపులకు SOS సందేశం, సైరన్, మరియు మీ GPS స్థానం మ్యాప్ లింక్‌తో.</string>
+    <string name="sos_emergency_contact">సంప్రదింపులు</string>
+    <string name="sos_emergency_location">నేను ఇక్కడ ఉన్నాను</string>
+    <string name="sos_emergency_location_available">ప్రస్తుత స్థానం పొందబడింది — నిర్దేశాలు మరియు మ్యాప్స్ లింక్ చేర్చబడ్డాయి.</string>
+    <string name="sos_emergency_location_unavailable">స్థానం పొందలేకపోయాము.</string>
+    <string name="sos_emergency_sms_pending">SMS పంపబడని ఉంది</string>
+    <string name="sos_emergency_sms_sent">SOS సందేశం మీ అత్యవసర పరిచయాలకు పంపబడింది.</string>
+    <string name="sos_emergency_sms_failed">SOS సందేశం పంపలేకపోయాము. మీ నెట్‌వర్క్ మరియు కనీసం ఒక అత్యవసర పరిచయం ఉందో తనిఖీ చేయండి.</string>
+    <string name="sos_emergency_siren">సైరన్ ప్రారంభమైంది — దాన్ని ఆపడానికి సైరన్ ఆపండి నొక్కండి లేదా యాప్ నుండి బయటకు వెళ్లండి.</string>
+    <string name="sos_emergency_perm_denied">అనుమతి అవసరం. సెట్టింగ్‌లలో స్థానం మరియు వైఫై అనుమతులను తెరిచి మళ్లీ ప్రయత్నించండి.</string>
+    <string name="sos_emergency_sms_fail_title">SMS పంపడంలో పొరపాటు</string>
+    <string name="sos_emergency_sms_try_again">పునఃప్రయత్నించండి</string>
+    <string name="sos_emergency_sms_quick_note">సందేశం తయారు చేయబడింది, కానీ పంపలేకపోయాము.</string>
+
+    <!-- Emergency contacts screen -->
+    <string name="contacts_heading">అత్యవసర సంప్రదింపులు</string>
+    <string name="contacts_subtitle">మీ సేవ్ చేసిన పరిచయాలను లేదా అధికారిక అత్యవసర పరిచయాలను కాల్ చేయండి</string>
+    <string name="contacts_empty">ఇంకా సంప్రదింపులు లేవు. మీ ముఖ్యమైన వ్యక్తులను చేర్చండి.</string>
+    <string name="contacts_add">పరిచయం చేర్చండి</string>
+    <string name="contacts_add_title">పరిచయం చేర్చండి</string>
+    <string name="contacts_edit_title">సంప్రదింపును సవరించు</string>
+    <string name="contacts_delete_title">పరిచయం తొలగించండి</string>
+    <string name="contacts_delete_message">ఈ అత్యవసర పరిచయాన్ని తొలగించాలా? ఇక్కడ దీన్ని రద్దు చేయలేము.</string>
+    <string name="contacts_saved">సంప్రదింపు సేవ్ అయింది.</string>
+    <string name="contacts_removed">సంప్రదింపు తొలగించబడింది.</string>
+    <string name="contacts_required_field">పేరు మరియు ఫోన్ నంబర్ తప్పనిసరి</string>
+    <string name="contacts_invalid_number">ఫోన్ నంబర్ అందుబాటులో లేదు</string>
+    <string name="contacts_help_intro">అత్యవసర పరిస్థితిలో మీరు త్వరగా చేరుకోవాలనుకుంటున్న వారిని చేర్చండి.</string>
+    <string name="contacts_help_number">సరైన ఫోన్ నంబర్ ఉంటే కాల్ లేదా సందేశం చేరే అవకాశం ఎక్కువ.</string>
+    <string name="contacts_help_add">వ్యక్తిగత అత్యవసర పరిచయం చేర్చడానికి సంప్రదింపు చేర్చండి బట్టన్ నొక్కండి.</string>
+    <string name="contacts_delete_confirm">తొలగించండి</string>
+
+    <!-- Weather screen -->
+    <string name="weather_back_title">← వాతావరణం</string>
+    <string name="weather_heading">వాతావరణం</string>
+    <string name="weather_subtitle">మీ ప్రాంతానికి వర్తమాన వాతావరణం మరియు వర్ష అంచనా.</string>
+    <string name="weather_header">వాతావరణం</string>
+    <string name="weather_temp">%1$.1f °C</string>
+    <string name="weather_condition">%1$s</string>
+    <string name="weather_rain">వర్షం: %1$.1f mm</string>
+    <string name="weather_rain_24h">రాబోయే 24 గంటల వర్షం: %1$.1f mm</string>
+    <string name="weather_wind">గాలి: %1$.1f m/s · %2$s</string>
+    <string name="weather_hourly">గంటల వారీ వర్షం (రాబోయే 24 గంటలు)</string>
+    <string name="weather_unavailable">అందుబాటులో లేదు</string>
+    <string name="weather_select_location">ప్రాంతం ఎంచుకోండి</string>
+    <string name="weather_choose_location">ప్రాంతాన్ని ఎంచుకోండి</string>
+    <string name="weather_manual_title">లొకేషన్ ఎంచుకోండి</string>
+    <string name="weather_cache_note">%1$sకు ముందు తాజాగా చూసినది: %2$s</string>
+    <string name="weather_load_failed">వాతావరణం లోడ్ అవ్వలేదు. పునఃప్రయత్నించండి.</string>
+    <string name="weather_ziphelp">మొదటిసారి లోడ్ తర్వాత వాతావరణ డేటా ఆఫ్‌లైన్ చూడటం కోసం క్యాష్ చేయబడుతుంది.</string>
+    <string name="weather_load">లోడ్ చేయండి</string>
+    <string name="weather_loader">లోడ్ అవుతోంది…</string>
+
+    <!-- Flood alert screen -->
+    <string name="flood_alert_back_title">← వరద హెచ్చరికలు</string>
+    <string name="flood_alert_header">వరద హెచ్చరికలు</string>
+    <string name="flood_alert_subtitle">మీ జిల్లాను పేర్కొనే అధికారిక హెచ్చరికలు</string>
+    <string name="flood_alert_no_alerts">ప్రస్తుతం ఏవింటినైనా హెచ్చరికలు లేవు.</string>
+    <string name="flood_alert_no_district">జిల్లా ఎంచుకోబడలేదు.</string>
+    <string name="flood_alert_meta_loading">హెచ్చరికలు లోడ్ అవుతున్నాయి…</string>
+    <string name="flood_alert_meta_offline">చివరిగా సేవ్ చేసిన హెచ్చరికలు చూపిస్తోంది.</string>
+    <string name="flood_alert_meta_last_updated">చివరిగా నవీకరించబడింది: %1$s</string>
+    <string name="flood_alert_meta_last_fetched">చివరిగా తీసుకున్నది: %1$s</string>
+    <string name="flood_alert_see_more">మరింత చూడండి</string>
+    <string name="flood_alert_attach_map">మ్యాప్ జోడించండి</string>
+    <string name="flood_alert_sms_help">ఈ హెచ్చరికను ఇతరులతో పంచుకోవడానికి SMS పంపండి.</string>
+    <string name="flood_alert_sms_opened">SMS యాప్ తెరిచింది. హెచ్చరికను సమీక్షించి స్వయంగా పంపండి.</string>
+    <string name="flood_alert_sms_failed">SMS ద్వారా హెచ్చరిక పంపలేకపోయాము.</string>
+    <string name="flood_alert_sms_unavailable">SMS యాప్ అందుబాటులో లేదు.</string>
+    <string name="flood_alert_sms_missing_number">హెచ్చరిక పంపడానికి ఫోన్ నంబర్ అందుబాటులో లేదు.</string>
+    <string name="flood_alert_refresh">రిఫ్రెష్ చేయండి</string>
+    <string name="flood_alert_fetch_failed">హెచ్చరికలు పొందలేకపోయాయి. ఇంటర్నెట్ కనెక్షన్‌ను పరిశీలించి, పునఃప్రయత్నించండి.</string>
+    <string name="flood_alert_open_failed">బ్రౌజర్‌లో ఆ లింక్ తెరవలేకపోయాము.</string>
+
+    <!-- Offline communication screen -->
+    <string name="offline_comm_back_title">← ఆఫ్‌లైన్ కమ్యూనికేషన్</string>
+    <string name="offline_comm_heading">ఆఫ్‌లైన్ కమ్యూనికేషన్</string>
+    <string name="offline_comm_short">వరద ఇంటర్నెట్ నిలిపివేసినా, Bridgefy అనే ప్రత్యేక ఉచిత యాప్ ద్వారా సమీపంలోని ఫోన్లతో సందేశాలు పంపుకోవచ్చు — మొబైల్ డేటా లేదా Wi‑Fi లేకుండా బ్లూటూత్‌పై నేరుగా పనిచేస్తుంది.</string>
+    <string name="offline_comm_not_installed">Bridgefy ఈ ఫోన్‌లో ఇన్‌స్టాల్ కాలేదు. దీన్ని Google Play నుండి పొందండి — ఇన్‌స్టాల్ చేయడానికి మరియు మొదటిసారి యాక్టివేట్ చేయడానికి మాత్రమే ఇంటర్నెట్ అవసరం.</string>
+    <string name="offline_comm_turn_on">ప్రవేశించి బ్లూటూత్ పనిచేసేలా చేయండి.</string>
+    <string name="offline_comm_open_failed">Bridgefy తెరవలేకపోయింది.</string>
+
+    <!-- Tips screen -->
+    <string name="tips_back_title">← భద్రతా చిట్కాలు</string>
+    <string name="tips_heading">వరద భద్రతా చిట్కాలు</string>
+    <string name="tips_subtitle">వరద వచ్చే ముందు, సమయంలో, తర్వాత చేయాల్సిన చిన్న సలహాలు. ఇంటర్నెట్ లేకుండా కూడా పనిచేస్తాయి.</string>
+
+    <!-- Checklist screen -->
+    <string name="checklist_back_title">← ఫ్లూడ్ చెక్‌లిస్ట్</string>
+    <string name="checklist_heading">🌧️ వరద ముందు చెక్‌లిస్ట్</string>
+    <string name="checklist_subtitle">నీటి రావడానికి ముందు సిద్ధం చేయండి. మీ టిక్‌లు ఈ ఫోన్‌లో సేవ్ అవుతాయి మరియు ఇంటర్నెట్ లేకుండా కూడా పనిచేస్తాయి.</string>
+    <string name="checklist_progress">%1$d దాదాపు %2$d పూర్తయాము</string>
+    <string name="checklist_reset">మళ్లీ ప్రారంభించు</string>
+    <string name="checklist_reset_message">ఇది ప్రస్తుత చెక్‌లిస్ట్ పొరలోని మీ పురోగతిని తొలగిస్తుంది. మీ సేవ్ చేసిన చెక్‌లిస్ట్ స్థితి మారదు.</string>
+    <string name="checklist_reset_confirm">తొలగించు</string>
+    <string name="checklist_reset_cancel">వెనుకకు</string>
+    <string name="checklist_all_done">అన్ని పనులు పూర్తయాయి. మంచిగా ఉండండి.</string>
+
+    <!-- Emergency guide screen -->
+    <string name="guide_back_title">← ఎమర్జెన్సీ గైడ్</string>
+    <string name="guide_heading">అత్యంత కీలకమైన ఎమర్జెన్సీ గైడ్</string>
+    <string name="guide_subtitle">మీ పరిస్థితిని ఎంచుకుని చిన్న, సంఖ్యా క్రమ దశలు చదవండి. అత్యవసర పరిస్థితులు మొదట జాబితాలో ఉంటాయి.</string>
+    <string name="guide_back_to_list">← సందర్భాలు</string>
+    <string name="guide_back_to_title">గైడ్‌కు తిరిగి</string>
+    <string name="guide_sos_button">SOS అత్యవసర సందేశం పంపండి</string>
+    <string name="guide_back_to_card">తిరిగి</string>
+    <string name="guide_read_more">మరింత చదవండి</string>
+
+    <!-- About FloodCue screen -->
+    <string name="about_floodcue_back_title">← FloodCue గురించి</string>
+    <string name="about_floodcue_heading">FloodCue</string>
+    <string name="about_floodcue_tagline">నీటి రాకముందే వరద మనుగడ సిద్ధం.</string>
+    <string name="about_floodcue_version_label">సంస్కరణ %1$s · Android కోసం ఆఫ్‌లైన్ వరద సర్వైవల్ యాప్</string>
+    <string name="about_floodcue_description">వరద సర్వైవల్ — నీరు రాకముందే సిద్ధంగా.</string>
+    <string name="about_floodcue_features">లక్షణాలు</string>
+    <string name="about_floodcue_offline_maps">ఆఫ్‌లైన్ మ్యాప్‌లు</string>
+    <string name="about_floodcue_offline_maps_text">మీ జిల్లా మ్యాప్‌ను ఒకసారి డౌన్‌లోడ్ చేసి, ఇంటర్నెట్ లేకుండా తెరవండి.</string>
+    <string name="about_floodcue_sos">SOS మరియు అత్యవసర సందేశం</string>
+    <string name="about_floodcue_sos_text">SOS బట్టన్ నొక్కి సైరన్ ప్రారంభించి, మీ స్థానంతో పాటు సహాయ సందేశాన్ని మీ అత్యవసర పరిచయాలకు పంపండి. మీరు అత్యవసర సందేశాన్ని స్వయంగా రాసి, ఎవరికి పంపాలో కూడా ఎంచుకోవచ్చు. ఆఫ్‌లైన్‌లో వరుసలో ఉన్న సందేశం నెట్‌వర్క్ తిరిగి వచ్చినప్పుడు స్వయంచాలకంగా పంపబడుతుంది.</string>
+    <string name="about_floodcue_alerts">హెచ్చరికలు</string>
+    <string name="about_floodcue_alerts_text">NDMA SACHET పబ్లిక్ CAP ఫీడ్ నుండి అధికారిక హెచ్చరికలు, వెనుకవైపు క్రమం తప్పకుండా తనిఖీ చేయబడి, ప్రబలమైన అలర్ట్ నోటిఫికేషన్‌తో ప్రకటించబడతాయి. మీ స్వంత సర్వర్ కీ కాన్ఫిగర్ చేసి ఉంటే, IMD నుండి జిల్లా వర్షపాత హెచ్చరికలు కూడా చేర్చబడతాయి.</string>
+    <string name="about_floodcue_tips">భద్రతా సలహాలు</string>
+    <string name="about_floodcue_tips_text">వరదకు ముందు, సమయంలో, తర్వాత చదవడానికి సులభమైన చిన్న చిట్కాలు, ప్రాణాంతక హెచ్చరికలను స్పష్టంగా చూపిస్తూ.</string>
+    <string name="about_floodcue_guide">ఎమర్జెన్సీ గైడ్</string>
+    <string name="about_floodcue_guide_text">16 పరిస్థితి ఆధారిత గైడ్‌లు అత్యవసరత క్రమంలో అమర్చబడ్డాయి — ఉదా: నీరు పెరుగుతున్న ఇంట్లో చిక్కుకోవడం, వాహనంలో చిక్కుకోవడం, ఫోన్ నెట్‌వర్క్ లేకపోవడం, ఫోన్ బ్యాటరీ అయిపోవడం, వరద నీట్లో పాములు, కలుషితమైన నీరు మరియు రక్షకులను ఆకర్షించడం.</string>
+    <string name="about_floodcue_about_bridgefy">Bridgefy గురించి</string>
+    <string name="about_floodcue_about_bridgefy_text">Bridgefy వేరే ఆఫ్‌లైన్ మెసేజింగ్ యాప్. అత్యవసర పరిస్థితికి ముందు దాన్ని ఇన్‌స్టాల్ చేయమని మరియు తెరవమని FloodCue మిమ్మల్ని మార్గదర్శనం చేయగలదు, కానీ దాన్ని తెరవడం వల్ల FloodCue లోపల దాని మెసేజింగ్ ఫీచర్లు చేరవు.</string>
+
+    <!-- About Bridgefy screen -->
+    <string name="about_bridgefy_back_title">← Bridgefy గురించి</string>
+    <string name="about_bridgefy_heading">Bridgefy గురించి</string>
+    <string name="about_bridgefy_description">ఇంటర్నెట్ పనిచేయనప్పుడు ప్రజలను కలపడం</string>
+    <string name="about_bridgefy_note">Bridgefy వేరే యాప్. దీన్ని ఇక్కడ తెరిస్తే Google Play స్టోర్ లిస్టింగ్ తెరుస్తుంది; ఇది FloodCue లోపల ఆఫ్‌లైన్ మెసేజింగ్‌ను చేర్చదు.</string>
+    <string name="about_bridgefy_install">Google Play లో Bridgefy ఇన్‌స్టాల్ చేయండి</string>
+    <string name="about_bridgefy_install_note">అత్యవసర పరిస్థితి రాకముందు, ఇంకా ఇంటర్నెట్ ఉన్నప్పుడే Bridgefy ఇన్‌స్టాల్ చేయండి.</string>
+    <string name="about_bridgefy_downloading">Bridgefy సమాచారం డౌన్‌లోడ్ అవుతోంది…</string>
+
+    <!-- Common button labels -->
+    <string name="btn_ok">సరిగ్గా ఉంది</string>
+    <string name="btn_cancel">రద్దు</string>
+    <string name="btn_retry">పునఃప్రయత్నించండి</string>
+    <string name="btn_close">మూసివేయి</string>
+    <string name="btn_continue">ముందుకు</string>
+    <string name="btn_back">వెనుకకు</string>
+    <string name="btn_save">సేవ్ చేయి</string>
+    <string name="btn_delete">తొలగించు</string>
+    <string name="btn_edit">సవరించు</string>
+    <string name="btn_add">చేర్చు</string>
+    <string name="btn_remove">తొలగించు</string>
+
+    <!-- Common form hints -->
+    <string name="hint_add_name">పేరు ఇవ్వండి</string>
+    <string name="hint_add_number">ఫోన్ సంఖ్య ఇవ్వండి</string>
+    <string name="hint_add_message">సందేశం ఇవ్వండి</string>
+
+    <!-- Common error / placeholder text -->
+    <string name="text_loading">లోడ్ అవుతోంది…</string>
+    <string name="text_unavailable">అందుబాటులో లేదు</string>
+    <string name="text_no_items">ఏమీ లేదు</string>
+    <string name="text_error_network">ఇంటర్నెట్ లేదు. పునఃప్రయత్నించండి.</string>
+    <string name="text_error_retry">పునఃప్రయత్నించండి</string>
+
+    <!-- About app (generic help / about screen) -->
+    <string name="about_title">గురించి</string>
+    <string name="about_language">భాష</string>
+    <string name="about_language_text">FloodCue యాప్ ఇంటర్‌ఫేస్ మరియు సర్వైవల్ కంటెంట్‌ను రెండు వేర్వేరు భాషల్లో ఉంచుతుంది. యాప్ భాష మెనూలు, బట్టన్‌లు, సెట్టింగ్‌లు మరియు స్క్రీన్ టెక్స్ట్‌ను నియంత్రిస్తుంది. సర్వైవల్ భాష చెక్‌లిస్ట్, భద్రతా చిట్కాలు మరియు అత్యవసర గైడ్‌ను నియంత్రిస్తుంది. సెట్టింగ్‌లు → భాష మార్చండి లో ఏదైనా ఒకటి మార్చుకోండి.</string>
+    <string name="settings_title">సెట్టింగ్స్</string>
+    <string name="settings_language">భాష</string>
+    <string name="settings_about">గురించి</string>
+    <string name="settings_about_floodcue">FloodCue గురించి</string>
+    <string name="settings_about_bridgefy">Bridgefy గురించి</string>
+    <string name="about_app_name">FloodCue</string>
+    <string name="about_app_description">Android కోసం ఆఫ్‌లైన్ వరద సర్వైవల్ యాప్</string>
+    <string name="offline_maps_go">వెళ్ళండి</string>
+    <string name="offline_maps_cancel">రద్దు</string>
+    <string name="offline_maps_back_title">← ఆఫ్‌లైన్ మ్యాప్‌లు</string>
+    <string name="offline_maps_choose_title">ఆఫ్‌లైన్ మ్యాప్ ఎంచుకోండి</string>
+    <string name="offline_maps_choose_subtitle">ఒకసారి డౌన్‌లోడ్ చేసుకోండి, ఆపై ఇంటర్నెట్ లేకుండా ఉపయోగించండి</string>
+    <string name="offline_map_tirupati_district">తిరుపతి జిల్లా</string>
+    <string name="offline_map_nellore_district">నెల్లూరు జిల్లా</string>
+    <string name="offline_map_back_title">← %1$s</string>
+    <string name="offline_map_connecting">%1$s డౌన్‌లోడ్ చేయడానికి కనెక్ట్ అవుతోంది…</string>
+    <string name="offline_map_downloading">%1$s డౌన్‌లోడ్ అవుతోంది…</string>
+    <string name="offline_map_downloading_percent">%1$s డౌన్‌లోడ్ అవుతోంది: %2$d%%</string>
+    <string name="offline_map_download_failed">%1$s డౌన్‌లోడ్ చేయలేకపోయాము: %2$s</string>
+    <string name="offline_map_opening">%1$s ఆఫ్‌లైన్ మ్యాప్ తెరుస్తోంది…</string>
+    <string name="offline_map_loaded">%1$s ఆఫ్‌లైన్ మ్యాప్ లోడ్ అయింది</string>
+    <string name="offline_map_missing">ఆ ఆఫ్‌లైన్ మ్యాప్ ఈ పరికరంలో డౌన్‌లోడ్ కాలేదు.</string>
+    <string name="offline_map_location_denied">లొకేషన్ అనుమతి ఇవ్వబడలేదు.</string>
+    <string name="home_offline_maps">ఆఫ్‌లైన్ మ్యాప్‌లు</string>
+    <string name="home_emergency_contacts">అత్యవసర పరిచయాలు</string>
+    <string name="home_sos_emergency_message">అత్యవసర సందేశం</string>
+    <string name="home_settings">సెట్టింగ్‌లు</string>
+    <string name="home_siren">సైరన్</string>
+    <string name="home_siren_stop">సైరన్ ఆపండి</string>
+    <string name="settings_back_title">← సెట్టింగ్‌లు</string>
+    <string name="settings_heading">సెట్టింగ్‌లు</string>
+    <string name="settings_subtitle">మీ వివరాలు మరియు ఖాతాను నిర్వహించండి</string>
+    <string name="settings_change_user_details">వినియోగదారు ప్రొఫైల్</string>
+    <string name="settings_logout">లాగ్ అవుట్</string>
+    <string name="nav_settings">సెట్టింగ్‌లు</string>
+    <string name="profile_details_back_title">← వినియోగదారు ప్రొఫైల్</string>
+    <string name="profile_details_edit">సవరించు</string>
+    <string name="profile_details_empty">ఈ పరికరంలో ఇంకా ప్రొఫైల్ కనబడలేదు. మీ వివరాలను చేర్చడానికి సవరించుపై నొక్కండి.</string>
+    <string name="profile_details_login_required">మీ ప్రొఫైల్ చూడటానికి సైన్ ఇన్ చేయండి.</string>
+    <string name="profile_value_empty">చేర్చబడలేదు</string>
+    <string name="profile_section_personal">వ్యక్తిగత మరియు వైద్య వివరాలు</string>
+    <string name="profile_section_primary_contact">ప్రాథమిక అత్యవసర పరిచయం</string>
+    <string name="profile_section_second_contact">రెండవ అత్యవసర పరిచయం</string>
+    <string name="profile_section_third_contact">మూడవ అత్యవసర పరిచయం</string>
+    <string name="profile_section_location">సహాయం, లొకేషన్ మరియు భాష</string>
+    <string name="profile_label_full_name">పూర్తి పేరు</string>
+    <string name="profile_label_blood_group">రక్త వర్గం</string>
+    <string name="profile_label_allergies">అలర్జీలు</string>
+    <string name="profile_label_other_allergies">ఇతర అలర్జీలు</string>
+    <string name="profile_label_medications">మందులు</string>
+    <string name="profile_label_medical_notes">వైద్య గమనికలు</string>
+    <string name="profile_label_name">పేరు</string>
+    <string name="profile_label_relationship">బంధం</string>
+    <string name="profile_label_phone">ఫోన్</string>
+    <string name="profile_label_alternate_phone">ప్రత్యామ్నాయ ఫోన్</string>
+    <string name="profile_label_assistance">ప్రత్యేక సహాయం</string>
+    <string name="profile_label_country">దేశం</string>
+    <string name="profile_label_state">రాష్ట్రం</string>
+    <string name="profile_label_district">జిల్లా</string>
+    <string name="profile_label_app_language">యాప్ భాష</string>
+    <string name="profile_label_survival_language">రక్షణ భాష</string>
+    <string name="emergency_contacts_back_title">← అత్యవసర పరిచయాలు</string>
+    <string name="emergency_contacts_heading">అత్యవసర పరిచయాలు</string>
+    <string name="emergency_contacts_subtitle">మీ సేవ్ చేసిన పరిచయాలను లేదా అధికారిక అత్యవసర పరిచయాలను కాల్ చేయండి</string>
+    <string name="emergency_contacts_personal_title">నా వ్యక్తిగత అత్యవసర పరిచయాలు</string>
+    <string name="emergency_contacts_personal_empty">ఈ పరికరంలో ఇంకా వ్యక్తిగత అత్యవసర పరిచయాలు సేవ్ కాలేదు. సెటప్ సమయంలో వాటిని చేర్చండి.</string>
+    <string name="emergency_contacts_login_required">మీ సేవ్ చేసిన పరిచయాలు చూడటానికి సైన్ ఇన్ చేయండి.</string>
+    <string name="emergency_contacts_services_title">అధికారిక అత్యవసర పరిచయాలు</string>
+    <string name="emergency_contacts_info">అత్యవసర పరిచయ నంబర్లు త్వరిత యాక్సెస్ కోసం అందించబడ్డాయి. వాటిపై ఆధారపడే ముందు స్థానిక లభ్యతను ధృవీకరించండి.</string>
+    <string name="emergency_contacts_call">కాల్</string>
+    <string name="emergency_contacts_alternate">ప్రత్యామ్నాయం: %1$s</string>
+    <string name="emergency_contacts_invalid_number">ఫోన్ నంబర్ అందుబాటులో లేదు</string>
+    <string name="emergency_contacts_unable_to_call">కాల్ చేయడం సాధ్యం కాలేదు</string>
+    <string name="emergency_contacts_permission_required">కాల్‌లు చేయడానికి ఫోన్ అనుమతి అవసరం</string>
+    <string name="home_sos_emergency">అత్యవసరం</string>
+    <string name="home_weather">వాతావరణం</string>
+    <string name="home_flood_alerts">వరద హెచ్చరికలు</string>
+    <string name="home_sos">SOS</string>
+    <string name="login_guest_mode">అతిథిగా కొనసాగించండి</string>
+    <string name="home_sos_stop">SOS అలారం ఆపండి</string>
+    <string name="login_guest_subtitle">సైన్ ఇన్ కాకుండానే FloodCueని అన్వేషించండి</string>
+    <string name="home_sos_started">SOS ప్రారంభించబడింది. మీ పరిచయాలలో %1$dకు మీ అత్యవసర సందేశం పంపబడుతోంది.</string>
+    <string name="home_sos_no_contacts">అత్యవసర పరిచయాలు కనబడలేదు. సెటప్ సమయంలో వ్యక్తిగత పరిచయాలను సేవ్ చేయండి, లేదా SOS అత్యవసర సందేశం స్క్రీన్‌లో నంబర్లను ఎంచుకోండి.</string>
+    <string name="home_sos_sms_permission">అత్యవసర సందేశాన్ని స్వయంచాలకంగా పంపడానికి SMS అనుమతి అవసరం.</string>
+    <string name="home_sos_location_permission">లొకేషన్ అనుమతి SOSకు మీ కోఆర్డినేట్లను సందేశంలో చేర్చడానికి అనుమతిస్తుంది.</string>
+    <string name="home_sos_location_unavailable">ఇంకా GPS ఫిక్స్ రాలేదు, కాబట్టి సందేశంలో కోఆర్డినేట్లు అందుబాటులో లేవని చెబుతోంది.</string>
+    <string name="home_sos_siren_stopped">సైరన్ ఆగింది. ఇప్పటికే పంపిన సందేశాలను తిరిగి పిలవలేము.</string>
+    <string name="home_header_title">ఫ్లూడ్‌క్యూ కు స్వాగతం</string>
+    <string name="home_header_subtitle">వరదకు ముందు, సమయంలో, తర్వాత మీకు అవసరమైన ప్రతిదీ</string>
+    <string name="home_readiness_checklist">సిద్ధత చెక్‌లిస్ట్</string>
+    <string name="home_safety_guide">భద్రతా గైడ్</string>
+    <string name="profile_details_heading">వినియోగదారు ప్రొఫైల్</string>
+    <string name="flood_alert_severity_green">సాధారణం</string>
+    <string name="flood_alert_severity_orange">మధ్యస్థం</string>
+    <string name="flood_alert_severity_red">తీవ్రం</string>
+    <string name="flood_alert_severity_yellow">జాగ్రత్త</string>
+    <string name="home_offline_ready">ఆఫ్‌లైన్ సిద్ధం</string>
+    <string name="home_emergency_response">అత్యవసర స్పందన</string>
+    <string name="home_sos_alarm">SOS అలారం · ఒక్క ట్యాప్ హెచ్చరిక</string>
+    <string name="home_sos_message">SOS సందేశం</string>
+    <string name="home_full_sos">పూర్తి SOS · సందేశం + సైరన్ + GPS</string>
+    <string name="home_situation_live_alerts">పరిస్థితి &amp; ప్రత్యక్ష హెచ్చరికలు</string>
+    <string name="home_weather_forecast">వాతావరణ అంచనా</string>
+    <string name="home_survival_readiness">మనుగడ &amp; సిద్ధత</string>
+    <string name="home_offline_mesh">ఆఫ్‌లైన్ మెష్</string>
+    <string name="home_saved_profile">సేవ్ చేసిన ప్రొఫైల్</string>
+    <string name="login_brand">ఫ్లూడ్‌క్యూ</string>
+    <string name="login_heading">తిరిగి స్వాగతం</string>
+    <string name="login_subtitle">మీ అత్యవసర ప్రణాళికకు సురక్షిత సైన్ ఇన్ మాత్రమే అవసరం.</string>
+    <string name="login_change_language">భాష మార్చండి</string>
+    <string name="login_forgot_password">పాస్‌వర్డ్ మర్చిపోయారా?</string>
+    <string name="login_sign_in">సైన్ ఇన్</string>
+    <string name="login_or_continue_with">దీనితో కొనసాగండి</string>
+    <string name="login_google">Googleతో కొనసాగండి</string>
+    <string name="login_create_account_prompt">ఖాతా లేదా? ఖాతా సృష్టించండి</string>
+    <string name="create_account_heading">మీ భద్రతా ఖాతాను సృష్టించండి</string>
+    <string name="create_account_subtitle">మీ అత్యవసర ప్రణాళికకు అవసరమైన వివరాలను సురక్షితంగా, ఆఫ్‌లైన్‌లో సేవ్ చేయండి.</string>
+    <string name="create_account_button">ఖాతా సృష్టించండి</string>
+    <string name="create_account_verification_note">మీ ఇమెయిల్ నిర్ధారించడానికి ధృవీకరణ లింక్ పంపుతాము.</string>
+    <string name="create_account_sign_in_prompt">ఇప్పటికే ఖాతా ఉందా? సైన్ ఇన్ చేయండి</string>
+    <string name="splash_eyebrow">అత్యవసర సిద్ధత</string>
+    <string name="splash_tagline">సిద్ధంగా ఉండండి. అనుసంధానంగా ఉండండి. సురక్షితంగా ఉండండి.</string>
+    <string name="splash_badge">ఆఫ్‌లైన్ సిద్ధం · 24/7 భద్రత</string>
+    <string name="splash_preparing">ఫ్లూడ్‌క్యూ సిద్ధమవుతోంది…</string>
+    <string name="splash_choose_language">మీ భాషను ఎంచుకోండి…</string><string name="splash_opening_sign_in">సైన్ ఇన్ తెరవబడుతోంది…</string><string name="splash_opening_app">ఫ్లూడ్‌క్యూ తెరవబడుతోంది…</string><string name="splash_opening_setup">ప్రొఫైల్ సెటప్ తెరవబడుతోంది…</string><string name="home_sign_in_saved_details">మీ సేవ్ చేసిన వివరాలను చూడటానికి ముందుగా సైన్ ఇన్ చేయండి.</string><string name="home_no_local_profile">ఈ పరికరంలో స్థానిక ప్రొఫైల్ లేదు.</string><string name="login_failed">సైన్ ఇన్ విఫలమైంది</string><string name="setup_step">దశ %1$d / 3</string><string name="setup_subtitle_personal">వ్యక్తిగత మరియు వైద్య వివరాలు</string><string name="setup_subtitle_contacts">పరిచయాలు మరియు తరలింపు సహాయం</string><string name="setup_subtitle_review">మీ భద్రతా ప్రొఫైల్‌ను పరిశీలించి సేవ్ చేయండి</string><string name="setup_review_button">వివరాలను పరిశీలించండి →</string><string name="setup_continue_button">కొనసాగించండి →</string><string name="setup_full_name_required">మీ పూర్తి పేరును నమోదు చేయండి</string><string name="setup_blood_group_required">మీ రక్త వర్గాన్ని ఎంచుకోండి.</string><string name="setup_saving_profile">ప్రొఫైల్ సేవ్ అవుతోంది…</string><string name="setup_save_continue">సేవ్ చేసి ఫ్లూడ్‌క్యూ కొనసాగించండి →</string><string name="setup_save_failed">మీ ప్రొఫైల్ సేవ్ కాలేదు. కనెక్షన్ తనిఖీ చేసి మళ్లీ ప్రయత్నించండి.</string>
+    <string name="setup_brand">ఫ్లూడ్‌క్యూ / మీ భద్రత</string><string name="setup_heading">మీ భద్రతా ప్రొఫైల్‌ను సృష్టించండి</string><string name="setup_page_one_heading">అత్యవసరాలకు సిద్ధం అవుదాం</string><string name="setup_page_one_intro">సహాయకులకు అవసరమైన వివరాలను జోడించండి. తర్వాత మార్చవచ్చు.</string><string name="setup_page_two_heading">మీ అత్యవసర నెట్‌వర్క్</string><string name="setup_page_two_intro">మీకు సహాయం చేయగల వ్యక్తులను జోడించి ప్రాంతాన్ని ఎంచుకోండి.</string><string name="setup_page_three_heading">మీరు దాదాపు సిద్ధంగా ఉన్నారు</string><string name="setup_page_three_intro">అవసరమైనప్పుడు ఫ్లూడ్‌క్యూ ఉపయోగించేందుకు మీ భద్రతా ప్రొఫైల్‌ను సేవ్ చేయండి.</string><string name="setup_back">వెనక్కి</string><string name="setup_skip">దాటవేయండి</string>
+<string name="setup_assistance_heading">04  తరలింపు సహాయం</string><string name="setup_assistance_intro">తరలింపు సమయంలో అవసరమైన సహాయాన్ని ఎంచుకోండి.</string><string name="setup_assistance_none">ప్రత్యేక సహాయం అవసరం లేదు</string><string name="setup_assistance_elderly">వృద్ధుడు</string><string name="setup_assistance_child">పిల్ల</string><string name="setup_assistance_pregnant">గర్భిణి</string><string name="setup_assistance_wheelchair">వీల్‌చైర్ వినియోగదారు</string><string name="setup_assistance_walking">నడవడంలో ఇబ్బంది</string><string name="setup_assistance_hearing">వినికిడి లోపం</string><string name="setup_assistance_visual">చూపు లోపం</string><string name="setup_assistance_other">ఇతర సహాయం</string><string name="setup_region_heading">05  మీ ప్రాంతం</string><string name="setup_region_intro">స్థానిక భద్రతా సమాచారాన్ని సిద్ధం చేయడానికి ఉపయోగిస్తారు.</string>
+<string name="setup_hint_contact_name">పూర్తి పేరు</string><string name="setup_hint_enter_phone">ఫోన్ నంబర్ నమోదు చేయండి</string><string name="setup_hint_backup_phone">బ్యాకప్ ఫోన్ నంబర్</string><string name="setup_hint_optional_contact_name">సంప్రదింపు పేరు (ఐచ్ఛికం)</string><string name="setup_hint_optional_phone">ఫోన్ నంబర్ (ఐచ్ఛికం)</string><string name="setup_hint_optional_alternate">ప్రత్యామ్నాయ నంబర్ (ఐచ్ఛికం)</string><string name="setup_checklist_heading">మీ సెటప్ చెక్‌లిస్ట్</string><string name="setup_check_personal">✓  వ్యక్తిగత మరియు వైద్య వివరాలు</string><string name="setup_check_contacts">✓  అత్యవసర పరిచయాలు మరియు ప్రాంతం</string><string name="setup_check_ready">✓  ప్రొఫైల్ సేవ్‌కు సిద్ధం</string><string name="setup_profile_saved_info">మీ ప్రొఫైల్ FloodCue ఖాతాలో సేవ్ చేయబడింది. ఈ పరికరంలో డౌన్‌లోడ్ చేసిన తర్వాతే ఆఫ్‌లైన్ మ్యాప్స్ కనిపిస్తాయి.</string><string name="setup_bridgefy_heading">Bridgefyతో అనుసంధానంగా ఉండండి</string><string name="setup_bridgefy_info">మద్దతు ఉన్న పరిస్థితుల్లో Bridgefy Bluetooth ద్వారా సమీప సందేశాలను అందిస్తుంది. ఇది వేరే యాప్, విడిగా ఇన్‌స్టాల్ చేయాలి.</string><string name="setup_bridgefy_button">Google Playలో Bridgefy పొందండి</string><string name="setup_settings_note">మీ అత్యవసర సమాచారాన్ని Settingsలో తరువాత మార్చవచ్చు.</string></resources>

@@ -27,7 +27,13 @@ import com.google.firebase.auth.FirebaseUser;
 
 import android.widget.LinearLayout;
 
-public class CreateAccountActivity extends AppCompatActivity {
+public class CreateAccountActivity extends FloodCueActivity {
+
+    @Override
+    protected boolean showsBottomNavigation() {
+        return false;
+    }
+
 
     private EditText emailEditText;
     private EditText passwordEditText;
@@ -104,13 +110,14 @@ public class CreateAccountActivity extends AppCompatActivity {
                 findViewById(R.id.textBackToLogin);
 
         String loginLabel =
-                "Already have an account? Login";
+                getString(R.string.create_account_sign_in_prompt);
 
         SpannableStringBuilder spannable =
                 new SpannableStringBuilder(loginLabel);
 
-        int start = loginLabel.indexOf("Login");
-        int end = start + "Login".length();
+        String signInAction = getString(R.string.login_sign_in);
+        int start = loginLabel.indexOf(signInAction);
+        int end = start + signInAction.length();
 
         if (start >= 0) {
 
@@ -349,31 +356,31 @@ public class CreateAccountActivity extends AppCompatActivity {
         appendRequirement(
                 builder,
                 hasMinimumLength,
-                "Minimum " + MIN_PASSWORD_LENGTH + " characters"
+                getString(R.string.create_minimum_characters, MIN_PASSWORD_LENGTH)
         );
 
         appendRequirement(
                 builder,
                 hasUppercase,
-                "Uppercase letter"
+                getString(R.string.create_uppercase_letter)
         );
 
         appendRequirement(
                 builder,
                 hasLowercase,
-                "Lowercase letter"
+                getString(R.string.create_lowercase_letter)
         );
 
         appendRequirement(
                 builder,
                 hasNumber,
-                "Number"
+                getString(R.string.create_number)
         );
 
         appendRequirement(
                 builder,
                 hasSpecial,
-                "Special character"
+                getString(R.string.create_special_character)
         );
 
         passwordInputLayout.setHelperText(builder);
@@ -475,30 +482,28 @@ public class CreateAccountActivity extends AppCompatActivity {
 
         if (password.length() < MIN_PASSWORD_LENGTH) {
 
-            return "Password needs at least "
-                    + MIN_PASSWORD_LENGTH
-                    + " characters.";
+            return getString(R.string.create_minimum_characters, MIN_PASSWORD_LENGTH);
         }
 
         if (!password.matches(".*[A-Z].*")) {
 
-            return "Add at least one uppercase letter.";
+            return getString(R.string.create_add_uppercase);
         }
 
         if (!password.matches(".*[a-z].*")) {
 
-            return "Add at least one lowercase letter.";
+            return getString(R.string.create_add_lowercase);
         }
 
         if (!password.matches(".*[0-9].*")) {
 
-            return "Add at least one number.";
+            return getString(R.string.create_add_number);
         }
 
         if (!password.matches(
                 ".*[^a-zA-Z0-9].*")) {
 
-            return "Add at least one special character.";
+            return getString(R.string.create_add_special);
         }
 
         return null;
@@ -540,7 +545,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             showError(
                     emailInputLayout,
                     emailEditText,
-                    "Enter your email."
+                    getString(R.string.create_email_required)
             );
 
             return;
@@ -551,7 +556,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             showError(
                     emailInputLayout,
                     emailEditText,
-                    "Enter a valid email address."
+                    getString(R.string.login_email_invalid)
             );
 
             return;
@@ -566,7 +571,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             showError(
                     passwordInputLayout,
                     passwordEditText,
-                    "Enter a password."
+                    getString(R.string.create_password_required)
             );
 
             return;
@@ -581,7 +586,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             showError(
                     passwordInputLayout,
                     passwordEditText,
-                    "Password cannot contain only spaces."
+                    getString(R.string.create_password_spaces)
             );
 
             return;
@@ -597,7 +602,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             showError(
                     passwordInputLayout,
                     passwordEditText,
-                    "Password is too long."
+                    getString(R.string.create_password_too_long)
             );
 
             return;
@@ -633,7 +638,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             showError(
                     confirmPasswordInputLayout,
                     confirmPasswordEditText,
-                    "Confirm your password."
+                    getString(R.string.create_confirm_password)
             );
 
             return;
@@ -648,7 +653,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             showError(
                     confirmPasswordInputLayout,
                     confirmPasswordEditText,
-                    "Passwords do not match."
+                    getString(R.string.create_password_mismatch)
             );
 
             return;
@@ -683,7 +688,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                                     setLoading(false);
 
                                     showMessage(
-                                            "Account creation failed. Please try again."
+                                            getString(R.string.create_failed)
                                     );
                                 }
 
@@ -715,13 +720,13 @@ public class CreateAccountActivity extends AppCompatActivity {
                             if (verificationTask.isSuccessful()) {
 
                                 showMessage(
-                                        "✓ Account created. Verification email sent."
+                                        getString(R.string.create_success_verification_sent)
                                 );
 
                             } else {
 
                                 showMessage(
-                                        "Account created, but the verification email could not be sent."
+                                        getString(R.string.create_verification_failed)
                                 );
                             }
                         }
@@ -824,14 +829,14 @@ public class CreateAccountActivity extends AppCompatActivity {
             Exception exception) {
 
         String message =
-                "Account creation failed. Please try again.";
+                getString(R.string.create_failed);
 
         if (exception != null
                 && exception.getMessage() != null) {
 
             String firebaseMessage =
                     exception.getMessage()
-                            .toLowerCase();
+                            .toLowerCase(java.util.Locale.ROOT);
 
             // =================================================
             // EMAIL ALREADY EXISTS
@@ -843,7 +848,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                     "email-already-in-use")) {
 
                 message =
-                        "An account already exists with this email.";
+                        getString(R.string.create_email_exists);
 
             }
 
@@ -884,7 +889,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                 } else {
 
                     message =
-                            "Password does not meet the required Firebase password policy.";
+                            getString(R.string.create_firebase_password_policy);
                 }
             }
 
@@ -896,7 +901,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                     "too-many-requests")) {
 
                 message =
-                        "Too many attempts. Please try again later.";
+                        getString(R.string.create_too_many_attempts);
 
             }
 
@@ -908,7 +913,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                     "network")) {
 
                 message =
-                        "Network error. Please check your internet connection.";
+                        getString(R.string.create_network_error);
 
             }
 
@@ -919,8 +924,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             else if (firebaseMessage.contains(
                     "invalid-email")) {
 
-                message =
-                        "Please enter a valid email address.";
+                message = getString(R.string.login_email_invalid);
 
             }
 
@@ -932,7 +936,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                     "operation-not-allowed")) {
 
                 message =
-                        "Email/password account creation is currently unavailable.";
+                        getString(R.string.create_unavailable);
             }
         }
 
