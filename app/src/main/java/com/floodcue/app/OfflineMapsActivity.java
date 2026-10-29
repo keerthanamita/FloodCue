@@ -104,7 +104,7 @@ public class OfflineMapsActivity extends FloodCueActivity {
                     setDownloadProgressVisible(false);
                     Toast.makeText(
                             OfflineMapsActivity.this,
-                            getString(R.string.offline_map_download_failed, map.name, "Download failed"),
+                            getString(R.string.offline_map_download_failed, map.name, getString(R.string.offline_map_download_failed_reason)),
                             Toast.LENGTH_LONG
                     ).show();
                 });
@@ -113,7 +113,7 @@ public class OfflineMapsActivity extends FloodCueActivity {
             String message = getString(
                     R.string.offline_map_download_failed,
                     map.name,
-                    "Cannot start download"
+                        getString(R.string.offline_map_download_start_failed)
             );
             mainHandler.post(() -> {
                 downloadInProgress = false;

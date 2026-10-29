@@ -227,6 +227,8 @@ Localization phase 26: Emergency Contacts official service catalog now has Telug
 
 Localization phase 27: Home local saved-profile detail text now reuses translated profile labels instead of hardcoded English labels. Profile data, SOS behavior, and storage are unchanged.
 
+Localization phase 28: Offline Maps download failure/start messages are now resource-backed and translated in all supported locales. District names and the remaining Java hardcoded-string inventory still require completion.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.
