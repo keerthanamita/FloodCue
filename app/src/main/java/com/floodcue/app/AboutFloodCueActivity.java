@@ -18,6 +18,11 @@ public class AboutFloodCueActivity extends FloodCueActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_floodcue);
 
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            toolbar.setTitle(R.string.about_floodcue_heading);
+        }
+
         findViewById(R.id.buttonBackToSettingsFromAbout).setOnClickListener(v -> finish());
 
         TextView versionView = findViewById(R.id.aboutFloodcueVersion);

@@ -128,6 +128,8 @@ Naming and theme coverage update: Home now labels the actions `Contacts`, `Readi
 
 Setup screen update: The three-step setup flow keeps its existing IDs, validation, skip/back/continue behavior, profile persistence, and Bridgefy action. Its header now uses the shared lilac palette with readable primary/secondary text, the progress bar uses theme-aware FloodCue tokens, and the bottom navigation uses the same secondary/primary button surfaces and padding as the rest of the app.
 
+About FloodCue update: The information card now uses normalized inner spacing, a smaller hierarchy-safe heading, a theme-aware version badge, and a shared toolbar title. Content, version lookup, and back navigation remain unchanged.
+
 Shared back-ribbon correction: `layout_base_screen.xml` is now the single common orange ribbon with one working back arrow. `FloodCueActivity` wires that arrow to the normal back dispatcher and hides duplicate in-content back rows across Contacts, Maps, Weather, SOS, Settings, Guides, Alerts, Profile, and related screens. This prevents the ribbon/text vertical mismatch and duplicate arrow symbols.
 
 Bottom navigation surface correction: the shared navigation bar no longer uses translucent glass colors. It now uses opaque, theme-specific `bottom_nav_surface` values so it has the same clear, grounded separation as the Home screen in both light and dark modes.
