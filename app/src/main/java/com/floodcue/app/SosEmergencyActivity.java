@@ -56,8 +56,6 @@ public class SosEmergencyActivity extends FloodCueActivity
             "sos_emergency_last_location_time";
     private static final long LOCATION_TIMEOUT_MS = 15000L;
 
-    private static final String EMERGENCY_SMS_BODY =
-            SosQuickSend.EMERGENCY_SMS_BODY;
 
     private static final int LOCATION_PERMISSION_REQUEST = 3101;
 
@@ -338,25 +336,7 @@ public class SosEmergencyActivity extends FloodCueActivity
     }
 
     private String buildEmergencyMessage(Location location) {
-        StringBuilder body = new StringBuilder(EMERGENCY_SMS_BODY);
-
-        if (location != null) {
-            body.append("\n\n");
-            body.append("My location: ");
-            body.append(formatCoordinate(location.getLatitude()));
-            body.append(", ");
-            body.append(formatCoordinate(location.getLongitude()));
-            body.append(" (");
-            body.append(formatTimestamp(location.getTime()));
-            body.append(")");
-            body.append("\nhttps://maps.google.com/maps?q=");
-            body.append(location.getLatitude());
-            body.append(",");
-            body.append(location.getLongitude());
-        } else {
-            body.append("\n\nNo GPS coordinates available.");
-        }
-        return body.toString();
+        return SosQuickSend.buildMessage(this, location);
     }
 
     private void toggleSiren() {

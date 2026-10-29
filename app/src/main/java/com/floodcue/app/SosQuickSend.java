@@ -30,10 +30,6 @@ final class SosQuickSend {
     /** Must stay in sync with {@code SosActivity.DRAFT_NUMBERS_KEY}. */
     static final String DRAFT_NUMBERS_KEY = "sos_draft_numbers";
 
-    static final String EMERGENCY_SMS_BODY =
-            "I NEED HELP! I may be in danger due to flooding. "
-                    + "Please contact me or send emergency assistance.";
-
     private static final String PREFS_NAME = "FloodCuePrefs";
 
     private static final String[] PERSONAL_CONTACT_KEYS = {
@@ -77,13 +73,18 @@ final class SosQuickSend {
      * and the time it was recorded; otherwise it says so plainly instead of
      * inventing a position.
      */
-    static String buildMessage(Location location) {
-        StringBuilder body = new StringBuilder(EMERGENCY_SMS_BODY);
+    static String buildMessage(Context context, Location location) {
+        Context survivalContext = LocaleManager.withSurvivalLanguage(context);
+        StringBuilder body = new StringBuilder(
+                survivalContext.getString(R.string.sos_emergency_sms_body));
         if (location == null) {
-            body.append("\n\nNo GPS coordinates available.");
+            body.append("\n\n")
+                    .append(survivalContext.getString(R.string.sos_no_gps_coordinates));
             return body.toString();
         }
-        body.append("\n\nMy location: ")
+        body.append("\n\n")
+                .append(survivalContext.getString(R.string.sos_my_location))
+                .append(": ")
                 .append(String.format(Locale.US, "%.6f", location.getLatitude()))
                 .append(", ")
                 .append(String.format(Locale.US, "%.6f", location.getLongitude()))

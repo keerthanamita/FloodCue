@@ -424,7 +424,7 @@ public class HomeActivity extends FloodCueActivity {
                     R.string.home_sos_location_unavailable, Toast.LENGTH_SHORT).show();
         }
         SosQueue.enqueue(getApplicationContext(), recipients,
-                SosQuickSend.buildMessage(location));
+                SosQuickSend.buildMessage(getApplicationContext(), location));
         Toast.makeText(getApplicationContext(),
                 getString(R.string.home_sos_started, recipients.size()),
                 Toast.LENGTH_LONG).show();

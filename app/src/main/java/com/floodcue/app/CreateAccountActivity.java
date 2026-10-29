@@ -481,9 +481,7 @@ public class CreateAccountActivity extends FloodCueActivity {
 
         if (password.length() < MIN_PASSWORD_LENGTH) {
 
-            return "Password needs at least "
-                    + MIN_PASSWORD_LENGTH
-                    + " characters.";
+            return getString(R.string.create_minimum_characters, MIN_PASSWORD_LENGTH);
         }
 
         if (!password.matches(".*[A-Z].*")) {

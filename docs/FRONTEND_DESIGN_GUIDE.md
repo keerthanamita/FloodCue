@@ -237,6 +237,10 @@ Localization phase 31: Tamil Nadu, Karnataka, and Kerala district options now lo
 
 Localization phase 32: Telangana district options now load from a resource array. All five state branches are now resource-backed; district names remain proper-name data and use the shared base array unless a locale-specific spelling is supplied.
 
+Localization phase 33: SOS SMS content now resolves through the selected survival-language context for both the Home quick-send path and the SOS Emergency Message path. The emergency body, missing-GPS notice, and location label have localized resources for English, Telugu, Hindi, Tamil, Kannada, and Malayalam. Create-account minimum-password feedback also reuses the existing localized minimum-character resource. SOS recipients, queueing, location acquisition, and SMS dispatch behavior were not changed.
+
+Validation note: all Android resource XML files currently parse successfully (`bad_xml=0`). No Gradle/Android build has been run in this phase, so compilation and device rendering remain to be verified locally.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.
