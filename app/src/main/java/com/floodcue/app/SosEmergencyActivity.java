@@ -544,7 +544,7 @@ public class SosEmergencyActivity extends FloodCueActivity
 
     private String formatTimestamp(long timeMs) {
         if (timeMs <= 0) {
-            return "time not recorded";
+            return getString(R.string.sos_location_time_unknown);
         }
         return timestampFormat.format(new Date(timeMs));
     }
