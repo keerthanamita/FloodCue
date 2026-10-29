@@ -223,6 +223,8 @@ Localization phase 24: Login service, reset-email, verification, credential, net
 
 Localization phase 25: Emergency Contacts official service titles/descriptions are now resource-backed; phone numbers and call behavior are unchanged. Locale translations for this catalog and the remaining district/service strings still require completion.
 
+Localization phase 26: Emergency Contacts official service catalog now has Telugu, Hindi, Tamil, Kannada, and Malayalam translations. All catalog resource files parse successfully; district data and remaining Java user-facing strings still require audit.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.
