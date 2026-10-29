@@ -219,6 +219,8 @@ Localization phase 22: Create-account password-rule labels, required-field valid
 
 Localization phase 23: Create-account success/failure, verification-email, duplicate-email, Firebase-policy, rate-limit, network, and unavailable-service messages are now resource-backed and translated in all supported locales.
 
+Localization phase 24: Login service, reset-email, verification, credential, network, and Google-authentication result messages are now resource-backed and translated in all supported locales.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.

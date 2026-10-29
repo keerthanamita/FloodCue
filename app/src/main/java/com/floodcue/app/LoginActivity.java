@@ -388,14 +388,14 @@ getString(R.string.login_password_required)
                                 )) {
 
                                     message =
-                                            "Incorrect email or password";
+                                            getString(R.string.login_incorrect_credentials);
 
                                 } else if (error.contains(
                                         "network"
                                 )) {
 
                                     message =
-                                            "Check your internet connection";
+                                            getString(R.string.login_network_error);
 
                                 } else {
 
@@ -416,7 +416,7 @@ getString(R.string.login_password_required)
                         setLoginLoading(false);
 
                         showError(
-                                "Unable to get account information"
+                                getString(R.string.login_account_info_failed)
                         );
 
                         return;
@@ -433,7 +433,7 @@ getString(R.string.login_password_required)
                                 if (refreshedUser == null) {
 
                                     showError(
-                                            "Unable to get account information"
+                                            getString(R.string.login_account_info_failed)
                                     );
 
                                     return;
@@ -442,7 +442,7 @@ getString(R.string.login_password_required)
                                 if (!refreshedUser.isEmailVerified()) {
 
                                     showMessage(
-                                            "Please verify your email before logging in."
+                                            getString(R.string.login_verify_email)
                                     );
 
                                     return;
@@ -503,13 +503,13 @@ getString(R.string.login_email_invalid)
                     if (task.isSuccessful()) {
 
                         showMessage(
-                                "Password reset email sent. Check your inbox."
+                                getString(R.string.login_reset_sent)
                         );
 
                     } else {
 
                         String message =
-                                "Unable to send reset email";
+                                getString(R.string.login_reset_failed);
 
                         if (task.getException() != null
                                 && task.getException().getMessage() != null) {
@@ -590,7 +590,7 @@ getString(R.string.login_email_invalid)
                                     || message.trim().isEmpty()) {
 
                                 message =
-                                        "Google sign-in was cancelled";
+                                        getString(R.string.login_google_cancelled);
                             }
 
                             showMessage(message);
@@ -631,21 +631,21 @@ getString(R.string.login_email_invalid)
                 } catch (Exception e) {
 
                     showError(
-                            "Unable to process Google sign-in"
+                            getString(R.string.login_google_process_failed)
                     );
                 }
 
             } else {
 
                 showError(
-                        "Unexpected Google credential"
+                        getString(R.string.login_google_credential_unexpected)
                 );
             }
 
         } else {
 
             showError(
-                    "Unexpected credential type"
+                    getString(R.string.login_credential_type_unexpected)
             );
         }
     }
@@ -678,7 +678,7 @@ getString(R.string.login_email_invalid)
                     } else {
 
                         String message =
-                                "Google authentication failed";
+                                getString(R.string.login_google_failed);
 
                         if (task.getException() != null
                                 && task.getException().getMessage() != null) {
@@ -936,7 +936,7 @@ getString(R.string.login_email_invalid)
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
         if (user == null) {
-            showError("Unable to get account information");
+            showError(getString(R.string.login_account_info_failed));
             return;
         }
 
