@@ -1,1005 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#F1F8FC">
-
-    <!-- Header -->
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+    <include layout="@layout/layout_base_screen" />
     <LinearLayout
+        android:id="@+id/content_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="92dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center_vertical"
-        android:paddingStart="22dp"
-        android:paddingEnd="22dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
         android:paddingTop="16dp"
-        android:paddingBottom="14dp"
-        android:background="#075985">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="FLOODCUE  /  YOUR SAFETY"
-            android:textColor="#B9E9FF"
-            android:textSize="11sp"
-            android:letterSpacing="0.12"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Build your safety profile"
-            android:textColor="#FFFFFF"
-            android:textSize="23sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textSetupSubtitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:text="Personal and medical details"
-            android:textColor="#D7F1FF"
-            android:textSize="13sp" />
-
-        <ProgressBar
-            android:id="@+id/progressSetup"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:layout_marginTop="14dp"
-            android:max="100"
-            android:progress="33"
-            android:progressTint="#67E8F9"
-            android:progressBackgroundTint="#376F8B" />
-
-        <TextView
-            android:id="@+id/textSetupStep"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:text="STEP 1 OF 3"
-            android:textColor="#D7F1FF"
-            android:textSize="11sp"
-            android:textStyle="bold" />
+        android:paddingBottom="32dp">
+        <LinearLayout xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:minHeight="92dp" ns0:orientation="vertical" ns0:gravity="center_vertical" ns0:paddingStart="22dp" ns0:paddingEnd="22dp" ns0:paddingTop="16dp" ns0:paddingBottom="14dp" ns0:background="@color/home_lilac_surface">
+        
+                <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="FLOODCUE  /  YOUR SAFETY" ns0:textColor="@color/button_primary" ns0:textSize="11sp" ns0:letterSpacing="0.12" ns0:textStyle="bold" />
+        
+                <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:text="Build your safety profile" ns0:textColor="@color/text_primary" ns0:textSize="23sp" ns0:textStyle="bold" />
+        
+                <TextView ns0:id="@+id/textSetupSubtitle" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="3dp" ns0:text="Personal and medical details" ns0:textColor="@color/text_secondary" ns0:textSize="13sp" />
+        
+                <ProgressBar ns0:id="@+id/progressSetup" style="?android:attr/progressBarStyleHorizontal" ns0:layout_width="match_parent" ns0:layout_height="5dp" ns0:layout_marginTop="14dp" ns0:max="100" ns0:progress="33" ns0:progressTint="@color/button_primary" ns0:progressBackgroundTint="@color/border_color" />
+        
+                <TextView ns0:id="@+id/textSetupStep" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="7dp" ns0:text="STEP 1 OF 3" ns0:textColor="@color/text_secondary" ns0:textSize="11sp" ns0:textStyle="bold" />
+            </LinearLayout>
+        
+            
+            
+        <FrameLayout xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:layout_width="match_parent" ns0:layout_height="0dp" ns0:layout_weight="1">
+        
+                
+                <ScrollView ns0:id="@+id/pageSetupOne" ns0:layout_width="match_parent" ns0:layout_height="match_parent" ns0:clipToPadding="false" ns0:fillViewport="true" ns0:scrollbars="vertical">
+        
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:padding="16dp">
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="Let's prepare for emergencies" ns0:textColor="@color/fc_text_primary" ns0:textSize="20sp" ns0:textStyle="bold" />
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:layout_marginBottom="14dp" ns0:text="Add the details responders may need. You can update them later." ns0:textColor="@color/fc_text_secondary" ns0:textSize="13sp" />
+        
+                        
+                        <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:padding="18dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="01  Personal information" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:text="Full name *" ns0:textColor="@color/fc_text_secondary" ns0:textStyle="bold" ns0:textSize="13sp" />
+        
+                            <EditText ns0:id="@+id/editFullName" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="6dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="Enter your full name" ns0:inputType="textCapWords|textPersonName" ns0:paddingStart="12dp" ns0:paddingEnd="12dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="15sp" />
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="15dp" ns0:text="Blood group *" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
+        
+                            <Spinner ns0:id="@+id/spinnerBloodGroup" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="4dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" />
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="7dp" ns0:text="Select your blood group if known." ns0:textColor="@color/fc_text_secondary" ns0:textSize="12sp" />
+                        </LinearLayout>
+        
+                        
+                        <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:orientation="vertical" ns0:padding="18dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="02  Allergies" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:text="Select every option that applies." ns0:textColor="@color/fc_text_secondary" ns0:textSize="12sp" />
+        
+                            <CheckBox ns0:id="@+id/checkAllergyMedicines" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="9dp" ns0:buttonTint="@color/fc_primary" ns0:text="Medicines" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+                            <CheckBox ns0:id="@+id/checkAllergyFood" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Food" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+                            <CheckBox ns0:id="@+id/checkAllergyInsects" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Insect bites" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+                            <CheckBox ns0:id="@+id/checkAllergyLatex" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Latex" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+                            <CheckBox ns0:id="@+id/checkAllergyOther" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Other allergy" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+                            <CheckBox ns0:id="@+id/checkAllergyNone" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="No known allergies" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+                            <EditText ns0:id="@+id/editOtherAllergies" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:minHeight="52dp" ns0:layout_marginTop="7dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:gravity="top" ns0:hint="Describe the other allergy" ns0:inputType="textCapSentences|textMultiLine" ns0:padding="12dp" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" ns0:visibility="gone" />
+                        </LinearLayout>
+        
+                        
+                        <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:orientation="vertical" ns0:padding="18dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="03  Medical information" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="15dp" ns0:text="Current medications (optional)" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
+        
+                            <EditText ns0:id="@+id/editMedications" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:minHeight="52dp" ns0:layout_marginTop="5dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="e.g. insulin, inhaler" ns0:inputType="textCapSentences|textMultiLine" ns0:padding="12dp" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="15dp" ns0:text="Important medical notes (optional)" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
+        
+                            <EditText ns0:id="@+id/editMedicalNotes" ns0:layout_width="match_parent" ns0:layout_height="100dp" ns0:layout_marginTop="5dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:gravity="top" ns0:hint="Anything responders should know" ns0:inputType="textCapSentences|textMultiLine" ns0:padding="12dp" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </ScrollView>
+        
+                
+                <ScrollView ns0:id="@+id/pageSetupTwo" ns0:layout_width="match_parent" ns0:layout_height="match_parent" ns0:fillViewport="true" ns0:clipToPadding="false" ns0:visibility="gone">
+        
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:padding="16dp">
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="Your emergency network" ns0:textColor="@color/fc_text_primary" ns0:textSize="20sp" ns0:textStyle="bold" />
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:layout_marginBottom="14dp" ns0:text="Add people who can help you and choose your area." ns0:textColor="@color/fc_text_secondary" ns0:textSize="13sp" />
+        
+                        
+                        <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:padding="18dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="01  Primary emergency contact" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="13dp" ns0:text="Contact name" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
+        
+                            <EditText ns0:id="@+id/editPrimaryContactName" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="4dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="Full name" ns0:inputType="textCapWords|textPersonName" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:text="Relationship" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
+        
+                            <Spinner ns0:id="@+id/spinnerPrimaryRelationship" ns0:layout_width="match_parent" ns0:layout_height="48dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:paddingStart="6dp" />
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:text="Phone number *" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
+        
+                            <EditText ns0:id="@+id/editPrimaryPhone" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="4dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="Enter phone number" ns0:inputType="phone" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:text="Alternate number (optional)" ns0:textColor="@color/fc_text_secondary" ns0:textStyle="bold" ns0:textSize="13sp" />
+        
+                            <EditText ns0:id="@+id/editPrimaryAlternatePhone" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="4dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="Backup phone number" ns0:inputType="phone" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+                        </LinearLayout>
+        
+                        
+                        <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:orientation="vertical" ns0:padding="18dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="02  Second emergency contact" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
+        
+                            <EditText ns0:id="@+id/editSecondContactName" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="12dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="Contact name (optional)" ns0:inputType="textCapWords|textPersonName" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+        
+                            <Spinner ns0:id="@+id/spinnerSecondRelationship" ns0:layout_width="match_parent" ns0:layout_height="48dp" ns0:layout_marginTop="6dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:paddingStart="6dp" />
+        
+                            <EditText ns0:id="@+id/editSecondPhone" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="6dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="Phone number (optional)" ns0:inputType="phone" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+        
+                            <EditText ns0:id="@+id/editSecondAlternatePhone" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="6dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="Alternate number (optional)" ns0:inputType="phone" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+                        </LinearLayout>
+        
+                        
+                        <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:orientation="vertical" ns0:padding="18dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="03  Third emergency contact" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
+        
+                            <EditText ns0:id="@+id/editThirdContactName" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="12dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="Contact name (optional)" ns0:inputType="textCapWords|textPersonName" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+        
+                            <Spinner ns0:id="@+id/spinnerThirdRelationship" ns0:layout_width="match_parent" ns0:layout_height="48dp" ns0:layout_marginTop="6dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:paddingStart="6dp" />
+        
+                            <EditText ns0:id="@+id/editThirdPhone" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="6dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="Phone number (optional)" ns0:inputType="phone" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+        
+                            <EditText ns0:id="@+id/editThirdAlternatePhone" ns0:layout_width="match_parent" ns0:layout_height="50dp" ns0:layout_marginTop="6dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="Alternate number (optional)" ns0:inputType="phone" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+                        </LinearLayout>
+        
+                        
+                        <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:orientation="vertical" ns0:padding="18dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="04  Evacuation assistance" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:text="Select any support needed during evacuation." ns0:textColor="@color/fc_text_secondary" ns0:textSize="12sp" />
+        
+                            <CheckBox ns0:id="@+id/checkAssistanceNone" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns0:buttonTint="@color/fc_primary" ns0:text="No special assistance needed" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+                            <CheckBox ns0:id="@+id/checkAssistanceElderly" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Elderly person" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+                            <CheckBox ns0:id="@+id/checkAssistanceChild" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Child" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+                            <CheckBox ns0:id="@+id/checkAssistancePregnant" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Pregnant person" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+                            <CheckBox ns0:id="@+id/checkAssistanceWheelchair" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Wheelchair user" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+                            <CheckBox ns0:id="@+id/checkAssistanceWalking" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Difficulty walking" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+                            <CheckBox ns0:id="@+id/checkAssistanceHearing" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Hearing impairment" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+                            <CheckBox ns0:id="@+id/checkAssistanceVisual" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Visual impairment" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+                            <CheckBox ns0:id="@+id/checkAssistanceOther" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Other assistance" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+                        </LinearLayout>
+        
+                        
+                        <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:layout_marginBottom="12dp" ns0:orientation="vertical" ns0:padding="18dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="05  Your region" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:text="Used to prepare relevant local safety information." ns0:textColor="@color/fc_text_secondary" ns0:textSize="12sp" />
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:text="Country" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
+        
+                            <Spinner ns0:id="@+id/spinnerCountry" ns0:layout_width="match_parent" ns0:layout_height="48dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:paddingStart="6dp" />
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="10dp" ns0:text="State" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
+        
+                            <Spinner ns0:id="@+id/spinnerState" ns0:layout_width="match_parent" ns0:layout_height="48dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:paddingStart="6dp" />
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="10dp" ns0:text="District" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
+        
+                            <Spinner ns0:id="@+id/spinnerDistrict" ns0:layout_width="match_parent" ns0:layout_height="48dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:paddingStart="6dp" />
+                        </LinearLayout>
+        
+                    </LinearLayout>
+                </ScrollView>
+        
+                
+                <ScrollView ns0:id="@+id/pageSetupThree" ns0:layout_width="match_parent" ns0:layout_height="match_parent" ns0:fillViewport="true" ns0:clipToPadding="false" ns0:visibility="gone">
+        
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:padding="18dp">
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="You're nearly ready" ns0:textColor="@color/fc_text_primary" ns0:textSize="25sp" ns0:textStyle="bold" />
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="7dp" ns0:text="Save your safety profile so FloodCue can use it when you need help." ns0:textColor="@color/fc_text_secondary" ns0:textSize="14sp" />
+        
+                        <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="20dp" ns0:orientation="vertical" ns0:padding="20dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="Your setup checklist" ns0:textColor="@color/fc_primary_dark" ns0:textSize="18sp" ns0:textStyle="bold" />
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="15dp" ns0:text="✓  Personal and medical details" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:text="✓  Emergency contacts and region" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:text="✓  Profile ready to save" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:text="Your profile is saved to your FloodCue account. Offline maps appear only after they have been downloaded on this device." ns0:textColor="@color/fc_text_secondary" ns0:textSize="13sp" />
+                        </LinearLayout>
+        
+                        
+                        <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:orientation="vertical" ns0:padding="20dp" ns0:background="@color/fc_background" ns0:elevation="1dp">
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="Stay connected with Bridgefy" ns0:textColor="@color/fc_primary_dark" ns0:textSize="18sp" ns0:textStyle="bold" />
+        
+                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="7dp" ns0:text="Bridgefy offers nearby messaging using Bluetooth-based connections in supported conditions. It is a separate app and must be installed separately." ns0:textColor="@color/fc_text_primary_dark" ns0:textSize="13sp" />
+        
+                            <Button ns0:id="@+id/buttonInstallBridgefy" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="15dp" ns0:backgroundTint="@color/fc_primary_dark" ns0:text="Get Bridgefy on Google Play" ns0:textAllCaps="false" ns0:textColor="@color/fc_surface" ns0:textStyle="bold" />
+                        </LinearLayout>
+        
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:layout_marginBottom="20dp" ns0:gravity="center" ns0:text="You can update your emergency information later from Settings." ns0:textColor="@color/fc_text_secondary" ns0:textSize="12sp" />
+        
+                        <Button ns0:id="@+id/buttonCompleteSetup" ns0:layout_width="match_parent" ns0:layout_height="56dp" ns0:backgroundTint="@color/fc_primary" ns0:text="Save &amp; continue to FloodCue  →" ns0:textAllCaps="false" ns0:textColor="@color/fc_surface" ns0:textSize="15sp" ns0:textStyle="bold" />
+                    </LinearLayout>
+                </ScrollView>
+        
+            </FrameLayout>
+        
+            
+            
+        <LinearLayout xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:id="@+id/layoutSetupNav" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:minHeight="78dp" ns0:orientation="horizontal" ns0:gravity="center_vertical" ns0:paddingStart="14dp" ns0:paddingEnd="14dp" ns0:paddingTop="10dp" ns0:paddingBottom="10dp" ns0:background="@drawable/bg_screen_card" ns0:elevation="8dp">
+        
+                <Button ns0:id="@+id/buttonSetupBack" ns0:layout_width="0dp" ns0:layout_height="50dp" ns0:layout_weight="0.8" ns0:background="@drawable/bg_button_secondary" ns0:backgroundTint="@null" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:text="Back" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" ns0:visibility="gone" />
+        
+                <Button ns0:id="@+id/buttonSetupSkip" ns0:layout_width="0dp" ns0:layout_height="50dp" ns0:layout_marginStart="8dp" ns0:layout_weight="0.9" ns0:background="@drawable/bg_button_secondary" ns0:backgroundTint="@null" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:text="Skip" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" />
+        
+                <Button ns0:id="@+id/buttonSetupNext" ns0:layout_width="0dp" ns0:layout_height="50dp" ns0:layout_marginStart="8dp" ns0:layout_weight="1.5" ns0:background="@drawable/bg_button_primary" ns0:backgroundTint="@null" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:text="Continue  →" ns0:textAllCaps="false" ns0:textColor="@color/button_primary_text" ns0:textStyle="bold" />
+            </LinearLayout>
+        
+        
     </LinearLayout>
-
-    <!-- Page container -->
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <!-- PAGE 1: Personal and medical information -->
-        <ScrollView
-            android:id="@+id/pageSetupOne"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:fillViewport="true"
-            android:scrollbars="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Let's prepare for emergencies"
-                    android:textColor="#123B56"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="14dp"
-                    android:text="Add the details responders may need. You can update them later."
-                    android:textColor="#557185"
-                    android:textSize="13sp" />
-
-                <!-- Personal details card -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="18dp"
-                    android:background="#FFFFFF"
-                    android:elevation="2dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="01  Personal information"
-                        android:textColor="#075985"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="Full name *"
-                        android:textColor="#24475C"
-                        android:textStyle="bold"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/editFullName"
-                        android:layout_width="match_parent"
-                        android:layout_height="52dp"
-                        android:layout_marginTop="6dp"
-                        android:backgroundTint="#A9C7D8"
-                        android:hint="Enter your full name"
-                        android:inputType="textCapWords|textPersonName"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:singleLine="true"
-                        android:textColor="#123B56"
-                        android:textColorHint="#7891A0"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:text="Blood group *"
-                        android:textColor="#24475C"
-                        android:textStyle="bold"
-                        android:textSize="13sp" />
-
-                    <Spinner
-                        android:id="@+id/spinnerBloodGroup"
-                        android:layout_width="match_parent"
-                        android:layout_height="52dp"
-                        android:layout_marginTop="4dp"
-                        android:backgroundTint="#A9C7D8"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="8dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="7dp"
-                        android:text="Select your blood group if known."
-                        android:textColor="#71899A"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <!-- Allergies card -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:orientation="vertical"
-                    android:padding="18dp"
-                    android:background="#FFFFFF"
-                    android:elevation="2dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="02  Allergies"
-                        android:textColor="#075985"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Select every option that applies."
-                        android:textColor="#71899A"
-                        android:textSize="12sp" />
-
-                    <CheckBox
-                        android:id="@+id/checkAllergyMedicines"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="9dp"
-                        android:buttonTint="#0284C7"
-                        android:text="Medicines"
-                        android:textColor="#24475C"
-                        android:textSize="14sp" />
-
-                    <CheckBox
-                        android:id="@+id/checkAllergyFood"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:buttonTint="#0284C7"
-                        android:text="Food"
-                        android:textColor="#24475C"
-                        android:textSize="14sp" />
-
-                    <CheckBox
-                        android:id="@+id/checkAllergyInsects"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:buttonTint="#0284C7"
-                        android:text="Insect bites"
-                        android:textColor="#24475C"
-                        android:textSize="14sp" />
-
-                    <CheckBox
-                        android:id="@+id/checkAllergyLatex"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:buttonTint="#0284C7"
-                        android:text="Latex"
-                        android:textColor="#24475C"
-                        android:textSize="14sp" />
-
-                    <CheckBox
-                        android:id="@+id/checkAllergyOther"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:buttonTint="#0284C7"
-                        android:text="Other allergy"
-                        android:textColor="#24475C"
-                        android:textSize="14sp" />
-
-                    <CheckBox
-                        android:id="@+id/checkAllergyNone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:buttonTint="#0284C7"
-                        android:text="No known allergies"
-                        android:textColor="#24475C"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/editOtherAllergies"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:minHeight="52dp"
-                        android:layout_marginTop="7dp"
-                        android:backgroundTint="#A9C7D8"
-                        android:gravity="top"
-                        android:hint="Describe the other allergy"
-                        android:inputType="textCapSentences|textMultiLine"
-                        android:padding="12dp"
-                        android:textColor="#123B56"
-                        android:textColorHint="#7891A0"
-                        android:textSize="14sp"
-                        android:visibility="gone" />
-                </LinearLayout>
-
-                <!-- Medical information card -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:orientation="vertical"
-                    android:padding="18dp"
-                    android:background="#FFFFFF"
-                    android:elevation="2dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="03  Medical information"
-                        android:textColor="#075985"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:text="Current medications (optional)"
-                        android:textColor="#24475C"
-                        android:textStyle="bold"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/editMedications"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:minHeight="52dp"
-                        android:layout_marginTop="5dp"
-                        android:backgroundTint="#A9C7D8"
-                        android:hint="e.g. insulin, inhaler"
-                        android:inputType="textCapSentences|textMultiLine"
-                        android:padding="12dp"
-                        android:textColor="#123B56"
-                        android:textColorHint="#7891A0"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:text="Important medical notes (optional)"
-                        android:textColor="#24475C"
-                        android:textStyle="bold"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/editMedicalNotes"
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        android:layout_marginTop="5dp"
-                        android:backgroundTint="#A9C7D8"
-                        android:gravity="top"
-                        android:hint="Anything responders should know"
-                        android:inputType="textCapSentences|textMultiLine"
-                        android:padding="12dp"
-                        android:textColor="#123B56"
-                        android:textColorHint="#7891A0"
-                        android:textSize="14sp" />
-                </LinearLayout>
-            </LinearLayout>
-        </ScrollView>
-
-        <!-- PAGE 2: Contacts, assistance and region -->
-        <ScrollView
-            android:id="@+id/pageSetupTwo"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:clipToPadding="false"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Your emergency network"
-                    android:textColor="#123B56"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="14dp"
-                    android:text="Add people who can help you and choose your area."
-                    android:textColor="#557185"
-                    android:textSize="13sp" />
-
-                <!-- Primary contact -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="18dp"
-                    android:background="#FFFFFF"
-                    android:elevation="2dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="01  Primary emergency contact"
-                        android:textColor="#075985"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="13dp"
-                        android:text="Contact name"
-                        android:textColor="#24475C"
-                        android:textStyle="bold"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/editPrimaryContactName"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="4dp"
-                        android:backgroundTint="#A9C7D8"
-                        android:hint="Full name"
-                        android:inputType="textCapWords|textPersonName"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:singleLine="true"
-                        android:textColor="#123B56"
-                        android:textColorHint="#7891A0"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="Relationship"
-                        android:textColor="#24475C"
-                        android:textStyle="bold"
-                        android:textSize="13sp" />
-
-                    <Spinner
-                        android:id="@+id/spinnerPrimaryRelationship"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:backgroundTint="#A9C7D8"
-                        android:paddingStart="6dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="Phone number *"
-                        android:textColor="#24475C"
-                        android:textStyle="bold"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/editPrimaryPhone"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="4dp"
-                        android:backgroundTint="#A9C7D8"
-                        android:hint="Enter phone number"
-                        android:inputType="phone"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:singleLine="true"
-                        android:textColor="#123B56"
-                        android:textColorHint="#7891A0"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="Alternate number (optional)"
-                        android:textColor="#24475C"
-                        android:textStyle="bold"
-                        android:textSize="13sp" />
-
-                    <EditText
-                        android:id="@+id/editPrimaryAlternatePhone"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="4dp"
-                        android:backgroundTint="#A9C7D8"
-                        android:hint="Backup phone number"
-                        android:inputType="phone"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:singleLine="true"
-                        android:textColor="#123B56"
-                        android:textColorHint="#7891A0"
-                        android:textSize="14sp" />
-                </LinearLayout>
-
-                <!-- Second contact -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:orientation="vertical"
-                    android:padding="18dp"
-                    android:background="#FFFFFF"
-                    android:elevation="2dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="02  Second emergency contact"
-                        android:textColor="#075985"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/editSecondContactName"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="12dp"
-                        android:backgroundTint="#A9C7D8"
-                        android:hint="Contact name (optional)"
-                        android:inputType="textCapWords|textPersonName"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:singleLine="true"
-                        android:textColor="#123B56"
-                        android:textColorHint="#7891A0"
-                        android:textSize="14sp" />
-
-                    <Spinner
-                        android:id="@+id/spinnerSecondRelationship"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:layout_marginTop="6dp"
-                        android:backgroundTint="#A9C7D8"
-                        android:paddingStart="6dp" />
-
-                    <EditText
-                        android:id="@+id/editSecondPhone"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="6dp"
-                        android:backgroundTint="#A9C7D8"
-                        android:hint="Phone number (optional)"
-                        android:inputType="phone"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:singleLine="true"
-                        android:textColor="#123B56"
-                        android:textColorHint="#7891A0"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/editSecondAlternatePhone"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="6dp"
-                        android:backgroundTint="#A9C7D8"
-                        android:hint="Alternate number (optional)"
-                        android:inputType="phone"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:singleLine="true"
-                        android:textColor="#123B56"
-                        android:textColorHint="#7891A0"
-                        android:textSize="14sp" />
-                </LinearLayout>
-
-                <!-- Third contact -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:orientation="vertical"
-                    android:padding="18dp"
-                    android:background="#FFFFFF"
-                    android:elevation="2dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="03  Third emergency contact"
-                        android:textColor="#075985"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/editThirdContactName"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="12dp"
-                        android:backgroundTint="#A9C7D8"
-                        android:hint="Contact name (optional)"
-                        android:inputType="textCapWords|textPersonName"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:singleLine="true"
-                        android:textColor="#123B56"
-                        android:textColorHint="#7891A0"
-                        android:textSize="14sp" />
-
-                    <Spinner
-                        android:id="@+id/spinnerThirdRelationship"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:layout_marginTop="6dp"
-                        android:backgroundTint="#A9C7D8"
-                        android:paddingStart="6dp" />
-
-                    <EditText
-                        android:id="@+id/editThirdPhone"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="6dp"
-                        android:backgroundTint="#A9C7D8"
-                        android:hint="Phone number (optional)"
-                        android:inputType="phone"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:singleLine="true"
-                        android:textColor="#123B56"
-                        android:textColorHint="#7891A0"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/editThirdAlternatePhone"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="6dp"
-                        android:backgroundTint="#A9C7D8"
-                        android:hint="Alternate number (optional)"
-                        android:inputType="phone"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:singleLine="true"
-                        android:textColor="#123B56"
-                        android:textColorHint="#7891A0"
-                        android:textSize="14sp" />
-                </LinearLayout>
-
-                <!-- Assistance -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:orientation="vertical"
-                    android:padding="18dp"
-                    android:background="#FFFFFF"
-                    android:elevation="2dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="04  Evacuation assistance"
-                        android:textColor="#075985"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Select any support needed during evacuation."
-                        android:textColor="#71899A"
-                        android:textSize="12sp" />
-
-                    <CheckBox
-                        android:id="@+id/checkAssistanceNone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:buttonTint="#0284C7"
-                        android:text="No special assistance needed"
-                        android:textColor="#24475C"
-                        android:textSize="14sp" />
-
-                    <CheckBox
-                        android:id="@+id/checkAssistanceElderly"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:buttonTint="#0284C7"
-                        android:text="Elderly person"
-                        android:textColor="#24475C"
-                        android:textSize="14sp" />
-
-                    <CheckBox
-                        android:id="@+id/checkAssistanceChild"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:buttonTint="#0284C7"
-                        android:text="Child"
-                        android:textColor="#24475C"
-                        android:textSize="14sp" />
-
-                    <CheckBox
-                        android:id="@+id/checkAssistancePregnant"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:buttonTint="#0284C7"
-                        android:text="Pregnant person"
-                        android:textColor="#24475C"
-                        android:textSize="14sp" />
-
-                    <CheckBox
-                        android:id="@+id/checkAssistanceWheelchair"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:buttonTint="#0284C7"
-                        android:text="Wheelchair user"
-                        android:textColor="#24475C"
-                        android:textSize="14sp" />
-
-                    <CheckBox
-                        android:id="@+id/checkAssistanceWalking"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:buttonTint="#0284C7"
-                        android:text="Difficulty walking"
-                        android:textColor="#24475C"
-                        android:textSize="14sp" />
-
-                    <CheckBox
-                        android:id="@+id/checkAssistanceHearing"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:buttonTint="#0284C7"
-                        android:text="Hearing impairment"
-                        android:textColor="#24475C"
-                        android:textSize="14sp" />
-
-                    <CheckBox
-                        android:id="@+id/checkAssistanceVisual"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:buttonTint="#0284C7"
-                        android:text="Visual impairment"
-                        android:textColor="#24475C"
-                        android:textSize="14sp" />
-
-                    <CheckBox
-                        android:id="@+id/checkAssistanceOther"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:buttonTint="#0284C7"
-                        android:text="Other assistance"
-                        android:textColor="#24475C"
-                        android:textSize="14sp" />
-                </LinearLayout>
-
-                <!-- Region -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:layout_marginBottom="12dp"
-                    android:orientation="vertical"
-                    android:padding="18dp"
-                    android:background="#FFFFFF"
-                    android:elevation="2dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="05  Your region"
-                        android:textColor="#075985"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Used to prepare relevant local safety information."
-                        android:textColor="#71899A"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="Country"
-                        android:textColor="#24475C"
-                        android:textStyle="bold"
-                        android:textSize="13sp" />
-
-                    <Spinner
-                        android:id="@+id/spinnerCountry"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:backgroundTint="#A9C7D8"
-                        android:paddingStart="6dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="State"
-                        android:textColor="#24475C"
-                        android:textStyle="bold"
-                        android:textSize="13sp" />
-
-                    <Spinner
-                        android:id="@+id/spinnerState"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:backgroundTint="#A9C7D8"
-                        android:paddingStart="6dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="District"
-                        android:textColor="#24475C"
-                        android:textStyle="bold"
-                        android:textSize="13sp" />
-
-                    <Spinner
-                        android:id="@+id/spinnerDistrict"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:backgroundTint="#A9C7D8"
-                        android:paddingStart="6dp" />
-                </LinearLayout>
-
-            </LinearLayout>
-        </ScrollView>
-
-        <!-- PAGE 3: Review and finish -->
-        <ScrollView
-            android:id="@+id/pageSetupThree"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:clipToPadding="false"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="18dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="You're nearly ready"
-                    android:textColor="#123B56"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:text="Save your safety profile so FloodCue can use it when you need help."
-                    android:textColor="#557185"
-                    android:textSize="14sp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="vertical"
-                    android:padding="20dp"
-                    android:background="#FFFFFF"
-                    android:elevation="2dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Your setup checklist"
-                        android:textColor="#075985"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:text="✓  Personal and medical details"
-                        android:textColor="#24475C"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="✓  Emergency contacts and region"
-                        android:textColor="#24475C"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="✓  Profile ready to save"
-                        android:textColor="#24475C"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="Your profile is saved to your FloodCue account. Offline maps appear only after they have been downloaded on this device."
-                        android:textColor="#557185"
-                        android:textSize="13sp" />
-                </LinearLayout>
-
-                <!-- Bridgefy recommendation -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:orientation="vertical"
-                    android:padding="20dp"
-                    android:background="#E0F5FF"
-                    android:elevation="1dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Stay connected with Bridgefy"
-                        android:textColor="#075985"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="7dp"
-                        android:text="Bridgefy offers nearby messaging using Bluetooth-based connections in supported conditions. It is a separate app and must be installed separately."
-                        android:textColor="#28556D"
-                        android:textSize="13sp" />
-
-                    <Button
-                        android:id="@+id/buttonInstallBridgefy"
-                        android:layout_width="match_parent"
-                        android:layout_height="52dp"
-                        android:layout_marginTop="15dp"
-                        android:backgroundTint="#075985"
-                        android:text="Get Bridgefy on Google Play"
-                        android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="20dp"
-                    android:gravity="center"
-                    android:text="You can update your emergency information later from Settings."
-                    android:textColor="#71899A"
-                    android:textSize="12sp" />
-
-                <Button
-                    android:id="@+id/buttonCompleteSetup"
-                    android:layout_width="match_parent"
-                    android:layout_height="56dp"
-                    android:backgroundTint="#087EAD"
-                    android:text="Save &amp; continue to FloodCue  →"
-                    android:textAllCaps="false"
-                    android:textColor="#FFFFFF"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </ScrollView>
-
-    </FrameLayout>
-
-    <!-- Persistent bottom navigation -->
-    <LinearLayout
-        android:id="@+id/layoutSetupNav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="78dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingStart="14dp"
-        android:paddingEnd="14dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:background="#FFFFFF"
-        android:elevation="8dp">
-
-        <Button
-            android:id="@+id/buttonSetupBack"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="0.8"
-            android:backgroundTint="#E4F2F9"
-            android:text="Back"
-            android:textAllCaps="false"
-            android:textColor="#075985"
-            android:visibility="gone" />
-
-        <Button
-            android:id="@+id/buttonSetupSkip"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="8dp"
-            android:layout_weight="0.9"
-            android:backgroundTint="#E4F2F9"
-            android:text="Skip"
-            android:textAllCaps="false"
-            android:textColor="#075985" />
-
-        <Button
-            android:id="@+id/buttonSetupNext"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="8dp"
-            android:layout_weight="1.5"
-            android:backgroundTint="#087EAD"
-            android:text="Continue  →"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-</LinearLayout>
+</merge>
