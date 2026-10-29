@@ -72,17 +72,6 @@ public class WeatherActivity extends FloodCueActivity {
                     + "&hourly=rain,rain_probability,visibility"
                     + "&temperature_unit=celsius&wind_speed_unit=ms&timezone=auto&forecast_days=2";
 
-    private static final String[] WEATHER_CODES = {
-            "Clear", "Mostly clear", "Partly cloudy", "Overcast",
-            "Fog", "Freezing fog", "Drizzle", "Freezing drizzle",
-            "Rain grains", "Rain", "Snow", "Snow grains",
-            "Thunderstorm", "Hail", "Drizzle", "Freezing drizzle",
-            "Snow pellets", "Light rain", "Moderate rain", "Heavy rain",
-            "Freezing rain", "Light shower", "Moderate shower", "Heavy shower",
-            "Freezing rain", "Light snow", "Moderate snow", "Heavy snow",
-            "Sleet", "Light shower", "Moderate shower", "Heavy shower"
-    };
-
     private static final String[] COMPASS = {
             "N", "NE", "E", "SE", "S", "SW", "W", "NW"
     };
@@ -607,10 +596,11 @@ public class WeatherActivity extends FloodCueActivity {
     }
 
     private String weatherCodeName(int code) {
-        if (code < 0 || code >= WEATHER_CODES.length) {
+        String[] weatherCodes = getResources().getStringArray(R.array.weather_condition_names);
+        if (code < 0 || code >= weatherCodes.length) {
             return getString(R.string.weather_unavailable);
         }
-        return WEATHER_CODES[code];
+        return weatherCodes[code];
     }
 
     private String directionName(int degrees) {
