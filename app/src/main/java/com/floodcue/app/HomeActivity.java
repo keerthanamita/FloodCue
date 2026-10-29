@@ -23,6 +23,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 public class HomeActivity extends FloodCueActivity {
@@ -84,34 +85,34 @@ public class HomeActivity extends FloodCueActivity {
                 );
             } else {
                 String details =
-                        "LOCAL SAVED PROFILE\n\n" +
-                                "Name: " + profile.full_name +
-                                "\nBlood Group: " + profile.blood_group +
-                                "\nAllergies: " + profile.allergies +
-                                "\nOther Allergies: " + profile.other_allergies +
-                                "\nMedications: " + profile.medications +
-                                "\nMedical Notes: " + profile.medical_notes +
-                                "\n\nPRIMARY CONTACT\n" +
-                                "Name: " + profile.primary_contact_name +
-                                "\nRelationship: " + profile.primary_contact_relationship +
-                                "\nPhone: " + profile.primary_contact_phone +
-                                "\nAlternate Phone: " + profile.primary_contact_alt_phone +
-                                "\n\nSECOND CONTACT\n" +
-                                "Name: " + profile.second_contact_name +
-                                "\nRelationship: " + profile.second_contact_relationship +
-                                "\nPhone: " + profile.second_contact_phone +
-                                "\nAlternate Phone: " + profile.second_contact_alt_phone +
-                                "\n\nTHIRD CONTACT\n" +
-                                "Name: " + profile.third_contact_name +
-                                "\nRelationship: " + profile.third_contact_relationship +
-                                "\nPhone: " + profile.third_contact_phone +
-                                "\nAlternate Phone: " + profile.third_contact_alt_phone +
-                                "\n\nAssistance: " + profile.special_assistance +
-                                "\nCountry: " + profile.country +
-                                "\nState: " + profile.state +
-                                "\nDistrict: " + profile.district +
-                                "\nApp Language: " + profile.app_language +
-                                "\nSurvival Language: " + profile.survival_language;
+                        getString(R.string.home_saved_profile) + "\n\n" +
+                                getString(R.string.profile_label_name) + ": " + profile.full_name +
+                                "\n" + getString(R.string.profile_label_blood_group) + ": " + profile.blood_group +
+                                "\n" + getString(R.string.profile_label_allergies) + ": " + profile.allergies +
+                                "\n" + getString(R.string.profile_label_other_allergies) + ": " + profile.other_allergies +
+                                "\n" + getString(R.string.profile_label_medications) + ": " + profile.medications +
+                                "\n" + getString(R.string.profile_label_medical_notes) + ": " + profile.medical_notes +
+                                "\n\n" + getString(R.string.profile_section_primary_contact).toUpperCase(Locale.ROOT) + "\n" +
+                                getString(R.string.profile_label_name) + ": " + profile.primary_contact_name +
+                                "\n" + getString(R.string.profile_label_relationship) + ": " + profile.primary_contact_relationship +
+                                "\n" + getString(R.string.profile_label_phone) + ": " + profile.primary_contact_phone +
+                                "\n" + getString(R.string.profile_label_alternate_phone) + ": " + profile.primary_contact_alt_phone +
+                                "\n\n" + getString(R.string.profile_section_second_contact).toUpperCase(Locale.ROOT) + "\n" +
+                                getString(R.string.profile_label_name) + ": " + profile.second_contact_name +
+                                "\n" + getString(R.string.profile_label_relationship) + ": " + profile.second_contact_relationship +
+                                "\n" + getString(R.string.profile_label_phone) + ": " + profile.second_contact_phone +
+                                "\n" + getString(R.string.profile_label_alternate_phone) + ": " + profile.second_contact_alt_phone +
+                                "\n\n" + getString(R.string.profile_section_third_contact).toUpperCase(Locale.ROOT) + "\n" +
+                                getString(R.string.profile_label_name) + ": " + profile.third_contact_name +
+                                "\n" + getString(R.string.profile_label_relationship) + ": " + profile.third_contact_relationship +
+                                "\n" + getString(R.string.profile_label_phone) + ": " + profile.third_contact_phone +
+                                "\n" + getString(R.string.profile_label_alternate_phone) + ": " + profile.third_contact_alt_phone +
+                                "\n\n" + getString(R.string.profile_label_assistance) + ": " + profile.special_assistance +
+                                "\n" + getString(R.string.profile_label_country) + ": " + profile.country +
+                                "\n" + getString(R.string.profile_label_state) + ": " + profile.state +
+                                "\n" + getString(R.string.profile_label_district) + ": " + profile.district +
+                                "\n" + getString(R.string.profile_label_app_language) + ": " + profile.app_language +
+                                "\n" + getString(R.string.profile_label_survival_language) + ": " + profile.survival_language;
 
                 txtSavedDetails.setText(details);
             }

@@ -225,6 +225,8 @@ Localization phase 25: Emergency Contacts official service titles/descriptions a
 
 Localization phase 26: Emergency Contacts official service catalog now has Telugu, Hindi, Tamil, Kannada, and Malayalam translations. All catalog resource files parse successfully; district data and remaining Java user-facing strings still require audit.
 
+Localization phase 27: Home local saved-profile detail text now reuses translated profile labels instead of hardcoded English labels. Profile data, SOS behavior, and storage are unchanged.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.
