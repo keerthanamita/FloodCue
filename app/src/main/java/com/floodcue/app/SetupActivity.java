@@ -317,16 +317,7 @@ public class SetupActivity extends FloodCueActivity {
 
         switch (state) {
             case "Andhra Pradesh":
-                districts = new String[]{
-                        "Anakapalli", "Anantapur", "Annamayya", "Bapatla",
-                        "Chittoor", "Dr. B. R. Ambedkar Konaseema",
-                        "East Godavari", "Eluru", "Guntur", "Kakinada",
-                        "Krishna", "Kurnool", "Nandyal", "NTR",
-                        "Palnadu", "Parvathipuram Manyam", "Prakasam",
-                        "Srikakulam", "Sri Potti Sriramulu Nellore",
-                        "Sri Sathya Sai", "Tirupati", "Visakhapatnam",
-                        "Vizianagaram", "West Godavari", "YSR Kadapa"
-                };
+                districts = getResources().getStringArray(R.array.setup_districts_andhra_pradesh);
                 break;
 
             case "Telangana":

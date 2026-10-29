@@ -231,6 +231,8 @@ Localization phase 28: Offline Maps download failure/start messages are now reso
 
 Localization phase 29: Offline Map location-enable fallback is now resource-backed and translated in all supported locales. Remaining known localization gap is the large district-option dataset plus any final runtime literals found by audit.
 
+Localization phase 30: Andhra Pradesh district options are now resource-backed, preserving the existing district selection logic. The remaining Telangana, Tamil Nadu, Karnataka, and Kerala district arrays still need the same migration.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.
