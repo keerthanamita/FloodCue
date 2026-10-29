@@ -241,6 +241,8 @@ Localization phase 33: SOS SMS content now resolves through the selected surviva
 
 Localization phase 34: Flood-alert severity fallback values now reuse the localized severity resources instead of embedding English fallback labels in the Activity. The alert parsing, severity mapping, caching, and notification behavior are unchanged.
 
+Localization phase 35: Language-screen unknown-code fallback now uses the localized English-language resource instead of an embedded English label. The language option arrays still require a final resource-backed audit so their display names can follow the selected app language without changing stored locale codes.
+
 Validation note: all Android resource XML files currently parse successfully (`bad_xml=0`). No Gradle/Android build has been run in this phase, so compilation and device rendering remain to be verified locally.
 
 ## Instructions for the next AI

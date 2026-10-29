@@ -136,7 +136,7 @@ public class LanguageActivity extends FloodCueActivity {
                 return names[i] + "  ·  " + nativeNames[i];
             }
         }
-        return "English";
+        return getString(R.string.language_english);
     }
 
     private void showLanguagePicker(boolean appLanguage) {
