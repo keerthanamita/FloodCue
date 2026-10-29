@@ -84,6 +84,8 @@ The first frontend pass now explicitly redesigns these four screens:
 
 The redesign uses existing resources such as `ic_floodcue_logo`, `ic_globe`, `bg_splash_brand_glow`, and the current theme tokens. No manual theme toggle was added.
 
+The visual direction was then refined to a non-blue glassmorphism palette. Light mode uses warm ivory, muted terracotta, and soft sage-neutral surfaces. Dark mode uses charcoal, muted plum, and dusty rose accents. Cards and language selectors use translucent surfaces with quiet borders; avoid adding saturated gradients or high-contrast decoration.
+
 ## Validation record
 
 - Repository and Git state: inspected on 2026-10-29.
@@ -91,6 +93,7 @@ The redesign uses existing resources such as `ic_floodcue_logo`, `ic_globe`, `bg
 - Source/resource inspection: completed for the theme, splash, home, login, and create-account areas.
 - XML parsing: passed for all four redesigned layouts.
 - Required Activity-facing IDs: confirmed present for splash, login, create-account, and language screens.
+- Palette refinement: light/dark resource values updated to the non-blue glassmorphism combinations described above.
 - Gradle build/tests: not run yet in this handoff. Do not describe the UI as build-verified until a real Gradle build completes.
 - Runtime light/dark visual verification: not run yet. Check both system modes on an emulator/device, including small-height screens and keyboard-open forms.
 
