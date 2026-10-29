@@ -257,6 +257,8 @@ Validation phase 41: Resource XML validation still passes (`bad_xml=0`). `gradle
 
 Localization phase 42: SOS Emergency screen contact count now uses localized plural resources for all six supported locales instead of the English `contact(s)` label. Recipient selection and send behavior are unchanged.
 
+Localization phase 43: Language picker native-name labels now resolve through resources instead of a Java literal array. The native spelling and locale-code selection behavior are unchanged.
+
 Validation note: all Android resource XML files currently parse successfully (`bad_xml=0`). No Gradle/Android build has been run in this phase, so compilation and device rendering remain to be verified locally.
 
 ## Instructions for the next AI

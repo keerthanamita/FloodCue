@@ -69,10 +69,7 @@ public class LanguageActivity extends FloodCueActivity {
 
     private String[] names;
 
-    private final String[] nativeNames = {
-            "English", "తెలుగు", "हिन्दी",
-            "தமிழ்", "ಕನ್ನಡ", "മലയാളം"
-    };
+    private String[] nativeNames;
 
     private final String[] codes = {
             "en", "te", "hi", "ta", "kn", "ml"
@@ -88,6 +85,14 @@ public class LanguageActivity extends FloodCueActivity {
                 getString(R.string.language_tamil),
                 getString(R.string.language_kannada),
                 getString(R.string.language_malayalam)
+        };
+        nativeNames = new String[]{
+                getString(R.string.language_native_english),
+                getString(R.string.language_native_telugu),
+                getString(R.string.language_native_hindi),
+                getString(R.string.language_native_tamil),
+                getString(R.string.language_native_kannada),
+                getString(R.string.language_native_malayalam)
         };
         setContentView(R.layout.activity_language);
 
