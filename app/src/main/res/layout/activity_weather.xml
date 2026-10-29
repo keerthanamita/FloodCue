@@ -21,7 +21,7 @@
             
         <ScrollView xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:id="@+id/weatherScrollView" ns0:layout_width="match_parent" ns0:layout_height="0dp" ns0:layout_weight="1" ns0:fillViewport="true" ns0:overScrollMode="never">
         
-                <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:background="@drawable/bg_home_sage_card" ns0:orientation="vertical" ns0:paddingStart="20dp" ns0:paddingTop="20dp" ns0:paddingEnd="20dp" ns0:paddingBottom="28dp">
+                <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:background="@drawable/bg_home_sage_card" ns0:orientation="vertical" ns0:paddingStart="20dp" ns0:paddingTop="20dp" ns0:paddingEnd="20dp" ns0:paddingBottom="104dp">
         
                     <TextView ns0:id="@+id/weatherHeader" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/weather_header" ns0:textColor="@color/button_primary" ns0:textSize="26sp" ns0:textStyle="bold" />
         
@@ -57,7 +57,7 @@
         
                     <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="18dp" ns0:layout_marginBottom="2dp" ns0:text="@string/weather_details_title" ns0:textColor="@color/text_primary" ns0:textSize="16sp" ns0:textStyle="bold" />
         
-                    <androidx.recyclerview.widget.RecyclerView ns0:id="@+id/weatherDetailsGrid" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" />
+                    <androidx.recyclerview.widget.RecyclerView ns0:id="@+id/weatherDetailsGrid" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:nestedScrollingEnabled="false" ns0:overScrollMode="never" />
         
                     <TextView ns0:id="@+id/weatherHourly" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:textColor="@color/text_primary" ns0:textSize="15sp" />
         
