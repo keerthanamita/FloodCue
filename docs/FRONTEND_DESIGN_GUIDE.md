@@ -215,6 +215,8 @@ Localization phase 20: Shared bottom-navigation labels and accessibility descrip
 
 Localization phase 21: Login email/password and password-reset validation messages are now resource-backed and translated in all supported locales. Create-account validation and remaining service/error messages still require migration.
 
+Localization phase 22: Create-account password-rule labels, required-field validation, password-length/spacing/mismatch messages are now resource-backed and translated in all supported locales. Account-creation service responses and remaining Java literals still require audit.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.

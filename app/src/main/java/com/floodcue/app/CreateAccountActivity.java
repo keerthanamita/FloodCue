@@ -355,31 +355,31 @@ public class CreateAccountActivity extends FloodCueActivity {
         appendRequirement(
                 builder,
                 hasMinimumLength,
-                "Minimum " + MIN_PASSWORD_LENGTH + " characters"
+                getString(R.string.create_minimum_characters, MIN_PASSWORD_LENGTH)
         );
 
         appendRequirement(
                 builder,
                 hasUppercase,
-                "Uppercase letter"
+                getString(R.string.create_uppercase_letter)
         );
 
         appendRequirement(
                 builder,
                 hasLowercase,
-                "Lowercase letter"
+                getString(R.string.create_lowercase_letter)
         );
 
         appendRequirement(
                 builder,
                 hasNumber,
-                "Number"
+                getString(R.string.create_number)
         );
 
         appendRequirement(
                 builder,
                 hasSpecial,
-                "Special character"
+                getString(R.string.create_special_character)
         );
 
         passwordInputLayout.setHelperText(builder);
@@ -488,23 +488,23 @@ public class CreateAccountActivity extends FloodCueActivity {
 
         if (!password.matches(".*[A-Z].*")) {
 
-            return "Add at least one uppercase letter.";
+            return getString(R.string.create_add_uppercase);
         }
 
         if (!password.matches(".*[a-z].*")) {
 
-            return "Add at least one lowercase letter.";
+            return getString(R.string.create_add_lowercase);
         }
 
         if (!password.matches(".*[0-9].*")) {
 
-            return "Add at least one number.";
+            return getString(R.string.create_add_number);
         }
 
         if (!password.matches(
                 ".*[^a-zA-Z0-9].*")) {
 
-            return "Add at least one special character.";
+            return getString(R.string.create_add_special);
         }
 
         return null;
@@ -546,7 +546,7 @@ public class CreateAccountActivity extends FloodCueActivity {
             showError(
                     emailInputLayout,
                     emailEditText,
-                    "Enter your email."
+                    getString(R.string.create_email_required)
             );
 
             return;
@@ -572,7 +572,7 @@ public class CreateAccountActivity extends FloodCueActivity {
             showError(
                     passwordInputLayout,
                     passwordEditText,
-                    "Enter a password."
+                    getString(R.string.create_password_required)
             );
 
             return;
@@ -587,7 +587,7 @@ public class CreateAccountActivity extends FloodCueActivity {
             showError(
                     passwordInputLayout,
                     passwordEditText,
-                    "Password cannot contain only spaces."
+                    getString(R.string.create_password_spaces)
             );
 
             return;
@@ -603,7 +603,7 @@ public class CreateAccountActivity extends FloodCueActivity {
             showError(
                     passwordInputLayout,
                     passwordEditText,
-                    "Password is too long."
+                    getString(R.string.create_password_too_long)
             );
 
             return;
@@ -639,7 +639,7 @@ public class CreateAccountActivity extends FloodCueActivity {
             showError(
                     confirmPasswordInputLayout,
                     confirmPasswordEditText,
-                    "Confirm your password."
+                    getString(R.string.create_confirm_password)
             );
 
             return;
@@ -654,7 +654,7 @@ public class CreateAccountActivity extends FloodCueActivity {
             showError(
                     confirmPasswordInputLayout,
                     confirmPasswordEditText,
-                    "Passwords do not match."
+                    getString(R.string.create_password_mismatch)
             );
 
             return;
