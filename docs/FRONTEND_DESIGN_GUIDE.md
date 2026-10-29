@@ -207,6 +207,8 @@ Localization phase 16: Language-screen branding and English default labels are n
 
 Localization phase 17: Setup sign-in/wait/Play Store/local-cache messages and Offline Map location-permission message are now resource-backed and translated in all supported locales. Remaining Java audit items are being checked for technical strings versus user-facing messages; no build has been run yet.
 
+Localization phase 18: Setup blood-group and relationship spinner options now load from localized string arrays, so these options follow the selected app language instead of remaining hardcoded English. States/districts and remaining Java validation/service strings still require migration.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.

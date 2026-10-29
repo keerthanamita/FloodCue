@@ -116,17 +116,9 @@ public class SetupActivity extends FloodCueActivity {
 
     private UserProfile existingProfile;
 
-    private final String[] bloodGroups = {
-            "Choose blood group",
-            "A+", "A-", "B+", "B-",
-            "AB+", "AB-", "O+", "O-"
-    };
+    private String[] bloodGroups;
 
-    private final String[] relationships = {
-            "Choose relationship",
-            "Parent", "Spouse", "Sibling", "Child",
-            "Friend", "Neighbour", "Relative", "Other"
-    };
+    private String[] relationships;
 
     private final String[] states = {
             "Andhra Pradesh",
@@ -140,6 +132,9 @@ public class SetupActivity extends FloodCueActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup);
+
+        bloodGroups = getResources().getStringArray(R.array.setup_blood_groups);
+        relationships = getResources().getStringArray(R.array.setup_relationships);
 
         preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
 
