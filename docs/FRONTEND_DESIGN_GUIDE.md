@@ -114,6 +114,8 @@ SOS screen correction: the shared orange toolbar is hidden on `SosActivity` beca
 
 Contacts reliability and theme correction: `item_call_row.xml` is now a normal self-contained row layout instead of an invalid `<merge>` screen layout, preventing Contacts row inflation crashes. `FloodCueActivity` explicitly recreates activities on configuration changes so Android system light/dark changes are reflected immediately without a manual toggle.
 
+Offline Maps and Weather update: Offline Maps now uses the layered Home palette for its selection card and district actions. Weather uses a stronger dashboard heading and temperature emphasis while preserving refresh, location selection, cache, warning, hourly, and detail view IDs and behavior.
+
 The application also explicitly selects `MODE_NIGHT_FOLLOW_SYSTEM` at process startup, ensuring AppCompat uses the Android system theme instead of retaining a previous mode.
 
 Navigation reliability fix: bottom-nav destination launches now use `FLAG_ACTIVITY_REORDER_TO_FRONT` instead of `CLEAR_TOP|SINGLE_TOP`, so selecting Contacts or another destination does not clear the task stack and appear to navigate backward.

@@ -1,233 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_color"
-    android:orientation="vertical">
-
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+    <include layout="@layout/layout_base_screen" />
     <LinearLayout
+        android:id="@+id/content_container"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:gravity="center_vertical"
-        android:paddingStart="8dp"
-        android:paddingEnd="20dp">
-
-        <TextView
-            android:id="@+id/buttonBackFromWeather"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_link_ripple"
-            android:clickable="true"
-            android:focusable="true"
-            android:padding="12dp"
-            android:text="@string/weather_back_title"
-            android:textColor="@color/text_primary"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="32dp">
+        <LinearLayout xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:layout_width="match_parent" ns0:layout_height="64dp" ns0:gravity="center_vertical" ns0:paddingStart="8dp" ns0:paddingEnd="20dp">
+        
+                <TextView ns0:id="@+id/buttonBackFromWeather" ns0:layout_width="wrap_content" ns0:layout_height="wrap_content" ns0:background="@drawable/bg_link_ripple" ns0:clickable="true" ns0:focusable="true" ns0:padding="12dp" ns0:text="@string/weather_back_title" ns0:textColor="@color/text_primary" ns0:textSize="20sp" ns0:textStyle="bold" />
+        
+            </LinearLayout>
+        
+            
+        <ScrollView xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:id="@+id/weatherScrollView" ns0:layout_width="match_parent" ns0:layout_height="0dp" ns0:layout_weight="1" ns0:fillViewport="true" ns0:overScrollMode="never">
+        
+                <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:background="@drawable/bg_home_sage_card" ns0:orientation="vertical" ns0:paddingStart="20dp" ns0:paddingTop="20dp" ns0:paddingEnd="20dp" ns0:paddingBottom="28dp">
+        
+                    <TextView ns0:id="@+id/weatherHeader" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/weather_header" ns0:textColor="@color/button_primary" ns0:textSize="26sp" ns0:textStyle="bold" />
+        
+                    <TextView ns0:id="@+id/weatherStatus" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns0:textColor="@color/text_secondary" ns0:textSize="14sp" ns0:visibility="gone" />
+        
+                    <TextView ns0:id="@+id/weatherLocationError" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns0:textColor="@color/error_color" ns0:textSize="14sp" ns0:visibility="gone" />
+        
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:orientation="horizontal">
+        
+                        <TextView ns0:id="@+id/weatherTemp" ns0:layout_width="0dp" ns0:layout_height="wrap_content" ns0:layout_weight="1" ns0:textColor="@color/home_card_text" ns0:textSize="52sp" ns0:textStyle="bold" />
+        
+                        <Button ns0:id="@+id/buttonWeatherRefresh" ns0:layout_width="wrap_content" ns0:layout_height="wrap_content" ns0:layout_marginStart="12dp" ns0:background="@drawable/bg_home_lilac_card" ns0:backgroundTint="@null" ns0:text="@string/weather_refresh" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" ns0:textSize="14sp" ns0:textStyle="bold" />
+        
+                    </LinearLayout>
+        
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:orientation="horizontal">
+        
+                        <TextView ns0:id="@+id/weatherCondition" ns0:layout_width="0dp" ns0:layout_height="wrap_content" ns0:layout_weight="1" ns0:textColor="@color/text_primary" ns0:textSize="16sp" />
+        
+                        <TextView ns0:id="@+id/weatherRain" ns0:layout_width="0dp" ns0:layout_height="wrap_content" ns0:layout_weight="1" ns0:textColor="@color/text_primary" ns0:textSize="16sp" />
+        
+                    </LinearLayout>
+        
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:orientation="horizontal">
+        
+                        <TextView ns0:id="@+id/weatherRainProb" ns0:layout_width="0dp" ns0:layout_height="wrap_content" ns0:layout_weight="1" ns0:textColor="@color/text_primary" ns0:textSize="16sp" />
+        
+                        <TextView ns0:id="@+id/weatherRain24h" ns0:layout_width="0dp" ns0:layout_height="wrap_content" ns0:layout_weight="1" ns0:textColor="@color/text_primary" ns0:textSize="16sp" />
+        
+                    </LinearLayout>
+        
+                    <TextView ns0:id="@+id/weatherWind" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:textColor="@color/text_primary" ns0:textSize="16sp" />
+        
+                    <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="18dp" ns0:layout_marginBottom="2dp" ns0:text="@string/weather_details_title" ns0:textColor="@color/text_primary" ns0:textSize="16sp" ns0:textStyle="bold" />
+        
+                    <androidx.recyclerview.widget.RecyclerView ns0:id="@+id/weatherDetailsGrid" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" />
+        
+                    <TextView ns0:id="@+id/weatherHourly" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:textColor="@color/text_primary" ns0:textSize="15sp" />
+        
+                    <TextView ns0:id="@+id/weatherWarnings" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:textColor="@color/error_color" ns0:textSize="15sp" ns0:visibility="gone" />
+        
+                        <Button ns0:id="@+id/buttonWeatherWarningHelp" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="12dp" ns0:background="@drawable/bg_home_lilac_card" ns0:backgroundTint="@null" ns0:text="@string/weather_warning_help" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" ns0:textSize="16sp" />
+        
+                    <TextView ns0:id="@+id/weatherCached" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:textColor="@color/text_secondary" ns0:textSize="13sp" ns0:visibility="gone" />
+        
+                </LinearLayout>
+        
+            </ScrollView>
+        
+            
+        <LinearLayout xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="horizontal">
+        
+                <Button ns0:id="@+id/buttonWeatherSelectLocation" ns0:layout_width="0dp" ns0:layout_height="wrap_content" ns0:layout_weight="1" ns0:layout_marginEnd="8dp" ns0:background="@drawable/bg_home_sand_card" ns0:backgroundTint="@null" ns0:text="@string/weather_select_location" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" ns0:textSize="15sp" />
+        
+            </LinearLayout>
+        
+        
     </LinearLayout>
-
-    <ScrollView
-        android:id="@+id/weatherScrollView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:fillViewport="true"
-        android:overScrollMode="never">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingStart="24dp"
-            android:paddingTop="8dp"
-            android:paddingEnd="24dp"
-            android:paddingBottom="32dp">
-
-            <TextView
-                android:id="@+id/weatherHeader"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/weather_header"
-                android:textColor="@color/text_primary"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/weatherStatus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp"
-                android:visibility="gone" />
-
-            <TextView
-                android:id="@+id/weatherLocationError"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textColor="@color/error_color"
-                android:textSize="14sp"
-                android:visibility="gone" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/weatherTemp"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textColor="@color/text_primary"
-                    android:textSize="48sp"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/buttonWeatherRefresh"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:background="@drawable/bg_button_primary"
-                    android:text="@string/weather_refresh"
-                    android:textAllCaps="false"
-                    android:textColor="@color/button_primary_text"
-                    android:textSize="14sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/weatherCondition"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textColor="@color/text_primary"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/weatherRain"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textColor="@color/text_primary"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/weatherRainProb"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textColor="@color/text_primary"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/weatherRain24h"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textColor="@color/text_primary"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/weatherWind"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:textColor="@color/text_primary"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:layout_marginBottom="2dp"
-                android:text="@string/weather_details_title"
-                android:textColor="@color/text_primary"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/weatherDetailsGrid"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/weatherHourly"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:textColor="@color/text_primary"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/weatherWarnings"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:textColor="@color/error_color"
-                android:textSize="15sp"
-                android:visibility="gone" />
-
-            <Button
-                android:id="@+id/buttonWeatherWarningHelp"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/bg_button_secondary"
-                android:text="@string/weather_warning_help"
-                android:textAllCaps="false"
-                android:textColor="@color/text_primary"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/weatherCached"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:textColor="@color/text_secondary"
-                android:textSize="13sp"
-                android:visibility="gone" />
-
-        </LinearLayout>
-
-    </ScrollView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/buttonWeatherSelectLocation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/bg_button_secondary"
-            android:text="@string/weather_select_location"
-            android:textAllCaps="false"
-            android:textColor="@color/text_primary"
-            android:textSize="15sp" />
-
-    </LinearLayout>
-
-</LinearLayout>
+</merge>
