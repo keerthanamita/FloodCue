@@ -239,6 +239,8 @@ Localization phase 32: Telangana district options now load from a resource array
 
 Localization phase 33: SOS SMS content now resolves through the selected survival-language context for both the Home quick-send path and the SOS Emergency Message path. The emergency body, missing-GPS notice, and location label have localized resources for English, Telugu, Hindi, Tamil, Kannada, and Malayalam. Create-account minimum-password feedback also reuses the existing localized minimum-character resource. SOS recipients, queueing, location acquisition, and SMS dispatch behavior were not changed.
 
+Localization phase 34: Flood-alert severity fallback values now reuse the localized severity resources instead of embedding English fallback labels in the Activity. The alert parsing, severity mapping, caching, and notification behavior are unchanged.
+
 Validation note: all Android resource XML files currently parse successfully (`bad_xml=0`). No Gradle/Android build has been run in this phase, so compilation and device rendering remain to be verified locally.
 
 ## Instructions for the next AI

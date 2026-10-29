@@ -1137,15 +1137,20 @@ public class FloodAlertActivity extends FloodCueActivity {
         switch (severity) {
             case SEVERITY_RED:
                 // Fall back to an English literal: a locale may not define this.
-                return getStringOrDefault(R.string.flood_alert_severity_red, "Red");
+                return getStringOrDefault(R.string.flood_alert_severity_red,
+                        getString(R.string.flood_alert_severity_red));
             case SEVERITY_ORANGE:
-                return getStringOrDefault(R.string.flood_alert_severity_orange, "Orange");
+                return getStringOrDefault(R.string.flood_alert_severity_orange,
+                        getString(R.string.flood_alert_severity_orange));
             case SEVERITY_YELLOW:
-                return getStringOrDefault(R.string.flood_alert_severity_yellow, "Yellow");
+                return getStringOrDefault(R.string.flood_alert_severity_yellow,
+                        getString(R.string.flood_alert_severity_yellow));
             case SEVERITY_GREEN:
-                return getStringOrDefault(R.string.flood_alert_severity_green, "Green");
+                return getStringOrDefault(R.string.flood_alert_severity_green,
+                        getString(R.string.flood_alert_severity_green));
             default:
-                return getStringOrDefault(R.string.flood_alert_severity_unknown, "Unknown");
+                return getStringOrDefault(R.string.flood_alert_severity_unknown,
+                        getString(R.string.flood_alert_severity_unknown));
         }
     }
 
