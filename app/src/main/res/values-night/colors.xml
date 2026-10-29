@@ -41,6 +41,11 @@
     <!-- Error -->
     <color name="error_color">#F2B8B5</color>
 
+    <color name="splash_top">#282229</color>
+    <color name="splash_center">#59434D</color>
+    <color name="splash_bottom">#956B72</color>
+    <color name="splash_glow">#55D09AA5</color>
+
     <!-- Home SOS button -->
     <color name="home_sos_red">#C62828</color>
     <color name="home_sos_red_pressed">#9C1F1A</color>

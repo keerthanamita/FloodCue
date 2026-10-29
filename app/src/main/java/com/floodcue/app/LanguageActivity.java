@@ -339,18 +339,15 @@ public class LanguageActivity extends FloodCueActivity {
     private GradientDrawable makeItemBackground(boolean selected) {
         GradientDrawable background = new GradientDrawable();
         background.setColor(getColor(selected
-                ? R.color.button_primary
-                : R.color.text_secondary));
-
-        // Keep the normal card subtle; selected state is marked by ✓.
-        background.setColor(getColor(android.R.color.transparent));
+                ? R.color.surface_elevated_color
+                : R.color.surface_color));
         background.setCornerRadius(dp(14));
 
         background.setStroke(
                 dp(1),
                 getColor(selected
                         ? R.color.button_primary
-                        : R.color.text_secondary)
+                        : R.color.border_color)
         );
 
         return background;

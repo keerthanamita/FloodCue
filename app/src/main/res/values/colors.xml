@@ -51,8 +51,8 @@
 <color name="colorOnPrimary">#FFF9F4</color>
 <color name="glass_highlight">#BFFFFFFF</color>
 <color name="glass_shadow">#18000000</color>
-<color name="splash_top">#493D3A</color>
-<color name="splash_center">#75645A</color>
-<color name="splash_bottom">#B98270</color>
-<color name="splash_glow">#55E3B49C</color>
+<color name="splash_top">#3E302C</color>
+<color name="splash_center">#8B6258</color>
+<color name="splash_bottom">#D59A78</color>
+<color name="splash_glow">#66F0B38F</color>
 </resources>
