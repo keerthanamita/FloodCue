@@ -337,24 +337,15 @@ public class SetupActivity extends FloodCueActivity {
                 break;
 
             case "Tamil Nadu":
-                districts = new String[]{
-                        "Chennai", "Coimbatore", "Madurai", "Salem",
-                        "Tiruchirappalli", "Tirunelveli", "Vellore", "Erode"
-                };
+                districts = getResources().getStringArray(R.array.setup_districts_tamil_nadu);
                 break;
 
             case "Karnataka":
-                districts = new String[]{
-                        "Bengaluru Urban", "Mysuru", "Mangaluru",
-                        "Udupi", "Belagavi", "Kalaburagi", "Shivamogga"
-                };
+                districts = getResources().getStringArray(R.array.setup_districts_karnataka);
                 break;
 
             default:
-                districts = new String[]{
-                        "Thiruvananthapuram", "Kochi", "Thrissur",
-                        "Kozhikode", "Kannur", "Kollam"
-                };
+                districts = getResources().getStringArray(R.array.setup_districts_kerala);
                 break;
         }
 

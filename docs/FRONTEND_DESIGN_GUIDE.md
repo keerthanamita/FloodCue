@@ -233,6 +233,8 @@ Localization phase 29: Offline Map location-enable fallback is now resource-back
 
 Localization phase 30: Andhra Pradesh district options are now resource-backed, preserving the existing district selection logic. The remaining Telangana, Tamil Nadu, Karnataka, and Kerala district arrays still need the same migration.
 
+Localization phase 31: Tamil Nadu, Karnataka, and Kerala district options now load from resource arrays. Telangana remains to be migrated; district names are preserved as proper place names.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.
