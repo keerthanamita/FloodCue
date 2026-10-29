@@ -181,6 +181,8 @@ Localization phase 3: Splash routing status, Home saved-profile messages, Login 
 
 Localization phase 4: Setup header, page headings/intros, and navigation labels are resource-backed and translated in Telugu, Hindi, Tamil, Kannada, and Malayalam. Setup form labels/options and remaining Java-generated user-facing text still require the next audit batch; localization is not yet complete.
 
+Localization phase 5: Setup subtitle/step text and the first personal/allergy section headings now reuse translated resource keys. The rest of the Setup form (field hints, checkbox options, contact/assistance sections, review copy) remains to be migrated; do not treat the app as fully localized yet.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.

@@ -15,15 +15,15 @@
         android:paddingBottom="32dp">
         <LinearLayout xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:minHeight="112dp" ns0:orientation="vertical" ns0:gravity="center_vertical" ns0:paddingStart="22dp" ns0:paddingEnd="22dp" ns0:paddingTop="34dp" ns0:paddingBottom="14dp" ns0:background="@color/home_lilac_surface">
         
-                <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="FLOODCUE  /  YOUR SAFETY" ns0:textColor="@color/button_primary" ns0:textSize="11sp" ns0:letterSpacing="0.12" ns0:textStyle="bold" />
+                <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/setup_brand" ns0:textColor="@color/button_primary" ns0:textSize="11sp" ns0:letterSpacing="0.12" ns0:textStyle="bold" />
         
-                <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:text="Build your safety profile" ns0:textColor="@color/text_primary" ns0:textSize="23sp" ns0:textStyle="bold" />
+                <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:text="@string/setup_heading" ns0:textColor="@color/text_primary" ns0:textSize="23sp" ns0:textStyle="bold" />
         
-                <TextView ns0:id="@+id/textSetupSubtitle" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="3dp" ns0:text="Personal and medical details" ns0:textColor="@color/text_secondary" ns0:textSize="13sp" />
+<TextView ns0:id="@+id/textSetupSubtitle" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="3dp" ns0:text="@string/setup_subtitle_personal" ns0:textColor="@color/text_secondary" ns0:textSize="13sp" />
         
                 <ProgressBar ns0:id="@+id/progressSetup" style="?android:attr/progressBarStyleHorizontal" ns0:layout_width="match_parent" ns0:layout_height="5dp" ns0:layout_marginTop="14dp" ns0:max="100" ns0:progress="33" ns0:progressTint="@color/button_primary" ns0:progressBackgroundTint="@color/border_color" />
         
-                <TextView ns0:id="@+id/textSetupStep" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="7dp" ns0:text="STEP 1 OF 3" ns0:textColor="@color/text_secondary" ns0:textSize="11sp" ns0:textStyle="bold" />
+<TextView ns0:id="@+id/textSetupStep" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="7dp" ns0:text="@string/setup_step" ns0:textColor="@color/text_secondary" ns0:textSize="11sp" ns0:textStyle="bold" />
             </LinearLayout>
         
             
@@ -35,20 +35,20 @@
         
                     <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:paddingTop="16dp" ns0:paddingBottom="32dp">
         
-                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="Let's prepare for emergencies" ns0:textColor="@color/fc_text_primary" ns0:textSize="20sp" ns0:textStyle="bold" />
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/setup_page_one_heading" ns0:textColor="@color/fc_text_primary" ns0:textSize="20sp" ns0:textStyle="bold" />
         
-                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:layout_marginBottom="14dp" ns0:text="Add the details responders may need. You can update them later." ns0:textColor="@color/fc_text_secondary" ns0:textSize="13sp" />
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:layout_marginBottom="14dp" ns0:text="@string/setup_page_one_intro" ns0:textColor="@color/fc_text_secondary" ns0:textSize="13sp" />
         
                         
                         <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:padding="18dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
         
-                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="01  Personal information" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/profile_section_personal" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
         
                             <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:text="Full name *" ns0:textColor="@color/fc_text_secondary" ns0:textStyle="bold" ns0:textSize="13sp" />
         
                             <EditText ns0:id="@+id/editFullName" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="6dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="Enter your full name" ns0:inputType="textCapWords|textPersonName" ns0:paddingStart="12dp" ns0:paddingEnd="12dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="15sp" />
         
-                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="15dp" ns0:text="Blood group *" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="15dp" ns0:text="@string/profile_label_blood_group" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
         
                             <Spinner ns0:id="@+id/spinnerBloodGroup" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="4dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" />
         
@@ -58,7 +58,7 @@
                         
                         <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:orientation="vertical" ns0:padding="18dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
         
-                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="02  Allergies" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/profile_label_allergies" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
         
                             <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:text="Select every option that applies." ns0:textColor="@color/fc_text_secondary" ns0:textSize="12sp" />
         
@@ -98,9 +98,9 @@
         
                     <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:paddingTop="16dp" ns0:paddingBottom="32dp">
         
-                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="Your emergency network" ns0:textColor="@color/fc_text_primary" ns0:textSize="20sp" ns0:textStyle="bold" />
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/setup_page_two_heading" ns0:textColor="@color/fc_text_primary" ns0:textSize="20sp" ns0:textStyle="bold" />
         
-                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:layout_marginBottom="14dp" ns0:text="Add people who can help you and choose your area." ns0:textColor="@color/fc_text_secondary" ns0:textSize="13sp" />
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:layout_marginBottom="14dp" ns0:text="@string/setup_page_two_intro" ns0:textColor="@color/fc_text_secondary" ns0:textSize="13sp" />
         
                         
                         <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:padding="18dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
@@ -206,9 +206,9 @@
         
                     <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:paddingTop="18dp" ns0:paddingBottom="32dp">
         
-                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="You're nearly ready" ns0:textColor="@color/fc_text_primary" ns0:textSize="25sp" ns0:textStyle="bold" />
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/setup_page_three_heading" ns0:textColor="@color/fc_text_primary" ns0:textSize="25sp" ns0:textStyle="bold" />
         
-                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="7dp" ns0:text="Save your safety profile so FloodCue can use it when you need help." ns0:textColor="@color/fc_text_secondary" ns0:textSize="14sp" />
+                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="7dp" ns0:text="@string/setup_page_three_intro" ns0:textColor="@color/fc_text_secondary" ns0:textSize="14sp" />
         
                         <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="20dp" ns0:orientation="vertical" ns0:padding="20dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
         
@@ -245,9 +245,9 @@
             
         <LinearLayout xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:id="@+id/layoutSetupNav" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:minHeight="78dp" ns0:orientation="horizontal" ns0:gravity="center_vertical" ns0:paddingStart="14dp" ns0:paddingEnd="14dp" ns0:paddingTop="10dp" ns0:paddingBottom="10dp" ns0:background="@drawable/bg_screen_card" ns0:elevation="8dp">
         
-                <Button ns0:id="@+id/buttonSetupBack" ns0:layout_width="0dp" ns0:layout_height="50dp" ns0:layout_weight="0.8" ns0:background="@drawable/bg_button_secondary" ns0:backgroundTint="@null" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:text="Back" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" ns0:visibility="gone" />
+                <Button ns0:id="@+id/buttonSetupBack" ns0:layout_width="0dp" ns0:layout_height="50dp" ns0:layout_weight="0.8" ns0:background="@drawable/bg_button_secondary" ns0:backgroundTint="@null" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:text="@string/setup_back" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" ns0:visibility="gone" />
         
-                <Button ns0:id="@+id/buttonSetupSkip" ns0:layout_width="0dp" ns0:layout_height="50dp" ns0:layout_marginStart="8dp" ns0:layout_weight="0.9" ns0:background="@drawable/bg_button_secondary" ns0:backgroundTint="@null" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:text="Skip" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" />
+                <Button ns0:id="@+id/buttonSetupSkip" ns0:layout_width="0dp" ns0:layout_height="50dp" ns0:layout_marginStart="8dp" ns0:layout_weight="0.9" ns0:background="@drawable/bg_button_secondary" ns0:backgroundTint="@null" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:text="@string/setup_skip" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" />
         
                 <Button ns0:id="@+id/buttonSetupNext" ns0:layout_width="0dp" ns0:layout_height="50dp" ns0:layout_marginStart="8dp" ns0:layout_weight="1.5" ns0:background="@drawable/bg_button_primary" ns0:backgroundTint="@null" ns0:paddingStart="10dp" ns0:paddingEnd="10dp" ns0:text="Continue  →" ns0:textAllCaps="false" ns0:textColor="@color/button_primary_text" ns0:textStyle="bold" />
             </LinearLayout>
