@@ -25,13 +25,14 @@
             android:background="@drawable/bg_circle_icon"
             android:layout_marginBottom="16dp">
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <ImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/ic_security_shield"
+                android:src="@drawable/ic_security_shield"
+                android:tint="@color/button_primary"
                 android:contentDescription="FloodCue security" />
         </FrameLayout>
 
