@@ -175,6 +175,8 @@ Localization audit update: Added translations for the recently introduced Home h
 
 Localization phase 1: Home hardcoded labels are now resource-backed and translated in all five supported non-English locales. Continue the same pattern for authentication/onboarding layouts and Java-generated messages; never leave user-facing English literals in layouts or activities.
 
+Localization phase 2: Login, Create Account, and Splash visible labels are now resource-backed with translations in Telugu, Hindi, Tamil, Kannada, and Malayalam. Remaining hardcoded strings are now primarily Java runtime messages and Setup screen literals.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.

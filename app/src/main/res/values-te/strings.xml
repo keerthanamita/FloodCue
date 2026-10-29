@@ -337,4 +337,22 @@
     <string name="home_survival_readiness">మనుగడ &amp; సిద్ధత</string>
     <string name="home_offline_mesh">ఆఫ్‌లైన్ మెష్</string>
     <string name="home_saved_profile">సేవ్ చేసిన ప్రొఫైల్</string>
+    <string name="login_brand">ఫ్లూడ్‌క్యూ</string>
+    <string name="login_heading">తిరిగి స్వాగతం</string>
+    <string name="login_subtitle">మీ అత్యవసర ప్రణాళికకు సురక్షిత సైన్ ఇన్ మాత్రమే అవసరం.</string>
+    <string name="login_change_language">భాష మార్చండి</string>
+    <string name="login_forgot_password">పాస్‌వర్డ్ మర్చిపోయారా?</string>
+    <string name="login_sign_in">సైన్ ఇన్</string>
+    <string name="login_or_continue_with">దీనితో కొనసాగండి</string>
+    <string name="login_google">Googleతో కొనసాగండి</string>
+    <string name="login_create_account_prompt">ఖాతా లేదా? ఖాతా సృష్టించండి</string>
+    <string name="create_account_heading">మీ భద్రతా ఖాతాను సృష్టించండి</string>
+    <string name="create_account_subtitle">మీ అత్యవసర ప్రణాళికకు అవసరమైన వివరాలను సురక్షితంగా, ఆఫ్‌లైన్‌లో సేవ్ చేయండి.</string>
+    <string name="create_account_button">ఖాతా సృష్టించండి</string>
+    <string name="create_account_verification_note">మీ ఇమెయిల్ నిర్ధారించడానికి ధృవీకరణ లింక్ పంపుతాము.</string>
+    <string name="create_account_sign_in_prompt">ఇప్పటికే ఖాతా ఉందా? సైన్ ఇన్ చేయండి</string>
+    <string name="splash_eyebrow">అత్యవసర సిద్ధత</string>
+    <string name="splash_tagline">సిద్ధంగా ఉండండి. అనుసంధానంగా ఉండండి. సురక్షితంగా ఉండండి.</string>
+    <string name="splash_badge">ఆఫ్‌లైన్ సిద్ధం · 24/7 భద్రత</string>
+    <string name="splash_preparing">ఫ్లూడ్‌క్యూ సిద్ధమవుతోంది…</string>
 </resources>

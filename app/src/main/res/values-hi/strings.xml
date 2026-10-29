@@ -108,4 +108,22 @@
     <string name="home_survival_readiness">जीवित रहने की तैयारी</string>
     <string name="home_offline_mesh">ऑफ़लाइन मेष</string>
     <string name="home_saved_profile">सहेजी गई प्रोफ़ाइल</string>
+    <string name="login_brand">FloodCue</string>
+    <string name="login_heading">वापसी पर स्वागत है</string>
+    <string name="login_subtitle">आपकी आपातकालीन योजना सुरक्षित साइन-इन से एक कदम दूर है.</string>
+    <string name="login_change_language">भाषा बदलें</string>
+    <string name="login_forgot_password">पासवर्ड भूल गए?</string>
+    <string name="login_sign_in">साइन इन करें</string>
+    <string name="login_or_continue_with">इसके साथ जारी रखें</string>
+    <string name="login_google">Google के साथ जारी रखें</string>
+    <string name="login_create_account_prompt">खाता नहीं है? खाता बनाएँ</string>
+    <string name="create_account_heading">अपना सुरक्षा खाता बनाएँ</string>
+    <string name="create_account_subtitle">अपनी आपातकालीन योजना के विवरण सुरक्षित रूप से और ऑफ़लाइन सहेजें.</string>
+    <string name="create_account_button">खाता बनाएँ</string>
+    <string name="create_account_verification_note">आपका ईमेल पुष्ट करने के लिए सत्यापन लिंक भेजेंगे.</string>
+    <string name="create_account_sign_in_prompt">पहले से खाता है? साइन इन करें</string>
+    <string name="splash_eyebrow">आपातकालीन तैयारी</string>
+    <string name="splash_tagline">तैयार रहें. जुड़े रहें. सुरक्षित रहें.</string>
+    <string name="splash_badge">ऑफ़लाइन तैयार · 24/7 सुरक्षा</string>
+    <string name="splash_preparing">FloodCue तैयार हो रहा है…</string>
 </resources>

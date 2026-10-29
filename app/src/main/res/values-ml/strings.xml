@@ -110,4 +110,22 @@
     <string name="home_survival_readiness">അതിജീവനവും തയ്യാറെടുപ്പും</string>
     <string name="home_offline_mesh">ഓഫ്‌ലൈൻ മെഷ്</string>
     <string name="home_saved_profile">സംരക്ഷിച്ച പ്രൊഫൈൽ</string>
+    <string name="login_brand">FloodCue</string>
+    <string name="login_heading">വീണ്ടും സ്വാഗതം</string>
+    <string name="login_subtitle">നിങ്ങളുടെ അടിയന്തര പദ്ധതി സുരക്ഷിതമായ സൈൻ ഇൻ അകലെയാണ്.</string>
+    <string name="login_change_language">ഭാഷ മാറ്റുക</string>
+    <string name="login_forgot_password">പാസ്‌വേഡ് മറന്നോ?</string>
+    <string name="login_sign_in">സൈൻ ഇൻ ചെയ്യുക</string>
+    <string name="login_or_continue_with">ഇതിലൂടെ തുടരുക</string>
+    <string name="login_google">Google ഉപയോഗിച്ച് തുടരുക</string>
+    <string name="login_create_account_prompt">അക്കൗണ്ട് ഇല്ലേ? അക്കൗണ്ട് സൃഷ്ടിക്കുക</string>
+    <string name="create_account_heading">നിങ്ങളുടെ സുരക്ഷാ അക്കൗണ്ട് സൃഷ്ടിക്കുക</string>
+    <string name="create_account_subtitle">നിങ്ങളുടെ അടിയന്തര പദ്ധതിക്ക് ആവശ്യമായ വിവരങ്ങൾ സുരക്ഷിതമായി ഓഫ്‌ലൈനിൽ സംരക്ഷിക്കുക.</string>
+    <string name="create_account_button">അക്കൗണ്ട് സൃഷ്ടിക്കുക</string>
+    <string name="create_account_verification_note">നിങ്ങളുടെ ഇമെയിൽ സ്ഥിരീകരിക്കാൻ ഒരു സ്ഥിരീകരണ ലിങ്ക് അയയ്ക്കും.</string>
+    <string name="create_account_sign_in_prompt">ഇതിനകം അക്കൗണ്ട് ഉണ്ടോ? സൈൻ ഇൻ ചെയ്യുക</string>
+    <string name="splash_eyebrow">അടിയന്തര തയ്യാറെടുപ്പ്</string>
+    <string name="splash_tagline">തയ്യാറായിരിക്കുക. ബന്ധപ്പെട്ടു നിൽക്കുക. സുരക്ഷിതരായിരിക്കുക.</string>
+    <string name="splash_badge">ഓഫ്‌ലൈൻ തയ്യാറാണ് · 24/7 സുരക്ഷ</string>
+    <string name="splash_preparing">FloodCue തയ്യാറാക്കുന്നു…</string>
 </resources>
