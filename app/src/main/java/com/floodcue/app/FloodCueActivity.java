@@ -186,6 +186,7 @@ public class FloodCueActivity extends AppCompatActivity {
     }
 
     private View buildNavItem(int index, boolean selected) {
+        Context appLanguageContext = LocaleManager.withAppLanguage(this);
         LinearLayout item = new LinearLayout(this);
         item.setOrientation(LinearLayout.VERTICAL);
         item.setGravity(Gravity.CENTER);
@@ -210,14 +211,14 @@ public class FloodCueActivity extends AppCompatActivity {
         ImageView glyph = new ImageView(this);
         glyph.setImageResource(NAV_ICONS[index]);
         glyph.setColorFilter(color);
-        glyph.setContentDescription(getString(NAV_LABELS[index]));
+        glyph.setContentDescription(appLanguageContext.getString(NAV_LABELS[index]));
         LinearLayout.LayoutParams glyphParams = new LinearLayout.LayoutParams(
                 dp(24), dp(24));
         glyphParams.topMargin = dp(3);
         item.addView(glyph, glyphParams);
 
         TextView label = new TextView(this);
-        label.setText(NAV_LABELS[index]);
+        label.setText(appLanguageContext.getString(NAV_LABELS[index]));
         label.setTextColor(color);
         label.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
         label.setGravity(Gravity.CENTER);
@@ -226,7 +227,7 @@ public class FloodCueActivity extends AppCompatActivity {
         }
         item.addView(label);
 
-        item.setContentDescription(getString(NAV_LABELS[index]));
+        item.setContentDescription(appLanguageContext.getString(NAV_LABELS[index]));
         item.setOnClickListener(v -> openNavItem(index));
         return item;
     }

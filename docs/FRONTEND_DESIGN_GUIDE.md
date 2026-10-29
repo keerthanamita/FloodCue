@@ -211,6 +211,8 @@ Localization phase 18: Setup blood-group and relationship spinner options now lo
 
 Localization phase 19: Setup state options now load from localized string arrays. A canonical-state mapping preserves the existing district/business logic while displaying the selected app-language state names. District option names remain the next data-localization task.
 
+Localization phase 20: Shared bottom-navigation labels and accessibility descriptions now resolve through the app-language context even on survival-language screens. This preserves the requested split: navigation/options follow app language while safety content can follow survival language.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.
