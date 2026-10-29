@@ -137,5 +137,5 @@
     <string name="setup_page_three_heading">आप लगभग तैयार हैं</string>
     <string name="setup_page_three_intro">जरूरत पड़ने पर FloodCue के उपयोग के लिए प्रोफ़ाइल सेव करें।</string>
     <string name="setup_back">वापस</string>
-    <string name="setup_skip">छोड़ें</string>
+    <string name="setup_skip">छोड़ें</string><string name="setup_hint_full_name">अपना पूरा नाम दर्ज करें</string><string name="setup_blood_group_hint">यदि ज्ञात हो तो अपना रक्त समूह चुनें।</string><string name="setup_select_all_that_apply">लागू होने वाला हर विकल्प चुनें।</string><string name="setup_allergy_medicines">दवाइयां</string><string name="setup_allergy_food">भोजन</string><string name="setup_allergy_insects">कीड़े का काटना</string><string name="setup_allergy_latex">लेटेक्स</string><string name="setup_allergy_other">अन्य एलर्जी</string><string name="setup_allergy_none">कोई ज्ञात एलर्जी नहीं</string>
 </resources>

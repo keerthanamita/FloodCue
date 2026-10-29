@@ -140,5 +140,5 @@
     <string name="setup_page_three_heading">ನೀವು ಬಹುತೇಕ ಸಿದ್ಧರಾಗಿದ್ದೀರಿ</string>
     <string name="setup_page_three_intro">ಅಗತ್ಯವಿದ್ದಾಗ ಬಳಸಲು ನಿಮ್ಮ ಸುರಕ್ಷತಾ ಪ್ರೊಫೈಲ್ ಉಳಿಸಿ.</string>
     <string name="setup_back">ಹಿಂದಕ್ಕೆ</string>
-    <string name="setup_skip">ಬಿಟ್ಟುಬಿಡಿ</string>
+    <string name="setup_skip">ಬಿಟ್ಟುಬಿಡಿ</string><string name="setup_hint_full_name">ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರನ್ನು ನಮೂದಿಸಿ</string><string name="setup_blood_group_hint">ತಿಳಿದಿದ್ದರೆ ನಿಮ್ಮ ರಕ್ತದ ಗುಂಪನ್ನು ಆಯ್ಕೆಮಾಡಿ.</string><string name="setup_select_all_that_apply">ಅನ್ವಯಿಸುವ ಪ್ರತಿಯೊಂದು ಆಯ್ಕೆಯನ್ನು ಆರಿಸಿ.</string><string name="setup_allergy_medicines">ಔಷಧಿಗಳು</string><string name="setup_allergy_food">ಆಹಾರ</string><string name="setup_allergy_insects">ಕೀಟದ ಕಡಿತ</string><string name="setup_allergy_latex">ಲ್ಯಾಟೆಕ್ಸ್</string><string name="setup_allergy_other">ಇತರ ಅಲರ್ಜಿ</string><string name="setup_allergy_none">ತಿಳಿದ ಅಲರ್ಜಿ ಇಲ್ಲ</string>
 </resources>

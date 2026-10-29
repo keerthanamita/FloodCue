@@ -140,5 +140,5 @@
     <string name="setup_page_three_heading">நீங்கள் கிட்டத்தட்ட தயார்</string>
     <string name="setup_page_three_intro">தேவைப்படும் போது பயன்படுத்த உங்கள் பாதுகாப்பு சுயவிவரத்தைச் சேமிக்கவும்.</string>
     <string name="setup_back">பின்</string>
-    <string name="setup_skip">தவிர்க்க</string>
+    <string name="setup_skip">தவிர்க்க</string><string name="setup_hint_full_name">உங்கள் முழுப் பெயரை உள்ளிடவும்</string><string name="setup_blood_group_hint">தெரிந்தால் உங்கள் இரத்த வகையைத் தேர்ந்தெடுக்கவும்.</string><string name="setup_select_all_that_apply">பொருந்தும் ஒவ்வொரு விருப்பத்தையும் தேர்ந்தெடுக்கவும்.</string><string name="setup_allergy_medicines">மருந்துகள்</string><string name="setup_allergy_food">உணவு</string><string name="setup_allergy_insects">பூச்சிக் கடி</string><string name="setup_allergy_latex">லேடெக்ஸ்</string><string name="setup_allergy_other">மற்ற ஒவ்வாமை</string><string name="setup_allergy_none">தெரிந்த ஒவ்வாமை இல்லை</string>
 </resources>

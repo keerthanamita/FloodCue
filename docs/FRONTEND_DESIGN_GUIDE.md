@@ -183,6 +183,8 @@ Localization phase 4: Setup header, page headings/intros, and navigation labels 
 
 Localization phase 5: Setup subtitle/step text and the first personal/allergy section headings now reuse translated resource keys. The rest of the Setup form (field hints, checkbox options, contact/assistance sections, review copy) remains to be migrated; do not treat the app as fully localized yet.
 
+Localization phase 6: Setup page-one full-name hint, blood-group guidance, allergy instruction, and allergy checkbox options are now resource-backed and translated in all supported locales. Medical fields and the remaining contact/assistance/review copy still need migration.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.

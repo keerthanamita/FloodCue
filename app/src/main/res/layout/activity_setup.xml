@@ -44,15 +44,15 @@
         
 <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/profile_section_personal" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
         
-                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:text="Full name *" ns0:textColor="@color/fc_text_secondary" ns0:textStyle="bold" ns0:textSize="13sp" />
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:text="@string/profile_label_full_name" ns0:textColor="@color/fc_text_secondary" ns0:textStyle="bold" ns0:textSize="13sp" />
         
-                            <EditText ns0:id="@+id/editFullName" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="6dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="Enter your full name" ns0:inputType="textCapWords|textPersonName" ns0:paddingStart="12dp" ns0:paddingEnd="12dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="15sp" />
+<EditText ns0:id="@+id/editFullName" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="6dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="@string/setup_hint_full_name" ns0:inputType="textCapWords|textPersonName" ns0:paddingStart="12dp" ns0:paddingEnd="12dp" ns0:singleLine="true" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="15sp" />
         
 <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="15dp" ns0:text="@string/profile_label_blood_group" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
         
                             <Spinner ns0:id="@+id/spinnerBloodGroup" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="4dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" />
         
-                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="7dp" ns0:text="Select your blood group if known." ns0:textColor="@color/fc_text_secondary" ns0:textSize="12sp" />
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="7dp" ns0:text="@string/setup_blood_group_hint" ns0:textColor="@color/fc_text_secondary" ns0:textSize="12sp" />
                         </LinearLayout>
         
                         
@@ -60,19 +60,19 @@
         
 <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/profile_label_allergies" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
         
-                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:text="Select every option that applies." ns0:textColor="@color/fc_text_secondary" ns0:textSize="12sp" />
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="5dp" ns0:text="@string/setup_select_all_that_apply" ns0:textColor="@color/fc_text_secondary" ns0:textSize="12sp" />
         
-                            <CheckBox ns0:id="@+id/checkAllergyMedicines" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="9dp" ns0:buttonTint="@color/fc_primary" ns0:text="Medicines" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+<CheckBox ns0:id="@+id/checkAllergyMedicines" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="9dp" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_allergy_medicines" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
         
-                            <CheckBox ns0:id="@+id/checkAllergyFood" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Food" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+<CheckBox ns0:id="@+id/checkAllergyFood" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_allergy_food" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
         
-                            <CheckBox ns0:id="@+id/checkAllergyInsects" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Insect bites" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+<CheckBox ns0:id="@+id/checkAllergyInsects" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_allergy_insects" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
         
-                            <CheckBox ns0:id="@+id/checkAllergyLatex" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Latex" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+<CheckBox ns0:id="@+id/checkAllergyLatex" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_allergy_latex" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
         
-                            <CheckBox ns0:id="@+id/checkAllergyOther" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="Other allergy" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+<CheckBox ns0:id="@+id/checkAllergyOther" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_allergy_other" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
         
-                            <CheckBox ns0:id="@+id/checkAllergyNone" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="No known allergies" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+<CheckBox ns0:id="@+id/checkAllergyNone" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:buttonTint="@color/fc_primary" ns0:text="@string/setup_allergy_none" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
         
                             <EditText ns0:id="@+id/editOtherAllergies" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:minHeight="52dp" ns0:layout_marginTop="7dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:gravity="top" ns0:hint="Describe the other allergy" ns0:inputType="textCapSentences|textMultiLine" ns0:padding="12dp" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" ns0:visibility="gone" />
                         </LinearLayout>

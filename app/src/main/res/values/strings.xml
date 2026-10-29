@@ -146,4 +146,8 @@
     <string name="home_sos_sms_permission">SMS permission is needed to send the emergency message automatically.</string>
     <string name="home_sos_location_permission">Location permission lets SOS add your coordinates to the message.</string>
     <string name="home_sos_location_unavailable">No GPS fix yet, so the message says coordinates are unavailable.</string>
-    <string name="home_sos_siren_stopped">Siren stopped. Messages already sent cannot be recalled.</string></resources>
+    <string name="home_sos_siren_stopped">Siren stopped. Messages already sent cannot be recalled.</string>
+    <string name="setup_hint_full_name">Enter your full name</string>
+    <string name="setup_blood_group_hint">Select your blood group if known.</string>
+    <string name="setup_select_all_that_apply">Select every option that applies.</string>
+    <string name="setup_allergy_medicines">Medicines</string><string name="setup_allergy_food">Food</string><string name="setup_allergy_insects">Insect bites</string><string name="setup_allergy_latex">Latex</string><string name="setup_allergy_other">Other allergy</string><string name="setup_allergy_none">No known allergies</string></resources>
