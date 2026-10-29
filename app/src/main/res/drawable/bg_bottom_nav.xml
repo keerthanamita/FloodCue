@@ -4,7 +4,7 @@
     <!-- Elevated surface that follows the light/dark theme -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@color/surface_elevated_color" />
+            <solid android:color="@color/bottom_nav_surface" />
         </shape>
     </item>
 

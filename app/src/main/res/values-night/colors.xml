@@ -54,6 +54,7 @@
     <color name="home_card_text">#F0E9E5</color>
     <color name="home_card_muted">#C5B4AA</color>
     <color name="home_section_text">#D2A28E</color>
+    <color name="bottom_nav_surface">#2D2730</color>
 
     <!-- Home SOS button -->
     <color name="home_sos_red">#C62828</color>

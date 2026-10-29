@@ -64,4 +64,5 @@
 <color name="home_card_text">#3B332D</color>
 <color name="home_card_muted">#806F62</color>
 <color name="home_section_text">#8C6655</color>
+<color name="bottom_nav_surface">#F7F0E8</color>
 </resources>

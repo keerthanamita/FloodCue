@@ -118,6 +118,8 @@ Offline Maps and Weather update: Offline Maps now uses the layered Home palette 
 
 Shared back-ribbon correction: `layout_base_screen.xml` is now the single common orange ribbon with one working back arrow. `FloodCueActivity` wires that arrow to the normal back dispatcher and hides duplicate in-content back rows across Contacts, Maps, Weather, SOS, Settings, Guides, Alerts, Profile, and related screens. This prevents the ribbon/text vertical mismatch and duplicate arrow symbols.
 
+Bottom navigation surface correction: the shared navigation bar no longer uses translucent glass colors. It now uses opaque, theme-specific `bottom_nav_surface` values so it has the same clear, grounded separation as the Home screen in both light and dark modes.
+
 The application also explicitly selects `MODE_NIGHT_FOLLOW_SYSTEM` at process startup, ensuring AppCompat uses the Android system theme instead of retaining a previous mode.
 
 Navigation reliability fix: bottom-nav destination launches now use `FLAG_ACTIVITY_REORDER_TO_FRONT` instead of `CLEAR_TOP|SINGLE_TOP`, so selecting Contacts or another destination does not clear the task stack and appear to navigate backward.
