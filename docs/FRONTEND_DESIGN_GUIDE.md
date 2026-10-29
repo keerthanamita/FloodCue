@@ -122,6 +122,8 @@ Latest visibility/detail polish: Flood Alert and Weather scroll content now rese
 
 Weather final polish: the heading and temperature scale are reduced for better hierarchy, the hourly forecast text is now presented in a padded glass forecast panel with increased line spacing, and the bottom location option has a reserved margin so it remains visible above navigation.
 
+Checklist, Tips, and Emergency Guide update: each screen now uses a role-specific layered surface, smaller hierarchy-safe headings, and extra bottom space above navigation. Checklist emphasizes progress/tabs, Tips uses a contained warning legend, and Emergency Guide reserves the red action treatment for its SOS button; dynamic content containers and existing actions remain unchanged.
+
 Shared back-ribbon correction: `layout_base_screen.xml` is now the single common orange ribbon with one working back arrow. `FloodCueActivity` wires that arrow to the normal back dispatcher and hides duplicate in-content back rows across Contacts, Maps, Weather, SOS, Settings, Guides, Alerts, Profile, and related screens. This prevents the ribbon/text vertical mismatch and duplicate arrow symbols.
 
 Bottom navigation surface correction: the shared navigation bar no longer uses translucent glass colors. It now uses opaque, theme-specific `bottom_nav_surface` values so it has the same clear, grounded separation as the Home screen in both light and dark modes.
