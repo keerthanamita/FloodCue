@@ -27,6 +27,13 @@
     <color name="button_primary_text">#241F24</color>
     <color name="button_primary_pressed">#956F80</color>
 
+  <!-- Material theme aliases; keep system dark mode consistent for widgets. -->
+  <color name="colorPrimary">#B58D9C</color>
+  <color name="colorPrimaryVariant">#956F80</color>
+  <color name="colorOnPrimary">#241F24</color>
+  <color name="glass_highlight">#26FFFFFF</color>
+  <color name="glass_shadow">#55000000</color>
+
     <!-- Secondary button -->
     <color name="button_secondary">#38313A</color>
     <color name="button_secondary_pressed">#463B47</color>

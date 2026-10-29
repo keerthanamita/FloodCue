@@ -169,6 +169,8 @@ Navigation reliability fix: bottom-nav destination launches now use `FLAG_ACTIVI
 - Gradle build/tests: not run yet in this handoff. Do not describe the UI as build-verified until a real Gradle build completes.
 - Runtime light/dark visual verification: not run yet. Check both system modes on an emulator/device, including small-height screens and keyboard-open forms.
 
+- Theme audit correction: `values-night/colors.xml` now overrides Material aliases (`colorPrimary`, `colorPrimaryVariant`, `colorOnPrimary`) and glass highlight/shadow tokens. `values-night/colors_fc.xml` now also defines the previously missing semantic, SOS, Google, and splash compatibility tokens. This prevents legacy or Material widgets from falling back to day-mode colors during a system theme switch.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.
