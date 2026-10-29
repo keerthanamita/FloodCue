@@ -100,6 +100,8 @@ Home screen update: the header, offline status chip, hero card, emergency action
 
 Latest navigation/theme polish: the language screen now shows bottom navigation only when opened from Settings, not when opened from Login. Login's header mark is positioned lower again. Home secondary tools use a second muted glass surface so the entire screen does not appear as one flat color.
 
+Home and shared navigation polish: SOS and siren surfaces now use muted but readable warm emergency colors with light text, the hero heading uses a high-contrast splash token, and the shared bottom navigation now uses the app's theme-aware glass surfaces, border token, wider insets, taller touch area, and calmer label sizing across all screens.
+
 ## Validation record
 
 - Repository and Git state: inspected on 2026-10-29.

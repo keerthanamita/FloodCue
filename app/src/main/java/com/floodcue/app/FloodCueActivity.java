@@ -105,7 +105,7 @@ public class FloodCueActivity extends AppCompatActivity {
         bar.setGravity(Gravity.CENTER_VERTICAL);
         bar.setBackgroundResource(R.drawable.bg_bottom_nav);
         bar.setElevation(dp(6));
-        bar.setPadding(0, dp(2), 0, dp(2));
+        bar.setPadding(dp(8), dp(4), dp(8), dp(4));
 
         int selected = selectedNavItem();
         for (int i = 0; i < NAV_TARGETS.length; i++) {
@@ -115,7 +115,7 @@ public class FloodCueActivity extends AppCompatActivity {
         }
 
         FrameLayout.LayoutParams barParams = new FrameLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, dp(64), Gravity.BOTTOM);
+                ViewGroup.LayoutParams.MATCH_PARENT, dp(70), Gravity.BOTTOM);
         content.addView(bar, barParams);
 
         // Keep the whole screen above the bar, and re-apply whenever the bar
@@ -165,7 +165,7 @@ public class FloodCueActivity extends AppCompatActivity {
 
         TextView glyph = new TextView(this);
         glyph.setText(NAV_GLYPHS[index]);
-        glyph.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+        glyph.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
         glyph.setGravity(Gravity.CENTER);
         LinearLayout.LayoutParams glyphParams = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -175,7 +175,7 @@ public class FloodCueActivity extends AppCompatActivity {
         TextView label = new TextView(this);
         label.setText(NAV_LABELS[index]);
         label.setTextColor(color);
-        label.setTextSize(TypedValue.COMPLEX_UNIT_SP, 11);
+        label.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
         label.setGravity(Gravity.CENTER);
         if (selected) {
             label.setTypeface(label.getTypeface(), Typeface.BOLD);
