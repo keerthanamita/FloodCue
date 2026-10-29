@@ -209,6 +209,8 @@ Localization phase 17: Setup sign-in/wait/Play Store/local-cache messages and Of
 
 Localization phase 18: Setup blood-group and relationship spinner options now load from localized string arrays, so these options follow the selected app language instead of remaining hardcoded English. States/districts and remaining Java validation/service strings still require migration.
 
+Localization phase 19: Setup state options now load from localized string arrays. A canonical-state mapping preserves the existing district/business logic while displaying the selected app-language state names. District option names remain the next data-localization task.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.

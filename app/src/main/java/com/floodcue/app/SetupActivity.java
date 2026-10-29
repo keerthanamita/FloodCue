@@ -120,13 +120,7 @@ public class SetupActivity extends FloodCueActivity {
 
     private String[] relationships;
 
-    private final String[] states = {
-            "Andhra Pradesh",
-            "Telangana",
-            "Tamil Nadu",
-            "Karnataka",
-            "Kerala"
-    };
+    private String[] states;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,6 +129,7 @@ public class SetupActivity extends FloodCueActivity {
 
         bloodGroups = getResources().getStringArray(R.array.setup_blood_groups);
         relationships = getResources().getStringArray(R.array.setup_relationships);
+        states = getResources().getStringArray(R.array.setup_states);
 
         preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
 
@@ -279,7 +274,7 @@ public class SetupActivity extends FloodCueActivity {
                             selectedDistrict = existingProfile.district;
                         }
 
-                        updateDistrictSpinner(state, selectedDistrict);
+                        updateDistrictSpinner(canonicalState(state), selectedDistrict);
                     }
 
                     @Override
@@ -304,6 +299,14 @@ public class SetupActivity extends FloodCueActivity {
         );
 
         spinner.setAdapter(adapter);
+    }
+
+    private String canonicalState(String localizedState) {
+        String[] canonical = {"Andhra Pradesh", "Telangana", "Tamil Nadu", "Karnataka", "Kerala"};
+        for (int i = 0; i < states.length && i < canonical.length; i++) {
+            if (states[i].equals(localizedState)) return canonical[i];
+        }
+        return localizedState;
     }
 
     private void updateDistrictSpinner(
