@@ -98,6 +98,8 @@ The login header mark now uses a larger top margin so it sits lower within the s
 
 Home screen update: the header, offline status chip, hero card, emergency actions, situation tools, survival tools, and settings/profile actions now follow the same warm glassmorphism spacing and copy style. All `HomeActivity` view IDs and click targets remain unchanged; SOS and siren colors retain their emergency meaning.
 
+Latest navigation/theme polish: the language screen now shows bottom navigation only when opened from Settings, not when opened from Login. Login's header mark is positioned lower again. Home secondary tools use a second muted glass surface so the entire screen does not appear as one flat color.
+
 ## Validation record
 
 - Repository and Git state: inspected on 2026-10-29.

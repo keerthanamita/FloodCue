@@ -44,7 +44,9 @@ public class LanguageActivity extends FloodCueActivity {
     @Override
     protected boolean showsBottomNavigation() {
         return getIntent() != null
-                && getIntent().getBooleanExtra("LANGUAGE_EDIT_MODE", false);
+                && getIntent().getBooleanExtra("LANGUAGE_EDIT_MODE", false)
+                && "settings".equals(
+                getIntent().getStringExtra("LANGUAGE_RETURN_TO"));
     }
 
     @Override
