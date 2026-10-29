@@ -125,7 +125,7 @@ public class OfflineMapViewActivity extends FloodCueActivity {
                 }, 3500);
 
             } catch (Exception e) {
-                showError("Map style error: " + e.getMessage());
+                showError(getString(R.string.offline_map_style_error, e.getMessage()));
             }
         });
     }

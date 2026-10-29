@@ -247,6 +247,8 @@ Localization phase 36: Language picker display names now resolve through string 
 
 Localization phase 37: Weather condition descriptions now load from localized string arrays instead of a hardcoded Java array. Arrays cover English, Telugu, Hindi, Tamil, Kannada, and Malayalam; weather-code indexing and forecast behavior are unchanged. Compass abbreviations remain language-neutral direction symbols.
 
+Localization phase 38: Offline map style-rendering errors now use localized resources in all six supported locales. The underlying map renderer and error handling are unchanged; the technical exception detail remains interpolated for diagnosis.
+
 Validation note: all Android resource XML files currently parse successfully (`bad_xml=0`). No Gradle/Android build has been run in this phase, so compilation and device rendering remain to be verified locally.
 
 ## Instructions for the next AI
