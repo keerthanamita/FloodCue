@@ -259,6 +259,8 @@ Localization phase 42: SOS Emergency screen contact count now uses localized plu
 
 Localization phase 43: Language picker native-name labels now resolve through resources instead of a Java literal array. The native spelling and locale-code selection behavior are unchanged.
 
+Localization phase 44: Weather condition descriptions and Flood Alert severity names now resolve using a survival-language context, while surrounding screen labels, controls, and district/options remain on the app-language context. This implements the requested content/options split without changing alert parsing or weather behavior.
+
 Validation note: all Android resource XML files currently parse successfully (`bad_xml=0`). No Gradle/Android build has been run in this phase, so compilation and device rendering remain to be verified locally.
 
 ## Instructions for the next AI

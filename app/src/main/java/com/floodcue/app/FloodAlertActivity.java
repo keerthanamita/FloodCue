@@ -1134,23 +1134,18 @@ public class FloodAlertActivity extends FloodCueActivity {
     }
 
     private String severityName(int severity) {
+        Context survivalContext = LocaleManager.withSurvivalLanguage(this);
         switch (severity) {
             case SEVERITY_RED:
-                // Fall back to an English literal: a locale may not define this.
-                return getStringOrDefault(R.string.flood_alert_severity_red,
-                        getString(R.string.flood_alert_severity_red));
+                return survivalContext.getString(R.string.flood_alert_severity_red);
             case SEVERITY_ORANGE:
-                return getStringOrDefault(R.string.flood_alert_severity_orange,
-                        getString(R.string.flood_alert_severity_orange));
+                return survivalContext.getString(R.string.flood_alert_severity_orange);
             case SEVERITY_YELLOW:
-                return getStringOrDefault(R.string.flood_alert_severity_yellow,
-                        getString(R.string.flood_alert_severity_yellow));
+                return survivalContext.getString(R.string.flood_alert_severity_yellow);
             case SEVERITY_GREEN:
-                return getStringOrDefault(R.string.flood_alert_severity_green,
-                        getString(R.string.flood_alert_severity_green));
+                return survivalContext.getString(R.string.flood_alert_severity_green);
             default:
-                return getStringOrDefault(R.string.flood_alert_severity_unknown,
-                        getString(R.string.flood_alert_severity_unknown));
+                return survivalContext.getString(R.string.flood_alert_severity_unknown);
         }
     }
 

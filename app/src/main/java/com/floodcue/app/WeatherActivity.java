@@ -596,7 +596,8 @@ public class WeatherActivity extends FloodCueActivity {
     }
 
     private String weatherCodeName(int code) {
-        String[] weatherCodes = getResources().getStringArray(R.array.weather_condition_names);
+        String[] weatherCodes = LocaleManager.withSurvivalLanguage(this)
+                .getResources().getStringArray(R.array.weather_condition_names);
         if (code < 0 || code >= weatherCodes.length) {
             return getString(R.string.weather_unavailable);
         }
