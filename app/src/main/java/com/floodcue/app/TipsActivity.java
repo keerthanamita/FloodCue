@@ -1,11 +1,14 @@
 package com.floodcue.app;
 
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.util.TypedValue;
+import android.view.Gravity;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import java.util.Locale;
 
 /**
  * Flood safety tips, grouped by priority: before, during and after a flood.
@@ -15,6 +18,10 @@ import androidx.appcompat.app.AppCompatActivity;
  * with a warning symbol so they stand out in both light and dark themes.
  */
 public class TipsActivity extends FloodCueActivity {
+
+    private TextToSpeech textToSpeech;
+    private boolean ttsReady;
+    private ImageButton speakingButton;
 
     private static final class Tip {
         final int text;          // string resource, so the survival language applies
@@ -89,6 +96,19 @@ public class TipsActivity extends FloodCueActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tips);
 
+        textToSpeech = new TextToSpeech(this, status -> {
+            ttsReady = status == TextToSpeech.SUCCESS;
+            if (ttsReady) {
+                Locale selected = Locale.forLanguageTag(
+                        LocaleManager.survivalLanguage(this));
+                int result = textToSpeech.setLanguage(selected);
+                if (result == TextToSpeech.LANG_MISSING_DATA
+                        || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                    ttsReady = false;
+                }
+            }
+        });
+
         findViewById(R.id.buttonBackToHomeFromTips).setOnClickListener(v -> finish());
 
         LinearLayout container = findViewById(R.id.tipsContainer);
@@ -114,17 +134,38 @@ public class TipsActivity extends FloodCueActivity {
             card.addView(title);
 
             for (Tip tip : category.tips) {
-                TextView row = new TextView(this);
-                row.setText((tip.warning ? "⚠️ " : "• ") + getString(tip.text));
-                row.setTextColor(getColor(tip.warning
+                String tipText = getString(tip.text);
+                LinearLayout row = new LinearLayout(this);
+                row.setOrientation(LinearLayout.HORIZONTAL);
+                row.setGravity(Gravity.CENTER_VERTICAL);
+
+                TextView text = new TextView(this);
+                text.setText((tip.warning ? "⚠️ " : "• ") + tipText);
+                text.setTextColor(getColor(tip.warning
                         ? R.color.error_color : R.color.text_primary));
-                row.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
-                row.setLineSpacing(dp(2), 1f);
+                text.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
+                text.setLineSpacing(dp(2), 1f);
                 LinearLayout.LayoutParams rowParams = new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT);
                 rowParams.topMargin = dp(10);
                 row.setLayoutParams(rowParams);
+
+                LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
+                        0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
+                textParams.rightMargin = dp(8);
+                row.addView(text, textParams);
+
+                ImageButton speaker = new ImageButton(this);
+                speaker.setImageResource(R.drawable.ic_speaker);
+                speaker.setContentDescription(getString(R.string.tips_speak));
+                speaker.setBackgroundResource(R.drawable.bg_link_ripple);
+                speaker.setPadding(dp(10), dp(10), dp(10), dp(10));
+                speaker.setColorFilter(getColor(R.color.button_primary));
+                speaker.setMinimumWidth(dp(44));
+                speaker.setMinimumHeight(dp(44));
+                speaker.setOnClickListener(v -> speakTip(tipText, speaker));
+                row.addView(speaker);
                 card.addView(row);
             }
 
@@ -136,6 +177,33 @@ public class TipsActivity extends FloodCueActivity {
     @Override
     protected boolean usesSurvivalLanguage() {
         return true;
+    }
+
+    private void speakTip(String text, ImageButton button) {
+        if (!ttsReady || textToSpeech == null) {
+            return;
+        }
+        if (speakingButton != null && speakingButton != button) {
+            speakingButton.setAlpha(1f);
+        }
+        if (textToSpeech.isSpeaking()) {
+            textToSpeech.stop();
+        }
+        speakingButton = button;
+        button.setAlpha(0.55f);
+        textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null,
+                "tips_" + button.hashCode());
+        button.postDelayed(() -> button.setAlpha(1f),
+                Math.max(1200, text.length() * 55L));
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (textToSpeech != null) {
+            textToSpeech.stop();
+            textToSpeech.shutdown();
+        }
+        super.onDestroy();
     }
 
     private int dp(int value) {

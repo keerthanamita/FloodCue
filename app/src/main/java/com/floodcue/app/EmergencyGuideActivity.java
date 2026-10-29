@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -20,6 +21,8 @@ import androidx.activity.OnBackPressedCallback;
  * official instructions from emergency services always come first.
  */
 public class EmergencyGuideActivity extends FloodCueActivity {
+
+    private TtsSpeaker ttsSpeaker;
 
     /** One styled block of content inside a situation detail page. */
     private static final class Block {
@@ -328,6 +331,7 @@ public class EmergencyGuideActivity extends FloodCueActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emergency_guide);
+        ttsSpeaker = new TtsSpeaker(this);
 
         listScroll = findViewById(R.id.guideListScroll);
         detailScroll = findViewById(R.id.guideDetailScroll);
@@ -465,6 +469,18 @@ public class EmergencyGuideActivity extends FloodCueActivity {
                 rowParams.topMargin = dp(8);
                 row.setLayoutParams(rowParams);
                 detailContainer.addView(row);
+
+                ImageButton speaker = new ImageButton(this);
+                speaker.setImageResource(R.drawable.ic_speaker);
+                speaker.setContentDescription(getString(R.string.tips_speak));
+                speaker.setBackgroundResource(R.drawable.bg_link_ripple);
+                speaker.setPadding(dp(10), dp(6), dp(10), dp(6));
+                speaker.setColorFilter(getColor(R.color.button_primary));
+                speaker.setOnClickListener(v -> ttsSpeaker.speak(line));
+                LinearLayout.LayoutParams speakerParams = new LinearLayout.LayoutParams(
+                        dp(44), dp(44));
+                speakerParams.gravity = android.view.Gravity.END;
+                detailContainer.addView(speaker, speakerParams);
             }
         }
 
@@ -503,6 +519,14 @@ public class EmergencyGuideActivity extends FloodCueActivity {
     @Override
     protected boolean usesSurvivalLanguage() {
         return true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (ttsSpeaker != null) {
+            ttsSpeaker.shutdown();
+        }
+        super.onDestroy();
     }
 
     private int dp(int value) {

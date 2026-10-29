@@ -275,6 +275,10 @@ Setup optional-fields phase 50: Setup page validation no longer blocks navigatio
 
 Validation note: all Android resource XML files currently parse successfully (`bad_xml=0`). No Gradle/Android build has been run in this phase, so compilation and device rendering remain to be verified locally.
 
+Tips TTS phase 51: Added a speaker button beside every safety tip in `TipsActivity`. Pressing the button reads only that tip using Android `TextToSpeech` and the saved survival/emergency language from `LocaleManager`. The button has a 44dp minimum touch target, stops the previous utterance before speaking the next one, and shuts down TTS when the Activity is destroyed. Added `ic_speaker.xml` and the `tips_speak` accessibility label. If the device TTS engine does not contain the selected language, speech is unavailable rather than silently speaking the wrong language. Existing tip text, warning styling, navigation, and offline content remain unchanged. Build attempt was blocked by the environment because Gradle could not create `C:\\ .gradle` wrapper lock storage; no successful build is claimed. Runtime TTS testing remains pending on a physical device or emulator.
+
+TTS expansion phase 52: Added the shared `TtsSpeaker` wrapper and speaker actions to checklist items and emergency-guide detail lines, using the saved survival language. The language picker selected-value display now puts the separator dot on a second line so it does not crowd the dropdown arrow. Existing checklist state, guide navigation, and language persistence are unchanged. Build/runtime verification remains pending because the environment cannot create the Gradle wrapper lock directory and no Android device is attached.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.

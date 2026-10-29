@@ -143,7 +143,9 @@ public class LanguageActivity extends FloodCueActivity {
     private String displayName(String code) {
         for (int i = 0; i < codes.length; i++) {
             if (codes[i].equals(code)) {
-                return names[i] + "  ·  " + nativeNames[i];
+                // Keep the selected field single-line and unambiguous. The
+                // picker itself still shows the native name and language code.
+                return names[i];
             }
         }
         return getString(R.string.language_english);

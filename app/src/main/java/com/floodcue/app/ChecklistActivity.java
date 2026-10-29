@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.TypedValue;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -26,6 +27,8 @@ import java.util.List;
  *    preparedness and additional supplies.
  */
 public class ChecklistActivity extends FloodCueActivity {
+
+    private TtsSpeaker ttsSpeaker;
 
     private static final String PREFS_NAME = "floodcue_checklist";
     private static final String KEY_PREFIX = "checklist_";
@@ -168,6 +171,7 @@ public class ChecklistActivity extends FloodCueActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checklist);
+        ttsSpeaker = new TtsSpeaker(this);
 
         prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         container = findViewById(R.id.checklistContainer);
@@ -288,6 +292,18 @@ public class ChecklistActivity extends FloodCueActivity {
             boxParams.topMargin = dp(2);
             box.setLayoutParams(boxParams);
             card.addView(box);
+
+            ImageButton speaker = new ImageButton(this);
+            speaker.setImageResource(R.drawable.ic_speaker);
+            speaker.setContentDescription(getString(R.string.tips_speak));
+            speaker.setBackgroundResource(R.drawable.bg_link_ripple);
+            speaker.setPadding(dp(10), dp(6), dp(10), dp(6));
+            speaker.setColorFilter(getColor(R.color.button_primary));
+            speaker.setOnClickListener(v -> ttsSpeaker.speak(getString(item.text)));
+            LinearLayout.LayoutParams speakerParams = new LinearLayout.LayoutParams(
+                    dp(44), dp(44));
+            speakerParams.gravity = android.view.Gravity.END;
+            card.addView(speaker, speakerParams);
         }
 
         bindings.add(new SectionBinding(section, visible, count, note));
@@ -330,6 +346,14 @@ public class ChecklistActivity extends FloodCueActivity {
     @Override
     protected boolean usesSurvivalLanguage() {
         return true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (ttsSpeaker != null) {
+            ttsSpeaker.shutdown();
+        }
+        super.onDestroy();
     }
 
     private int dp(int value) {
