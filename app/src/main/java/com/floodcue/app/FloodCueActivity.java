@@ -79,7 +79,37 @@ public class FloodCueActivity extends AppCompatActivity {
     @Override
     public void setContentView(int layoutRes) {
         super.setContentView(layoutRes);
+        configureSharedBackRibbon();
         attachBottomNavigation();
+    }
+
+    private void configureSharedBackRibbon() {
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            toolbar.setNavigationOnClickListener(v ->
+                    getOnBackPressedDispatcher().onBackPressed());
+        }
+
+        int[] legacyBackIds = {
+                R.id.buttonBackToSettings,
+                R.id.buttonBackToHome,
+                R.id.buttonBackToSettingsFromAbout,
+                R.id.buttonBackFromFloodAlert,
+                R.id.buttonBackFromGuide,
+                R.id.buttonBackFromOfflineComm,
+                R.id.buttonBackToCatalog,
+                R.id.buttonBackFromEmergencySOS,
+                R.id.buttonBackToHomeFromTips,
+                R.id.buttonBackFromWeather,
+                R.id.buttonSetupBack
+        };
+
+        for (int legacyBackId : legacyBackIds) {
+            View legacyBack = findViewById(legacyBackId);
+            if (legacyBack != null) {
+                legacyBack.setVisibility(View.GONE);
+            }
+        }
     }
 
     /**

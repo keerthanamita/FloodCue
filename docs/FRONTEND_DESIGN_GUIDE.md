@@ -110,11 +110,13 @@ Latest Home/navigation redesign: Home now has a raised glass header and refined 
 
 Home palette refinement: Home now uses dedicated light/dark sage, lilac, and sand surfaces for its tool groups, plus Home-specific readable text and section-label tokens. This keeps the screen aligned with the warm glass theme without making every card the same brown surface.
 
-SOS screen correction: the shared orange toolbar is hidden on `SosActivity` because the screen already has its own back control; this removes the duplicate arrow presentation. The scroll content now has extra bottom padding so the final notes and queue controls remain reachable above the shared bottom navigation.
+SOS screen correction: the duplicate in-content back control is hidden through the shared ribbon system, while the scroll content keeps extra bottom padding so final notes and queue controls remain reachable above bottom navigation.
 
 Contacts reliability and theme correction: `item_call_row.xml` is now a normal self-contained row layout instead of an invalid `<merge>` screen layout, preventing Contacts row inflation crashes. `FloodCueActivity` explicitly recreates activities on configuration changes so Android system light/dark changes are reflected immediately without a manual toggle.
 
 Offline Maps and Weather update: Offline Maps now uses the layered Home palette for its selection card and district actions. Weather uses a stronger dashboard heading and temperature emphasis while preserving refresh, location selection, cache, warning, hourly, and detail view IDs and behavior.
+
+Shared back-ribbon correction: `layout_base_screen.xml` is now the single common orange ribbon with one working back arrow. `FloodCueActivity` wires that arrow to the normal back dispatcher and hides duplicate in-content back rows across Contacts, Maps, Weather, SOS, Settings, Guides, Alerts, Profile, and related screens. This prevents the ribbon/text vertical mismatch and duplicate arrow symbols.
 
 The application also explicitly selects `MODE_NIGHT_FOLLOW_SYSTEM` at process startup, ensuring AppCompat uses the Android system theme instead of retaining a previous mode.
 
