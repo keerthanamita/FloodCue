@@ -1,145 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_color"
-    android:orientation="vertical">
-
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+    <include layout="@layout/layout_base_screen" />
     <LinearLayout
+        android:id="@+id/content_container"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:gravity="center_vertical"
-        android:paddingStart="8dp"
-        android:paddingEnd="20dp">
-
-        <TextView
-            android:id="@+id/buttonBackToHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_link_ripple"
-            android:clickable="true"
-            android:focusable="true"
-            android:padding="12dp"
-            android:text="@string/settings_back_title"
-            android:textColor="@color/text_primary"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:fillViewport="true"
-        android:overScrollMode="never">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="24dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_screen_card"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="24dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/settings_heading"
-                    android:textColor="@color/text_primary"
-                    android:textSize="26sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:text="@string/settings_subtitle"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="15sp" />
-
-                <Button
-                    android:id="@+id/buttonChangeUserDetails"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="28dp"
-                    android:background="@drawable/bg_button_primary"
-                    android:backgroundTint="@null"
-                    android:elevation="0dp"
-                    android:minHeight="0dp"
-                    android:text="@string/settings_change_user_details"
-                    android:textAllCaps="false"
-                    android:textColor="@color/button_primary_text"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:id="@+id/buttonChangeLanguage"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_button_secondary"
-                    android:backgroundTint="@null"
-                    android:elevation="0dp"
-                    android:minHeight="0dp"
-                    android:text="@string/settings_change_language"
-                    android:textAllCaps="false"
-                    android:textColor="@color/text_primary"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:id="@+id/buttonAboutFloodcue"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_button_secondary"
-                    android:backgroundTint="@null"
-                    android:elevation="0dp"
-                    android:minHeight="0dp"
-                    android:text="@string/settings_about_floodcue"
-                    android:textAllCaps="false"
-                    android:textColor="@color/text_primary"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:id="@+id/buttonAboutBridgefy"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_button_secondary"
-                    android:backgroundTint="@null"
-                    android:elevation="0dp"
-                    android:minHeight="0dp"
-                    android:text="@string/settings_about_bridgefy"
-                    android:textAllCaps="false"
-                    android:textColor="@color/text_primary"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:id="@+id/buttonLogout"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_button_secondary"
-                    android:backgroundTint="@null"
-                    android:elevation="0dp"
-                    android:minHeight="0dp"
-                    android:text="@string/settings_logout"
-                    android:textAllCaps="false"
-                    android:textColor="@color/text_primary"
-                    android:textSize="16sp" />
-
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="32dp">
+        <LinearLayout xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:layout_width="match_parent" ns0:layout_height="64dp" ns0:gravity="center_vertical" ns0:paddingStart="8dp" ns0:paddingEnd="20dp">
+        
+                <TextView ns0:id="@+id/buttonBackToHome" ns0:layout_width="wrap_content" ns0:layout_height="wrap_content" ns0:background="@drawable/bg_link_ripple" ns0:clickable="true" ns0:focusable="true" ns0:padding="12dp" ns0:text="@string/settings_back_title" ns0:textColor="@color/text_primary" ns0:textSize="20sp" ns0:textStyle="bold" />
+        
             </LinearLayout>
-
-        </LinearLayout>
-
-    </ScrollView>
-
-</LinearLayout>
+        
+            
+        <ScrollView xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:layout_width="match_parent" ns0:layout_height="0dp" ns0:layout_weight="1" ns0:fillViewport="true" ns0:overScrollMode="never">
+        
+                <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:gravity="top" ns0:orientation="vertical" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:paddingTop="8dp" ns0:paddingBottom="32dp">
+        
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:background="@drawable/bg_screen_card" ns0:gravity="center" ns0:orientation="vertical" ns0:padding="20dp">
+        
+                        <TextView ns0:layout_width="wrap_content" ns0:layout_height="wrap_content" ns0:text="@string/settings_heading" ns0:textColor="@color/text_primary" ns0:textSize="24sp" ns0:textStyle="bold" />
+        
+                        <TextView ns0:layout_width="wrap_content" ns0:layout_height="wrap_content" ns0:layout_marginTop="10dp" ns0:gravity="center" ns0:text="@string/settings_subtitle" ns0:textColor="@color/text_secondary" ns0:textSize="15sp" />
+        
+                        <Button ns0:id="@+id/buttonChangeUserDetails" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="24dp" ns0:background="@drawable/bg_button_primary" ns0:backgroundTint="@null" ns0:elevation="0dp" ns0:minHeight="0dp" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:text="@string/settings_change_user_details" ns0:textAllCaps="false" ns0:textColor="@color/button_primary_text" ns0:textSize="15sp" />
+        
+                        <Button ns0:id="@+id/buttonChangeLanguage" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="12dp" ns0:background="@drawable/bg_button_secondary" ns0:backgroundTint="@null" ns0:elevation="0dp" ns0:minHeight="0dp" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:text="@string/settings_change_language" ns0:textAllCaps="false" ns0:textColor="@color/text_primary" ns0:textSize="15sp" />
+        
+                        <Button ns0:id="@+id/buttonAboutFloodcue" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="12dp" ns0:background="@drawable/bg_button_secondary" ns0:backgroundTint="@null" ns0:elevation="0dp" ns0:minHeight="0dp" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:text="@string/settings_about_floodcue" ns0:textAllCaps="false" ns0:textColor="@color/text_primary" ns0:textSize="15sp" />
+        
+                        <Button ns0:id="@+id/buttonAboutBridgefy" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="12dp" ns0:background="@drawable/bg_button_secondary" ns0:backgroundTint="@null" ns0:elevation="0dp" ns0:minHeight="0dp" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:text="@string/settings_about_bridgefy" ns0:textAllCaps="false" ns0:textColor="@color/text_primary" ns0:textSize="15sp" />
+        
+                        <Button ns0:id="@+id/buttonLogout" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="12dp" ns0:background="@drawable/bg_button_secondary" ns0:backgroundTint="@null" ns0:elevation="0dp" ns0:minHeight="0dp" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:text="@string/settings_logout" ns0:textAllCaps="false" ns0:textColor="@color/text_primary" ns0:textSize="15sp" />
+        
+                    </LinearLayout>
+        
+                </LinearLayout>
+        
+            </ScrollView>
+        
+        
+    </LinearLayout>
+</merge>
