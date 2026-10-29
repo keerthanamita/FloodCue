@@ -20,15 +20,17 @@
         android:paddingBottom="24dp">
 
         <FrameLayout
-            android:layout_width="72dp"
-            android:layout_height="72dp"
+            android:layout_width="82dp"
+            android:layout_height="82dp"
             android:background="@drawable/bg_circle_icon"
             android:layout_marginBottom="16dp">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="38dp"
-                android:layout_height="38dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
                 app:srcCompat="@drawable/ic_security_shield"
                 android:contentDescription="FloodCue security" />
         </FrameLayout>
@@ -77,18 +79,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:background="@drawable/bg_badge_pill"
+            android:background="@drawable/bg_language_option"
             android:backgroundTint="@color/surface_color"
-            android:text="◉  Change language"
+            android:drawableStart="@drawable/ic_globe"
+            android:drawablePadding="8dp"
+            android:text="Change language"
             android:textColor="@color/button_primary"
             android:textSize="12sp"
             android:textStyle="bold"
             android:clickable="true"
             android:focusable="true"
-            android:paddingStart="12dp"
-            android:paddingTop="5dp"
-            android:paddingEnd="12dp"
-            android:paddingBottom="5dp" />
+            android:minHeight="46dp"
+            android:paddingStart="14dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="14dp"
+            android:paddingBottom="8dp" />
 
         <!-- Login Card -->
         <com.google.android.material.card.MaterialCardView
@@ -266,7 +271,10 @@
             android:textAllCaps="false"
             android:gravity="center"
             android:fontFamily="sans"
-            app:backgroundTint="@color/background_color"
+            android:background="@color/surface_color"
+            android:stateListAnimator="@null"
+            android:elevation="0dp"
+            app:backgroundTint="@null"
             app:cornerRadius="14dp"
             app:strokeColor="@color/border_color"
             app:strokeWidth="1dp"
@@ -283,13 +291,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:background="@drawable/bg_link_ripple"
+            android:background="@drawable/bg_action_card"
             android:clickable="true"
             android:focusable="true"
-            android:paddingStart="8dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="8dp"
-            android:paddingBottom="4dp"
+            android:minHeight="48dp"
+            android:paddingStart="18dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="18dp"
+            android:paddingBottom="10dp"
             android:text="Don't have an account? Create account"
             android:textColor="@color/button_primary"
             android:textSize="13sp"
@@ -309,7 +318,7 @@
             android:paddingEnd="8dp"
             android:paddingBottom="4dp"
             android:text="@string/login_guest_mode"
-            android:textColor="@color/text_primary"
+            android:textColor="@color/button_primary"
             android:textSize="14sp"
             android:textStyle="bold" />
 

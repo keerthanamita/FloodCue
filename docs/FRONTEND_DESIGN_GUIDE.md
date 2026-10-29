@@ -88,6 +88,8 @@ The visual direction was then refined to a non-blue glassmorphism palette. Light
 
 Latest correction: the splash screen no longer displays the unapproved `ic_floodcue_logo`; it uses typography and ambient color only. The language content is inside a fill-viewport scroll container with reduced vertical spacing so the Continue action remains reachable on short screens. Language picker rows now use opaque theme-aware surfaces and border tokens so English and native-language labels remain readable in both modes.
 
+Login polish: the security mark now has a larger, centered viewport; Change language is a dedicated bordered action with a globe icon; guest mode is a clear rounded action surface; and the Google button disables the default state animator/elevation so no unwanted outer shade appears.
+
 ## Validation record
 
 - Repository and Git state: inspected on 2026-10-29.
