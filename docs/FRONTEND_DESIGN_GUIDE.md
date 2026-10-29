@@ -243,7 +243,7 @@ Localization phase 34: Flood-alert severity fallback values now reuse the locali
 
 Localization phase 35: Language-screen unknown-code fallback now uses the localized English-language resource instead of an embedded English label. The language option arrays still require a final resource-backed audit so their display names can follow the selected app language without changing stored locale codes.
 
-Localization phase 36: Language picker display names now resolve through string resources rather than a hardcoded English-name array. Locale codes and native-name presentation remain unchanged; the added language-name resources currently include the base and Telugu app-language variants, with the remaining locale-specific display-name translations still to be added.
+Localization phase 36: Language picker display names now resolve through string resources rather than a hardcoded English-name array. Locale codes and native-name presentation remain unchanged. Language-name resources now cover base English plus Telugu, Hindi, Tamil, Kannada, and Malayalam app-language variants.
 
 Validation note: all Android resource XML files currently parse successfully (`bad_xml=0`). No Gradle/Android build has been run in this phase, so compilation and device rendering remain to be verified locally.
 
