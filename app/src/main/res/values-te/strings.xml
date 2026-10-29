@@ -356,4 +356,15 @@
     <string name="splash_badge">ఆఫ్‌లైన్ సిద్ధం · 24/7 భద్రత</string>
     <string name="splash_preparing">ఫ్లూడ్‌క్యూ సిద్ధమవుతోంది…</string>
     <string name="splash_choose_language">మీ భాషను ఎంచుకోండి…</string><string name="splash_opening_sign_in">సైన్ ఇన్ తెరవబడుతోంది…</string><string name="splash_opening_app">ఫ్లూడ్‌క్యూ తెరవబడుతోంది…</string><string name="splash_opening_setup">ప్రొఫైల్ సెటప్ తెరవబడుతోంది…</string><string name="home_sign_in_saved_details">మీ సేవ్ చేసిన వివరాలను చూడటానికి ముందుగా సైన్ ఇన్ చేయండి.</string><string name="home_no_local_profile">ఈ పరికరంలో స్థానిక ప్రొఫైల్ లేదు.</string><string name="login_failed">సైన్ ఇన్ విఫలమైంది</string><string name="setup_step">దశ %1$d / 3</string><string name="setup_subtitle_personal">వ్యక్తిగత మరియు వైద్య వివరాలు</string><string name="setup_subtitle_contacts">పరిచయాలు మరియు తరలింపు సహాయం</string><string name="setup_subtitle_review">మీ భద్రతా ప్రొఫైల్‌ను పరిశీలించి సేవ్ చేయండి</string><string name="setup_review_button">వివరాలను పరిశీలించండి →</string><string name="setup_continue_button">కొనసాగించండి →</string><string name="setup_full_name_required">మీ పూర్తి పేరును నమోదు చేయండి</string><string name="setup_blood_group_required">మీ రక్త వర్గాన్ని ఎంచుకోండి.</string><string name="setup_saving_profile">ప్రొఫైల్ సేవ్ అవుతోంది…</string><string name="setup_save_continue">సేవ్ చేసి ఫ్లూడ్‌క్యూ కొనసాగించండి →</string><string name="setup_save_failed">మీ ప్రొఫైల్ సేవ్ కాలేదు. కనెక్షన్ తనిఖీ చేసి మళ్లీ ప్రయత్నించండి.</string>
+    <string name="setup_brand">ఫ్లూడ్‌క్యూ / మీ భద్రత</string><string name="setup_heading">మీ భద్రతా ప్రొఫైల్‌ను సృష్టించండి</string><string name="setup_page_one_heading">అత్యవసరాలకు సిద్ధం అవుదాం</string><string name="setup_page_one_intro">సహాయకులకు అవసరమైన వివరాలను జోడించండి. తర్వాత మార్చవచ్చు.</string><string name="setup_page_two_heading">మీ అత్యవసర నెట్‌వర్క్</string><string name="setup_page_two_intro">మీకు సహాయం చేయగల వ్యక్తులను జోడించి ప్రాంతాన్ని ఎంచుకోండి.</string><string name="setup_page_three_heading">మీరు దాదాపు సిద్ధంగా ఉన్నారు</string><string name="setup_page_three_intro">అవసరమైనప్పుడు ఫ్లూడ్‌క్యూ ఉపయోగించేందుకు మీ భద్రతా ప్రొఫైల్‌ను సేవ్ చేయండి.</string><string name="setup_back">వెనక్కి</string><string name="setup_skip">దాటవేయండి</string>
+    <string name="setup_brand">ఫ్లడ్‌క్యూ / మీ భద్రత</string>
+    <string name="setup_heading">మీ భద్రతా ప్రొఫైల్‌ను రూపొందించండి</string>
+    <string name="setup_page_one_heading">అత్యవసర పరిస్థితులకు సిద్ధం అవుదాం</string>
+    <string name="setup_page_one_intro">సహాయకులకు అవసరమైన వివరాలను జోడించండి. తరువాత మార్చవచ్చు.</string>
+    <string name="setup_page_two_heading">మీ అత్యవసర నెట్‌వర్క్</string>
+    <string name="setup_page_two_intro">మీకు సహాయం చేసే వ్యక్తులను జోడించి, ప్రాంతాన్ని ఎంచుకోండి.</string>
+    <string name="setup_page_three_heading">మీరు దాదాపు సిద్ధంగా ఉన్నారు</string>
+    <string name="setup_page_three_intro">అవసరమైనప్పుడు FloodCue ఉపయోగించేందుకు మీ భద్రతా ప్రొఫైల్‌ను సేవ్ చేయండి.</string>
+    <string name="setup_back">వెనుకకు</string>
+    <string name="setup_skip">దాటవేయి</string>
 </resources>

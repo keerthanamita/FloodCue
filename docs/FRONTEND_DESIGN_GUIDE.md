@@ -179,6 +179,8 @@ Localization phase 2: Login, Create Account, and Splash visible labels are now r
 
 Localization phase 3: Splash routing status, Home saved-profile messages, Login failure fallback, and Setup step/status/validation messages now use translated resource keys in all supported locales.
 
+Localization phase 4: Setup header, page headings/intros, and navigation labels are resource-backed and translated in Telugu, Hindi, Tamil, Kannada, and Malayalam. Setup form labels/options and remaining Java-generated user-facing text still require the next audit batch; localization is not yet complete.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.
