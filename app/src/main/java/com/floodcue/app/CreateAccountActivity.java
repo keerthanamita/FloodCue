@@ -555,7 +555,7 @@ public class CreateAccountActivity extends FloodCueActivity {
             showError(
                     emailInputLayout,
                     emailEditText,
-                    "Enter a valid email address."
+                    getString(R.string.login_email_invalid)
             );
 
             return;
@@ -923,8 +923,7 @@ public class CreateAccountActivity extends FloodCueActivity {
             else if (firebaseMessage.contains(
                     "invalid-email")) {
 
-                message =
-                        "Please enter a valid email address.";
+                message = getString(R.string.login_email_invalid);
 
             }
 

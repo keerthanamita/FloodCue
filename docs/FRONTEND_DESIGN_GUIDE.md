@@ -249,6 +249,8 @@ Localization phase 37: Weather condition descriptions now load from localized st
 
 Localization phase 38: Offline map style-rendering errors now use localized resources in all six supported locales. The underlying map renderer and error handling are unchanged; the technical exception detail remains interpolated for diagnosis.
 
+Localization phase 39: Create-account invalid-email validation now reuses the existing localized email-validation resource in both validation paths. Account creation behavior is unchanged.
+
 Validation note: all Android resource XML files currently parse successfully (`bad_xml=0`). No Gradle/Android build has been run in this phase, so compilation and device rendering remain to be verified locally.
 
 ## Instructions for the next AI
