@@ -67,10 +67,7 @@ public class LanguageActivity extends FloodCueActivity {
         updateLabels();
     }
 
-    private final String[] names = {
-            "English", "Telugu", "Hindi",
-            "Tamil", "Kannada", "Malayalam"
-    };
+    private String[] names;
 
     private final String[] nativeNames = {
             "English", "తెలుగు", "हिन्दी",
@@ -84,6 +81,14 @@ public class LanguageActivity extends FloodCueActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        names = new String[]{
+                getString(R.string.language_english),
+                getString(R.string.language_telugu),
+                getString(R.string.language_hindi),
+                getString(R.string.language_tamil),
+                getString(R.string.language_kannada),
+                getString(R.string.language_malayalam)
+        };
         setContentView(R.layout.activity_language);
 
         preferences = getSharedPreferences(
