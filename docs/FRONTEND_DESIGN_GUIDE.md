@@ -191,6 +191,8 @@ Localization phase 8: Primary/second/third emergency-contact section headings an
 
 Localization phase 9: Evacuation-assistance and region labels/options are now resource-backed in the base resource file. Locale translations for these new keys and the remaining contact hints must be added before this phase can be considered complete.
 
+Localization phase 10: Evacuation-assistance and region resources now have Telugu, Hindi, Tamil, Kannada, and Malayalam translations. All six resource files parse successfully; remaining Setup contact hints/review copy and broader application hardcoded strings still need audit.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.
