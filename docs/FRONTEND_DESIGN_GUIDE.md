@@ -255,6 +255,8 @@ Localization phase 40: Login and create-account navigation prompts now use their
 
 Validation phase 41: Resource XML validation still passes (`bad_xml=0`). `gradlew.bat assembleDebug` could not run to compilation because the wrapper distribution was unavailable locally and network access to services.gradle.org was denied; therefore no build success is claimed. The source audit confirms survival-language routing for Checklist, Tips, Emergency Guide, and SOS message content, while shared navigation remains app-language based.
 
+Localization phase 42: SOS Emergency screen contact count now uses localized plural resources for all six supported locales instead of the English `contact(s)` label. Recipient selection and send behavior are unchanged.
+
 Validation note: all Android resource XML files currently parse successfully (`bad_xml=0`). No Gradle/Android build has been run in this phase, so compilation and device rendering remain to be verified locally.
 
 ## Instructions for the next AI

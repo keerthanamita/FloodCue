@@ -605,7 +605,8 @@ public class SosEmergencyActivity extends FloodCueActivity
         header.setTextColor(getColor(R.color.text_secondary));
         contactsLayout.addView(header);
         TextView count = new TextView(this);
-        count.setText(String.valueOf(contacts.length) + " contact(s)");
+        count.setText(getResources().getQuantityString(
+                R.plurals.sos_contact_count, contacts.length, contacts.length));
         count.setTextSize(15);
         count.setTextColor(getColor(R.color.text_primary));
         contactsLayout.addView(count);
