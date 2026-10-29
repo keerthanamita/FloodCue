@@ -150,4 +150,5 @@
     <string name="setup_hint_full_name">Enter your full name</string>
     <string name="setup_blood_group_hint">Select your blood group if known.</string>
     <string name="setup_select_all_that_apply">Select every option that applies.</string>
-    <string name="setup_allergy_medicines">Medicines</string><string name="setup_allergy_food">Food</string><string name="setup_allergy_insects">Insect bites</string><string name="setup_allergy_latex">Latex</string><string name="setup_allergy_other">Other allergy</string><string name="setup_allergy_none">No known allergies</string></resources>
+    <string name="setup_allergy_medicines">Medicines</string><string name="setup_allergy_food">Food</string><string name="setup_allergy_insects">Insect bites</string><string name="setup_allergy_latex">Latex</string><string name="setup_allergy_other">Other allergy</string><string name="setup_allergy_none">No known allergies</string>
+    <string name="setup_medical_heading">03  Medical information</string><string name="setup_medications_label">Current medications (optional)</string><string name="setup_medications_hint">e.g. insulin, inhaler</string><string name="setup_medical_notes_label">Important medical notes (optional)</string><string name="setup_medical_notes_hint">Anything responders should know</string></resources>

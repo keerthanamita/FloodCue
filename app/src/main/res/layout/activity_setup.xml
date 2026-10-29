@@ -80,15 +80,15 @@
                         
                         <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:orientation="vertical" ns0:padding="18dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
         
-                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="03  Medical information" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/setup_medical_heading" ns0:textColor="@color/fc_primary_dark" ns0:textSize="17sp" ns0:textStyle="bold" />
         
-                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="15dp" ns0:text="Current medications (optional)" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="15dp" ns0:text="@string/setup_medications_label" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
         
-                            <EditText ns0:id="@+id/editMedications" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:minHeight="52dp" ns0:layout_marginTop="5dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="e.g. insulin, inhaler" ns0:inputType="textCapSentences|textMultiLine" ns0:padding="12dp" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+<EditText ns0:id="@+id/editMedications" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:minHeight="52dp" ns0:layout_marginTop="5dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:hint="@string/setup_medications_hint" ns0:inputType="textCapSentences|textMultiLine" ns0:padding="12dp" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
         
-                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="15dp" ns0:text="Important medical notes (optional)" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="15dp" ns0:text="@string/setup_medical_notes_label" ns0:textColor="@color/fc_text_primary" ns0:textStyle="bold" ns0:textSize="13sp" />
         
-                            <EditText ns0:id="@+id/editMedicalNotes" ns0:layout_width="match_parent" ns0:layout_height="100dp" ns0:layout_marginTop="5dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:gravity="top" ns0:hint="Anything responders should know" ns0:inputType="textCapSentences|textMultiLine" ns0:padding="12dp" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
+<EditText ns0:id="@+id/editMedicalNotes" ns0:layout_width="match_parent" ns0:layout_height="100dp" ns0:layout_marginTop="5dp" ns0:backgroundTint="@color/fc_input_stroke" ns0:gravity="top" ns0:hint="@string/setup_medical_notes_hint" ns0:inputType="textCapSentences|textMultiLine" ns0:padding="12dp" ns0:textColor="@color/fc_text_primary" ns0:textColorHint="@color/fc_text_secondary" ns0:textSize="14sp" />
                         </LinearLayout>
                     </LinearLayout>
                 </ScrollView>

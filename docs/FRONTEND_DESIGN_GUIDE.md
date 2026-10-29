@@ -185,6 +185,8 @@ Localization phase 5: Setup subtitle/step text and the first personal/allergy se
 
 Localization phase 6: Setup page-one full-name hint, blood-group guidance, allergy instruction, and allergy checkbox options are now resource-backed and translated in all supported locales. Medical fields and the remaining contact/assistance/review copy still need migration.
 
+Localization phase 7: Setup medical heading, medication label/hint, and medical-notes label/hint are now resource-backed and translated in all supported locales. Contact, evacuation-assistance, region, and review copy remain in the next batches.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.
