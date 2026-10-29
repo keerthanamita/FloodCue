@@ -368,7 +368,7 @@ public class LoginActivity extends FloodCueActivity {
 
                         setLoginLoading(false);
 
-                        String message = "Sign in failed";
+                        String message = getString(R.string.login_failed);
 
                         if (task.getException() != null) {
 

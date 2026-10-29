@@ -70,7 +70,7 @@ public class HomeActivity extends FloodCueActivity {
                             .getInstance().getCurrentUser();
 
             if (user == null) {
-                txtSavedDetails.setText("Sign in first to see your saved details.");
+                txtSavedDetails.setText(R.string.home_sign_in_saved_details);
                 savedDetailsScroll.setVisibility(android.view.View.VISIBLE);
                 return;
             }
@@ -80,7 +80,7 @@ public class HomeActivity extends FloodCueActivity {
 
             if (profile == null) {
                 txtSavedDetails.setText(
-                        "No local profile found on this device."
+                        R.string.home_no_local_profile
                 );
             } else {
                 String details =

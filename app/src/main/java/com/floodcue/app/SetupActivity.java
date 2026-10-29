@@ -496,15 +496,15 @@ public class SetupActivity extends FloodCueActivity {
                 currentPage == 3 ? View.VISIBLE : View.GONE
         );
 
-        textSetupStep.setText("STEP " + currentPage + " OF 3");
+        textSetupStep.setText(getString(R.string.setup_step, currentPage));
         progressSetup.setProgress(currentPage * 33);
 
         textSetupSubtitle.setText(
                 currentPage == 1
-                        ? "Personal and medical details"
+                        ? getString(R.string.setup_subtitle_personal)
                         : currentPage == 2
-                        ? "Contacts and evacuation support"
-                        : "Review and save your safety profile"
+                        ? getString(R.string.setup_subtitle_contacts)
+                        : getString(R.string.setup_subtitle_review)
         );
 
         layoutSetupNav.setVisibility(
@@ -519,8 +519,8 @@ public class SetupActivity extends FloodCueActivity {
 
         buttonNext.setText(
                 currentPage == 2
-                        ? "Review details  →"
-                        : "Continue  →"
+                        ? getString(R.string.setup_review_button)
+                        : getString(R.string.setup_continue_button)
         );
 
         if (currentPage == 1) {
@@ -536,7 +536,7 @@ public class SetupActivity extends FloodCueActivity {
         String name = editFullName.getText().toString().trim();
 
         if (name.isEmpty()) {
-            editFullName.setError("Please enter your full name");
+            editFullName.setError(getString(R.string.setup_full_name_required));
             editFullName.requestFocus();
             return false;
         }
@@ -544,7 +544,7 @@ public class SetupActivity extends FloodCueActivity {
         if (spinnerBloodGroup.getSelectedItemPosition() == 0) {
             Toast.makeText(
                     this,
-                    "Please select your blood group.",
+                    R.string.setup_blood_group_required,
                     Toast.LENGTH_SHORT
             ).show();
             return false;
@@ -778,7 +778,7 @@ public class SetupActivity extends FloodCueActivity {
 
         isSaving = true;
         buttonComplete.setEnabled(false);
-        buttonComplete.setText("Saving profile…");
+        buttonComplete.setText(R.string.setup_saving_profile);
 
         UserProfile profile = existingProfile == null
                 ? new UserProfile()
@@ -854,15 +854,12 @@ public class SetupActivity extends FloodCueActivity {
 
             isSaving = false;
             buttonComplete.setEnabled(true);
-            buttonComplete.setText("Save & continue to FloodCue  →");
+            buttonComplete.setText(R.string.setup_save_continue);
 
             if (!success || savedProfile == null) {
-                String message = "Couldn't save your profile. "
-                        + "Check your connection and try again.";
-
                 Toast.makeText(
                         SetupActivity.this,
-                        message,
+                        R.string.setup_save_failed,
                         Toast.LENGTH_LONG
                 ).show();
 

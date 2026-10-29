@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import android.os.Handler;
+import android.os.Looper;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -29,7 +31,12 @@ public class SplashActivity extends FloodCueActivity {
         loadingStatus = findViewById(R.id.loadingStatus);
         preferences = getSharedPreferences("FloodCuePrefs", MODE_PRIVATE);
 
-        openNextScreen();
+        new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                openNextScreen();
+            }
+        }, 1500);
     }
 
     private void openNextScreen() {
@@ -39,7 +46,7 @@ public class SplashActivity extends FloodCueActivity {
                 preferences.getBoolean("language_selected", false);
 
         if (!languageSelected) {
-            loadingStatus.setText("Choose your language…");
+            loadingStatus.setText(R.string.splash_choose_language);
             intent = new Intent(this, LanguageActivity.class);
 
         } else {
@@ -51,7 +58,7 @@ public class SplashActivity extends FloodCueActivity {
                         .putBoolean("is_logged_in", false)
                         .apply();
 
-                loadingStatus.setText("Opening sign in…");
+                loadingStatus.setText(R.string.splash_opening_sign_in);
                 intent = new Intent(this, LoginActivity.class);
 
             } else {
@@ -64,10 +71,10 @@ public class SplashActivity extends FloodCueActivity {
                         preferences.getBoolean(setupKey, false);
 
                 if (setupCompleted) {
-                    loadingStatus.setText("Opening FloodCue…");
+                    loadingStatus.setText(R.string.splash_opening_app);
                     intent = new Intent(this, HomeActivity.class);
                 } else {
-                    loadingStatus.setText("Opening profile setup…");
+                    loadingStatus.setText(R.string.splash_opening_setup);
                     intent = new Intent(this, SetupActivity.class);
                 }
             }

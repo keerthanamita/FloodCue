@@ -177,6 +177,8 @@ Localization phase 1: Home hardcoded labels are now resource-backed and translat
 
 Localization phase 2: Login, Create Account, and Splash visible labels are now resource-backed with translations in Telugu, Hindi, Tamil, Kannada, and Malayalam. Remaining hardcoded strings are now primarily Java runtime messages and Setup screen literals.
 
+Localization phase 3: Splash routing status, Home saved-profile messages, Login failure fallback, and Setup step/status/validation messages now use translated resource keys in all supported locales.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.
