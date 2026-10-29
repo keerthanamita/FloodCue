@@ -25,6 +25,11 @@ public class ProfileDetailsActivity extends FloodCueActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_details);
 
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            toolbar.setTitle(R.string.profile_details_heading);
+        }
+
         TextView buttonBackToSettings = findViewById(R.id.buttonBackToSettings);
         buttonEditProfile = findViewById(R.id.buttonEditProfile);
         profileDetailsContent = findViewById(R.id.profileDetailsContent);
