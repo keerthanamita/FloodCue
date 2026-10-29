@@ -250,7 +250,8 @@ public class SetupActivity extends FloodCueActivity {
         setSpinnerAdapter(spinnerPrimaryRelationship, relationships);
         setSpinnerAdapter(spinnerSecondRelationship, relationships);
         setSpinnerAdapter(spinnerThirdRelationship, relationships);
-        setSpinnerAdapter(spinnerCountry, new String[]{"India"});
+        setSpinnerAdapter(spinnerCountry,
+                new String[]{getString(R.string.setup_country_india)});
         setSpinnerAdapter(spinnerState, states);
 
         spinnerState.setOnItemSelectedListener(

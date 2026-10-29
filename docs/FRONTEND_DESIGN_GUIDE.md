@@ -261,6 +261,8 @@ Localization phase 43: Language picker native-name labels now resolve through re
 
 Localization phase 44: Weather condition descriptions and Flood Alert severity names now resolve using a survival-language context, while surrounding screen labels, controls, and district/options remain on the app-language context. This implements the requested content/options split without changing alert parsing or weather behavior.
 
+Localization phase 45: Setup country option `India` now uses a localized resource for all six supported locales. Canonical state/district values remain stable internal data so profile matching and backend persistence are not altered.
+
 Validation note: all Android resource XML files currently parse successfully (`bad_xml=0`). No Gradle/Android build has been run in this phase, so compilation and device rendering remain to be verified locally.
 
 ## Instructions for the next AI
