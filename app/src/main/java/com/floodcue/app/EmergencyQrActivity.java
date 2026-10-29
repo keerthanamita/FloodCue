@@ -1,7 +1,10 @@
 package com.floodcue.app;
 
 import android.graphics.Bitmap;
+import android.content.ContentValues;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Button;
@@ -28,14 +31,15 @@ public class EmergencyQrActivity extends FloodCueActivity {
             "https://floodcue.heliohost.us/server/api/revoke_emergency_qr.php";
     private ImageView qrImage;
     private TextView status;
+    private Bitmap qrBitmap;
 
     @Override protected void onCreate(Bundle state) {
         super.onCreate(state);
         setContentView(R.layout.activity_emergency_qr);
         qrImage = findViewById(R.id.emergencyQrImage);
         status = findViewById(R.id.emergencyQrStatus);
-        findViewById(R.id.buttonBackFromEmergencyQr).setOnClickListener(v -> finish());
         findViewById(R.id.buttonRevokeEmergencyQr).setOnClickListener(v -> revokeTokens());
+        findViewById(R.id.buttonSaveEmergencyQr).setOnClickListener(v -> saveQrImage());
         findViewById(R.id.buttonOpenEmergencyQrScanner).setOnClickListener(v ->
                 startActivity(new android.content.Intent(this, EmergencyQrScannerActivity.class)));
         findViewById(R.id.buttonOpenEmergencyQrAdmin).setOnClickListener(v ->
@@ -85,7 +89,11 @@ public class EmergencyQrActivity extends FloodCueActivity {
                     if (!json.optBoolean("ok")) throw new Exception("server_rejected");
                     String token = json.getString("token");
                     Bitmap bitmap = makeQr(token);
-                    runOnUiThread(() -> { qrImage.setImageBitmap(bitmap); status.setText(getString(R.string.emergency_qr_expires, json.optString("expires_at"))); });
+                    runOnUiThread(() -> {
+                        qrBitmap = bitmap;
+                        qrImage.setImageBitmap(bitmap);
+                        status.setText(getString(R.string.emergency_qr_expires, json.optString("expires_at")));
+                    });
                     c.disconnect();
                 } catch (Exception e) { runOnUiThread(() -> status.setText(R.string.emergency_qr_failed)); }
             }).start();
@@ -97,5 +105,39 @@ public class EmergencyQrActivity extends FloodCueActivity {
         Bitmap bitmap = Bitmap.createBitmap(800, 800, Bitmap.Config.ARGB_8888);
         for (int x=0; x<800; x++) for (int y=0; y<800; y++) bitmap.setPixel(x,y,matrix.get(x,y) ? 0xFF111111 : 0xFFFFFFFF);
         return bitmap;
+    }
+
+    private void saveQrImage() {
+        if (qrBitmap == null) {
+            status.setText(R.string.emergency_qr_save_unavailable);
+            return;
+        }
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+            status.setText(R.string.emergency_qr_save_android_10);
+            return;
+        }
+        new Thread(() -> {
+            try {
+                ContentValues values = new ContentValues();
+                values.put(MediaStore.Images.Media.DISPLAY_NAME, "FloodCue-Emergency-QR.png");
+                values.put(MediaStore.Images.Media.MIME_TYPE, "image/png");
+                values.put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/FloodCue");
+                values.put(MediaStore.Images.Media.IS_PENDING, 1);
+                android.net.Uri uri = getContentResolver().insert(
+                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+                if (uri == null) throw new IllegalStateException("media_store_unavailable");
+                try (OutputStream out = getContentResolver().openOutputStream(uri)) {
+                    if (out == null || !qrBitmap.compress(Bitmap.CompressFormat.PNG, 100, out)) {
+                        throw new IllegalStateException("image_write_failed");
+                    }
+                }
+                values.clear();
+                values.put(MediaStore.Images.Media.IS_PENDING, 0);
+                getContentResolver().update(uri, values, null, null);
+                runOnUiThread(() -> status.setText(R.string.emergency_qr_saved));
+            } catch (Exception ignored) {
+                runOnUiThread(() -> status.setText(R.string.emergency_qr_save_failed));
+            }
+        }).start();
     }
 }
