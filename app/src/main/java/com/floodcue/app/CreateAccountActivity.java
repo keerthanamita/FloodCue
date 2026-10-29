@@ -689,7 +689,7 @@ public class CreateAccountActivity extends FloodCueActivity {
                                     setLoading(false);
 
                                     showMessage(
-                                            "Account creation failed. Please try again."
+                                            getString(R.string.create_failed)
                                     );
                                 }
 
@@ -721,13 +721,13 @@ public class CreateAccountActivity extends FloodCueActivity {
                             if (verificationTask.isSuccessful()) {
 
                                 showMessage(
-                                        "✓ Account created. Verification email sent."
+                                        getString(R.string.create_success_verification_sent)
                                 );
 
                             } else {
 
                                 showMessage(
-                                        "Account created, but the verification email could not be sent."
+                                        getString(R.string.create_verification_failed)
                                 );
                             }
                         }
@@ -830,7 +830,7 @@ public class CreateAccountActivity extends FloodCueActivity {
             Exception exception) {
 
         String message =
-                "Account creation failed. Please try again.";
+                getString(R.string.create_failed);
 
         if (exception != null
                 && exception.getMessage() != null) {
@@ -849,7 +849,7 @@ public class CreateAccountActivity extends FloodCueActivity {
                     "email-already-in-use")) {
 
                 message =
-                        "An account already exists with this email.";
+                        getString(R.string.create_email_exists);
 
             }
 
@@ -890,7 +890,7 @@ public class CreateAccountActivity extends FloodCueActivity {
                 } else {
 
                     message =
-                            "Password does not meet the required Firebase password policy.";
+                            getString(R.string.create_firebase_password_policy);
                 }
             }
 
@@ -902,7 +902,7 @@ public class CreateAccountActivity extends FloodCueActivity {
                     "too-many-requests")) {
 
                 message =
-                        "Too many attempts. Please try again later.";
+                        getString(R.string.create_too_many_attempts);
 
             }
 
@@ -914,7 +914,7 @@ public class CreateAccountActivity extends FloodCueActivity {
                     "network")) {
 
                 message =
-                        "Network error. Please check your internet connection.";
+                        getString(R.string.create_network_error);
 
             }
 
@@ -938,7 +938,7 @@ public class CreateAccountActivity extends FloodCueActivity {
                     "operation-not-allowed")) {
 
                 message =
-                        "Email/password account creation is currently unavailable.";
+                        getString(R.string.create_unavailable);
             }
         }
 
