@@ -229,6 +229,8 @@ Localization phase 27: Home local saved-profile detail text now reuses translate
 
 Localization phase 28: Offline Maps download failure/start messages are now resource-backed and translated in all supported locales. District names and the remaining Java hardcoded-string inventory still require completion.
 
+Localization phase 29: Offline Map location-enable fallback is now resource-backed and translated in all supported locales. Remaining known localization gap is the large district-option dataset plus any final runtime literals found by audit.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.

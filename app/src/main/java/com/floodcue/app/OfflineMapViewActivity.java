@@ -297,7 +297,7 @@ public class OfflineMapViewActivity extends FloodCueActivity {
 
         } catch (Exception e) {
             showError(
-                    "Could not enable location: " + e.getMessage()
+                    getString(R.string.offline_map_location_enable_failed, e.getMessage())
             );
         }
     }
