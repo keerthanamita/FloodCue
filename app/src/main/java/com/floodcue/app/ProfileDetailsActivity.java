@@ -3,6 +3,7 @@ package com.floodcue.app;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -28,6 +29,24 @@ public class ProfileDetailsActivity extends FloodCueActivity {
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         if (toolbar != null) {
             toolbar.setTitle(R.string.profile_details_heading);
+
+            TextView editAction = new TextView(this);
+            editAction.setText(R.string.profile_details_edit);
+            editAction.setTextColor(getColor(R.color.button_primary_text));
+            editAction.setTextSize(16);
+            editAction.setTypeface(Typeface.DEFAULT_BOLD);
+            editAction.setGravity(Gravity.CENTER);
+            editAction.setPadding(16, 0, 16, 0);
+            editAction.setClickable(true);
+            editAction.setFocusable(true);
+            editAction.setOnClickListener(v -> openSetupForEdit());
+
+            androidx.appcompat.widget.Toolbar.LayoutParams editParams =
+                    new androidx.appcompat.widget.Toolbar.LayoutParams(
+                            androidx.appcompat.widget.Toolbar.LayoutParams.WRAP_CONTENT,
+                            androidx.appcompat.widget.Toolbar.LayoutParams.MATCH_PARENT,
+                            Gravity.END);
+            toolbar.addView(editAction, editParams);
         }
 
         TextView buttonBackToSettings = findViewById(R.id.buttonBackToSettings);
@@ -36,7 +55,7 @@ public class ProfileDetailsActivity extends FloodCueActivity {
         profileDetailsEmpty = findViewById(R.id.profileDetailsEmpty);
 
         buttonBackToSettings.setOnClickListener(v -> finish());
-        buttonEditProfile.setOnClickListener(v -> openSetupForEdit());
+        buttonEditProfile.setVisibility(View.GONE);
     }
 
     @Override
@@ -63,7 +82,6 @@ public class ProfileDetailsActivity extends FloodCueActivity {
 
         profileDetailsEmpty.setVisibility(View.GONE);
         profileDetailsContent.setVisibility(View.VISIBLE);
-        buttonEditProfile.setVisibility(View.VISIBLE);
 
         addSection(R.string.profile_section_personal);
         addField(R.string.profile_label_full_name, profile.full_name);
@@ -104,7 +122,6 @@ public class ProfileDetailsActivity extends FloodCueActivity {
         profileDetailsContent.setVisibility(View.GONE);
         profileDetailsEmpty.setText(message);
         profileDetailsEmpty.setVisibility(View.VISIBLE);
-        buttonEditProfile.setVisibility(View.VISIBLE);
     }
 
     private void addSection(int titleRes) {
