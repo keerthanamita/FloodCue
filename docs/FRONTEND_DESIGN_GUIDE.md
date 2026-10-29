@@ -235,6 +235,8 @@ Localization phase 30: Andhra Pradesh district options are now resource-backed, 
 
 Localization phase 31: Tamil Nadu, Karnataka, and Kerala district options now load from resource arrays. Telangana remains to be migrated; district names are preserved as proper place names.
 
+Localization phase 32: Telangana district options now load from a resource array. All five state branches are now resource-backed; district names remain proper-name data and use the shared base array unless a locale-specific spelling is supplied.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.

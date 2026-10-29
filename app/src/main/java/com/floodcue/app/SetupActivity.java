@@ -321,19 +321,7 @@ public class SetupActivity extends FloodCueActivity {
                 break;
 
             case "Telangana":
-                districts = new String[]{
-                        "Adilabad", "Bhadradri Kothagudem", "Hanumakonda",
-                        "Hyderabad", "Jagtial", "Jangaon",
-                        "Jayashankar Bhupalpally", "Jogulamba Gadwal",
-                        "Kamareddy", "Karimnagar", "Khammam",
-                        "Kumuram Bheem Asifabad", "Mahabubabad",
-                        "Mahabubnagar", "Mancherial", "Medak",
-                        "Medchal-Malkajgiri", "Mulugu", "Nagarkurnool",
-                        "Nalgonda", "Narayanpet", "Nirmal", "Nizamabad",
-                        "Peddapalli", "Rajanna Sircilla", "Rangareddy",
-                        "Sangareddy", "Siddipet", "Suryapet", "Vikarabad",
-                        "Wanaparthy", "Warangal", "Yadadri Bhuvanagiri"
-                };
+                districts = getResources().getStringArray(R.array.setup_districts_telangana);
                 break;
 
             case "Tamil Nadu":
