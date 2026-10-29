@@ -58,4 +58,10 @@
 <color name="splash_text_primary">#FFF8F1</color>
 <color name="splash_text_secondary">#FFE1CE</color>
 <color name="sos_action_text">#FFF8F1</color>
+<color name="home_sage_surface">#DCE7DE</color>
+<color name="home_lilac_surface">#E6DFE8</color>
+<color name="home_sand_surface">#EEE2D2</color>
+<color name="home_card_text">#3B332D</color>
+<color name="home_card_muted">#806F62</color>
+<color name="home_section_text">#8C6655</color>
 </resources>

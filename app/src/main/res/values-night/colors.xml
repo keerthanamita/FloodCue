@@ -48,6 +48,12 @@
     <color name="splash_text_primary">#FFF4F0</color>
     <color name="splash_text_secondary">#EBCBD1</color>
     <color name="sos_action_text">#FFF8F1</color>
+    <color name="home_sage_surface">#303A34</color>
+    <color name="home_lilac_surface">#37313A</color>
+    <color name="home_sand_surface">#3A302C</color>
+    <color name="home_card_text">#F0E9E5</color>
+    <color name="home_card_muted">#C5B4AA</color>
+    <color name="home_section_text">#D2A28E</color>
 
     <!-- Home SOS button -->
     <color name="home_sos_red">#C62828</color>
