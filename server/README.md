@@ -54,7 +54,7 @@ Run `emergency_qr_schema.sql` once, then add this private value to the hosting
 'qr_admin_uid' => 'HnUPvQ0g9hcXtCXovC3hprDrg8m1',
 ```
 
-`create_emergency_qr.php` creates a random 15-minute token and stores only its
+`create_emergency_qr.php` creates a random 30-day token suitable for a lock-screen image and stores only its
 SHA-256 hash. `scan_emergency_qr.php` requires a valid Firebase ID token and
 allows the configured admin UID or a row in `emergency_qr_authorized_users`.
 `revoke_emergency_qr.php` invalidates the owner's active tokens. The QR must
