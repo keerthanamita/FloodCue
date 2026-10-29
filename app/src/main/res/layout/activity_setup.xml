@@ -212,28 +212,28 @@
         
                         <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="20dp" ns0:orientation="vertical" ns0:padding="20dp" ns0:background="@color/fc_surface" ns0:elevation="2dp">
         
-                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="Your setup checklist" ns0:textColor="@color/fc_primary_dark" ns0:textSize="18sp" ns0:textStyle="bold" />
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/setup_checklist_heading" ns0:textColor="@color/fc_primary_dark" ns0:textSize="18sp" ns0:textStyle="bold" />
         
-                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="15dp" ns0:text="✓  Personal and medical details" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="15dp" ns0:text="@string/setup_check_personal" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
         
-                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:text="✓  Emergency contacts and region" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:text="@string/setup_check_contacts" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
         
-                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:text="✓  Profile ready to save" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:text="@string/setup_check_ready" ns0:textColor="@color/fc_text_primary" ns0:textSize="14sp" />
         
-                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:text="Your profile is saved to your FloodCue account. Offline maps appear only after they have been downloaded on this device." ns0:textColor="@color/fc_text_secondary" ns0:textSize="13sp" />
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:text="@string/setup_profile_saved_info" ns0:textColor="@color/fc_text_secondary" ns0:textSize="13sp" />
                         </LinearLayout>
         
                         
                         <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:orientation="vertical" ns0:padding="20dp" ns0:background="@color/fc_background" ns0:elevation="1dp">
         
-                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="Stay connected with Bridgefy" ns0:textColor="@color/fc_primary_dark" ns0:textSize="18sp" ns0:textStyle="bold" />
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/setup_bridgefy_heading" ns0:textColor="@color/fc_primary_dark" ns0:textSize="18sp" ns0:textStyle="bold" />
         
-                            <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="7dp" ns0:text="Bridgefy offers nearby messaging using Bluetooth-based connections in supported conditions. It is a separate app and must be installed separately." ns0:textColor="@color/fc_text_primary_dark" ns0:textSize="13sp" />
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="7dp" ns0:text="@string/setup_bridgefy_info" ns0:textColor="@color/fc_text_primary_dark" ns0:textSize="13sp" />
         
-                            <Button ns0:id="@+id/buttonInstallBridgefy" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="15dp" ns0:backgroundTint="@color/fc_primary_dark" ns0:text="Get Bridgefy on Google Play" ns0:textAllCaps="false" ns0:textColor="@color/fc_surface" ns0:textStyle="bold" />
+<Button ns0:id="@+id/buttonInstallBridgefy" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="15dp" ns0:backgroundTint="@color/fc_primary_dark" ns0:text="@string/setup_bridgefy_button" ns0:textAllCaps="false" ns0:textColor="@color/fc_surface" ns0:textStyle="bold" />
                         </LinearLayout>
         
-                        <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:layout_marginBottom="20dp" ns0:gravity="center" ns0:text="You can update your emergency information later from Settings." ns0:textColor="@color/fc_text_secondary" ns0:textSize="12sp" />
+<TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:layout_marginBottom="20dp" ns0:gravity="center" ns0:text="@string/setup_settings_note" ns0:textColor="@color/fc_text_secondary" ns0:textSize="12sp" />
         
                         <Button ns0:id="@+id/buttonCompleteSetup" ns0:layout_width="match_parent" ns0:layout_height="56dp" ns0:backgroundTint="@color/fc_primary" ns0:text="Save &amp; continue to FloodCue  →" ns0:textAllCaps="false" ns0:textColor="@color/fc_surface" ns0:textSize="15sp" ns0:textStyle="bold" />
                     </LinearLayout>

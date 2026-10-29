@@ -195,6 +195,8 @@ Localization phase 10: Evacuation-assistance and region resources now have Telug
 
 Localization phase 11: Emergency-contact input hints are resource-backed and translated in all five supported non-English locales. Remaining Setup review/Bridgefy copy and third-party screens still require the hardcoded-string audit.
 
+Localization phase 12: Setup review/checklist, profile-save explanation, Bridgefy information/button, and Settings note are now resource-backed in the base resource file. Their five non-English locale translations still need to be appended and verified before this batch is complete.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.
