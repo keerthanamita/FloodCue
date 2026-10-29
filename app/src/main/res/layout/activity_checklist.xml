@@ -27,9 +27,9 @@
         
                 <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:orientation="horizontal">
         
-                    <Button ns0:id="@+id/buttonChecklistEssential" ns0:layout_width="0dp" ns0:layout_height="46dp" ns0:layout_weight="1" ns0:background="@drawable/bg_home_lilac_card" ns0:backgroundTint="@null" ns0:elevation="0dp" ns0:minHeight="0dp" ns0:text="@string/checklist_tab_essential" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" ns0:textSize="15sp" ns0:textStyle="bold" />
+                    <Button ns0:id="@+id/buttonChecklistEssential" ns0:layout_width="0dp" ns0:layout_height="50dp" ns0:layout_weight="1" ns0:background="@drawable/bg_home_lilac_card" ns0:backgroundTint="@null" ns0:elevation="0dp" ns0:minHeight="0dp" ns0:paddingStart="12dp" ns0:paddingEnd="12dp" ns0:text="@string/checklist_tab_essential" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" ns0:textSize="14sp" ns0:textStyle="bold" />
         
-                    <Button ns0:id="@+id/buttonChecklistComplete" ns0:layout_width="0dp" ns0:layout_height="46dp" ns0:layout_marginStart="12dp" ns0:layout_weight="1" ns0:background="@drawable/bg_button_secondary" ns0:backgroundTint="@null" ns0:elevation="0dp" ns0:minHeight="0dp" ns0:text="@string/checklist_tab_complete" ns0:textAllCaps="false" ns0:textColor="@color/text_primary" ns0:textSize="15sp" />
+                    <Button ns0:id="@+id/buttonChecklistComplete" ns0:layout_width="0dp" ns0:layout_height="50dp" ns0:layout_marginStart="12dp" ns0:layout_weight="1" ns0:background="@drawable/bg_home_sand_card" ns0:backgroundTint="@null" ns0:elevation="0dp" ns0:minHeight="0dp" ns0:paddingStart="12dp" ns0:paddingEnd="12dp" ns0:text="@string/checklist_tab_complete" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" ns0:textSize="14sp" />
         
                 </LinearLayout>
         

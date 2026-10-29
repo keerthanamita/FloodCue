@@ -194,13 +194,11 @@ public class ChecklistActivity extends FloodCueActivity {
     private void setMode(boolean essential) {
         essentialMode = essential;
         essentialButton.setBackgroundResource(essential
-                ? R.drawable.bg_button_primary : R.drawable.bg_button_secondary);
-        essentialButton.setTextColor(getColor(essential
-                ? R.color.button_primary_text : R.color.text_primary));
+                ? R.drawable.bg_home_lilac_card : R.drawable.bg_home_sand_card);
+        essentialButton.setTextColor(getColor(R.color.home_card_text));
         completeButton.setBackgroundResource(essential
-                ? R.drawable.bg_button_secondary : R.drawable.bg_button_primary);
-        completeButton.setTextColor(getColor(essential
-                ? R.color.text_primary : R.color.button_primary_text));
+                ? R.drawable.bg_home_sand_card : R.drawable.bg_home_lilac_card);
+        completeButton.setTextColor(getColor(R.color.home_card_text));
         render();
     }
 
