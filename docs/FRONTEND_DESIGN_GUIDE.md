@@ -120,6 +120,8 @@ Weather/Flood Alert reliability and UI update: `item_weather_detail.xml` is now 
 
 Latest visibility/detail polish: Flood Alert and Weather scroll content now reserve space above the shared bottom navigation. Weather detail rows use interactive-looking glass cards with clear label/value hierarchy, pressed states, and a non-nested scrolling RecyclerView so the final content can be reached reliably.
 
+Weather final polish: the heading and temperature scale are reduced for better hierarchy, the hourly forecast text is now presented in a padded glass forecast panel with increased line spacing, and the bottom location option has a reserved margin so it remains visible above navigation.
+
 Shared back-ribbon correction: `layout_base_screen.xml` is now the single common orange ribbon with one working back arrow. `FloodCueActivity` wires that arrow to the normal back dispatcher and hides duplicate in-content back rows across Contacts, Maps, Weather, SOS, Settings, Guides, Alerts, Profile, and related screens. This prevents the ribbon/text vertical mismatch and duplicate arrow symbols.
 
 Bottom navigation surface correction: the shared navigation bar no longer uses translucent glass colors. It now uses opaque, theme-specific `bottom_nav_surface` values so it has the same clear, grounded separation as the Home screen in both light and dark modes.

@@ -23,7 +23,7 @@
         
                 <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:background="@drawable/bg_home_sage_card" ns0:orientation="vertical" ns0:paddingStart="20dp" ns0:paddingTop="20dp" ns0:paddingEnd="20dp" ns0:paddingBottom="104dp">
         
-                    <TextView ns0:id="@+id/weatherHeader" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/weather_header" ns0:textColor="@color/button_primary" ns0:textSize="26sp" ns0:textStyle="bold" />
+                    <TextView ns0:id="@+id/weatherHeader" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="@string/weather_header" ns0:textColor="@color/button_primary" ns0:textSize="22sp" ns0:textStyle="bold" />
         
                     <TextView ns0:id="@+id/weatherStatus" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns0:textColor="@color/text_secondary" ns0:textSize="14sp" ns0:visibility="gone" />
         
@@ -31,7 +31,7 @@
         
                     <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="16dp" ns0:orientation="horizontal">
         
-                        <TextView ns0:id="@+id/weatherTemp" ns0:layout_width="0dp" ns0:layout_height="wrap_content" ns0:layout_weight="1" ns0:textColor="@color/home_card_text" ns0:textSize="52sp" ns0:textStyle="bold" />
+                        <TextView ns0:id="@+id/weatherTemp" ns0:layout_width="0dp" ns0:layout_height="wrap_content" ns0:layout_weight="1" ns0:textColor="@color/home_card_text" ns0:textSize="44sp" ns0:textStyle="bold" />
         
                         <Button ns0:id="@+id/buttonWeatherRefresh" ns0:layout_width="wrap_content" ns0:layout_height="wrap_content" ns0:layout_marginStart="12dp" ns0:background="@drawable/bg_home_lilac_card" ns0:backgroundTint="@null" ns0:text="@string/weather_refresh" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" ns0:textSize="14sp" ns0:textStyle="bold" />
         
@@ -59,7 +59,7 @@
         
                     <androidx.recyclerview.widget.RecyclerView ns0:id="@+id/weatherDetailsGrid" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:nestedScrollingEnabled="false" ns0:overScrollMode="never" />
         
-                    <TextView ns0:id="@+id/weatherHourly" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:textColor="@color/text_primary" ns0:textSize="15sp" />
+                    <TextView ns0:id="@+id/weatherHourly" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="14dp" ns0:background="@drawable/bg_weather_detail_card" ns0:fontFamily="sans-serif-medium" ns0:lineSpacingExtra="4dp" ns0:padding="14dp" ns0:textColor="@color/home_card_text" ns0:textSize="13sp" />
         
                     <TextView ns0:id="@+id/weatherWarnings" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginTop="12dp" ns0:textColor="@color/error_color" ns0:textSize="15sp" ns0:visibility="gone" />
         
@@ -72,7 +72,7 @@
             </ScrollView>
         
             
-        <LinearLayout xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="horizontal">
+        <LinearLayout xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:layout_marginBottom="92dp" ns0:orientation="horizontal">
         
                 <Button ns0:id="@+id/buttonWeatherSelectLocation" ns0:layout_width="0dp" ns0:layout_height="wrap_content" ns0:layout_weight="1" ns0:layout_marginEnd="8dp" ns0:background="@drawable/bg_home_sand_card" ns0:backgroundTint="@null" ns0:text="@string/weather_select_location" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" ns0:textSize="15sp" />
         
