@@ -96,13 +96,14 @@ public class LoginActivity extends FloodCueActivity {
         // =========================================================
 
         String createAccountLabel =
-                "Don't have an account? Create account";
+                getString(R.string.login_create_account_prompt);
 
         SpannableString spannable =
                 new SpannableString(createAccountLabel);
 
-        int start = createAccountLabel.indexOf("Create account");
-        int end = start + "Create account".length();
+        String createAccountAction = getString(R.string.create_account_button);
+        int start = createAccountLabel.indexOf(createAccountAction);
+        int end = start + createAccountAction.length();
 
         spannable.setSpan(
                 new ForegroundColorSpan(

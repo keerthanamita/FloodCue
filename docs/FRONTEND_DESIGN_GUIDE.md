@@ -251,6 +251,8 @@ Localization phase 38: Offline map style-rendering errors now use localized reso
 
 Localization phase 39: Create-account invalid-email validation now reuses the existing localized email-validation resource in both validation paths. Account creation behavior is unchanged.
 
+Localization phase 40: Login and create-account navigation prompts now use their localized resources while deriving clickable-span ranges from the localized action labels. Navigation behavior and styling are preserved across all supported locales.
+
 Validation note: all Android resource XML files currently parse successfully (`bad_xml=0`). No Gradle/Android build has been run in this phase, so compilation and device rendering remain to be verified locally.
 
 ## Instructions for the next AI
