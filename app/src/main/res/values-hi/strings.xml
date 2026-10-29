@@ -98,4 +98,14 @@
     <string name="flood_alert_severity_orange">मध्यम</string>
     <string name="flood_alert_severity_red">गंभीर</string>
     <string name="flood_alert_severity_yellow">सावधानी</string>
+    <string name="home_offline_ready">ऑफ़लाइन तैयार</string>
+    <string name="home_emergency_response">आपातकालीन प्रतिक्रिया</string>
+    <string name="home_sos_alarm">SOS अलार्म · एक-टैप चेतावनी</string>
+    <string name="home_sos_message">SOS संदेश</string>
+    <string name="home_full_sos">पूर्ण SOS · संदेश + सायरन + GPS</string>
+    <string name="home_situation_live_alerts">स्थिति और लाइव चेतावनियाँ</string>
+    <string name="home_weather_forecast">मौसम पूर्वानुमान</string>
+    <string name="home_survival_readiness">जीवित रहने की तैयारी</string>
+    <string name="home_offline_mesh">ऑफ़लाइन मेष</string>
+    <string name="home_saved_profile">सहेजी गई प्रोफ़ाइल</string>
 </resources>

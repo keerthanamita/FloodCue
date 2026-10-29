@@ -100,4 +100,14 @@
     <string name="flood_alert_severity_orange">മിതമായത്</string>
     <string name="flood_alert_severity_red">ഗുരുതരം</string>
     <string name="flood_alert_severity_yellow">ജാഗ്രത</string>
+    <string name="home_offline_ready">ഓഫ്‌ലൈൻ തയ്യാറാണ്</string>
+    <string name="home_emergency_response">അടിയന്തര പ്രതികരണം</string>
+    <string name="home_sos_alarm">SOS അലാറം · ഒറ്റ ടാപ്പിൽ മുന്നറിയിപ്പ്</string>
+    <string name="home_sos_message">SOS സന്ദേശം</string>
+    <string name="home_full_sos">പൂർണ്ണ SOS · സന്ദേശം + സൈറൺ + GPS</string>
+    <string name="home_situation_live_alerts">സ്ഥിതിയും തത്സമയ മുന്നറിയിപ്പുകളും</string>
+    <string name="home_weather_forecast">കാലാവസ്ഥാ പ്രവചനം</string>
+    <string name="home_survival_readiness">അതിജീവനവും തയ്യാറെടുപ്പും</string>
+    <string name="home_offline_mesh">ഓഫ്‌ലൈൻ മെഷ്</string>
+    <string name="home_saved_profile">സംരക്ഷിച്ച പ്രൊഫൈൽ</string>
 </resources>

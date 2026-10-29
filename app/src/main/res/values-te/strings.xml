@@ -327,4 +327,14 @@
     <string name="flood_alert_severity_orange">మధ్యస్థం</string>
     <string name="flood_alert_severity_red">తీవ్రం</string>
     <string name="flood_alert_severity_yellow">జాగ్రత్త</string>
+    <string name="home_offline_ready">ఆఫ్‌లైన్ సిద్ధం</string>
+    <string name="home_emergency_response">అత్యవసర స్పందన</string>
+    <string name="home_sos_alarm">SOS అలారం · ఒక్క ట్యాప్ హెచ్చరిక</string>
+    <string name="home_sos_message">SOS సందేశం</string>
+    <string name="home_full_sos">పూర్తి SOS · సందేశం + సైరన్ + GPS</string>
+    <string name="home_situation_live_alerts">పరిస్థితి &amp; ప్రత్యక్ష హెచ్చరికలు</string>
+    <string name="home_weather_forecast">వాతావరణ అంచనా</string>
+    <string name="home_survival_readiness">మనుగడ &amp; సిద్ధత</string>
+    <string name="home_offline_mesh">ఆఫ్‌లైన్ మెష్</string>
+    <string name="home_saved_profile">సేవ్ చేసిన ప్రొఫైల్</string>
 </resources>

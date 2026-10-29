@@ -173,6 +173,8 @@ Navigation reliability fix: bottom-nav destination launches now use `FLAG_ACTIVI
 
 Localization audit update: Added translations for the recently introduced Home headings, Readiness Checklist, Safety Guide, Profile heading, and flood-alert severity labels in Telugu, Hindi, Tamil, Kannada, and Malayalam. Remaining localization work: migrate every hardcoded English layout/Java label into resource keys and audit generated/runtime messages; do not mark localization complete until that inventory is zero.
 
+Localization phase 1: Home hardcoded labels are now resource-backed and translated in all five supported non-English locales. Continue the same pattern for authentication/onboarding layouts and Java-generated messages; never leave user-facing English literals in layouts or activities.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.

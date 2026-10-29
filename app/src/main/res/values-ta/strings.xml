@@ -101,4 +101,14 @@
     <string name="flood_alert_severity_orange">மிதமானது</string>
     <string name="flood_alert_severity_red">கடுமையானது</string>
     <string name="flood_alert_severity_yellow">எச்சரிக்கை</string>
+    <string name="home_offline_ready">ஆஃப்லைன் தயார்</string>
+    <string name="home_emergency_response">அவசர நடவடிக்கை</string>
+    <string name="home_sos_alarm">SOS அலாரம் · ஒரே தொடுதலில் எச்சரிக்கை</string>
+    <string name="home_sos_message">SOS செய்தி</string>
+    <string name="home_full_sos">முழு SOS · செய்தி + சைரன் + GPS</string>
+    <string name="home_situation_live_alerts">நிலைமை மற்றும் நேரடி எச்சரிக்கைகள்</string>
+    <string name="home_weather_forecast">வானிலை முன்னறிவிப்பு</string>
+    <string name="home_survival_readiness">உயிர்வாழ்வு மற்றும் தயார்நிலை</string>
+    <string name="home_offline_mesh">ஆஃப்லைன் மெஷ்</string>
+    <string name="home_saved_profile">சேமிக்கப்பட்ட சுயவிவரம்</string>
 </resources>
