@@ -3,6 +3,8 @@ package com.floodcue.app;
 import android.app.Application;
 import android.content.Context;
 
+import androidx.appcompat.app.AppCompatDelegate;
+
 /**
  * Re-arms the queued SOS on every process start, so an emergency message that
  * was stored while offline is still sent automatically after the app process
@@ -20,6 +22,9 @@ public class FloodCueApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        AppCompatDelegate.setDefaultNightMode(
+                AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+        );
         SosQueue.resumeIfPending(this);
         // Keep checking official flood warnings while FloodCue is closed, so
         // an alert is announced on the screen even if the app is not open.

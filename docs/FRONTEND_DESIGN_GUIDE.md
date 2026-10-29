@@ -112,6 +112,10 @@ Home palette refinement: Home now uses dedicated light/dark sage, lilac, and san
 
 SOS screen correction: the shared orange toolbar is hidden on `SosActivity` because the screen already has its own back control; this removes the duplicate arrow presentation. The scroll content now has extra bottom padding so the final notes and queue controls remain reachable above the shared bottom navigation.
 
+Contacts reliability and theme correction: `item_call_row.xml` is now a normal self-contained row layout instead of an invalid `<merge>` screen layout, preventing Contacts row inflation crashes. `FloodCueActivity` explicitly recreates activities on configuration changes so Android system light/dark changes are reflected immediately without a manual toggle.
+
+The application also explicitly selects `MODE_NIGHT_FOLLOW_SYSTEM` at process startup, ensuring AppCompat uses the Android system theme instead of retaining a previous mode.
+
 Navigation reliability fix: bottom-nav destination launches now use `FLAG_ACTIVITY_REORDER_TO_FRONT` instead of `CLEAR_TOP|SINGLE_TOP`, so selecting Contacts or another destination does not clear the task stack and appear to navigate backward.
 
 ## Validation record

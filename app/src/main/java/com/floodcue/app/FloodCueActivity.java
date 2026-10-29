@@ -2,6 +2,7 @@ package com.floodcue.app;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.util.TypedValue;
@@ -41,6 +42,12 @@ import androidx.core.view.WindowInsetsCompat;
 public class FloodCueActivity extends AppCompatActivity {
 
     private static final String BOTTOM_NAV_TAG = "floodcue_bottom_nav";
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        recreate();
+    }
 
     private static final int NAV_HOME = 0;
     private static final int NAV_CONTACTS = 1;
