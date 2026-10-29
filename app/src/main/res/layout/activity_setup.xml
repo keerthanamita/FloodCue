@@ -32,7 +32,7 @@
                 
                 <ScrollView ns0:id="@+id/pageSetupOne" ns0:layout_width="match_parent" ns0:layout_height="match_parent" ns0:clipToPadding="false" ns0:fillViewport="true" ns0:scrollbars="vertical">
         
-                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:padding="16dp">
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:paddingTop="16dp" ns0:paddingBottom="32dp">
         
                         <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="Let's prepare for emergencies" ns0:textColor="@color/fc_text_primary" ns0:textSize="20sp" ns0:textStyle="bold" />
         
@@ -95,7 +95,7 @@
                 
                 <ScrollView ns0:id="@+id/pageSetupTwo" ns0:layout_width="match_parent" ns0:layout_height="match_parent" ns0:fillViewport="true" ns0:clipToPadding="false" ns0:visibility="gone">
         
-                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:padding="16dp">
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:paddingTop="16dp" ns0:paddingBottom="32dp">
         
                         <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="Your emergency network" ns0:textColor="@color/fc_text_primary" ns0:textSize="20sp" ns0:textStyle="bold" />
         
@@ -203,7 +203,7 @@
                 
                 <ScrollView ns0:id="@+id/pageSetupThree" ns0:layout_width="match_parent" ns0:layout_height="match_parent" ns0:fillViewport="true" ns0:clipToPadding="false" ns0:visibility="gone">
         
-                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:padding="18dp">
+                    <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:paddingStart="8dp" ns0:paddingEnd="8dp" ns0:paddingTop="18dp" ns0:paddingBottom="32dp">
         
                         <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:text="You're nearly ready" ns0:textColor="@color/fc_text_primary" ns0:textSize="25sp" ns0:textStyle="bold" />
         

@@ -130,6 +130,8 @@ Setup screen update: The three-step setup flow keeps its existing IDs, validatio
 
 Setup header spacing correction: `Build your safety profile` and its supporting step content now sit lower with extra top padding, keeping the shared back arrow intact because it remains the screen's working navigation affordance.
 
+Setup layout refinement: Each setup step now uses the same 8dp inner side spacing as other screens, while preserving the existing section order and IDs. This gives the form groups more usable width and keeps the three-step arrangement visually consistent without changing navigation or persistence behavior.
+
 About FloodCue update: The information card now uses normalized inner spacing, a smaller hierarchy-safe heading, a theme-aware version badge, and a shared toolbar title. Content, version lookup, and back navigation remain unchanged.
 
 Offline Communication update: The content now uses normalized inner spacing so the Bridgefy action and explanatory cards get more usable width. The primary action has comfortable horizontal padding and stronger hierarchy, and the shared toolbar displays the screen title. Bridgefy launch/status behavior and dynamic steps remain unchanged.
