@@ -148,7 +148,7 @@ public class SetupActivity extends FloodCueActivity {
         if (user == null) {
             Toast.makeText(
                     this,
-                    "Please sign in to continue.",
+                    getString(R.string.setup_sign_in_required),
                     Toast.LENGTH_LONG
             ).show();
             finish();
@@ -174,7 +174,7 @@ public class SetupActivity extends FloodCueActivity {
                         if (isSaving) {
                             Toast.makeText(
                                     SetupActivity.this,
-                                    "Please wait while your profile is being saved.",
+                                    getString(R.string.setup_wait_saving),
                                     Toast.LENGTH_SHORT
                             ).show();
                         } else if (currentPage > 1) {
@@ -471,7 +471,7 @@ public class SetupActivity extends FloodCueActivity {
             } catch (Exception e) {
                 Toast.makeText(
                         this,
-                        "Unable to open Google Play Store.",
+                        getString(R.string.setup_play_store_failed),
                         Toast.LENGTH_SHORT
                 ).show();
             }
@@ -880,7 +880,7 @@ public class SetupActivity extends FloodCueActivity {
             } catch (JSONException | RuntimeException e) {
                 Toast.makeText(
                         this,
-                        "Profile saved online, but local caching failed.",
+                        getString(R.string.setup_local_cache_failed),
                         Toast.LENGTH_LONG
                 ).show();
             }

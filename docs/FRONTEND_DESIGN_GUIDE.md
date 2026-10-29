@@ -205,6 +205,8 @@ Localization phase 15: Remaining Setup third-contact hints, country/state/distri
 
 Localization phase 16: Language-screen branding and English default labels are now resource-backed and localized. Layout audit now has no remaining literal `text`/`hint` values except values intentionally supplied by runtime data; Java runtime strings still require audit.
 
+Localization phase 17: Setup sign-in/wait/Play Store/local-cache messages and Offline Map location-permission message are now resource-backed and translated in all supported locales. Remaining Java audit items are being checked for technical strings versus user-facing messages; no build has been run yet.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.

@@ -291,7 +291,7 @@ public class OfflineMapViewActivity extends FloodCueActivity {
             // Location permission may have been revoked.
             Toast.makeText(
                     this,
-                    "Location permission is required to show your location.",
+                    getString(R.string.offline_map_location_required),
                     Toast.LENGTH_SHORT
             ).show();
 
