@@ -271,6 +271,8 @@ Dark-surface readability phase 48: Replaced translucent dark-mode `surface_color
 
 Theme synchronization phase 49: `FloodCueActivity` now reads the current system `uiMode` directly on Activity creation and resume, maps it to AppCompat `MODE_NIGHT_YES`/`MODE_NIGHT_NO`, and reapplies the delegate. This removes stale FOLLOW_SYSTEM state when the device theme changes while FloodCue is backgrounded. Build verification: `assembleDebug --offline --no-daemon --console=plain` succeeded (36 actionable tasks: 9 executed, 27 up-to-date). Device runtime verification remains unavailable because ADB cannot initialize here.
 
+Setup optional-fields phase 50: Setup page validation no longer blocks navigation when the full name or blood group is empty. The primary phone label now explicitly says optional in all six locales. Profile serialization, save/navigation flow, backend payloads, and existing saved-profile loading remain unchanged. Build verification: `assembleDebug --offline --no-daemon --console=plain` succeeded (36 actionable tasks: 16 executed, 20 up-to-date).
+
 Validation note: all Android resource XML files currently parse successfully (`bad_xml=0`). No Gradle/Android build has been run in this phase, so compilation and device rendering remain to be verified locally.
 
 ## Instructions for the next AI

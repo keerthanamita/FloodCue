@@ -502,23 +502,7 @@ public class SetupActivity extends FloodCueActivity {
     }
 
     private boolean validatePersonalInformation() {
-        String name = editFullName.getText().toString().trim();
-
-        if (name.isEmpty()) {
-            editFullName.setError(getString(R.string.setup_full_name_required));
-            editFullName.requestFocus();
-            return false;
-        }
-
-        if (spinnerBloodGroup.getSelectedItemPosition() == 0) {
-            Toast.makeText(
-                    this,
-                    R.string.setup_blood_group_required,
-                    Toast.LENGTH_SHORT
-            ).show();
-            return false;
-        }
-
+        // All setup fields are optional; users may complete the profile later.
         return true;
     }
 
