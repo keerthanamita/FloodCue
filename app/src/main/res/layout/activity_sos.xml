@@ -21,7 +21,7 @@
             
         <ScrollView xmlns:ns0="http://schemas.android.com/apk/res/android" xmlns:ns1="http://schemas.android.com/apk/res-auto" ns0:layout_width="match_parent" ns0:layout_height="0dp" ns0:layout_weight="1" ns0:fillViewport="true" ns0:overScrollMode="never">
         
-                <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:paddingStart="24dp" ns0:paddingTop="8dp" ns0:paddingEnd="24dp" ns0:paddingBottom="32dp">
+                <LinearLayout ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:orientation="vertical" ns0:paddingStart="24dp" ns0:paddingTop="8dp" ns0:paddingEnd="24dp" ns0:paddingBottom="104dp">
         
                     <TextView ns0:layout_width="match_parent" ns0:layout_height="wrap_content" ns0:gravity="center" ns0:text="@string/sos_heading" ns0:textColor="@color/button_primary" ns0:textSize="26sp" ns0:textStyle="bold" />
         

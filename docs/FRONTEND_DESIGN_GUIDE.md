@@ -110,6 +110,8 @@ Latest Home/navigation redesign: Home now has a raised glass header and refined 
 
 Home palette refinement: Home now uses dedicated light/dark sage, lilac, and sand surfaces for its tool groups, plus Home-specific readable text and section-label tokens. This keeps the screen aligned with the warm glass theme without making every card the same brown surface.
 
+SOS screen correction: the shared orange toolbar is hidden on `SosActivity` because the screen already has its own back control; this removes the duplicate arrow presentation. The scroll content now has extra bottom padding so the final notes and queue controls remain reachable above the shared bottom navigation.
+
 Navigation reliability fix: bottom-nav destination launches now use `FLAG_ACTIVITY_REORDER_TO_FRONT` instead of `CLEAR_TOP|SINGLE_TOP`, so selecting Contacts or another destination does not clear the task stack and appear to navigate backward.
 
 ## Validation record

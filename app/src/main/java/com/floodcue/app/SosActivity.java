@@ -104,6 +104,11 @@ public class SosActivity extends FloodCueActivity implements LocationListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sos);
 
+        View sharedToolbar = findViewById(R.id.toolbar);
+        if (sharedToolbar != null) {
+            sharedToolbar.setVisibility(View.GONE);
+        }
+
         preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
