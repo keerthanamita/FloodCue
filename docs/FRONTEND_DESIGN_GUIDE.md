@@ -199,6 +199,8 @@ Localization phase 12: Setup review/checklist, profile-save explanation, Bridgef
 
 Localization phase 13: Telugu translations for all Setup review/checklist, profile-save, Bridgefy, and Settings-note keys are now added. Hindi, Tamil, Kannada, and Malayalam entries remain to be appended; this phase is intentionally incomplete.
 
+Localization phase 14: Hindi, Tamil, Kannada, and Malayalam translations for the Setup review/checklist, profile-save, Bridgefy, and Settings-note keys are now added. All six locale files must be validated together before moving on to the remaining application-wide hardcoded-string audit.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.
