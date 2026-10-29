@@ -197,6 +197,8 @@ Localization phase 11: Emergency-contact input hints are resource-backed and tra
 
 Localization phase 12: Setup review/checklist, profile-save explanation, Bridgefy information/button, and Settings note are now resource-backed in the base resource file. Their five non-English locale translations still need to be appended and verified before this batch is complete.
 
+Localization phase 13: Telugu translations for all Setup review/checklist, profile-save, Bridgefy, and Settings-note keys are now added. Hindi, Tamil, Kannada, and Malayalam entries remain to be appended; this phase is intentionally incomplete.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.
