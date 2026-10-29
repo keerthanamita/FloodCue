@@ -201,6 +201,8 @@ Localization phase 13: Telugu translations for all Setup review/checklist, profi
 
 Localization phase 14: Hindi, Tamil, Kannada, and Malayalam translations for the Setup review/checklist, profile-save, Bridgefy, and Settings-note keys are now added. All six locale files must be validated together before moving on to the remaining application-wide hardcoded-string audit.
 
+Localization phase 15: Remaining Setup third-contact hints, country/state/district labels, and Setup action buttons are resource-backed. Other-allergy and authentication field hints now use dedicated localized resource files for all supported locales. Full Java/runtime and language-screen audit remains.
+
 ## Instructions for the next AI
 
 1. Start with `git status`, preserve all pre-existing edits, and compare against `28375c1` when behavior is unclear.

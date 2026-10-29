@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources><string name="auth_email_hint">ईमेल</string><string name="auth_password_hint">पासवर्ड</string><string name="auth_confirm_password_hint">पासवर्ड की पुष्टि करें</string></resources>
