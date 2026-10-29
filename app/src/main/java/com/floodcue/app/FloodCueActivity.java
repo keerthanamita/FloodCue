@@ -199,8 +199,10 @@ public class FloodCueActivity extends AppCompatActivity {
             return; // already here
         }
         Intent intent = new Intent(this, NAV_TARGETS[index]);
-        // Reuse an existing instance instead of stacking another copy.
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        // Bring an existing destination forward without clearing the task stack.
+        // This keeps Contacts and the other bottom-nav destinations from
+        // appearing to jump back when they are selected repeatedly.
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         try {
             startActivity(intent);
         } catch (RuntimeException unavailable) {

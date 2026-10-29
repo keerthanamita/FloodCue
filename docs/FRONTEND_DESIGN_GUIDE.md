@@ -108,6 +108,8 @@ Emergency action text uses a dedicated light token in both day and night resourc
 
 Latest Home/navigation redesign: Home now has a raised glass header and refined hero spacing. Shared bottom navigation now uses dedicated vector icons for Home, Contacts, SOS, and Settings instead of emoji glyphs, with theme-aware tinting, larger touch targets, and the existing navigation destinations unchanged.
 
+Navigation reliability fix: bottom-nav destination launches now use `FLAG_ACTIVITY_REORDER_TO_FRONT` instead of `CLEAR_TOP|SINGLE_TOP`, so selecting Contacts or another destination does not clear the task stack and appear to navigate backward.
+
 ## Validation record
 
 - Repository and Git state: inspected on 2026-10-29.
