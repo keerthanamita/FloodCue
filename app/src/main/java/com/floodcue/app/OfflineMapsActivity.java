@@ -80,7 +80,36 @@ public class OfflineMapsActivity extends FloodCueActivity {
         // only when the download is complete and verified. The progress
         // of the download is reported back on the main thread via a
         // Handler.
-        if (!OfflineMapCatalog.download(this, map)) {
+        if (!OfflineMapCatalog.download(this, map, new OfflineMapCatalog.DownloadListener() {
+            @Override
+            public void onProgress(long downloadedBytes, long totalBytes) {
+                mainHandler.post(() -> updateDownloadProgress(map, downloadedBytes, totalBytes));
+            }
+
+            @Override
+            public void onComplete() {
+                mainHandler.post(() -> {
+                    downloadInProgress = false;
+                    setButtonsEnabled(true);
+                    setDownloadProgressVisible(false);
+                    openMap(map);
+                });
+            }
+
+            @Override
+            public void onFailed() {
+                mainHandler.post(() -> {
+                    downloadInProgress = false;
+                    setButtonsEnabled(true);
+                    setDownloadProgressVisible(false);
+                    Toast.makeText(
+                            OfflineMapsActivity.this,
+                            getString(R.string.offline_map_download_failed, map.name, "Download failed"),
+                            Toast.LENGTH_LONG
+                    ).show();
+                });
+            }
+        })) {
             String message = getString(
                     R.string.offline_map_download_failed,
                     map.name,
@@ -143,5 +172,26 @@ public class OfflineMapsActivity extends FloodCueActivity {
         int visibility = visible ? View.VISIBLE : View.GONE;
         downloadProgress.setVisibility(visibility);
         downloadPercent.setVisibility(visibility);
+    }
+
+    private void updateDownloadProgress(
+            OfflineMapCatalog.MapInfo map,
+            long downloadedBytes,
+            long totalBytes
+    ) {
+        if (totalBytes <= 0) {
+            downloadProgress.setIndeterminate(true);
+            downloadPercent.setText(getString(R.string.offline_map_downloading, map.name));
+            return;
+        }
+
+        int percent = (int) Math.min(100, (downloadedBytes * 100L) / totalBytes);
+        downloadProgress.setIndeterminate(false);
+        downloadProgress.setProgress(percent);
+        downloadPercent.setText(getString(
+                R.string.offline_map_downloading_percent,
+                map.name,
+                percent
+        ));
     }
 }

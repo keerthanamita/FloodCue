@@ -142,6 +142,8 @@ Setup toolbar overlap correction: The Setup content container now starts below t
 
 Pending screen refresh: Offline Map View now has slightly tighter map/status framing; SOS Emergency uses normalized content width, padded action buttons, and a shared toolbar title; About Bridgefy uses normalized content width, a smaller heading, padded actions, theme-aware secondary text, and a shared toolbar title. Existing map lifecycle, SOS delivery/siren/location logic, Bridgefy links, and back actions remain unchanged.
 
+Offline map download progress: District downloads now report actual downloaded bytes through an optional `OfflineMapCatalog.DownloadListener`. `OfflineMapsActivity` switches from indeterminate to determinate progress when the server provides a content length, updates the district percentage text, opens the map only after completion, and restores buttons with an error message on failure. The original `download(context, map)` API remains available for compatibility.
+
 About FloodCue update: The information card now uses normalized inner spacing, a smaller hierarchy-safe heading, a theme-aware version badge, and a shared toolbar title. Content, version lookup, and back navigation remain unchanged.
 
 Offline Communication update: The content now uses normalized inner spacing so the Bridgefy action and explanatory cards get more usable width. The primary action has comfortable horizontal padding and stronger hierarchy, and the shared toolbar displays the screen title. Bridgefy launch/status behavior and dynamic steps remain unchanged.

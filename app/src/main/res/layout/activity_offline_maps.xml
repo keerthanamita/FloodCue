@@ -33,9 +33,9 @@
         
                         <Button ns0:id="@+id/btnNellore" ns0:layout_width="match_parent" ns0:layout_height="52dp" ns0:layout_marginTop="12dp" ns0:background="@drawable/bg_home_lilac_card" ns0:backgroundTint="@null" ns0:elevation="0dp" ns0:minHeight="0dp" ns0:text="@string/offline_map_nellore_district" ns0:textAllCaps="false" ns0:textColor="@color/home_card_text" ns0:textSize="16sp" ns0:textStyle="bold" />
         
-                        <ProgressBar ns0:id="@+id/downloadProgress" style="?android:attr/progressBarStyleHorizontal" ns0:layout_width="match_parent" ns0:layout_height="12dp" ns0:layout_marginTop="24dp" ns0:max="100" ns0:progress="0" ns0:visibility="gone" />
+                        <ProgressBar ns0:id="@+id/downloadProgress" style="?android:attr/progressBarStyleHorizontal" ns0:layout_width="match_parent" ns0:layout_height="10dp" ns0:layout_marginTop="24dp" ns0:max="100" ns0:progress="0" ns0:progressTint="@color/button_primary" ns0:progressBackgroundTint="@color/border_color" ns0:visibility="gone" />
         
-                        <TextView ns0:id="@+id/downloadPercent" ns0:layout_width="wrap_content" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns0:textColor="@color/text_primary" ns0:textSize="14sp" ns0:visibility="gone" />
+                        <TextView ns0:id="@+id/downloadPercent" ns0:layout_width="wrap_content" ns0:layout_height="wrap_content" ns0:layout_marginTop="8dp" ns0:textColor="@color/home_card_text" ns0:textSize="14sp" ns0:textStyle="bold" ns0:visibility="gone" />
         
                     </LinearLayout>
         

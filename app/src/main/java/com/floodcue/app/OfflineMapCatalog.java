@@ -11,6 +11,12 @@ import java.net.URL;
 
 public final class OfflineMapCatalog {
 
+    public interface DownloadListener {
+        void onProgress(long downloadedBytes, long totalBytes);
+        void onComplete();
+        void onFailed();
+    }
+
     public static final String EXTRA_MAP_ID = "offline_map_id";
 
     public static final MapInfo TIRUPATI = new MapInfo(
@@ -88,6 +94,10 @@ public final class OfflineMapCatalog {
      *         or the URL is missing
      */
     public static boolean download(Context context, MapInfo map) {
+        return download(context, map, null);
+    }
+
+    public static boolean download(Context context, MapInfo map, DownloadListener listener) {
         if (isDownloaded(context, map)) {
             return false;
         }
@@ -122,6 +132,7 @@ public final class OfflineMapCatalog {
                     connection.connect();
 
                     if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
+                        if (listener != null) listener.onFailed();
                         return;
                     }
 
@@ -134,8 +145,9 @@ public final class OfflineMapCatalog {
                         while ((count = connection.getInputStream().read(buffer)) != -1) {
                             output.write(buffer, 0, count);
                             downloaded += count;
-                            // Progress reporting is done by the activity
-                            // via a Handler on the main thread.
+                            if (listener != null) {
+                                listener.onProgress(downloaded, totalBytes);
+                            }
                         }
                     } finally {
                         output.close();
@@ -143,6 +155,7 @@ public final class OfflineMapCatalog {
 
                     if (downloaded == 0 || temp.length() == 0) {
                         temp.delete();
+                        if (listener != null) listener.onFailed();
                         return;
                     }
 
@@ -164,10 +177,12 @@ public final class OfflineMapCatalog {
                     if (destination.exists()) {
                         destination.setLastModified(System.currentTimeMillis());
                     }
+                    if (listener != null) listener.onComplete();
                 } catch (Exception e) {
                     if (temp.exists()) {
                         temp.delete();
                     }
+                    if (listener != null) listener.onFailed();
                 } finally {
                     if (connection != null) {
                         connection.disconnect();
