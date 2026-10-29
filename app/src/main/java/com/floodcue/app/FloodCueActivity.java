@@ -3,6 +3,7 @@ package com.floodcue.app;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Bundle;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.util.TypedValue;
@@ -15,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
@@ -42,6 +44,24 @@ import androidx.core.view.WindowInsetsCompat;
 public class FloodCueActivity extends AppCompatActivity {
 
     private static final String BOTTOM_NAV_TAG = "floodcue_bottom_nav";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        // Re-assert this at Activity creation as well as Application creation.
+        // This matters when Android recreates an already-running task after a
+        // system light/dark-mode change.
+        AppCompatDelegate.setDefaultNightMode(
+                AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Apply the current system uiMode when returning from Settings or
+        // another app, without adding a manual theme toggle to FloodCue.
+        getDelegate().applyDayNight();
+    }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {

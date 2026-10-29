@@ -265,6 +265,8 @@ Localization phase 45: Setup country option `India` now uses a localized resourc
 
 Validation phase 46: Gradle wrapper distribution downloaded successfully after using the approved workspace cache. The first offline build exposed duplicate localized Setup resources; after removing those duplicates and normalizing an invalid Unicode escape in the SOS resource, `assembleDebug --offline --no-daemon --console=plain` completed successfully (36 actionable tasks: 11 executed, 25 up-to-date). Resource XML validation remains clean.
 
+Theme fix phase 47: `FloodCueActivity` now reasserts `MODE_NIGHT_FOLLOW_SYSTEM` during Activity creation and calls `applyDayNight()` on resume. This covers returning from system Settings and Activity recreation after a system light/dark change, without adding a manual toggle or changing the existing locale routing. Verification: the follow-up `assembleDebug --offline --no-daemon --console=plain` completed successfully (36 actionable tasks: 9 executed, 27 up-to-date). Runtime device smoke testing remains unavailable because ADB cannot initialize in this environment.
+
 Validation note: all Android resource XML files currently parse successfully (`bad_xml=0`). No Gradle/Android build has been run in this phase, so compilation and device rendering remain to be verified locally.
 
 ## Instructions for the next AI
